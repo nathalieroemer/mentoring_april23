@@ -6,7 +6,7 @@ SESSION_CONFIGS = [
         app_sequence=[
             'mentoring1',
         ],
-        num_demo_participants=10,
+        num_demo_participants=370,
     ),
 ]
 
@@ -19,7 +19,10 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = ['treat']
+PARTICIPANT_FIELDS = [
+    'treat',
+    'job'
+]
 SESSION_FIELDS = []
 
 # ISO-639 code

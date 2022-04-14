@@ -1,5 +1,6 @@
 from otree.api import *
 import itertools
+import random
 
 
 doc = """
@@ -23,14 +24,26 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     treat = models.StringField()
-    position = models.StringField()
+    job = models.StringField()
+    testquest = models.IntegerField(
+        label='Please give me a number.'
+    )
+    feedback = models.StringField()
+    promotion = models.StringField()
+    promotion2 = models.StringField()
 
 
 # Methods
 def creating_session(subsession: Subsession):
     treats = itertools.cycle(['t1', 't2', 't3', 't4'])
+    # players per treatment 2, 3 and 4
     p_per_treat = 90
+    # mentors per treatment 2, 3 and 4
     m_per_treat = 10
+    t1_players = []
+    t2_players = []
+    t3_players = []
+    t4_players = []
     i = 0
     for p in subsession.get_players():
         if i / 4 < p_per_treat:
@@ -39,6 +52,26 @@ def creating_session(subsession: Subsession):
             p.treat = 't1'
         p.participant.treat = p.treat
         i = i + 1
+
+        if p.treat == 't1':
+            t1_players.append(p)
+        elif p.treat == 't2':
+            t2_players.append(p)
+        elif p.treat == 't3':
+            t3_players.append(p)
+        elif p.treat == 't4':
+            t4_players.append(p)
+
+        p.job = 'worker'
+        p.participant.job = 'worker'
+
+    t2_mentors = random.sample(t2_players, m_per_treat)
+    t3_mentors = random.sample(t3_players, m_per_treat)
+    t4_mentors = random.sample(t4_players, m_per_treat)
+    mentors = itertools.chain(t2_mentors, t3_mentors, t4_mentors)
+    for p in mentors:
+        p.job = 'mentor'
+        p.participant.job = 'mentor'
 
 
 # PAGES
@@ -51,19 +84,44 @@ class ResultsWaitPage(WaitPage):
 
 
 class WorkerTask(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'testquest'
+    ]
+
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.job == 'worker'
 
 
 class MentorTask(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'feedback'
+    ]
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.job == 'mentor'
 
 
 class Promotion(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'promotion'
+    ]
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.job == 'worker'
 
 
 class PromotionII(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'promotion2'
+    ]
+    @staticmethod
+    def is_displayed(player: Player):
+        return (player.treat == 't3' or player.treat == 't4') and player.job == 'worker'
 
 
 class Questionnaire(Page):
@@ -74,4 +132,4 @@ class Endpage(Page):
     pass
 
 
-page_sequence = [Welcome, ResultsWaitPage, WorkerTask, MentorTask, Promotion, PromotionII, Questionnaire, Endpage]
+page_sequence = [Welcome, WorkerTask, MentorTask, Promotion, PromotionII, Questionnaire, Endpage]

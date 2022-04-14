@@ -2,17 +2,38 @@
 {% load otree static %}
 
 {% block title %}
-    Welcome
+    Questionnaire
 {% endblock %}
 
 {% block styles %}
-    <style>
-
-    </style>
+<style>
+.dropdown{
+    width: auto;
+    height: calc(2.25rem + 2px);
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+</style>
 {% endblock %}
 
 {% block content %}
 
+    <label for="gender">Please indicate your gender.</label>
+        <br>
+        <select class="dropdown" name="gender" id="gender" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+            <option value="" selected="selected">---------</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+            <option value="3">Other</option>
+        </select>
 
 
     <br>
