@@ -5,8 +5,6 @@ SESSION_CONFIGS = [
         name='Mentoring',
         app_sequence=[
             'mentoring1',
-            'ment1',
-            'ment2'
         ],
         num_demo_participants=10,
     ),
