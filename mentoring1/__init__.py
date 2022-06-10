@@ -106,21 +106,27 @@ def creating_session(subsession: Subsession):
 
     # group assignment for treatment 2:
     t2_groups = {}
-    gid = 1
+    gid = 1  # group ID
     t2_w_help = t2_workers
     while gid < (m_per_treat + 1):
-        nextgroup = [t2_mentors[gid - 1]]
-        ws = random.sample(t2_w_help, 8)
+        nextgroup = [t2_mentors[gid - 1]]  # nextgroup will be the list of players that will be one group
+        ws = random.sample(t2_w_help, 8)  # random choice of 8 workers that are matched with one mentor
         for e in ws:
             if e in t2_w_help:
                 t2_w_help.remove(e)
         nextgroup.extend(ws)
+        # eventually, not the whole player objects but only their ids will be added to the dict, as it seems to not
+        # be possible to store whole player objects in session variables (which is needed later on)
         ids_nextgroup = []
         for p in nextgroup:
             p.groupno = gid
+            # idingroup is not id_in_group! idingroup determines the id in the assigned groups
+            # id_in_group is an otree default but as we don't work with the default groups and there basically is only
+            # one group for otree, id_in_group is unique for every participant. We use it as a participant's id which
+            # helps when one player has to access the other players' variable values.
             p.idingroup = nextgroup.index(p)
             ids_nextgroup.append(p.id_in_group)
-        t2_groups["{}".format(gid)] = ids_nextgroup
+        t2_groups[gid] = ids_nextgroup
         gid = gid + 1
 
     # ... treatment 3:
@@ -139,7 +145,7 @@ def creating_session(subsession: Subsession):
             p.groupno = gid
             p.idingroup = nextgroup.index(p)
             ids_nextgroup.append(p.id_in_group)
-        t3_groups["{}".format(gid)] = ids_nextgroup
+        t3_groups[gid] = ids_nextgroup
         gid = gid + 1
 
     # ... and 4:
@@ -158,10 +164,10 @@ def creating_session(subsession: Subsession):
             p.groupno = gid
             p.idingroup = nextgroup.index(p)
             ids_nextgroup.append(p.id_in_group)
-        t4_groups["{}".format(gid)] = ids_nextgroup
+        t4_groups[gid] = ids_nextgroup
         gid = gid + 1
 
-    # print(t2_groups)
+    print(t2_groups)
     # print(len(t2_w_help))
     # print(len(t2_groups))
     # groupids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -181,6 +187,25 @@ def creating_session(subsession: Subsession):
     session.t2_groups = t2_groups
     session.t3_groups = t3_groups
     session.t4_groups = t4_groups
+
+    session.t2_promo = {}
+    session.t3_promo = {}
+    session.t4_promo = {}
+    session.t2_feedback = {}
+    session.t3_feedback = {}
+    session.t4_feedback = {}
+    gid = 1
+    emptylist = ['', '', '', '', '', '', '', '', '']
+    while gid < (m_per_treat + 1):
+        session.t2_promo[gid] = emptylist
+        session.t3_promo[gid] = emptylist
+        session.t4_promo[gid] = emptylist
+        session.t2_feedback[gid] = emptylist
+        session.t3_feedback[gid] = emptylist
+        session.t4_feedback[gid] = emptylist
+        gid = gid + 1
+
+    print(session.t2_feedback)
 
 
 # PAGES
@@ -213,8 +238,21 @@ class MentorTask(Page):
     def is_displayed(player: Player):
         return player.job == 'mentor'
 
-    def before_next_page(player: Player, timeout_happened):
+    def vars_for_template(player: Player):
         pass
+
+    def before_next_page(player: Player, timeout_happened):
+        session = player.session
+        if player.treat == 't2':
+            # TODO: random worker has to be chosen in vars for template already, because in other treatments, mentor
+            #  sees promotion first
+            worker = random.randint(1, 9)
+            print(worker)
+            print(player.groupno)
+            print(session.t2_feedback[player.groupno])
+            # TODO: the following line works but somehow changes the value for every group
+            session.t2_feedback[player.groupno][worker] = player.feedback
+        print(session.t2_feedback)
 
 
 class Promotion(Page):

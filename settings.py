@@ -36,7 +36,13 @@ SESSION_FIELDS = [
     #'t4_mentors',
     't2_groups',
     't3_groups',
-    't4_groups'
+    't4_groups',
+    't2_promo',
+    't3_promo',
+    't4_promo',
+    't2_feedback',
+    't3_feedback',
+    't4_feedback'
 ]
 
 # ISO-639 code
