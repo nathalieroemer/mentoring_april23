@@ -34,9 +34,9 @@ SESSION_FIELDS = [
     #'t2_mentors',
     #'t3_mentors',
     #'t4_mentors',
-    #'t2_groups',
-    #'t3_groups',
-    #'t4_groups'
+    't2_groups',
+    't3_groups',
+    't4_groups'
 ]
 
 # ISO-639 code

@@ -115,10 +115,12 @@ def creating_session(subsession: Subsession):
             if e in t2_w_help:
                 t2_w_help.remove(e)
         nextgroup.extend(ws)
+        ids_nextgroup = []
         for p in nextgroup:
             p.groupno = gid
             p.idingroup = nextgroup.index(p)
-        t2_groups["{}".format(gid)] = nextgroup
+            ids_nextgroup.append(p.id_in_group)
+        t2_groups["{}".format(gid)] = ids_nextgroup
         gid = gid + 1
 
     # ... treatment 3:
@@ -132,10 +134,12 @@ def creating_session(subsession: Subsession):
             if e in t3_w_help:
                 t3_w_help.remove(e)
         nextgroup.extend(ws)
+        ids_nextgroup = []
         for p in nextgroup:
             p.groupno = gid
             p.idingroup = nextgroup.index(p)
-        t3_groups["{}".format(gid)] = nextgroup
+            ids_nextgroup.append(p.id_in_group)
+        t3_groups["{}".format(gid)] = ids_nextgroup
         gid = gid + 1
 
     # ... and 4:
@@ -149,10 +153,12 @@ def creating_session(subsession: Subsession):
             if e in t4_w_help:
                 t4_w_help.remove(e)
         nextgroup.extend(ws)
+        ids_nextgroup = []
         for p in nextgroup:
             p.groupno = gid
             p.idingroup = nextgroup.index(p)
-        t4_groups["{}".format(gid)] = nextgroup
+            ids_nextgroup.append(p.id_in_group)
+        t4_groups["{}".format(gid)] = ids_nextgroup
         gid = gid + 1
 
     # print(t2_groups)
@@ -172,9 +178,9 @@ def creating_session(subsession: Subsession):
     # session.t2_mentors = t2_mentors
     # session.t3_mentors = t2_mentors
     # session.t4_mentors = t2_mentors
-    # session.t2_groups = t2_groups
-    # session.t3_groups = t3_groups
-    # session.t4_groups = t4_groups
+    session.t2_groups = t2_groups
+    session.t3_groups = t3_groups
+    session.t4_groups = t4_groups
 
 
 # PAGES
