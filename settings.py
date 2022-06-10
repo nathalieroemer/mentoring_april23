@@ -23,7 +23,21 @@ PARTICIPANT_FIELDS = [
     'treat',
     'job'
 ]
-SESSION_FIELDS = []
+SESSION_FIELDS = [
+    #'t1_players',
+    #'t2_players',
+    #'t3_players',
+    #'t4_players',
+    #'t2_workers',
+    #'t3_workers',
+    #'t4_workers',
+    #'t2_mentors',
+    #'t3_mentors',
+    #'t4_mentors',
+    #'t2_groups',
+    #'t3_groups',
+    #'t4_groups'
+]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

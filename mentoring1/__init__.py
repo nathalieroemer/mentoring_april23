@@ -25,6 +25,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     treat = models.StringField()
     job = models.StringField()
+    groupno = models.IntegerField()
+    idingroup = models.IntegerField()
+
     testquest = models.IntegerField(
         label='Please give me a number.'
     )
@@ -70,29 +73,29 @@ def creating_session(subsession: Subsession):
         p.job = 'worker'
         p.participant.job = 'worker'
 
-    print(len(t2_players))
+    # print(len(t2_players))
 
     # out of the players of the treatments respectively, m_per_treat mentors are randomly chosen
     t2_mentors = random.sample(t2_players, m_per_treat)
     # list that only contains workers is created:
     t2_workers = t2_players
-    for e in t2_workers:
-        if e in t2_mentors:
+    for e in t2_mentors:
+        if e in t2_workers:
             t2_workers.remove(e)
-    print(len(t2_workers))
-    print(len(t2_mentors))
+    # print(len(t2_workers))
+    # print(len(t2_mentors))
 
     # same for other treatments
     t3_mentors = random.sample(t3_players, m_per_treat)
     t3_workers = t3_players
-    for e in t3_workers:
-        if e in t3_mentors:
+    for e in t3_mentors:
+        if e in t3_workers:
             t3_workers.remove(e)
 
     t4_mentors = random.sample(t4_players, m_per_treat)
     t4_workers = t4_players
-    for e in t4_workers:
-        if e in t4_mentors:
+    for e in t4_mentors:
+        if e in t4_workers:
             t4_workers.remove(e)
 
     # all mentors are assigned mentor job
@@ -101,42 +104,77 @@ def creating_session(subsession: Subsession):
         p.job = 'mentor'
         p.participant.job = 'mentor'
 
-    # TODO: group assignment for treatment 2:
-    #  no errors but doesn't work the way I want it to yet
+    # group assignment for treatment 2:
     t2_groups = {}
-    groupids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     gid = 1
     t2_w_help = t2_workers
-    #print(len(t2_w_help))
     while gid < (m_per_treat + 1):
-        nextgroup = []
-        nextgroup.append(t2_mentors[gid-1])
-
+        nextgroup = [t2_mentors[gid - 1]]
         ws = random.sample(t2_w_help, 8)
-        for e in t2_w_help:
-            if e in ws:
+        for e in ws:
+            if e in t2_w_help:
                 t2_w_help.remove(e)
         nextgroup.extend(ws)
+        for p in nextgroup:
+            p.groupno = gid
+            p.idingroup = nextgroup.index(p)
         t2_groups["{}".format(gid)] = nextgroup
         gid = gid + 1
-    #print(t2_groups)
-    #print(len(t2_w_help))
-    #print(len(t2_groups))
-    #for id in groupids:
-    #    print(len(t2_groups["{}".format(id)]))
 
-    # TODO: add dicts and lists to session.vars
+    # ... treatment 3:
+    t3_groups = {}
+    gid = 1
+    t3_w_help = t3_workers
+    while gid < (m_per_treat + 1):
+        nextgroup = [t3_mentors[gid - 1]]
+        ws = random.sample(t3_w_help, 8)
+        for e in ws:
+            if e in t3_w_help:
+                t3_w_help.remove(e)
+        nextgroup.extend(ws)
+        for p in nextgroup:
+            p.groupno = gid
+            p.idingroup = nextgroup.index(p)
+        t3_groups["{}".format(gid)] = nextgroup
+        gid = gid + 1
 
-    #session.t1_players = t1_players
-    #session.t2_players = t2_players
-    #session.t3_players = t3_players
-    #session.t4_players = t4_players
-    #session.t2_workers = t2_workers
-    #session.t3_workers = t2_workers
-    #session.t4_workers = t2_workers
-    #session.t2_mentors = t2_mentors
-    #session.t3_mentors = t2_mentors
-    #session.t4_mentors = t2_mentors
+    # ... and 4:
+    t4_groups = {}
+    gid = 1
+    t4_w_help = t4_workers
+    while gid < (m_per_treat + 1):
+        nextgroup = [t4_mentors[gid - 1]]
+        ws = random.sample(t4_w_help, 8)
+        for e in ws:
+            if e in t4_w_help:
+                t4_w_help.remove(e)
+        nextgroup.extend(ws)
+        for p in nextgroup:
+            p.groupno = gid
+            p.idingroup = nextgroup.index(p)
+        t4_groups["{}".format(gid)] = nextgroup
+        gid = gid + 1
+
+    # print(t2_groups)
+    # print(len(t2_w_help))
+    # print(len(t2_groups))
+    # groupids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    # for id in groupids:
+    #     print(len(t4_groups["{}".format(id)]))
+
+    # session.t1_players = t1_players
+    # session.t2_players = t2_players
+    # session.t3_players = t3_players
+    # session.t4_players = t4_players
+    # session.t2_workers = t2_workers
+    # session.t3_workers = t2_workers
+    # session.t4_workers = t2_workers
+    # session.t2_mentors = t2_mentors
+    # session.t3_mentors = t2_mentors
+    # session.t4_mentors = t2_mentors
+    # session.t2_groups = t2_groups
+    # session.t3_groups = t3_groups
+    # session.t4_groups = t4_groups
 
 
 # PAGES
