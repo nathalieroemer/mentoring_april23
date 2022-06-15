@@ -4,7 +4,12 @@ SESSION_CONFIGS = [
     dict(
         name='Mentoring',
         app_sequence=[
-            'mentoring1',
+            'mentoring_start',
+            'mentoring_t1',
+            'mentoring_t2',
+            'mentoring_t3',
+            'mentoring_t4',
+            'mentoring_end',
         ],
         num_demo_participants=370,
     ),
@@ -21,19 +26,12 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = [
     'treat',
-    'job'
+    'job',
+    'groupno',
+    'idingroup',
+    'workerlist'
 ]
 SESSION_FIELDS = [
-    #'t1_players',
-    #'t2_players',
-    #'t3_players',
-    #'t4_players',
-    #'t2_workers',
-    #'t3_workers',
-    #'t4_workers',
-    #'t2_mentors',
-    #'t3_mentors',
-    #'t4_mentors',
     't2_groups',
     't3_groups',
     't4_groups',
