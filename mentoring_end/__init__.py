@@ -21,12 +21,19 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    gender = models.IntegerField()
+    native = models.IntegerField()
+    eng_prof = models.IntegerField()
 
 
 # PAGES
 class Questionnaire(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'gender',
+        'native',
+        'eng_prof'
+    ]
 
 
 class Endpage(Page):

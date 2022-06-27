@@ -43,6 +43,18 @@ class WorkerTask(Page):
         return player.participant.job == 'worker'
 
 
+class Wait(Page):
+    def is_displayed(player: Player):
+        return player.session.t2_feedback[player.participant.groupno][player.participant.idingroup] is None \
+               and player.round_number == C.NUM_ROUNDS
+
+    # TODO: write function in Javascript on Wait page that only let's worker continue when advice is already given
+    def js_vars(player: Player):
+        return dict(
+            advice=player.session.t2_feedback[player.participant.groupno][player.participant.idingroup]
+        )
+
+
 class Promotion(Page):
     form_model = 'player'
     form_fields = [
@@ -54,9 +66,14 @@ class Promotion(Page):
         # TODO: might need to change C.NUM_ROUNDS to something else (if mentor has more repetitions)
         return player.participant.job == 'worker' and player.round_number == C.NUM_ROUNDS
 
-    # TODO: next step
     def vars_for_template(player: Player):
-        pass
+        par = player.participant
+        session = player.session
+        advice = session.t2_feedback[par.groupno][par.idingroup]
+
+        return dict(
+            advice=advice
+        )
 
     # Following method has to be included in the last page the respective job sees in this app!
     @staticmethod
@@ -102,4 +119,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [WorkerTask, Promotion, MentorTask]
+page_sequence = [WorkerTask, Wait, Promotion, MentorTask]

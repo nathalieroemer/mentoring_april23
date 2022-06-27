@@ -26,6 +26,12 @@
 
 {% block content %}
 
+    <p>
+        This is the advice your mentor gave you:
+        <br>
+        {{advice}}
+    </p>
+
     <label for="p_input">Please write a promotion.</label>
     <input class="textinput" name="promotion" id="p_input" required oninvalid="this.setCustomValidity('Please write a promotion.')" oninput="this.setCustomValidity('')">
 
