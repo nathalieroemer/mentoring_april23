@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Mentoring
+{% endblock %}
+
+{% block styles %}
+    <style>
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        ... to this task.
+    </p>
+
+<form>
+    <p>
+        <label for="m1">
+            Your mentee is among the top 25% performers. What would you advice the mentee to answer to the following
+            question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m1" name="top" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m2">
+            Your mentee is between the 50% and the 25% performers. What would you advice the mentee to answer to the
+            following question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m2" name="uppermiddle" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m3">
+            Your mentee is between the 75% and the 50% quartile performers. What would you advice the mentee to answer to
+            the following question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m3" name="lowermiddle" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m4">
+            Your mentee is below the 75% percentile of performers. What would you advice the mentee to answer to the
+            following question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m4" name="bottom" value="1">
+    </p>
+</form>
+
+    <br>
+
+    <button class="otree-btn-next btn btn-primary">Next</button>
+
+    <br>
+
+{% endblock %}

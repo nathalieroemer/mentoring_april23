@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Thank you.
+{% endblock %}
+
+{% block styles %}
+    <style>
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+
+{{ if player.participant.test_passed == 1 }}
+<p>
+    That's it bye.
+</p>
+{{ else }}
+<p>
+    You didn't pass. Tant pis pour toi. Think about it.
+</p>
+{{ endif }}
+
+{% endblock %}

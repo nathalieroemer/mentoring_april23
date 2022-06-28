@@ -1,0 +1,98 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Mentoring
+{% endblock %}
+
+{% block styles %}
+    <style>
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Please indicate in the following, how you would advise the respective mentee to answer the question.
+</p>
+
+<form>
+    <p>
+        <label for="m1">
+            Your mentee answered the question with "terrible", but is among the top 25% percentile performers.
+            What would you advise your mentee to answer?
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m1" name="terrible" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m2">
+            Your mentee answered the question with "very poor", but is among the top 25% percentile performers.
+            What would you advise your mentee to answer?
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m2" name="verypoor" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m3">
+            Your mentee answered the question with "neutral", but is among the top 25% percentile performers.
+            What would you advise your mentee to answer?
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m3" name="neutral" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m4">
+            Your mentee answered the question with "good", but is among the top 25% percentile performers.
+            What would you advise your mentee to answer?
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m4" name="good" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m5">
+            Your mentee answered the question with "very good", but is among the top 25% percentile performers.
+            What would you advise your mentee to answer?
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m5" name="verygood" value="1">
+    </p>
+
+    <br>
+
+    <p>
+        <label for="m6">
+            Your mentee answered the question with "exceptional", but is among the top 25% percentile performers.
+            What would you advise your mentee to answer?
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="m6" name="exceptional" value="1">
+    </p>
+</form>
+
+    <br>
+
+    <button class="otree-btn-next btn btn-primary">Next</button>
+
+    <br>
+
+{% endblock %}

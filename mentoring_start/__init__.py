@@ -96,7 +96,7 @@ def creating_session(subsession: Subsession):
         p.participant.job = 'mentor'
         p.participant.workerlist = random.sample(range(1, (w_per_group+1)), w_per_group)
         # TODO: see if performance is better if we just assign lists with values from 1 to 8 and choose randomly later
-        #  on mentor task page
+        #  on mentor task page (however, so far no problems with performance)
 
     # group assignment for treatment 2:
     t2_groups = {}

@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome to this task
+{% endblock %}
+
+{% block styles %}
+<style>
+    .textinput{
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        ... to this task.
+    </p>
+
+<label for="wid">
+    Please indicate your Prolific ID, so that we can send you your bonus, if applicable.
+</label>
+<p>
+    <input class="textinput" name="workerid" id="wid" required oninvalid="setCustomValidity('Please enter your worker ID.')" oninput="setCustomValidity('')">
+</p>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{% endblock %}

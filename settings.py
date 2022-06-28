@@ -13,6 +13,16 @@ SESSION_CONFIGS = [
         ],
         num_demo_participants=370,
     ),
+    dict(
+        name='Mentors',
+        app_sequence=[
+            'mentors1',
+            'mentors2',
+            'mentors2_t3',
+            'mentors3'
+        ],
+        num_demo_participants=100,
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -29,7 +39,8 @@ PARTICIPANT_FIELDS = [
     'job',
     'groupno',
     'idingroup',
-    'workerlist'
+    'workerlist',
+    'test_passed'
 ]
 SESSION_FIELDS = [
     't2_groups',

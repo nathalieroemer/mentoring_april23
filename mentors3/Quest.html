@@ -1,0 +1,130 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block styles %}
+<style>
+.dropdown{
+    width: auto;
+    height: calc(2.25rem + 2px);
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+[class*="col-"] {
+    width: 14%;
+}
+
+.row{
+    width: 100%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<form>
+    <label for="g">Please indicate your gender.</label>
+    <br>
+    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Other</option>
+    </select>
+
+    <br>
+
+    <label for="eng">Are you a native English speaker?</label>
+    <br>
+    <select class="dropdown" name="native" id="eng" onchange="showproficiency(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">No</option>
+        <option value="2">Yes</option>
+    </select>
+    <br>
+    <div id="proficiency"></div>
+</form>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+<script>
+        function showproficiency(eng){
+            if(eng==='1') {
+                document.getElementById('proficiency').innerHTML = '' +
+                    '<p>How would you describe your language proficiency in English?</p>' +
+                    '<div class="row">' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep0">Basic</label>' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep1"></label>' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep2"></label>' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep3"></label>' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep4"></label>' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep5"></label>' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<label for="ep6">Fluent</label>' +
+                    '</div>' +
+
+                    '<div class="w-100"></div>' +
+
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep0" name="eng_prof" value="1">' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep1" name="eng_prof" value="2">' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep2" name="eng_prof" value="3">' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep3" name="eng_prof" value="4">' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep4" name="eng_prof" value="5">' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep5" name="eng_prof" value="6">' +
+                    '</div>' +
+                    '<div class="col-md" align="center">' +
+                    '<input type="radio" id="ep6" name="eng_prof" value="7">' +
+                    '</div>' +
+                    '</div>' +
+                    '<br>'
+                ;
+                document.getElementById('ep0').setAttribute("required", "True")
+                document.getElementById('ep0').setAttribute("oninvalid", "this.setCustomValidity('Please choose an option.')")
+                document.getElementById('ep0').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+                document.getElementById('ep1').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+                document.getElementById('ep2').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+                document.getElementById('ep3').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+                document.getElementById('ep4').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+            }
+            else {
+                document.getElementById('proficiency').innerHTML='';
+            }
+        }
+</script>
+
+{% endblock %}
