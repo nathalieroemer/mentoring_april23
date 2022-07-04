@@ -2,24 +2,18 @@
 {% load otree static %}
 
 {% block title %}
-    Thank you.
-{% endblock %}
-
-{% block styles %}
-    <style>
-        
-    </style>
+    You have completed the task
 {% endblock %}
 
 {% block content %}
 
 {{ if player.participant.test_passed == 1 }}
 <p>
-    That's it bye.
+    Thank you for participating in this task. Your completion code is LUH2022.
 </p>
 {{ else }}
 <p>
-    You didn't pass. Tant pis pour toi. Think about it.
+    You did not pass the attention check.
 </p>
 {{ endif }}
 

@@ -21,11 +21,17 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    gender = models.IntegerField()
+    # gender = models.IntegerField()
     native = models.IntegerField()
     eng_prof = models.IntegerField(
         blank=True
     )
+    diffdots = models.IntegerField()
+    deviation = models.IntegerField()
+    diffadvice = models.IntegerField()
+    bonusest = models.FloatField()
+    riskpref = models.IntegerField()
+    comp = models.IntegerField()
 
 
 # PAGES
@@ -36,9 +42,14 @@ class Quest(Page):
 
     form_model = 'player'
     form_fields = [
-        'gender',
         'native',
-        'eng_prof'
+        'eng_prof',
+        'diffdots',
+        'deviation',
+        'diffadvice',
+        'bonusest',
+        'riskpref',
+        'comp'
     ]
 
 
