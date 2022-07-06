@@ -55,6 +55,13 @@
         align-items: center;
         text-align: center;
     }
+    .errormessage {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: red;
+        font-size: 12px
+    }
 </style>
 {% endblock %}
 
@@ -110,27 +117,47 @@
     function sendValueTop(value) {
         liveSend({'section': 'top', 'value': value})
         b1 = true;
+        document.getElementById('error1').style.display = 'none';
         checkCompletion();
     };
     function sendValueUM(value) {
         liveSend({'section': 'um', 'value': value})
         b2 = true;
+        document.getElementById('error2').style.display = 'none';
         checkCompletion();
     };
     function sendValueLM(value) {
         liveSend({'section': 'lm', 'value': value})
         b3 = true;
+        document.getElementById('error3').style.display = 'none';
         checkCompletion();
     };
     function sendValueBottom(value) {
         liveSend({'section': 'bottom', 'value': value})
         b4 = true;
+        document.getElementById('error4').style.display = 'none';
         checkCompletion();
     };
+
+    function validate() {
+        if (!b1) {
+            document.getElementById('error1').style.display = 'flex';
+        }
+        if (!b2) {
+            document.getElementById('error2').style.display = 'flex';
+        }
+        if (!b3) {
+            document.getElementById('error3').style.display = 'flex';
+        }
+        if (!b4) {
+            document.getElementById('error4').style.display = 'flex';
+        }
+    }
 
     function checkCompletion() {
         if (b1 && b2 && b3 && b4) {
             document.getElementById('nb').style.display = 'block';
+            document.getElementById('fake').style.display = 'none';
         }
     }
 </script>
@@ -158,6 +185,9 @@
             <div class="box1" onclick="sendValueTop(5)">Very Good</div>
             <div class="box1" onclick="sendValueTop(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error1" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 
     <br>
@@ -176,6 +206,9 @@
             <div class="box2" onclick="sendValueUM(4)">Good</div>
             <div class="box2" onclick="sendValueUM(5)">Very Good</div>
             <div class="box2" onclick="sendValueUM(6)">Exceptional</div>
+        </div>
+        <div class="row errormessage" id="error2" style="display: none">
+            <i>Please answer this question.</i>
         </div>
     </div>
 
@@ -196,6 +229,9 @@
             <div class="box3" onclick="sendValueLM(5)">Very Good</div>
             <div class="box3" onclick="sendValueLM(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error3" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 
     <br>
@@ -215,11 +251,15 @@
             <div class="box4" onclick="sendValueBottom(5)">Very Good</div>
             <div class="box4" onclick="sendValueBottom(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error4" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 </form>
 
 <br>
 
+<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
 <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
 
 {% endblock %}

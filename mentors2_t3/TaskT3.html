@@ -77,6 +77,13 @@
         align-items: center;
         text-align: center;
     }
+    .errormessage {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: red;
+        font-size: 12px
+    }
 </style>
 {% endblock %}
 
@@ -154,37 +161,65 @@
     function sendValueTer(value) {
         liveSend({'section': 'ter', 'value': value})
         b1 = true;
+        document.getElementById('error1').style.display = 'none';
         checkCompletion();
     }
     function sendValueVP(value) {
         liveSend({'section': 'vp', 'value': value})
         b2 = true;
+        document.getElementById('error2').style.display = 'none';
         checkCompletion();
     }
     function sendValuePoor(value) {
         liveSend({'section': 'poor', 'value': value})
         b3 = true;
+        document.getElementById('error3').style.display = 'none';
         checkCompletion();
     }
     function sendValueGood(value) {
         liveSend({'section': 'good', 'value': value})
+        document.getElementById('error4').style.display = 'none';
         b4 = true;
         checkCompletion();
     }
     function sendValueVG(value) {
         liveSend({'section': 'vg', 'value': value})
         b5 = true;
+        document.getElementById('error5').style.display = 'none';
         checkCompletion();
     }
     function sendValueExc(value) {
         liveSend({'section': 'exc', 'value': value})
         b6 = true;
+        document.getElementById('error6').style.display = 'none';
         checkCompletion();
+    }
+
+    function validate() {
+        if (!b1) {
+            document.getElementById('error1').style.display = 'flex';
+        }
+        if (!b2) {
+            document.getElementById('error2').style.display = 'flex';
+        }
+        if (!b3) {
+            document.getElementById('error3').style.display = 'flex';
+        }
+        if (!b4) {
+            document.getElementById('error4').style.display = 'flex';
+        }
+        if (!b5) {
+            document.getElementById('error5').style.display = 'flex';
+        }
+        if (!b6) {
+            document.getElementById('error6').style.display = 'flex';
+        }
     }
 
     function checkCompletion() {
         if (b1 && b2 && b3 && b4 && b5 && b6) {
             document.getElementById('nb').style.display = 'block';
+            document.getElementById('fake').style.display = 'none';
         }
     }
 </script>
@@ -212,6 +247,9 @@
             <div class="box1" onclick="sendValueTer(5)">Very Good</div>
             <div class="box1" onclick="sendValueTer(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error1" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 
     <br>
@@ -230,6 +268,9 @@
             <div class="box2" onclick="sendValueVP(4)">Good</div>
             <div class="box2" onclick="sendValueVP(5)">Very Good</div>
             <div class="box2" onclick="sendValueVP(6)">Exceptional</div>
+        </div>
+        <div class="row errormessage" id="error2" style="display: none">
+            <i>Please answer this question.</i>
         </div>
     </div>
 
@@ -250,6 +291,9 @@
             <div class="box3" onclick="sendValuePoor(5)">Very Good</div>
             <div class="box3" onclick="sendValuePoor(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error3" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 
     <br>
@@ -268,6 +312,9 @@
             <div class="box4" onclick="sendValueGood(4)">Good</div>
             <div class="box4" onclick="sendValueGood(5)">Very Good</div>
             <div class="box4" onclick="sendValueGood(6)">Exceptional</div>
+        </div>
+        <div class="row errormessage" id="error4" style="display: none">
+            <i>Please answer this question.</i>
         </div>
     </div>
 
@@ -288,6 +335,9 @@
             <div class="box5" onclick="sendValueVG(5)">Very Good</div>
             <div class="box5" onclick="sendValueVG(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error5" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 
     <br>
@@ -307,11 +357,15 @@
             <div class="box6" onclick="sendValueExc(5)">Very Good</div>
             <div class="box6" onclick="sendValueExc(6)">Exceptional</div>
         </div>
+        <div class="row errormessage" id="error6" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 </form>
 
 <br>
 
+<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
 <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
 
 {% endblock %}
