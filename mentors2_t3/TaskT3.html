@@ -144,23 +144,48 @@
         });
     });
 
+    let b1 = false;
+    let b2 = false;
+    let b3 = false;
+    let b4 = false;
+    let b5 = false;
+    let b6 = false;
+
     function sendValueTer(value) {
         liveSend({'section': 'ter', 'value': value})
+        b1 = true;
+        checkCompletion();
     }
     function sendValueVP(value) {
         liveSend({'section': 'vp', 'value': value})
+        b2 = true;
+        checkCompletion();
     }
     function sendValuePoor(value) {
         liveSend({'section': 'poor', 'value': value})
+        b3 = true;
+        checkCompletion();
     }
     function sendValueGood(value) {
         liveSend({'section': 'good', 'value': value})
+        b4 = true;
+        checkCompletion();
     }
     function sendValueVG(value) {
         liveSend({'section': 'vg', 'value': value})
+        b5 = true;
+        checkCompletion();
     }
     function sendValueExc(value) {
         liveSend({'section': 'exc', 'value': value})
+        b6 = true;
+        checkCompletion();
+    }
+
+    function checkCompletion() {
+        if (b1 && b2 && b3 && b4 && b5 && b6) {
+            document.getElementById('nb').style.display = 'block';
+        }
     }
 </script>
 {% endblock %}
@@ -285,10 +310,8 @@
     </div>
 </form>
 
-    <br>
+<br>
 
-    <button class="otree-btn-next btn btn-primary">Next</button>
-
-    <br>
+<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
 
 {% endblock %}

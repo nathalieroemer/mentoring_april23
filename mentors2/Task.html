@@ -102,17 +102,36 @@
         });
     });
 
+    let b1 = false;
+    let b2 = false;
+    let b3 = false;
+    let b4 = false;
+
     function sendValueTop(value) {
         liveSend({'section': 'top', 'value': value})
-    }
+        b1 = true;
+        checkCompletion();
+    };
     function sendValueUM(value) {
         liveSend({'section': 'um', 'value': value})
-    }
+        b2 = true;
+        checkCompletion();
+    };
     function sendValueLM(value) {
         liveSend({'section': 'lm', 'value': value})
-    }
+        b3 = true;
+        checkCompletion();
+    };
     function sendValueBottom(value) {
         liveSend({'section': 'bottom', 'value': value})
+        b4 = true;
+        checkCompletion();
+    };
+
+    function checkCompletion() {
+        if (b1 && b2 && b3 && b4) {
+            document.getElementById('nb').style.display = 'block';
+        }
     }
 </script>
 {% endblock %}
@@ -199,9 +218,9 @@
     </div>
 </form>
 
-    <br>
+<br>
 
-    <button class="otree-btn-next btn btn-primary">Next</button>
+<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
 
 {% endblock %}
 
