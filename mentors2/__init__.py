@@ -29,13 +29,16 @@ class Player(BasePlayer):
 
 # PAGES
 class Task(Page):
-    form_model = 'player'
-    form_fields = [
-        'top',
-        'uppermiddle',
-        'lowermiddle',
-        'bottom'
-    ]
+    @staticmethod
+    def live_method(player: Player, data):
+        if data['section'] == 'top':
+            player.top = int(data['value'])
+        elif data['section'] == 'um':
+            player.uppermiddle = int(data['value'])
+        elif data['section'] == 'lm':
+            player.lowermiddle = int(data['value'])
+        elif data['section'] == 'bottom':
+            player.bottom = int(data['value'])
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):

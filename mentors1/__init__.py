@@ -8,8 +8,8 @@ Your app description
 """
 
 # TODO: add prev. instr.
-# TODO: Questionnaire with nice Likert fields
-# TODO: Add text
+# TODO: Add correct attention check
+# TODO: error messages for buttons for task
 
 
 class C(BaseConstants):

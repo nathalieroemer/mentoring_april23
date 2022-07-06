@@ -23,7 +23,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     terrible = models.IntegerField()
     verypoor = models.IntegerField()
-    neutral = models.IntegerField()
+    poor = models.IntegerField()
     good = models.IntegerField()
     verygood = models.IntegerField()
     exceptional = models.IntegerField()
@@ -31,15 +31,20 @@ class Player(BasePlayer):
 
 # PAGES
 class TaskT3(Page):
-    form_model = 'player'
-    form_fields = [
-        'terrible',
-        'verypoor',
-        'neutral',
-        'good',
-        'verygood',
-        'exceptional'
-    ]
+    @staticmethod
+    def live_method(player: Player, data):
+        if data['section'] == 'ter':
+            player.terrible = int(data['value'])
+        elif data['section'] == 'vp':
+            player.verypoor = int(data['value'])
+        elif data['section'] == 'poor':
+            player.poor = int(data['value'])
+        elif data['section'] == 'good':
+            player.good = int(data['value'])
+        elif data['section'] == 'vg':
+            player.verygood = int(data['value'])
+        elif data['section'] == 'exc':
+            player.exceptional = int(data['value'])
 
 
 page_sequence = [TaskT3]

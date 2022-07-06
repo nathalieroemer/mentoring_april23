@@ -6,9 +6,115 @@
 {% endblock %}
 
 {% block styles %}
-    <style>
-        
-    </style>
+<style>
+    .box-container {
+        display:flex;
+        flex-direction: column;
+    }
+    .box1 {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .box2 {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .box3 {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .box4 {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block scripts%}
+<script>
+    const boxes1 = document.querySelectorAll('.box1');
+    const boxes2 = document.querySelectorAll('.box2');
+    const boxes3 = document.querySelectorAll('.box3');
+    const boxes4 = document.querySelectorAll('.box4');
+
+    boxes1.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes1.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+    boxes2.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes2.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+    boxes3.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes3.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+    boxes4.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes4.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+
+    function sendValueTop(value) {
+        liveSend({'section': 'top', 'value': value})
+    }
+    function sendValueUM(value) {
+        liveSend({'section': 'um', 'value': value})
+    }
+    function sendValueLM(value) {
+        liveSend({'section': 'lm', 'value': value})
+    }
+    function sendValueBottom(value) {
+        liveSend({'section': 'bottom', 'value': value})
+    }
+</script>
 {% endblock %}
 
 {% block content %}
@@ -24,9 +130,16 @@
             question? Please indicate your answer by pressing the respective box.
         </label>
     </p>
-    <p>
-        <input type="radio" id="m1" name="top" value="1">
-    </p>
+    <div class="box-container" id="m1">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box1" onclick="sendValueTop(1)">Terrible</div>
+            <div class="box1" onclick="sendValueTop(2)">Very Poor</div>
+            <div class="box1" onclick="sendValueTop(3)">Poor</div>
+            <div class="box1" onclick="sendValueTop(4)">Good</div>
+            <div class="box1" onclick="sendValueTop(5)">Very Good</div>
+            <div class="box1" onclick="sendValueTop(6)">Exceptional</div>
+        </div>
+    </div>
 
     <br>
 
@@ -36,9 +149,16 @@
             following question? Please indicate your answer by pressing the respective box.
         </label>
     </p>
-    <p>
-        <input type="radio" id="m2" name="uppermiddle" value="1">
-    </p>
+    <div class="box-container" id="m2">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box2" onclick="sendValueUM(1)">Terrible</div>
+            <div class="box2" onclick="sendValueUM(2)">Very Poor</div>
+            <div class="box2" onclick="sendValueUM(3)">Poor</div>
+            <div class="box2" onclick="sendValueUM(4)">Good</div>
+            <div class="box2" onclick="sendValueUM(5)">Very Good</div>
+            <div class="box2" onclick="sendValueUM(6)">Exceptional</div>
+        </div>
+    </div>
 
     <br>
 
@@ -48,9 +168,16 @@
             the following question? Please indicate your answer by pressing the respective box.
         </label>
     </p>
-    <p>
-        <input type="radio" id="m3" name="lowermiddle" value="1">
-    </p>
+    <div class="box-container" id="m3">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box3" onclick="sendValueLM(1)">Terrible</div>
+            <div class="box3" onclick="sendValueLM(2)">Very Poor</div>
+            <div class="box3" onclick="sendValueLM(3)">Poor</div>
+            <div class="box3" onclick="sendValueLM(4)">Good</div>
+            <div class="box3" onclick="sendValueLM(5)">Very Good</div>
+            <div class="box3" onclick="sendValueLM(6)">Exceptional</div>
+        </div>
+    </div>
 
     <br>
 
@@ -60,15 +187,22 @@
             following question? Please indicate your answer by pressing the respective box.
         </label>
     </p>
-    <p>
-        <input type="radio" id="m4" name="bottom" value="1">
-    </p>
+    <div class="box-container" id="m4">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box4" onclick="sendValueBottom(1)">Terrible</div>
+            <div class="box4" onclick="sendValueBottom(2)">Very Poor</div>
+            <div class="box4" onclick="sendValueBottom(3)">Poor</div>
+            <div class="box4" onclick="sendValueBottom(4)">Good</div>
+            <div class="box4" onclick="sendValueBottom(5)">Very Good</div>
+            <div class="box4" onclick="sendValueBottom(6)">Exceptional</div>
+        </div>
+    </div>
 </form>
 
     <br>
 
     <button class="otree-btn-next btn btn-primary">Next</button>
 
-    <br>
-
 {% endblock %}
+
+
