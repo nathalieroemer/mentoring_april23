@@ -1,0 +1,57 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Attention check
+{% endblock %}
+
+{% block styles %}
+    <style>
+        
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<form>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_0">My task is to ...</label>
+        <div class="controls  field-testq">
+            <ul id="id_testq">
+                <li>
+                    <label for="id_testq_0">
+                        <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        ... guess the number of dots in a picture as accurately as possible.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_1">
+                        <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                     ... guess the number of dots in a picture as fast as possible.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2">
+                        <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                     ... judge the accuracy of someone else’s guess about the number of dots in a picture.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_3">
+                        <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                     ... answer a quiz.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{% endblock %}

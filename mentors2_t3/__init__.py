@@ -21,12 +21,12 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    terrible = models.IntegerField()
-    verypoor = models.IntegerField()
-    poor = models.IntegerField()
-    good = models.IntegerField()
-    verygood = models.IntegerField()
-    exceptional = models.IntegerField()
+    terrible = models.StringField()
+    verypoor = models.StringField()
+    poor = models.StringField()
+    good = models.StringField()
+    verygood = models.StringField()
+    exceptional = models.StringField()
 
 
 # PAGES
@@ -34,17 +34,17 @@ class TaskT3(Page):
     @staticmethod
     def live_method(player: Player, data):
         if data['section'] == 'ter':
-            player.terrible = int(data['value'])
+            player.terrible = str(data['value'])
         elif data['section'] == 'vp':
-            player.verypoor = int(data['value'])
+            player.verypoor = str(data['value'])
         elif data['section'] == 'poor':
-            player.poor = int(data['value'])
+            player.poor = str(data['value'])
         elif data['section'] == 'good':
-            player.good = int(data['value'])
+            player.good = str(data['value'])
         elif data['section'] == 'vg':
-            player.verygood = int(data['value'])
+            player.verygood = str(data['value'])
         elif data['section'] == 'exc':
-            player.exceptional = int(data['value'])
+            player.exceptional = str(data['value'])
 
 
 page_sequence = [TaskT3]

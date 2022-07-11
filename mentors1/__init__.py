@@ -74,6 +74,7 @@ class Attention1(Page):
         'test1'
     ]
 
+    @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
         # TODO: change correct answer
@@ -82,6 +83,7 @@ class Attention1(Page):
         else:
             par.test_passed = 0
 
+    @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
         par = player.participant
         if par.test_passed == 0:
@@ -96,6 +98,7 @@ class Attention2(Page):
         'test2'
     ]
 
+    @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
         # TODO: change correct answer

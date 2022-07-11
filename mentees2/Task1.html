@@ -1,0 +1,44 @@
+{{ block title }}
+    Task
+{{ endblock }}
+
+{% block styles %}
+<style>
+    .numberinput{
+        display: block;
+        max-width: 50px;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+</style>
+{% endblock %}
+
+{{ block content }}
+
+<p>
+    Indicate your guess in the box below. You are submitting your final answer by pressing the "Next"-Button.
+</p>
+
+<p>
+    <img src="{{ static 'BeispielDots.png' }}"/>
+</p>
+
+<label for="g">
+        How many blue dots are in this picture?
+</label>
+<p>
+    <input type="number" class="numberinput" name="guess" id="g" min="0" required oninvalid="this.setCustomValidity('Please enter a non-negative number.')" oninput="this.setCustomValidity('')">
+</p>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{{ endblock }}
+

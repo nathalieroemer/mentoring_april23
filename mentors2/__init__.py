@@ -21,10 +21,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    top = models.IntegerField()
-    uppermiddle = models.IntegerField()
-    lowermiddle = models.IntegerField()
-    bottom = models.IntegerField()
+    top = models.StringField()
+    uppermiddle = models.StringField()
+    lowermiddle = models.StringField()
+    bottom = models.StringField()
 
 
 # PAGES
@@ -32,13 +32,13 @@ class Task(Page):
     @staticmethod
     def live_method(player: Player, data):
         if data['section'] == 'top':
-            player.top = int(data['value'])
+            player.top = str(data['value'])
         elif data['section'] == 'um':
-            player.uppermiddle = int(data['value'])
+            player.uppermiddle = str(data['value'])
         elif data['section'] == 'lm':
-            player.lowermiddle = int(data['value'])
+            player.lowermiddle = str(data['value'])
         elif data['section'] == 'bottom':
-            player.bottom = int(data['value'])
+            player.bottom = str(data['value'])
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):

@@ -1,18 +1,18 @@
 from os import environ
 
 SESSION_CONFIGS = [
-    dict(
-        name='Mentoring',
-        app_sequence=[
-            'mentoring_start',
-            'mentoring_t1',
-            'mentoring_t2',
-            'mentoring_t3',
-            'mentoring_t4',
-            'mentoring_end',
-        ],
-        num_demo_participants=370,
-    ),
+    #dict(
+    #    name='Mentoring',
+    #    app_sequence=[
+    #        'mentoring_start',
+    #        'mentoring_t1',
+    #        'mentoring_t2',
+    #        'mentoring_t3',
+    #        'mentoring_t4',
+    #        'mentoring_end',
+    #    ],
+    #    num_demo_participants=370,
+    #),
     dict(
         name='Mentors',
         app_sequence=[
@@ -20,6 +20,14 @@ SESSION_CONFIGS = [
             'mentors2',
             'mentors2_t3',
             'mentors3'
+        ],
+        num_demo_participants=100,
+    ),
+    dict(
+        name='Mentees',
+        app_sequence=[
+            'mentees1',
+            'mentees2'
         ],
         num_demo_participants=100,
     ),

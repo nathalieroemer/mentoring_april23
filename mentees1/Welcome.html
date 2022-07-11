@@ -1,0 +1,56 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome to this task
+{% endblock %}
+
+{% block styles %}
+<style>
+    .textinput{
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<p>
+    You will receive a fixed payment of £1. Additionally, you can earn up to a £2 <b>bonus</b>.
+    This bonus is awarded based on your performance on the task and a decision of a third party.
+</p>
+<p>
+    Please carefully read the following instructions before starting to work.
+    Note that there will be an attention check. If you do not pass it, you are not eligible to participate in this task.
+    To be eligible for payment, you have to perform all tasks within the next 2 hours.
+</p>
+<p>
+    At any point in time, you will be able to review previous instruction by clicking on
+    "Click to review previous instructions" in the right top corner of your screen.
+</p>
+
+<form>
+    <label for="wid">
+        Please indicate your Prolific ID, so that we can send you your bonus, if applicable.
+    </label>
+    <p>
+        <input class="textinput" name="workerid" id="wid" required oninvalid="setCustomValidity('Please enter your worker ID.')" oninput="setCustomValidity('')">
+    </p>
+</form>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{% endblock %}

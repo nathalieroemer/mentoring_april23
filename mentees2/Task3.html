@@ -1,0 +1,100 @@
+{{ block title }}
+    Your previous answer
+{{ endblock }}
+
+{% block styles %}
+<style>
+    .box-container {
+        display:flex;
+        flex-direction: column;
+    }
+    .box1 {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let pre = js_vars.prevansw;
+
+    window.onload = function() {
+        x = document.getElementById(pre);
+        x.setAttribute('style', 'background-color: #6495ED')
+    };
+    const boxes1 = document.querySelectorAll('.box1');
+
+    boxes1.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes1.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+
+    let b1 = false;
+
+    function sendValue(value) {
+        liveSend(value)
+        b1 = true;
+        checkCompletion();
+    };
+
+    function checkCompletion() {
+        if (b1) {
+            document.getElementById('nb2').style.display = 'block';
+            document.getElementById('nb1').style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}
+
+{{ block content }}
+
+{{ if player.treat == 't3' or player.treat == 't4' }}
+<p>
+    On a scale from 0 (terrible) to 6 (exceptional), the mentor advices you to choose ...
+    when indicating how well you performed on the task.
+</p>
+{{ endif }}
+
+<p>
+    Below, the blue box indicates your previous answer to the question. This is the default answer. If you press the
+    "Next"-Button, this answer will be your final answer. If you want to change your answer, select another field.
+    You submit your final choice by pressing the "Next"-button.
+</p>
+
+<form>
+    <p>
+        <label for="prom">
+            Please indicate how well you think you performed on the test you took in part 1.
+        </label>
+    </p>
+    <div class="box-container" id="prom">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box1" id="terrible" onclick="sendValue('terrible')">Terrible</div>
+            <div class="box1" id="very poor" onclick="sendValue('very poor')">Very Poor</div>
+            <div class="box1" id="poor" onclick="sendValue('poor')">Poor</div>
+            <div class="box1" id="good" onclick="sendValue('good')">Good</div>
+            <div class="box1" id="very good" onclick="sendValue('very good')">Very Good</div>
+            <div class="box1" id="exceptional" onclick="sendValue('exceptional')">Exceptional</div>
+        </div>
+    </div>
+</form>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary" id="nb1" onclick="sendValue(pre)">Next</button>
+<button class="otree-btn-next btn btn-primary" id="nb2" style="display: none">Next</button>
+
+{{ endblock }}
