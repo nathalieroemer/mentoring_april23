@@ -50,7 +50,9 @@ PARTICIPANT_FIELDS = [
     'workerlist',
     'test_passed',
     'mentor',
-    't3_answers'
+    't3_answers',
+    'graphic',
+    'bm_dev'
 ]
 SESSION_FIELDS = [
     't2_groups',

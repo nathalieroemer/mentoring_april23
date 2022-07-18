@@ -10,7 +10,7 @@ Your app description
 """
 
 # TODO: Attention check
-# TODO: Show advice by mentors
+# TODO: Show advice by mentors (measurement of relative performance works, just have to show right advice)
 # TODO: add slider like in presentation
 
 
@@ -64,6 +64,22 @@ class C(BaseConstants):
     t124_mentors = mdf[pd.isna(mdf["mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
     t3_mentors = mdf[pd.isna(mdf["mentors2.1.player.top"])].reset_index(drop=True)
 
+    pretestdata = pd.read_csv(
+        "pretestdata.csv",
+        delimiter=";",
+        encoding="latin1"
+    )
+
+    predf = pd.DataFrame(
+        pretestdata,
+        columns=[
+            "participant.id_in_session",
+            "participant.code",
+            "participant.deviation"
+        ]
+    )
+    benchmark = predf["participant.deviation"].tolist()
+
 
 class Subsession(BaseSubsession):
     pass
@@ -77,6 +93,7 @@ class Player(BasePlayer):
     treat = models.StringField()
     workerid = models.StringField()
     mentor = models.StringField()
+    graphic = models.StringField()
 
     test1 = models.IntegerField()
 
@@ -91,7 +108,7 @@ def creating_session(subsession: Subsession):
     # mentors per treatment 2, 3 and 4:
     m_per_treat = 10
 
-    # treatment assignment
+    # treatment and graphic assignment
     i = 0
     for p in subsession.get_players():
         if i / 4 < m_per_treat:
@@ -100,6 +117,9 @@ def creating_session(subsession: Subsession):
             p.treat = 't1'
         p.participant.treat = p.treat
         i = i + 1
+        # TODO: second argument of randint has to be max number of possible graphics
+        p.graphic = 'graphic{}.png'.format(random.randint(1, 1))
+        p.participant.graphic = p.graphic
 
     # mentor assignment
     for p in subsession.get_players():
@@ -120,6 +140,18 @@ def creating_session(subsession: Subsession):
             m = random.choice(mentors)
             p.participant.mentor = m
             p.mentor = C.t3_mentors["participant.code"][m]
+
+    # values for relative performance
+    # deviations of three random workers from previous task are saved in list specific to player to be used for
+    # comparison later
+    for p in subsession.get_players():
+        # benchmark_deviations
+        p.participant.bm_dev = []
+        rand_indices = random.sample(range(len(C.benchmark)), 3)
+        # print(rand_indices)
+        for i in rand_indices:
+            p.participant.bm_dev.append(C.benchmark[i])
+        # print(p.participant.bm_dev)
 
 
 # PAGES

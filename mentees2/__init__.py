@@ -23,6 +23,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     treat = models.StringField()
     guess = models.IntegerField()
+    # rel_perf is placement: 1 is best, 4 is worst
+    rel_perf = models.IntegerField()
     promotion = models.StringField()
 
     native = models.IntegerField()
@@ -45,6 +47,23 @@ class Task1(Page):
     form_fields = [
         'guess'
     ]
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        print(player.participant.bm_dev)
+        return dict(
+            graphic=player.participant.graphic
+        )
+
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        par = player.participant
+        h = 1
+        for i in par.bm_dev:
+            # TODO: 1500 has to be actual number of dots
+            if i < abs(1500-player.guess):
+                h = h + 1
+        player.rel_perf = h
 
 
 class BonusInstr(Page):
