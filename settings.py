@@ -48,7 +48,9 @@ PARTICIPANT_FIELDS = [
     'groupno',
     'idingroup',
     'workerlist',
-    'test_passed'
+    'test_passed',
+    'mentor',
+    't3_answers'
 ]
 SESSION_FIELDS = [
     't2_groups',
@@ -59,7 +61,9 @@ SESSION_FIELDS = [
     't4_promo',
     't2_feedback',
     't3_feedback',
-    't4_feedback'
+    't4_feedback',
+
+    'obs_t124'
 ]
 
 # ISO-639 code

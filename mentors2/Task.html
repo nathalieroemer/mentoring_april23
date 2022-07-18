@@ -11,7 +11,7 @@
         display:flex;
         flex-direction: column;
     }
-    .box1 {
+    .box {
         flex: 1;
         display: flex;
         height: 60px;
@@ -21,39 +21,8 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-    }
-    .box2 {
-        flex: 1;
-        display: flex;
-        height: 60px;
-        margin: 5px 5px;
-        background-color: #ccc;
-        cursor: pointer;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    .box3 {
-        flex: 1;
-        display: flex;
-        height: 60px;
-        margin: 5px 5px;
-        background-color: #ccc;
-        cursor: pointer;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    .box4 {
-        flex: 1;
-        display: flex;
-        height: 60px;
-        margin: 5px 5px;
-        background-color: #ccc;
-        cursor: pointer;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        border-style: none;
+        color: #212529;
     }
     .errormessage {
         display: flex;
@@ -62,15 +31,18 @@
         color: red;
         font-size: 12px
     }
+    .btn {
+        float: right
+    }
 </style>
 {% endblock %}
 
 {% block scripts%}
 <script>
-    const boxes1 = document.querySelectorAll('.box1');
-    const boxes2 = document.querySelectorAll('.box2');
-    const boxes3 = document.querySelectorAll('.box3');
-    const boxes4 = document.querySelectorAll('.box4');
+    const boxes1 = document.getElementsByName('top');
+    const boxes2 = document.getElementsByName('UM');
+    const boxes3 = document.getElementsByName('LM');
+    const boxes4 = document.getElementsByName('bottom');
 
     boxes1.forEach(box => {
         box.addEventListener('click', function handleClick(event) {
@@ -178,12 +150,12 @@
     </p>
     <div class="box-container" id="m1">
         <div class="row" style="margin-left: 10%; margin-right: 10%">
-            <div class="box1" onclick="sendValueTop('terrible')">Terrible</div>
-            <div class="box1" onclick="sendValueTop('very poor')">Very Poor</div>
-            <div class="box1" onclick="sendValueTop('poor')">Poor</div>
-            <div class="box1" onclick="sendValueTop('good')">Good</div>
-            <div class="box1" onclick="sendValueTop('very good')">Very Good</div>
-            <div class="box1" onclick="sendValueTop('exceptional')">Exceptional</div>
+            <button type="button" name="top" class="box" onclick="sendValueTop('terrible')">Terrible</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('very poor')">Very Poor</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('poor')">Poor</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('good')">Good</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('very good')">Very Good</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('exceptional')">Exceptional</button>
         </div>
         <div class="row errormessage" id="error1" style="display: none">
             <i>Please answer this question.</i>
@@ -194,18 +166,18 @@
 
     <p>
         <label for="m2">
-            Your mentee is between the 50% and the 25% performers. What would you advice the mentee to answer to the
+            Your mentee is between the 50% and the 25% quartile performers. What would you advice the mentee to answer to the
             following question? Please indicate your answer by pressing the respective box.
         </label>
     </p>
     <div class="box-container" id="m2">
         <div class="row" style="margin-left: 10%; margin-right: 10%">
-            <div class="box2" onclick="sendValueUM('terrible')">Terrible</div>
-            <div class="box2" onclick="sendValueUM('very poor')">Very Poor</div>
-            <div class="box2" onclick="sendValueUM('poor')">Poor</div>
-            <div class="box2" onclick="sendValueUM('good')">Good</div>
-            <div class="box2" onclick="sendValueUM('very good')">Very Good</div>
-            <div class="box2" onclick="sendValueUM('exceptional')">Exceptional</div>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('terrible')">Terrible</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('very poor')">Very Poor</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('poor')">Poor</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('good')">Good</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('very good')">Very Good</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('exceptional')">Exceptional</button>
         </div>
         <div class="row errormessage" id="error2" style="display: none">
             <i>Please answer this question.</i>
@@ -222,12 +194,12 @@
     </p>
     <div class="box-container" id="m3">
         <div class="row" style="margin-left: 10%; margin-right: 10%">
-            <div class="box3" onclick="sendValueLM('terrible')">Terrible</div>
-            <div class="box3" onclick="sendValueLM('very poor')">Very Poor</div>
-            <div class="box3" onclick="sendValueLM('poor')">Poor</div>
-            <div class="box3" onclick="sendValueLM('good')">Good</div>
-            <div class="box3" onclick="sendValueLM('very good')">Very Good</div>
-            <div class="box3" onclick="sendValueLM('exceptional')">Exceptional</div>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('terrible')">Terrible</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('very poor')">Very Poor</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('poor')">Poor</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('good')">Good</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('very good')">Very Good</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('exceptional')">Exceptional</button>
         </div>
         <div class="row errormessage" id="error3" style="display: none">
             <i>Please answer this question.</i>
@@ -244,12 +216,12 @@
     </p>
     <div class="box-container" id="m4">
         <div class="row" style="margin-left: 10%; margin-right: 10%">
-            <div class="box4" onclick="sendValueBottom('terrible')">Terrible</div>
-            <div class="box4" onclick="sendValueBottom('very poor')">Very Poor</div>
-            <div class="box4" onclick="sendValueBottom('poor')">Poor</div>
-            <div class="box4" onclick="sendValueBottom('good')">Good</div>
-            <div class="box4" onclick="sendValueBottom('very good')">Very Good</div>
-            <div class="box4" onclick="sendValueBottom('exceptional')">Exceptional</div>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('terrible')">Terrible</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('very poor')">Very Poor</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('poor')">Poor</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('good')">Good</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('very good')">Very Good</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('exceptional')">Exceptional</button>
         </div>
         <div class="row errormessage" id="error4" style="display: none">
             <i>Please answer this question.</i>

@@ -29,6 +29,9 @@ class Player(BasePlayer):
 
 # PAGES
 class Task(Page):
+    form_model = 'player'
+    form_fields = []
+
     @staticmethod
     def live_method(player: Player, data):
         if data['section'] == 'top':

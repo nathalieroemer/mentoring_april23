@@ -9,7 +9,6 @@ Your app description
 
 # TODO: add prev. instr.
 # TODO: Add correct attention check
-# TODO: error messages for buttons for task
 
 
 class C(BaseConstants):
@@ -44,6 +43,8 @@ def creating_session(subsession: Subsession):
     i = 0
     for p in subsession.get_players():
         p.part_id = p.participant.id_in_session
+        # had an idea to save the many answers of t3 mentors in a dict, but it seems to be less convenient eventually
+        # p.participant.t3_answers = {}
         if i / 4 < m_per_treat:
             p.treat = next(treats)
         elif i / 4 >= m_per_treat:
