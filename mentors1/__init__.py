@@ -8,7 +8,8 @@ Your app description
 """
 
 # TODO: add prev. instr.
-# TODO: Add correct attention check
+# TODO: add consent
+# TODO: change task pages to new layout
 
 
 class C(BaseConstants):
@@ -61,6 +62,10 @@ class Welcome(Page):
     ]
 
 
+class Consent(Page):
+    pass
+
+
 class Instructions1(Page):
     pass
 
@@ -78,8 +83,7 @@ class Attention1(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
-        # TODO: change correct answer
-        if player.test1 == 4:
+        if player.test1 == 3:
             par.test_passed = 1
         else:
             par.test_passed = 0
@@ -93,31 +97,4 @@ class Attention1(Page):
             pass
 
 
-class Attention2(Page):
-    form_model = 'player'
-    form_fields = [
-        'test2'
-    ]
-
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        par = player.participant
-        # TODO: change correct answer
-        if player.test2 == 1:
-            par.test_passed = 1
-        else:
-            par.test_passed = 0
-
-    @staticmethod
-    def app_after_this_page(player: Player, upcoming_apps):
-        if player.participant.test_passed == 0:
-            return upcoming_apps[2]
-        else:
-            t = player.treat
-            if t != 't3':
-                return upcoming_apps[0]
-            elif t == 't3':
-                return upcoming_apps[1]
-
-
-page_sequence = [Welcome, Instructions1, Instructions2, Attention1, Attention2]
+page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1]

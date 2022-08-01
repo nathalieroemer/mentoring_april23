@@ -6,6 +6,9 @@ Your app description
 """
 
 # TODO: add previous instr.
+# TODO: choose random scenario and match with worker that matches criteria
+# TODO: add consent
+# TODO: add Hault and Lory
 
 
 class C(BaseConstants):
@@ -47,7 +50,7 @@ class Consent(Page):
     pass
 
 
-class Instructions(Page):
+class Instructions1(Page):
     pass
 
 
@@ -102,4 +105,4 @@ class Attention2(Page):
             pass
 
 
-page_sequence = [Welcome, Consent, Instructions, Instructions2, Attention1, Attention2]
+page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1, Attention2]
