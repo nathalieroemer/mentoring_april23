@@ -156,7 +156,10 @@ def creating_session(subsession: Subsession):
 
 # PAGES
 class Welcome(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'workerid'
+    ]
 
 
 class Instructions(Page):

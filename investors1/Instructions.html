@@ -1,0 +1,40 @@
+{{ block title }}
+    Your task
+{{ endblock }}
+
+{% block styles %}
+<style>
+    .btn {
+        float: right
+    }
+</style>
+{% endblock %}
+
+{{ block content }}
+
+<p>
+    In a another study, other workers have to guess how many blue dots (between 500 and 2000) are in a
+    computer-generated picture, similar to the one in figure 1 below.
+</p>
+
+<p style="text-align: center">
+    <img src="{{ static 'graphic1.png' }}"/>
+    <br>
+    <i style="font-size: smaller">Figure 1</i>
+</p>
+
+<br>
+
+<p>
+    For each of the following decision rounds, you will be matched with one worker from this study.
+</p>
+<p>
+    In each decision round, you <b>have $1 endowment</b> for which <b>you can choose how much (from $0 to 100 Cents) to
+    invest</b> in a worker’s guess.
+</p>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{{ endblock }}
+
+
