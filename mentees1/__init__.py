@@ -9,8 +9,10 @@ doc = """
 Your app description
 """
 
-# TODO: Show advice by mentors (measurement of relative performance works, just have to show right advice)
-# TODO: add slider like in presentation
+# TODO: add partial payment when timeout in second round?
+# TODO: add second slider
+# TODO: display error message for slider correctly
+# TODO: prev. instr.
 
 
 class C(BaseConstants):
@@ -213,7 +215,7 @@ class Attention1(Page):
     def app_after_this_page(player: Player, upcoming_apps):
         par = player.participant
         if par.test_passed == 0:
-            return upcoming_apps[1]
+            return upcoming_apps[2]
         else:
             pass
 

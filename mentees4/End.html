@@ -7,7 +7,7 @@
 
 {% block content %}
 
-{{ if player.participant.timeout == False }}
+{{ if player.participant.timeout == False && player.participant.timeout2 == False }}
 
     {{ if player.participant.endmessage == 1 }}
     <p>

@@ -1,0 +1,272 @@
+{{ block title }}
+    Your guess
+{{ endblock }}
+
+{% block styles %}
+<style>
+    .btn {
+        float: right
+    }
+
+    .output-cont {
+        border: 3px solid #fff;
+    }
+
+    .output-child {
+        width: 50%;
+        float: left;
+        text-align: center;
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .errormessage {
+        color: red;
+    }
+
+    .slidecontainer {
+        flex-grow: 1;
+        margin: auto;
+        position: relative;
+    }
+
+    .slider-track{
+        -webkit-appearance: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        width: 100%;
+        height: 8px;
+        background-color: #d3d3d3;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+        border: 1px solid white;
+    }
+
+    .slider-track-border{
+        width: 100%;
+		height: 10px;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+    }
+
+    .slider{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    /* hide range styling */
+	input[type=range] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		margin: auto;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		pointer-events: none;
+		outline: none;
+		background-color: transparent;
+	}
+
+    /* thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-moz-appearance: none;
+		border: 1px solid #007bff;
+		height: 20px;
+		width: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: #007bff;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+
+	/* thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: 1px solid #007bff;
+		height: 20px;
+		width: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: #007bff;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+
+    /* thumb for Microsoft */
+    input[type=range]::-ms-thumb {
+		appearance: none;
+		height: 20px;
+		width: 20px;
+		border: 1px solid #007bff;
+		border-radius: 10px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: #007bff;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+
+    /* hide default focus styling */
+	input[type=range]:focus {
+		outline: none;
+	}
+
+    /* get rid of weird dotted outline around range in Firefox */
+	input[type=range]::-moz-focus-outer {
+        border: 0;
+    	outline: none;
+    }
+
+    /* get rid of styling for Safari, Opera, and Chrome */
+	input[type=range]::-webkit-slider-runnable-track {
+	    -webkit-appearance: none;
+		height: 8px;
+	}
+
+	/* get rid of styling for Firefox */
+	input[type=range]::-moz-range-track {
+	    -moz-appearance: none;
+		height: 8px;
+	}
+
+    /* get rid of styling for Microsoft */
+	input[type=range]::ms-track {
+		appearance: none;
+		height: 8px;
+	}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    window.onload = function(){
+        fillColour();
+        output1.innerHTML = '<br>Low estimate <b>' + slider1.value.toString() + '</b>.';
+        output2.innerHTML = '<br>High estimate <b>' + slider2.value.toString() + '</b>.';
+    }
+
+    const slider1 = document.getElementById("s1");
+    const slider2 = document.getElementById("s2");
+    const output1 = document.getElementById("out1");
+    const output2 = document.getElementById("out2");
+    let click = 0;
+    let minGap = 0;
+
+    let sliderTrack = document.querySelector(".slider-track");
+    console.log(sliderTrack);
+    let sliderMaxValue = document.getElementById("s1").max;
+
+    const errorbox = document.getElementById("errorm");
+    const nextb = document.getElementById("nb");
+    const fakeb = document.getElementById("fake");
+
+    slider1.oninput = function() {
+        if(parseInt(slider2.value) - parseInt(slider1.value) <= minGap){
+            slider1.value = parseInt(slider2.value) - minGap;
+        }
+        output1.innerHTML = '<br>Low estimate <b>' + this.value.toString() + '</b>.';
+        fillColour();
+    }
+
+    slider2.oninput = function() {
+        if(parseInt(slider2.value) - parseInt(slider1.value) <= minGap){
+            slider2.value = parseInt(slider1.value) + minGap;
+        }
+        output2.innerHTML = '<br>High estimate <b>' + this.value.toString() + '</b>.';
+        fillColour();
+    }
+
+    function fillColour(){
+        console.log("should work")
+        percent1 = ((slider1.value - 500) / (sliderMaxValue - 500)) * 100;
+        percent2 = ((slider2.value - 500) / (sliderMaxValue - 500)) * 100;
+        console.log(percent1, percent2);
+        sliderTrack.style.background = `linear-gradient(to right, #d3d3d3 ${percent1}%, #007bff ${percent1}%, #007bff ${percent2}%, #d3d3d3 ${percent2}%)`;
+        console.log(sliderTrack.style.background);
+    }
+
+    function setClick() {
+        click = 1;
+        slider1.setCustomValidity("");
+        nextb.style.display = 'block';
+        fakeb.style.display = 'none';
+    }
+    slider1.onclick = setClick;
+    slider2.onclick = setClick;
+
+    function validateForm() {
+        if (click !== 1) {
+            slider1.setCustomValidity("Please give an estimation.");
+            errorbox.innerHTML = "Please give an estimation";
+        }
+    }
+</script>
+{% endblock %}
+
+{{ block content }}
+<p>
+    <img src="{{ static graphic }}"/>
+</p>
+
+<p>
+    You guessed that there are {{player.guess}} dots in this picture.
+</p>
+
+<p>
+    <label for="s1">
+    Please use the slider to indicate a high and a low estimate such that there is a 90% chance that the correct
+    answer falls between those numbers.
+</label>
+</p>
+
+<div class="input-group mb-3" style="max-width: 100%">
+    <div class="input-group-prepend">
+        <span class="input-group-text">500</span>
+    </div>
+    <div class="slidecontainer">
+        <div class="slider-track"></div>
+        <div class="slider-track-border"></div>
+        <input type="range" class="slider" min="500" max="2000" step="1" value="500" id="s1" name="lowest">
+        <input type="range" class="slider" min="500" max="2000" step="1" value="2000" id="s2" name="highest">
+    </div>
+    <div class="input-group-append">
+        <span class="input-group-text">2000</span>
+    </div>
+</div>
+
+<div class="output-cont">
+  <div class="output-child">
+    <span id="out1"><br></span>
+  </div>
+  <div class="output-child">
+    <span id="out2"><br></span>
+  </div>
+</div>
+
+<br>
+
+<span id="errorm" class="errormessage"></span>
+<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validateForm()">Next</button>
+<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+
+
+{{ endblock }}
+

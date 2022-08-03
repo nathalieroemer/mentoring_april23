@@ -1,0 +1,66 @@
+{{ block title }}
+    Task (Second round)
+{{ endblock }}
+
+{% block styles %}
+<style>
+    .numberinput{
+        display: block;
+        max-width: 70px;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .btn {
+        float: right
+    }
+
+    .otree-timer {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 10) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{{ block content }}
+
+<p>
+    Below, you see again a computer-generated picture with between 500 and 2000 blue dots. Please guess another time how
+    many blue dots are in this picture. Please indicate your guess below the picture. You again have 1 minute to come up
+    with your guess.
+</p>
+
+<p>
+    <img src="{{ static graphic }}"/>
+</p>
+
+<label for="g">
+        How many blue dots are in this picture?
+</label>
+<p>
+    <input type="number" class="numberinput" name="guess" id="g" min="0" required oninvalid="this.setCustomValidity('Please enter a non-negative number.')" oninput="this.setCustomValidity('')">
+</p>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{{ endblock }}
+

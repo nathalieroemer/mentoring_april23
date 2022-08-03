@@ -78,9 +78,10 @@ class Player(BasePlayer):
     guess = models.IntegerField()
     # rel_perf is placement: 1 is best, 4 is worst
     rel_perf = models.IntegerField()
-    promotion = models.StringField()
-
-    promotion2 = models.StringField()
+    lowest = models.IntegerField()
+    highest = models.IntegerField()
+    evaluation = models.StringField()
+    evaluation2 = models.StringField()
 
 
 # Methods
@@ -105,29 +106,36 @@ class Task1(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
+        par = player.participant
         if timeout_happened:
             player.timeout = True
-            player.participant.timeout = True
+            par.timeout = True
         else:
-            par = player.participant
+            par.timeout = False
             h = 1
             for i in par.bm_dev:
                 # TODO: 1500 has to be actual number of dots
                 if i < abs(1500 - player.guess):
                     h = h + 1
-            # the lower the better
+            # the lower h the better
             player.rel_perf = h
             print(player.rel_perf)
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
         if player.timeout:
-            return upcoming_apps[0]
+            return upcoming_apps[1]
         else:
             pass
 
 
-class Estimate(Page):
+class Estimate1(Page):
+    form_model = 'player'
+    form_fields = [
+        'lowest',
+        'highest'
+    ]
+
     @staticmethod
     def vars_for_template(player: Player):
         return dict(
@@ -165,12 +173,13 @@ class Attention2(Page):
     def app_after_this_page(player: Player, upcoming_apps):
         par = player.participant
         if par.test2_passed == 0:
-            return upcoming_apps[0]
+            return upcoming_apps[1]
         else:
             pass
 
 
-class Task2(Page):
+class Evaluation1(Page):
+    @staticmethod
     def vars_for_template(player: Player):
         par = player.participant
         if player.treat == 't2':
@@ -204,10 +213,11 @@ class Task2(Page):
 
     @staticmethod
     def live_method(player: Player, data):
-        player.promotion = str(data)
+        player.evaluation = str(data)
 
 
-class Task3(Page):
+class FinalSub(Page):
+    @staticmethod
     def vars_for_template(player: Player):
         par = player.participant
         if player.treat == 't3':
@@ -220,8 +230,8 @@ class Task3(Page):
             elif player.rel_perf == 4:
                 perf = "b"
 
-            # remove(" ", "") removes whitespaces
-            answ = player.promotion.replace(" ", "")
+            # replace(" ", "") removes whitespaces
+            answ = player.evaluation.replace(" ", "")
             print(answ)
 
             a = C.t3_mentors['mentors2_t3.1.player.{}_{}'.format(perf, answ)][par.mentor]
@@ -252,17 +262,17 @@ class Task3(Page):
         else:
             ad = ""
 
-        if player.promotion == "terrible":
+        if player.evaluation == "terrible":
             pa = "1-Terrible"
-        elif player.promotion == "very poor":
+        elif player.evaluation == "very poor":
             pa = "2-Very poor"
-        elif player.promotion == "poor":
+        elif player.evaluation == "poor":
             pa = "3-Poor"
-        elif player.promotion == "good":
+        elif player.evaluation == "good":
             pa = "4-Good"
-        elif player.promotion == "very good":
+        elif player.evaluation == "very good":
             pa = "5-Very good"
-        elif player.promotion == "exceptional":
+        elif player.evaluation == "exceptional":
             pa = "6-Exceptional"
 
         return dict(
@@ -273,12 +283,12 @@ class Task3(Page):
     @staticmethod
     def js_vars(player: Player):
         return dict(
-            prevansw=player.promotion
+            prevansw=player.evaluation
         )
 
     @staticmethod
     def live_method(player: Player, data):
-        player.promotion2 = str(data)
+        player.evaluation2 = str(data)
 
 
-page_sequence = [Task1, Estimate, Instructions2, Instructions3, Attention2, Task2, Task3]
+page_sequence = [Task1, Estimate1, Instructions2, Instructions3, Attention2, Evaluation1, FinalSub]
