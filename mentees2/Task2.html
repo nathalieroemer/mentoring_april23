@@ -1,5 +1,5 @@
 {{ block title }}
-    Task
+    Evaluate your performance
 {{ endblock }}
 
 {% block styles %}
@@ -73,57 +73,27 @@
 {{ block content }}
 
 <p>
-    Please answer the following question. The answer will be shown to the third party when deciding
-    how much to invest in you.
+    In the following, you are asked to evaluate your performance on the task (guessing the number of dots in the
+    picture) by answering the question below. The answer <b>will be shown to your potential investor</b>, who decides how much
+    to invest in your guess.
 </p>
 
-{{ if player.treat == 't1' }}
-<p>
-    After answering some additional questions, you will be shown your answer to this question
-    and will be given the opportunity to change it.
-</p>
-{{ endif }}
 {{ if player.treat == 't2' }}
 <p>
-    In doing so, you receive advice by a mentor. This mentor is an expert in the guessing task and knows how successful
-    workers answered the following question.
+    You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
+    rank relative to 3 other workers. These 3 workers were selected by chance among workers that – similar to you -
+    had to guess the number of dots in computer-generated pictures in a previous task.
 </p>
 <p>
-    We showed the mentor your guess. On a scale from 0 (terrible) to 6 (exceptional), the mentor advices you to choose
-    56, indicating neither much disagreement nor much agreement with the statement
-    "I performed well on the guessing task" in the following question.
-</p>
-<p>
-    After answering some additional questions, you will be shown your answer to this question and will be given the
-    opportunity to change it.
-</p>
-{{ endif }}
-{{ if player.treat == 't3' }}
-<p>
-    In doing so, you receive advice by a mentor. This mentor is an expert in the guessing task and knows how successful
-    workers answered the following questions.
-</p>
-<p>
-    After you submit your answer, we will show the mentor your guess. After answering some additional questions, you
-    will receive advice by your mentor and will be given the opportunity to change your previous answer.
-</p>
-{{ endif }}
-{{ if player.treat == 't4' }}
-<p>
-    In doing so, you receive advice by a mentor. This mentor is an expert in the guessing task and knows how successful
-    workers answered the following questions.
-</p>
-<p>
-    After you submit your answer, we will show the mentor your guess and your answer to the question below. After
-    answering some additional questions, you will receive advice by your mentor and will be given the opportunity to
-    change your previous answer.
+    On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advices you to choose {{advice}}</b> when answering the
+    question below.
 </p>
 {{ endif }}
 
 <form>
     <p>
         <label for="prom">
-            Please indicate how well you think you performed on the test you took in part 1.
+            Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.
         </label>
     </p>
     <div class="box-container" id="prom">

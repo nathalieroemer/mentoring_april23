@@ -27,7 +27,8 @@ SESSION_CONFIGS = [
         name='Mentees',
         app_sequence=[
             'mentees1',
-            'mentees2'
+            'mentees2',
+            'mentees3'
         ],
         num_demo_participants=100,
     ),
@@ -58,6 +59,9 @@ PARTICIPANT_FIELDS = [
     'idingroup',
     'workerlist',
     'test_passed',
+    'test2_passed',
+    'endmessage',
+    'timeout',
     'mentor',
     't3_answers',
     'graphic',

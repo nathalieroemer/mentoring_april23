@@ -64,23 +64,48 @@
 
 {{ block content }}
 
-{{ if player.treat == 't3' or player.treat == 't4' }}
+{{ if player.treat == 't3' }}
 <p>
-    On a scale from 0 (terrible) to 6 (exceptional), the mentor advices you to choose ...
-    when indicating how well you performed on the task.
+    You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
+    rank relative to 3 other workers. These 3 workers were selected by chance among workers that – similar to you -
+    had to guess the number of dots in computer-generated pictures in a previous task.
+</p>
+<p>
+    Given the information, that your current answer to the question "Please indicate how well you think you did in
+    guessing the accurate number of blue dots in the picture." is <b>{{prevansw}}</b> (as shown below) your mentor provided the
+    following advice:
+</p>
+<p>
+    On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advices you to choose {{advice}}</b> when answering the
+    question below.
+</p>
+{{ endif }}
+
+{{ if player.treat == 't4' }}
+<p>
+    You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
+    rank relative to 3 other workers. These 3 workers were selected by chance among workers that – similar to you -
+    had to guess the number of dots in computer-generated pictures in a previous task.
+</p>
+<p>
+    On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advices you to choose {{advice}}</b> when answering the
+    question below.
 </p>
 {{ endif }}
 
 <p>
-    Below, the blue box indicates your previous answer to the question. This is the default answer. If you press the
-    "Next"-Button, this answer will be your final answer. If you want to change your answer, select another field.
-    You submit your final choice by pressing the "Next"-button.
+    Below you see your current (previously given) answer to the question "Please indicate how well you think you did in
+    guessing the accurate number of blue dots in the picture".
+</p>
+<p>
+    You can either change it, by selecting any other answer - or directly submit it as your final answer by pressing the
+    "Next"-button.
 </p>
 
 <form>
     <p>
         <label for="prom">
-            Please indicate how well you think you performed on the test you took in part 1.
+            Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.
         </label>
     </p>
     <div class="box-container" id="prom">

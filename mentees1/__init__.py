@@ -9,7 +9,6 @@ doc = """
 Your app description
 """
 
-# TODO: Attention check
 # TODO: Show advice by mentors (measurement of relative performance works, just have to show right advice)
 # TODO: add slider like in presentation
 
@@ -18,6 +17,9 @@ class C(BaseConstants):
     NAME_IN_URL = 'mentees1'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
+
+    # Has to be changed to number of possible graphics:
+    NUM_GRAPHICS = 1
 
     mentordata = pd.read_csv(
         "testdata.csv",
@@ -61,7 +63,9 @@ class C(BaseConstants):
         ]
     )
     mdf = mdf[mdf["participant._current_page_name"] == "End"]
+    # saves data only of mentors from treatments 1,2 and 4:
     t124_mentors = mdf[pd.isna(mdf["mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
+    # same for treatment 3:
     t3_mentors = mdf[pd.isna(mdf["mentors2.1.player.top"])].reset_index(drop=True)
 
     pretestdata = pd.read_csv(
@@ -78,7 +82,12 @@ class C(BaseConstants):
             "participant.deviation"
         ]
     )
+    # saves a list of performances in terms of deviation from true value of several workers from a previous task:
     benchmark = predf["participant.deviation"].tolist()
+
+    print(t124_mentors)
+    print(t3_mentors)
+    print(benchmark)
 
 
 class Subsession(BaseSubsession):
@@ -94,6 +103,12 @@ class Player(BasePlayer):
     workerid = models.StringField()
     mentor = models.StringField()
     graphic = models.StringField()
+
+    consent1 = models.IntegerField(initial=0)
+    consent2 = models.IntegerField(initial=0)
+    consent3 = models.IntegerField(initial=0)
+    consent4 = models.IntegerField(initial=0)
+    consent5 = models.IntegerField(initial=0)
 
     test1 = models.IntegerField()
 
@@ -117,8 +132,7 @@ def creating_session(subsession: Subsession):
             p.treat = 't1'
         p.participant.treat = p.treat
         i = i + 1
-        # TODO: second argument of randint has to be max number of possible graphics
-        p.graphic = 'graphic{}.png'.format(random.randint(1, 1))
+        p.graphic = 'graphic{}.png'.format(random.randint(1, C.NUM_GRAPHICS))
         p.participant.graphic = p.graphic
 
     # mentor assignment
@@ -162,16 +176,46 @@ class Welcome(Page):
     ]
 
 
+class Consent(Page):
+    form_model = 'player'
+    form_fields = [
+        'consent1',
+        'consent2',
+        'consent3',
+        'consent4',
+        'consent5'
+    ]
+
+
 class Instructions(Page):
     pass
 
 
 class Attention1(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'test1'
+    ]
+
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        par = player.participant
+        par.test2_passed = 0
+        if player.test1 == 1:
+            par.test_passed = 1
+            # endmessage is variable helping with display of goodbye message, depending on which test was (not) passed
+            par.endmessage = 1
+        else:
+            par.test_passed = 0
+            par.endmessage = 2
+
+    @staticmethod
+    def app_after_this_page(player: Player, upcoming_apps):
+        par = player.participant
+        if par.test_passed == 0:
+            return upcoming_apps[1]
+        else:
+            pass
 
 
-class Attention2(Page):
-    pass
-
-
-page_sequence = [Welcome, Instructions, Attention1, Attention2]
+page_sequence = [Welcome, Consent, Instructions, Attention1]

@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    You have completed the task
+{% endblock %}
+
+{% block content %}
+
+{{ if player.participant.timeout == False }}
+
+    {{ if player.participant.endmessage == 1 }}
+    <p>
+        Thank you for participating in this task. Your completion code is XXX. You will receive your bonus, if applicable,
+        within the next 6 days after the completion of this task.
+    </p>
+    {{ elif player.participant.endmessage == 2 }}
+    <p>
+        You have not passed the attention check question.
+    </p>
+    {{ elif player.participant.endmessage == 3 }}
+    <p>
+        You have not passed the second attention check question. Please return your submission to receive a partial payment.
+    </p>
+    {{ endif }}
+
+{{ else }}
+
+<p>
+    You did not submit a guess in time.
+</p>
+
+{{ endif }}
+
+{% endblock %}

@@ -7,7 +7,7 @@ Your app description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'investors3'
+    NAME_IN_URL = 'mentees3'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
@@ -26,7 +26,9 @@ class Player(BasePlayer):
         blank=True
     )
     diff = models.IntegerField()
+    stereo = models.IntegerField()
     bonusest = models.FloatField()
+    deviation = models.IntegerField()
     riskpref = models.IntegerField()
     comp = models.IntegerField()
 
@@ -36,13 +38,15 @@ class Quest(Page):
     @staticmethod
     def is_displayed(player: Player):
         par = player.participant
-        return par.test_passed == 1
+        return par.test_passed == 1 & par.test2_passed == 1
 
     form_model = 'player'
     form_fields = [
         'native',
         'eng_prof',
         'diff',
+        'deviation',
+        'stereo',
         'bonusest',
         'riskpref',
         'comp'

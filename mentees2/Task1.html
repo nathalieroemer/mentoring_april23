@@ -1,5 +1,5 @@
 {{ block title }}
-    Task
+    Task (First round)
 {{ endblock }}
 
 {% block styles %}
@@ -18,16 +18,34 @@
         border-radius: .25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
+
     .btn {
         float: right
     }
+
+    .otree-timer {
+        display: none;
+    }
 </style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 10) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
 {% endblock %}
 
 {{ block content }}
 
 <p>
-    Indicate your guess in the box below. You are submitting your final answer by pressing the "Next"-Button.
+    In this computer-generated picture are between 500 and 2000 blue dots. It is your task to guess how many blue dots
+    are in this picture. Please indicate your guess below the picture.
 </p>
 
 <p>

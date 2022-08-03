@@ -8,7 +8,6 @@ Your app description
 """
 
 # TODO: add prev. instr.
-# TODO: add consent
 # TODO: change task pages to new layout
 
 
@@ -30,6 +29,12 @@ class Player(BasePlayer):
     part_id = models.IntegerField()
     treat = models.StringField()
     workerid = models.StringField()
+
+    consent1 = models.IntegerField(initial=0)
+    consent2 = models.IntegerField(initial=0)
+    consent3 = models.IntegerField(initial=0)
+    consent4 = models.IntegerField(initial=0)
+    consent5 = models.IntegerField(initial=0)
 
     test1 = models.IntegerField()
     test2 = models.IntegerField()
@@ -63,7 +68,14 @@ class Welcome(Page):
 
 
 class Consent(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'consent1',
+        'consent2',
+        'consent3',
+        'consent4',
+        'consent5'
+    ]
 
 
 class Instructions1(Page):

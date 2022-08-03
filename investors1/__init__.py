@@ -7,7 +7,6 @@ Your app description
 
 # TODO: add previous instr.
 # TODO: choose random scenario and match with worker that matches criteria
-# TODO: add consent
 # TODO: add Hault and Lory
 
 
@@ -47,7 +46,14 @@ class Welcome(Page):
 
 
 class Consent(Page):
-    pass
+    form_model = 'player'
+    form_fields = [
+        'consent1',
+        'consent2',
+        'consent3',
+        'consent4',
+        'consent5'
+    ]
 
 
 class Instructions1(Page):
