@@ -79,7 +79,6 @@ SESSION_FIELDS = [
     't2_feedback',
     't3_feedback',
     't4_feedback',
-
     'obs_t124'
 ]
 

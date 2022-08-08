@@ -29,6 +29,8 @@ class Player(BasePlayer):
 
     timeout = models.BooleanField(initial=False)
     guess = models.IntegerField()
+    lowest = models.IntegerField()
+    highest = models.IntegerField()
     evaluation = models.StringField()
 
 
@@ -73,6 +75,12 @@ class Task2(Page):
 
 
 class Estimate2(Page):
+    form_model = 'player'
+    form_fields = [
+        'lowest',
+        'highest'
+    ]
+
     @staticmethod
     def vars_for_template(player: Player):
         return dict(

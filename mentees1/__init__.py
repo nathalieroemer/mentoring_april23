@@ -10,8 +10,6 @@ Your app description
 """
 
 # TODO: add partial payment when timeout in second round?
-# TODO: add second slider
-# TODO: display error message for slider correctly
 # TODO: prev. instr.
 
 
@@ -136,6 +134,9 @@ def creating_session(subsession: Subsession):
         i = i + 1
         p.graphic = 'graphic{}.png'.format(random.randint(1, C.NUM_GRAPHICS))
         p.participant.graphic = p.graphic
+        # timeout booleans set to initial:
+        p.participant.timeout = 0
+        p.participant.timeout2 = 0
 
     # mentor assignment
     for p in subsession.get_players():

@@ -10,6 +10,7 @@
 
     .output-cont {
         border: 3px solid #fff;
+        margin-bottom: 70px;
     }
 
     .output-child {
@@ -27,6 +28,9 @@
 
     .errormessage {
         color: red;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 6px;
     }
 
     .slidecontainer {
@@ -208,6 +212,7 @@
         slider1.setCustomValidity("");
         nextb.style.display = 'block';
         fakeb.style.display = 'none';
+        errorbox.innerHTML = "";
     }
     slider1.onclick = setClick;
     slider2.onclick = setClick;
@@ -261,11 +266,11 @@
   </div>
 </div>
 
-<br>
-
-<span id="errorm" class="errormessage"></span>
-<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validateForm()">Next</button>
-<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validateForm()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+    <span id="errorm" class="errormessage"></span>
+</div>
 
 
 {{ endblock }}
