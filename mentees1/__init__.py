@@ -85,10 +85,6 @@ class C(BaseConstants):
     # saves a list of performances in terms of deviation from true value of several workers from a previous task:
     benchmark = predf["participant.deviation"].tolist()
 
-    print(t124_mentors)
-    print(t3_mentors)
-    print(benchmark)
-
 
 class Subsession(BaseSubsession):
     pass
@@ -151,12 +147,14 @@ def creating_session(subsession: Subsession):
             # player.mentor on the other hand will be the participant.code of the mentor from the mentor experiment in
             # order to have an intelligible data overview
             p.mentor = C.t124_mentors["participant.code"][m]
+            session.obs_t124[m] = session.obs_t124[m] + 1
         elif p.treat == 't3':
             min_obs_t3 = min(session.obs_t3)
             mentors = [i for i, x in enumerate(session.obs_t3) if x == min_obs_t3]
             m = random.choice(mentors)
             p.participant.mentor = m
             p.mentor = C.t3_mentors["participant.code"][m]
+            session.obs_t3[m] = session.obs_t3[m] + 1
 
     # values for relative performance
     # deviations of three random workers from previous task are saved in list specific to player to be used for

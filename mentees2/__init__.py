@@ -117,7 +117,7 @@ class Task1(Page):
                 # TODO: 1500 has to be actual number of dots
                 if i < abs(1500 - player.guess):
                     h = h + 1
-            # the lower h the better
+            # the lower h the better (1<=h<=4)
             player.rel_perf = h
             print(player.rel_perf)
 

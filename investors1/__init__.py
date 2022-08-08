@@ -7,6 +7,8 @@ Your app description
 
 # TODO: add previous instr.
 # TODO: choose random scenario and match with worker that matches criteria
+# TODO: based on which round will be matched? evaluation in first or second round of mentees?
+# TODO: differentiation between treatments? prob. no right?
 # TODO: add Hault and Lory
 
 
