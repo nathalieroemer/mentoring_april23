@@ -22,31 +22,33 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     top_terrible = models.StringField()
-    top_verypoor = models.StringField()
-    top_poor = models.StringField()
-    top_good = models.StringField()
-    top_verygood = models.StringField()
-    top_exceptional = models.StringField()
-
     um_terrible = models.StringField()
-    um_verypoor = models.StringField()
-    um_poor = models.StringField()
-    um_good = models.StringField()
-    um_verygood = models.StringField()
-    um_exceptional = models.StringField()
-
     lm_terrible = models.StringField()
-    lm_verypoor = models.StringField()
-    lm_poor = models.StringField()
-    lm_good = models.StringField()
-    lm_verygood = models.StringField()
-    lm_exceptional = models.StringField()
-
     b_terrible = models.StringField()
+
+    top_verypoor = models.StringField()
+    um_verypoor = models.StringField()
+    lm_verypoor = models.StringField()
     b_verypoor = models.StringField()
+
+    top_poor = models.StringField()
+    um_poor = models.StringField()
+    lm_poor = models.StringField()
     b_poor = models.StringField()
+
+    top_good = models.StringField()
+    um_good = models.StringField()
+    lm_good = models.StringField()
     b_good = models.StringField()
+
+    top_verygood = models.StringField()
+    um_verygood = models.StringField()
+    lm_verygood = models.StringField()
     b_verygood = models.StringField()
+
+    top_exceptional = models.StringField()
+    um_exceptional = models.StringField()
+    lm_exceptional = models.StringField()
     b_exceptional = models.StringField()
 
 
@@ -110,4 +112,64 @@ class TaskT3(Page):
         # print(player.participant.t3_answers)
 
 
-page_sequence = [TaskT3]
+class T3Task1(Page):
+    form_model = 'player'
+    form_fields = [
+        'top_terrible',
+        'um_terrible',
+        'lm_terrible',
+        'b_terrible'
+    ]
+
+
+class T3Task2(Page):
+    form_model = 'player'
+    form_fields = [
+        'top_verypoor',
+        'um_verypoor',
+        'lm_verypoor',
+        'b_verypoor'
+    ]
+
+
+class T3Task3(Page):
+    form_model = 'player'
+    form_fields = [
+        'top_poor',
+        'um_poor',
+        'lm_poor',
+        'b_poor'
+    ]
+
+
+class T3Task4(Page):
+    form_model = 'player'
+    form_fields = [
+        'top_good',
+        'um_good',
+        'lm_good',
+        'b_good'
+    ]
+
+
+class T3Task5(Page):
+    form_model = 'player'
+    form_fields = [
+        'top_verygood',
+        'um_verygood',
+        'lm_verygood',
+        'b_verygood'
+    ]
+
+
+class T3Task6(Page):
+    form_model = 'player'
+    form_fields = [
+        'top_exceptional',
+        'um_exceptional',
+        'lm_exceptional',
+        'b_exceptional'
+    ]
+
+
+page_sequence = [T3Task1, T3Task2, T3Task3, T3Task4, T3Task5, T3Task6]

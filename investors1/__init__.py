@@ -6,9 +6,6 @@ Your app description
 """
 
 # TODO: add previous instr.
-# TODO: choose random scenario and match with worker that matches criteria
-# TODO: based on which round will be matched? evaluation in first or second round of mentees?
-# TODO: differentiation between treatments? prob. no right?
 # TODO: add Hault and Lory
 
 
@@ -75,7 +72,6 @@ class Attention1(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
-        # TODO: change correct answer
         if player.test1 == 4:
             par.test_passed = 1
         else:
@@ -99,7 +95,6 @@ class Attention2(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
-        # TODO: change correct answer
         if player.test2 == 1:
             pass
         else:

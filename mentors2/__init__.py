@@ -28,7 +28,7 @@ class Player(BasePlayer):
 
 
 # PAGES
-class Task(Page):
+class TaskOld(Page):
     form_model = 'player'
     form_fields = []
 
@@ -42,6 +42,20 @@ class Task(Page):
             player.lowermiddle = str(data['value'])
         elif data['section'] == 'bottom':
             player.bottom = str(data['value'])
+
+    @staticmethod
+    def app_after_this_page(player: Player, upcoming_apps):
+        return upcoming_apps[1]
+
+
+class Task(Page):
+    form_model = 'player'
+    form_fields = [
+        'top',
+        'uppermiddle',
+        'lowermiddle',
+        'bottom'
+    ]
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):

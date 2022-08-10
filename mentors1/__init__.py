@@ -8,7 +8,6 @@ Your app description
 """
 
 # TODO: add prev. instr.
-# TODO: change task pages to new layout
 
 
 class C(BaseConstants):
@@ -106,7 +105,10 @@ class Attention1(Page):
         if par.test_passed == 0:
             return upcoming_apps[2]
         else:
-            pass
+            if player.treat == 't3':
+                return upcoming_apps[1]
+            else:
+                pass
 
 
-page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1]
+page_sequence = [Welcome, Consent, Instructions1, Attention1]

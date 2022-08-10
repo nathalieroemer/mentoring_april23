@@ -68,7 +68,9 @@
 <form>
     <p>
         <label for="customers">
-            Please indicate which advice you want to give to your mentee in the following scenarios:
+            Given, your mentee indicated <span style="color: red"><b>3 - Poor</b></span> when answering the question
+            <i>"Please indicate how well you think you did in guessing the accurate number of blue dots in the picture"
+            </i>, please indicate which advice you want to give in the following scenarios:
         </label>
     </p>
     <table id="customers">
@@ -83,7 +85,7 @@
                 Given, your mentee’s guess is the <b>first best</b> in the randomly drawn group of 4.
             </td>
             <td style="text-align: center">
-                <select class="dropdown" name="top" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+                <select class="dropdown" name="top_poor" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
                     <option value="" selected="selected">---------</option>
                     <option value="terrible">Terrible</option>
                     <option value="very poor">Very Poor</option>
@@ -99,7 +101,7 @@
                 Given, your mentee’s guess is the <b>second best</b> in the randomly drawn group of 4.
             </td>
             <td style="text-align: center">
-                <select class="dropdown" name="uppermiddle" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+                <select class="dropdown" name="um_poor" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
                     <option value="" selected="selected">---------</option>
                     <option value="terrible">Terrible</option>
                     <option value="very poor">Very Poor</option>
@@ -115,7 +117,7 @@
                 Given, your mentee’s guess is the <b>third best</b> in the randomly drawn group of 4.
             </td>
             <td style="text-align: center">
-                <select class="dropdown" name="lowermiddle" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+                <select class="dropdown" name="lm_poor" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
                     <option value="" selected="selected">---------</option>
                     <option value="terrible">Terrible</option>
                     <option value="very poor">Very Poor</option>
@@ -131,7 +133,7 @@
                 Given, your mentee’s guess is the <b>fourth best</b> in the randomly drawn group of 4.
             </td>
             <td style="text-align: center">
-                <select class="dropdown" name="bottom" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+                <select class="dropdown" name="b_poor" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
                     <option value="" selected="selected">---------</option>
                     <option value="terrible">Terrible</option>
                     <option value="very poor">Very Poor</option>
@@ -150,5 +152,3 @@
 <button class="otree-btn-next btn btn-primary">Next</button>
 
 {% endblock %}
-
-

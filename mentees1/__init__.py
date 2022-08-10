@@ -10,6 +10,7 @@ Your app description
 """
 
 # TODO: add partial payment when timeout in second round?
+# TODO: add more graphics and adjust code accordingly
 # TODO: prev. instr.
 
 

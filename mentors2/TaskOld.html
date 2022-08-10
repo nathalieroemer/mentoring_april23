@@ -1,0 +1,239 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Mentoring
+{% endblock %}
+
+{% block styles %}
+<style>
+    .box-container {
+        display:flex;
+        flex-direction: column;
+    }
+    .box {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-style: none;
+        color: #212529;
+    }
+    .errormessage {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: red;
+        font-size: 12px
+    }
+    .btn {
+        float: right
+    }
+</style>
+{% endblock %}
+
+{% block scripts%}
+<script>
+    const boxes1 = document.getElementsByName('top');
+    const boxes2 = document.getElementsByName('UM');
+    const boxes3 = document.getElementsByName('LM');
+    const boxes4 = document.getElementsByName('bottom');
+
+    boxes1.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes1.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+    boxes2.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes2.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+    boxes3.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes3.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+    boxes4.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+            boxes4.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+
+    let b1 = false;
+    let b2 = false;
+    let b3 = false;
+    let b4 = false;
+
+    function sendValueTop(value) {
+        liveSend({'section': 'top', 'value': value})
+        b1 = true;
+        document.getElementById('error1').style.display = 'none';
+        checkCompletion();
+    };
+    function sendValueUM(value) {
+        liveSend({'section': 'um', 'value': value})
+        b2 = true;
+        document.getElementById('error2').style.display = 'none';
+        checkCompletion();
+    };
+    function sendValueLM(value) {
+        liveSend({'section': 'lm', 'value': value})
+        b3 = true;
+        document.getElementById('error3').style.display = 'none';
+        checkCompletion();
+    };
+    function sendValueBottom(value) {
+        liveSend({'section': 'bottom', 'value': value})
+        b4 = true;
+        document.getElementById('error4').style.display = 'none';
+        checkCompletion();
+    };
+
+    function validate() {
+        if (!b1) {
+            document.getElementById('error1').style.display = 'flex';
+        }
+        if (!b2) {
+            document.getElementById('error2').style.display = 'flex';
+        }
+        if (!b3) {
+            document.getElementById('error3').style.display = 'flex';
+        }
+        if (!b4) {
+            document.getElementById('error4').style.display = 'flex';
+        }
+    }
+
+    function checkCompletion() {
+        if (b1 && b2 && b3 && b4) {
+            document.getElementById('nb').style.display = 'block';
+            document.getElementById('fake').style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Please indicate in the following, how you would advise the respective mentee to answer the question.
+    </p>
+
+<form>
+    <p>
+        <label for="m1">
+            Your mentee is among the top 25% performers. What would you advice the mentee to answer to the following
+            question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <div class="box-container" id="m1">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <button type="button" name="top" class="box" onclick="sendValueTop('terrible')">Terrible</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('very poor')">Very Poor</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('poor')">Poor</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('good')">Good</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('very good')">Very Good</button>
+            <button type="button" name="top" class="box" onclick="sendValueTop('exceptional')">Exceptional</button>
+        </div>
+        <div class="row errormessage" id="error1" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m2">
+            Your mentee is between the 50% and the 25% quartile performers. What would you advice the mentee to answer to the
+            following question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <div class="box-container" id="m2">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <button type="button" name="UM" class="box" onclick="sendValueUM('terrible')">Terrible</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('very poor')">Very Poor</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('poor')">Poor</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('good')">Good</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('very good')">Very Good</button>
+            <button type="button" name="UM" class="box" onclick="sendValueUM('exceptional')">Exceptional</button>
+        </div>
+        <div class="row errormessage" id="error2" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m3">
+            Your mentee is between the 75% and the 50% quartile performers. What would you advice the mentee to answer to
+            the following question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <div class="box-container" id="m3">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <button type="button" name="LM" class="box" onclick="sendValueLM('terrible')">Terrible</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('very poor')">Very Poor</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('poor')">Poor</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('good')">Good</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('very good')">Very Good</button>
+            <button type="button" name="LM" class="box" onclick="sendValueLM('exceptional')">Exceptional</button>
+        </div>
+        <div class="row errormessage" id="error3" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m4">
+            Your mentee is below the 75% percentile of performers. What would you advice the mentee to answer to the
+            following question? Please indicate your answer by pressing the respective box.
+        </label>
+    </p>
+    <div class="box-container" id="m4">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('terrible')">Terrible</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('very poor')">Very Poor</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('poor')">Poor</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('good')">Good</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('very good')">Very Good</button>
+            <button type="button" name="bottom" class="box" onclick="sendValueBottom('exceptional')">Exceptional</button>
+        </div>
+        <div class="row errormessage" id="error4" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+</form>
+
+<br>
+
+<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+
+{% endblock %}
+
+
