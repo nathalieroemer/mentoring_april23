@@ -22,6 +22,16 @@
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
 
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
@@ -68,6 +78,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsInv.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
 <p>
     In the following we will ask you to indicate the amount you wish to invest in a worker, depending on how the worker

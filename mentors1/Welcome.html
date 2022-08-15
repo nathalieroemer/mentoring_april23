@@ -2,7 +2,9 @@
 {% load otree static %}
 
 {% block title %}
-    Welcome to this task
+    <div id="title">
+        Welcome to this task
+    </div>
 {% endblock %}
 
 {% block styles %}
@@ -21,26 +23,62 @@
         border-radius: .25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
+
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
 </style>
 {% endblock %}
 
-{% block content %}
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("welcome", "true")
 
-<p>
-    You will receive a fixed payment of £ 3.50.
-</p>
-<p>
-    Please carefully read the following instructions before starting to work.
-    Note that there will be an attention check. If you do not pass it, you are not eligible to participate in this task.
-    To be eligible for payment, you have to perform all tasks within the next 2 hours.
-</p>
-<p>
-    At any point in time, you will be able to review previous instruction by clicking on
-    "Click to review previous instructions" in the right top corner of your screen.
-</p>
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c1", content)
+        sessionStorage.setItem("t1", title)
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+<div id="content">
+    <p>
+        You will receive a fixed payment of £ 3.50.
+    </p>
+    <p>
+        Please carefully read the following instructions before starting to work.
+        Note that there will be an attention check. If you do not pass it, you are not eligible to participate in this task.
+        To be eligible for payment, you have to perform all tasks within the next 2 hours.
+    </p>
+    <p>
+        At any point in time, you will be able to review previous instruction by clicking on
+        "Click to review previous instructions" in the right top corner of your screen.
+    </p>
+</div>
 
 <form>
     <label for="wid">

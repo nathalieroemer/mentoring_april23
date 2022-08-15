@@ -1,64 +1,103 @@
 {{ block title }}
-    Your bonus
+    <div id="title">
+        Your bonus
+    </div>
 {{ endblock }}
 
 {% block styles %}
 <style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
 </style>
 {% endblock %}
 
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("instr2", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c3", content)
+        sessionStorage.setItem("t3", title)
+    }
+</script>
+{% endblock %}
+
 {{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsInv.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-<p>
-    Your bonus consists of the amount you kept from the $1 endowment (and did not invest) and the returns to the money
-    you invested.
-</p>
-<p>
-    By investing, you can <b>triple your bonus to up to $3</b>. The returns to your investment depend on the accuracy of
-    this worker’s guess.
-</p>
+<div id="content">
+    <p>
+        Your bonus consists of the amount you kept from the $1 endowment (and did not invest) and the returns to the money
+        you invested.
+    </p>
+    <p>
+        By investing, you can <b>triple your bonus to up to $3</b>. The returns to your investment depend on the accuracy of
+        this worker’s guess.
+    </p>
+
+    <br>
+
+    <p>
+        <b>Your bonus</b> in a round will be defined as:
+    </p>
+    <p>
+        <b>
+            Bonus = (Remaining) Endowment + Investment (in $) * 3 * (100 – relative deviation of the guess from the true
+            value (in %))
+        </b>
+    </p>
+
+    <br>
+
+    <p>
+        To determine your bonus, we will <b>randomly choose one of your decisions</b>.
+    </p>
+    <p>
+        For example, if you invested all your endowment  ($1) in this round, you will receive the following bonus:
+    </p>
+    <ul>
+        <li>
+            If the accuracy of the worker’s guess <b>deviates by 0%</b> from the true value your <b>bonus will be 3$</b>.
+        </li>
+        <li>
+            If the accuracy of the worker’s guess <b>deviates by 50%</b> from the true value your <b>bonus will be 1.5$</b>.
+        </li>
+        <li>
+            If the accuracy of the worker’s guess <b>deviates by 75%</b> from the true value your <b>bonus will be 0.75$</b>.
+        </li>
+        <li>
+            If the accuracy of the worker’s guess <b>deviates by 100%</b> from the true value your <b>bonus will be 0$</b>.
+        </li>
+    </ul>
+    <p>
+        You cannot receive a negative bonus. If the guess deviates by more than 100% of the actual value, the return to your
+        investment will be 0.
+    </p>
+</div>
 
 <br>
-
-<p>
-    <b>Your bonus</b> in a round will be defined as:
-</p>
-<p>
-    <b>
-        Bonus = (Remaining) Endowment + Investment (in $) * 3 * (100 – relative deviation of the guess from the true
-        value (in %))
-    </b>
-</p>
-
-<br>
-
-<p>
-    To determine your bonus, we will <b>randomly choose one of your decisions</b>.
-</p>
-<p>
-    For example, if you invested all your endowment  ($1) in this round, you will receive the following bonus:
-</p>
-<ul>
-    <li>
-        If the accuracy of the worker’s guess <b>deviates by 0%</b> from the true value your <b>bonus will be 3$</b>.
-    </li>
-    <li>
-        If the accuracy of the worker’s guess <b>deviates by 50%</b> from the true value your <b>bonus will be 1.5$</b>.
-    </li>
-    <li>
-        If the accuracy of the worker’s guess <b>deviates by 75%</b> from the true value your <b>bonus will be 0.75$</b>.
-    </li>
-    <li>
-        If the accuracy of the worker’s guess <b>deviates by 100%</b> from the true value your <b>bonus will be 0$</b>.
-    </li>
-</ul>
-<p>
-    You cannot receive a negative bonus. If the guess deviates by more than 100% of the actual value, the return to your
-    investment will be 0.
-</p>
 
 <button class="otree-btn-next btn btn-primary">Next</button>
 

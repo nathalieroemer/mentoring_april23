@@ -1,9 +1,21 @@
 {{ block title }}
-    Your guess
+    <div id="title">
+        Your guess
+    </div>
 {{ endblock }}
 
 {% block styles %}
 <style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
@@ -87,6 +99,8 @@
 		pointer-events: none;
 		outline: none;
 		background-color: transparent;
+		padding-bottom: 12px;
+		height: 0px;
 	}
 
     /* thumb in Firefox */
@@ -223,24 +237,46 @@
             errorbox.innerHTML = "Please give an estimation";
         }
     }
+
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("estimate1", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c4", content)
+        sessionStorage.setItem("t4", title)
+    }
 </script>
 {% endblock %}
 
 {{ block content }}
-<p>
-    <img src="{{ static graphic }}"/>
-</p>
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-<p>
-    You guessed that there are {{player.guess}} dots in this picture.
-</p>
+<div id="content">
+    <p>
+        <img src="{{ static graphic }}"/>
+    </p>
 
-<p>
-    <label for="s1">
-    Please use the slider to indicate a high and a low estimate such that there is a 90% chance that the correct
-    answer falls between those numbers.
-</label>
-</p>
+    <p>
+        You guessed that there are {{player.guess}} dots in this picture.
+    </p>
+
+    <p>
+        <label for="s1">
+            Please use the slider to indicate a high and a low estimate such that there is a 90% chance that the correct
+            answer falls between those numbers.
+        </label>
+    </p>
+</div>
 
 <div class="input-group mb-3" style="max-width: 100%">
     <div class="input-group-prepend">

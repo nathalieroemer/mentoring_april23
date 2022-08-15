@@ -7,6 +7,16 @@
 
 {% block styles %}
 <style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
@@ -14,6 +24,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsInv.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
 <form>
     <div class="form-group required">

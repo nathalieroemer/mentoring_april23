@@ -2,65 +2,118 @@
 {% load otree static %}
 
 {% block title %}
-    Your task
+    <div id="title">
+        Your task
+    </div>
 {% endblock %}
 
 {% block styles %}
 <style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
 </style>
 {% endblock %}
 
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("instr1", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c2", content)
+        sessionStorage.setItem("t2", title)
+    }
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("instr1", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c2", content)
+        sessionStorage.setItem("t2", title)
+    }
+</script>
+{% endblock %}
+
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-<p>
-    In the following, you will be working as a mentor. You are matched with other workers, who had to guess the number
-    of dots in a picture, similar to the one below (see figure 1).
-</p>
-<p style="text-align: center">
-    <img src="{{ static 'graphic1.png' }}"/>
+<div id="content">
+    <p>
+        In the following, you will be working as a mentor. You are matched with other workers, who had to guess the number
+        of dots in a picture, similar to the one below (see figure 1).
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'graphic1.png' }}"/>
+        <br>
+        <i style="font-size: smaller">Figure 1</i>
+    </p>
+
+    <p>
+        These workers' earnings depend on how much a third party investor invests in their guess.
+    </p>
+    <p>
+        After having completed the task, these workers have to answer the following self-evaluation question:
+    </p>
     <br>
-    <i style="font-size: smaller">Figure 1</i>
-</p>
+    <p style="text-align: center">
+        <i>Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.</i>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'exampleGuess.png' }}"/>
+        <br>
+        <i style="font-size: smaller">Figure 2</i>
+    </p>
 
-<p>
-    These workers' earnings depend on how much a third party investor invests in their guess.
-</p>
-<p>
-    After having completed the task, these workers have to answer the following self-evaluation question:
-</p>
-<br>
-<p style="text-align: center">
-    <i>Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.</i>
-</p>
-<p style="text-align: center">
-    <img src="{{ static 'exampleGuess.png' }}"/>
-    <br>
-    <i style="font-size: smaller">Figure 2</i>
-</p>
-
-<p>
-    The worker’s answer to this question <i>"Please indicate how well you think you did in guessing the accurate number
-    of blue dots in the picture"</i> will be shown to the third party investors when making their investment decisions.
-    The investors earn more money, the better the guess of the worker they invested in is.
-</p>
-<p>
-    As a mentor, it is your task now to advice the workers you have been matched to - your mentees - on how to answer
-    the question <i>"Please indicate how well you think you did in guessing the accurate number of blue dots in the
-    picture"</i> best.
-</p>
-<p>
-    Therefore, we will ask you for your advice, depending on how well your mentee did in comparison to 3 randomly drawn
-    other workers that had to guess the number of dots in computer-generated pictures in a prior task. That is, we will
-    ask you to provide us with your advice, given that your mentee's guess was either the best, among this group of 4,
-    the second best, the third best, or the fourth best.
-</p>
-<p>
-    After matching you with your mentee and evaluating the mentee's performance, we will provide your mentee with the
-    corresponding advice.
-</p>
+    <p>
+        The worker’s answer to this question <i>"Please indicate how well you think you did in guessing the accurate number
+        of blue dots in the picture"</i> will be shown to the third party investors when making their investment decisions.
+        The investors earn more money, the better the guess of the worker they invested in is.
+    </p>
+    <p>
+        As a mentor, it is your task now to advice the workers you have been matched to - your mentees - on how to answer
+        the question <i>"Please indicate how well you think you did in guessing the accurate number of blue dots in the
+        picture"</i> best.
+    </p>
+    <p>
+        Therefore, we will ask you for your advice, depending on how well your mentee did in comparison to 3 randomly drawn
+        other workers that had to guess the number of dots in computer-generated pictures in a prior task. That is, we will
+        ask you to provide us with your advice, given that your mentee's guess was either the best, among this group of 4,
+        the second best, the third best, or the fourth best.
+    </p>
+    <p>
+        After matching you with your mentee and evaluating the mentee's performance, we will provide your mentee with the
+        corresponding advice.
+    </p>
+</div>
 
 <br>
 

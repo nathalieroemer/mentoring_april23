@@ -1,5 +1,7 @@
 {{ block title }}
-    Evaluate your performance
+    <div id="title">
+        Evaluate your performance
+    </div>
 {{ endblock }}
 
 {% block styles %}
@@ -8,6 +10,7 @@
         display:flex;
         flex-direction: column;
     }
+
     .box1 {
         flex: 1;
         display: flex;
@@ -19,6 +22,7 @@
         align-items: center;
         text-align: center;
     }
+
     .errormessage {
         display: flex;
         justify-content: center;
@@ -26,6 +30,17 @@
         color: red;
         font-size: 12px
     }
+
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
@@ -67,37 +82,49 @@
             document.getElementById('fake').style.display = 'none';
         }
     }
+
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("evaluation2", "true")
 </script>
 {% endblock %}
 
 {{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-<p>
-    In the following, you are again asked to evaluate your performance on the task (guessing the number of dots in the
-    picture) in this second round, by answering the question below. The answer <b>will be shown to your potential
-    investor</b>, who decides whether and how much to invest in your guess.
-</p>
-
-<form>
+<div id="content">
     <p>
-        <label for="prom">
-            Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.
-        </label>
+        In the following, you are again asked to evaluate your performance on the task (guessing the number of dots in the
+        picture) in this second round, by answering the question below. The answer <b>will be shown to your potential
+        investor</b>, who decides whether and how much to invest in your guess.
     </p>
-    <div class="box-container" id="prom">
-        <div class="row" style="margin-left: 10%; margin-right: 10%">
-            <div class="box1" onclick="sendValue('terrible')">Terrible</div>
-            <div class="box1" onclick="sendValue('very poor')">Very Poor</div>
-            <div class="box1" onclick="sendValue('poor')">Poor</div>
-            <div class="box1" onclick="sendValue('good')">Good</div>
-            <div class="box1" onclick="sendValue('very good')">Very Good</div>
-            <div class="box1" onclick="sendValue('exceptional')">Exceptional</div>
+
+    <form>
+        <p>
+            <label for="prom">
+                Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.
+            </label>
+        </p>
+        <div class="box-container" id="prom">
+            <div class="row" style="margin-left: 10%; margin-right: 10%">
+                <div class="box1" onclick="sendValue('terrible')">Terrible</div>
+                <div class="box1" onclick="sendValue('very poor')">Very Poor</div>
+                <div class="box1" onclick="sendValue('poor')">Poor</div>
+                <div class="box1" onclick="sendValue('good')">Good</div>
+                <div class="box1" onclick="sendValue('very good')">Very Good</div>
+                <div class="box1" onclick="sendValue('exceptional')">Exceptional</div>
+            </div>
+            <div class="row errormessage" id="error1" style="display: none">
+                <i>Please answer this question.</i>
+            </div>
         </div>
-        <div class="row errormessage" id="error1" style="display: none">
-            <i>Please answer this question.</i>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
 
 <br>
 

@@ -7,6 +7,16 @@
 
 {% block styles %}
 <style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
@@ -25,22 +35,22 @@
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
 
-    #customers {
+    #scenarios {
       font-family: Arial, Helvetica, sans-serif;
       border-collapse: collapse;
       width: 100%;
     }
 
-    #customers td, #customers th {
+    #scenarios td, #scenarios th {
       border: 1px solid #ddd;
       padding: 8px;
     }
 
-    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    #scenarios tr:nth-child(even){background-color: #f2f2f2;}
 
-    #customers tr:hover {background-color: #ddd;}
+    #scenarios tr:hover {background-color: #ddd;}
 
-    #customers th {
+    #scenarios th {
       padding-top: 12px;
       padding-bottom: 12px;
       text-align: left;
@@ -57,6 +67,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
 <p>
     In the following it is your task to indicate how you would advise your mentee to answer the question <i>"Please
@@ -67,11 +84,11 @@
 
 <form>
     <p>
-        <label for="customers">
+        <label for="scenarios">
             Please indicate which advice you want to give to your mentee in the following scenarios:
         </label>
     </p>
-    <table id="customers">
+    <table id="scenarios">
         <tr>
             <th>Scenario</th>
             <th>How would you advise your mentee to answer the question <i>"Please indicate how well you think you did

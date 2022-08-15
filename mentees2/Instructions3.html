@@ -1,42 +1,79 @@
 {{ block title }}
-    Your bonus
+    <div id="title">
+        Your bonus
+    </div>
 {{ endblock }}
 
 {% block styles %}
 <style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
     .btn {
         float: right
     }
 </style>
 {% endblock %}
 
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("instr3", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c6", content)
+        sessionStorage.setItem("t6", title)
+    }
+</script>
+{% endblock %}
+
 {{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-<p>
-    Your bonus equals the fraction of the investment you receive by the investor * 2 GBP.
-</p>
+<div id="content">
+    <p>
+        Your bonus equals the fraction of the investment you receive by the investor * 2 GBP.
+    </p>
 
-<p>
-    For example,
-</p>
-<ul>
-    <li>
-        If the third party invests 0% of their money in your guess, your bonus is 0.
-    </li>
-    <li>
-        If the third party invests 50% of their money in your guess, your bonus is 1 GBP.
-    </li>
-    <li>
-        If the third party invests 100% of their money in your guess, your bonus is 2 GBP.
-    </li>
-</ul>
-<p>
-    We will randomly select one of the following two rounds to determine your bonus.
-</p>
-<p>
-    The investor receives higher returns to their investment, the less your guess deviates from the correct number of
-    dots in the picture.
-</p>
+    <p>
+        For example,
+    </p>
+    <ul>
+        <li>
+            If the third party invests 0% of their money in your guess, your bonus is 0.
+        </li>
+        <li>
+            If the third party invests 50% of their money in your guess, your bonus is 1 GBP.
+        </li>
+        <li>
+            If the third party invests 100% of their money in your guess, your bonus is 2 GBP.
+        </li>
+    </ul>
+    <p>
+        We will randomly select one of the following two rounds to determine your bonus.
+    </p>
+    <p>
+        The investor receives higher returns to their investment, the less your guess deviates from the correct number of
+        dots in the picture.
+    </p>
+</div>
 
 <button class="otree-btn-next btn btn-primary">Next</button>
 

@@ -7,7 +7,7 @@ doc = """
 Your app description
 """
 
-# TODO: add prev. instr.
+# TODO: add prev. instr. (check with Nathalie whether also previous task pages for t3 should be shown)
 
 
 class C(BaseConstants):

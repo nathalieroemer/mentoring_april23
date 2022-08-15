@@ -5,7 +5,6 @@ doc = """
 Your app description
 """
 
-# TODO: add previous instr.
 # TODO: add Hault and Lory
 
 

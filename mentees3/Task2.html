@@ -1,5 +1,7 @@
 {{ block title }}
-    Task (Second round)
+    <div id="title">
+        Task (Second round)
+    </div>
 {{ endblock }}
 
 {% block styles %}
@@ -17,6 +19,16 @@
         border: 1px solid #ced4da;
         border-radius: .25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
     }
 
     .btn {
@@ -38,20 +50,41 @@
             }
         });
     });
+
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("task2", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c9", content)
+        sessionStorage.setItem("t9", title)
+    }
 </script>
 {% endblock %}
 
 {{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-<p>
-    Below, you see again a computer-generated picture with between 500 and 2000 blue dots. Please guess another time how
-    many blue dots are in this picture. Please indicate your guess below the picture. You again have 1 minute to come up
-    with your guess.
-</p>
+<div id="content">
+    <p>
+        Below, you see again a computer-generated picture with between 500 and 2000 blue dots. Please guess another time how
+        many blue dots are in this picture. Please indicate your guess below the picture. You again have 1 minute to come up
+        with your guess.
+    </p>
 
-<p>
-    <img src="{{ static graphic }}"/>
-</p>
+    <p>
+        <img src="{{ static graphic }}"/>
+    </p>
+</div>
 
 <label for="g">
         How many blue dots are in this picture?
