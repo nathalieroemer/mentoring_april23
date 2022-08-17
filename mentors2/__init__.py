@@ -42,7 +42,7 @@ def creating_session(subsession: Subsession):
 
 
 # PAGES
-class TaskOld(Page):
+class TaskOld(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = []
 

@@ -121,7 +121,7 @@ class T3Task(Page):
         player.advice = str(data)
 
 
-class TaskT3(Page):
+class TaskT3(Page):  # Not used at the moment
     @staticmethod
     def live_method(player: Player, data):
         # idea with the dict, can be ignored:
@@ -180,7 +180,7 @@ class TaskT3(Page):
         # print(player.participant.t3_answers)
 
 
-class T3Task1(Page):
+class T3Task1(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = [
         'top_terrible',
@@ -190,7 +190,7 @@ class T3Task1(Page):
     ]
 
 
-class T3Task2(Page):
+class T3Task2(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = [
         'top_verypoor',
@@ -200,7 +200,7 @@ class T3Task2(Page):
     ]
 
 
-class T3Task3(Page):
+class T3Task3(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = [
         'top_poor',
@@ -210,7 +210,7 @@ class T3Task3(Page):
     ]
 
 
-class T3Task4(Page):
+class T3Task4(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = [
         'top_good',
@@ -220,7 +220,7 @@ class T3Task4(Page):
     ]
 
 
-class T3Task5(Page):
+class T3Task5(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = [
         'top_verygood',
@@ -230,7 +230,7 @@ class T3Task5(Page):
     ]
 
 
-class T3Task6(Page):
+class T3Task6(Page):  # Not used at the moment
     form_model = 'player'
     form_fields = [
         'top_exceptional',
