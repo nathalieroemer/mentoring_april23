@@ -189,7 +189,6 @@
     let minGap = 0;
 
     let sliderTrack = document.querySelector(".slider-track");
-    console.log(sliderTrack);
     let sliderMaxValue = document.getElementById("s1").max;
 
     const errorbox = document.getElementById("errorm");
@@ -213,12 +212,9 @@
     }
 
     function fillColour(){
-        console.log("should work")
         percent1 = ((slider1.value - 500) / (sliderMaxValue - 500)) * 100;
         percent2 = ((slider2.value - 500) / (sliderMaxValue - 500)) * 100;
-        console.log(percent1, percent2);
         sliderTrack.style.background = `linear-gradient(to right, #d3d3d3 ${percent1}%, #007bff ${percent1}%, #007bff ${percent2}%, #d3d3d3 ${percent2}%)`;
-        console.log(sliderTrack.style.background);
     }
 
     function setClick() {
@@ -261,22 +257,22 @@
     </u>
 </div>
 
-<div id="content">
-    <p>
-        <img src="{{ static graphic }}"/>
-    </p>
 
+<p>
+    <img src="{{ static graphic }}"/>
+</p>
+<div id="content">
     <p>
         You guessed that there are {{player.guess}} dots in this picture.
     </p>
-
-    <p>
-        <label for="s1">
-            Please use the slider to indicate a high and a low estimate such that there is a 90% chance that the correct
-            answer falls between those numbers.
-        </label>
-    </p>
 </div>
+<p>
+    <label for="s1">
+        Please use the slider to indicate a high and a low estimate such that there is a 90% chance that the correct
+        answer falls between those numbers.
+    </label>
+</p>
+
 
 <div class="input-group mb-3" style="max-width: 100%">
     <div class="input-group-prepend">

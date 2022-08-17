@@ -41,22 +41,6 @@
 </script>
 {% endblock %}
 
-{% block scripts %}
-<script>
-    // Keep track of the currently opened page and the respective time:
-    sessionStorage.setItem("instr1", "true")
-
-    // Take the new contents:
-    let content = document.getElementById("content").innerHTML
-    let title = document.getElementById("title").innerHTML
-
-    if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c2", content)
-        sessionStorage.setItem("t2", title)
-    }
-</script>
-{% endblock %}
-
 {% block content %}
 <div class="prevIns">
     <u>

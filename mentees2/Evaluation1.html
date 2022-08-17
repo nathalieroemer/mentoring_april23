@@ -53,7 +53,6 @@
 
     boxes1.forEach(box => {
         box.addEventListener('click', function handleClick(event) {
-            console.log('box clicked', event);
             boxes1.forEach(box => {
                 box.setAttribute('style', 'background-color: #ccc;');
             });
@@ -66,7 +65,7 @@
     function sendValue(value) {
         liveSend(value)
         // Save selection for previous instructions
-        sessionStorage.setItem("selection1", value)
+        sessionStorage.setItem("selection1", value + '1');
         b1 = true;
         document.getElementById('error1').style.display = 'none';
         checkCompletion();
@@ -135,12 +134,12 @@
         </p>
         <div class="box-container" id="prom">
             <div class="row" style="margin-left: 10%; margin-right: 10%">
-                <div class="box1" id="terrible" onclick="sendValue('terrible')">Terrible</div>
-                <div class="box1" id="verypoor" onclick="sendValue('very poor')">Very Poor</div>
-                <div class="box1" id="poor" onclick="sendValue('poor')">Poor</div>
-                <div class="box1" id="good" onclick="sendValue('good')">Good</div>
-                <div class="box1" id="verygood" onclick="sendValue('very good')">Very Good</div>
-                <div class="box1" id="exceptional" onclick="sendValue('exceptional')">Exceptional</div>
+                <div class="box1" id="terrible1" onclick="sendValue('terrible')">Terrible</div>
+                <div class="box1" id="very poor1" onclick="sendValue('very poor')">Very Poor</div>
+                <div class="box1" id="poor1" onclick="sendValue('poor')">Poor</div>
+                <div class="box1" id="good1" onclick="sendValue('good')">Good</div>
+                <div class="box1" id="very good1" onclick="sendValue('very good')">Very Good</div>
+                <div class="box1" id="exceptional1" onclick="sendValue('exceptional')">Exceptional</div>
             </div>
             <div class="row errormessage" id="error1" style="display: none">
                 <i>Please answer this question.</i>

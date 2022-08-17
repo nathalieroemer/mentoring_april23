@@ -5,8 +5,6 @@ doc = """
 Your app description
 """
 
-# TODO: add Hault and Lory
-
 
 class C(BaseConstants):
     NAME_IN_URL = 'investors1'

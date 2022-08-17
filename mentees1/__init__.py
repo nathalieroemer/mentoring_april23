@@ -1,6 +1,8 @@
 import itertools
 import pandas as pd
 import random
+from os import listdir
+from os.path import isfile, join
 
 from otree.api import *
 
@@ -10,7 +12,6 @@ Your app description
 """
 
 # TODO: add partial payment when timeout in second round?
-# TODO: add more graphics and adjust code accordingly
 
 
 class C(BaseConstants):
@@ -18,8 +19,8 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
-    # Has to be changed to number of possible graphics:
-    NUM_GRAPHICS = 1
+    # Lists all possible graphics:
+    GRAPHICS = [f for f in listdir("_static/graphics") if isfile(join("_static/graphics", f))]
 
     mentordata = pd.read_csv(
         "testdata.csv",
@@ -99,6 +100,7 @@ class Player(BasePlayer):
     workerid = models.StringField()
     mentor = models.StringField()
     graphic = models.StringField()
+    numdots = models.IntegerField()
 
     consent1 = models.IntegerField(initial=0)
     consent2 = models.IntegerField(initial=0)
@@ -128,8 +130,11 @@ def creating_session(subsession: Subsession):
             p.treat = 't1'
         p.participant.treat = p.treat
         i = i + 1
-        p.graphic = 'graphic{}.png'.format(random.randint(1, C.NUM_GRAPHICS))
+        p.graphic = random.choice(C.GRAPHICS)
         p.participant.graphic = p.graphic
+        # save number of dots of graphic:
+        p.numdots = int(p.graphic[8:-4])
+        p.participant.numdots = p.numdots
         # timeout booleans set to initial:
         p.participant.timeout = 0
         p.participant.timeout2 = 0

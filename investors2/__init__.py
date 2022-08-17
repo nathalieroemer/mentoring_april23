@@ -75,8 +75,7 @@ class Task(Page):
         w = random.choice(potworkers)
         player.worker = C.mdf["participant.code"][w]
 
-        # TODO: rel deviation is not correctly calculated! wait for Nathalie's response
-        rel_dev = abs((C.mdf["mentees2.1.player.truevalue"][w]-C.mdf["mentees2.1.player.guess"][w])/C.mdf["mentees2.1.player.truevalue"][w])
+        rel_dev = abs((C.mdf["mentees2.1.player.guess"][w]-C.mdf["mentees2.1.player.truevalue"][w])/C.mdf["mentees2.1.player.truevalue"][w])
         print(rel_dev)
 
         if player.scenario == "terrible":

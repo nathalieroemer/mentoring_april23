@@ -99,9 +99,8 @@ class Task1(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        print(player.participant.bm_dev)
         return dict(
-            graphic=player.participant.graphic
+            graphic="graphics/"+player.participant.graphic
         )
 
     @staticmethod
@@ -114,11 +113,12 @@ class Task1(Page):
             par.timeout = False
             h = 1
             for i in par.bm_dev:
-                # TODO: 1500 has to be actual number of dots
-                if i < abs(1500 - player.guess):
+                if i < abs(par.numdots - player.guess):
                     h = h + 1
             # the lower h the better (1<=h<=4)
             player.rel_perf = h
+            print(par.numdots)
+            print(player.guess)
             print(player.rel_perf)
 
     @staticmethod
@@ -139,7 +139,7 @@ class Estimate1(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(
-            graphic=player.participant.graphic,
+            graphic="graphics/"+player.participant.graphic,
             guess=player.guess
         )
 

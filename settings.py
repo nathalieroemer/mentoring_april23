@@ -67,7 +67,10 @@ PARTICIPANT_FIELDS = [
     'mentor',
     't3_answers',
     'graphic',
-    'bm_dev'
+    'numdots',
+    'bm_dev',
+    'performances',
+    'scenarios'
 ]
 SESSION_FIELDS = [
     't2_groups',

@@ -44,14 +44,13 @@
     let pre = js_vars.prevansw;
 
     window.onload = function() {
-        x = document.getElementById(pre);
+        x = document.getElementById(pre + '2');
         x.setAttribute('style', 'background-color: #6495ED')
     };
     const boxes1 = document.querySelectorAll('.box1');
 
     boxes1.forEach(box => {
         box.addEventListener('click', function handleClick(event) {
-            console.log('box clicked', event);
             boxes1.forEach(box => {
                 box.setAttribute('style', 'background-color: #ccc;');
             });
@@ -64,7 +63,7 @@
     function sendValue(value) {
         liveSend(value)
         // Save selection for previous instructions
-        sessionStorage.setItem("selection2", value)
+        sessionStorage.setItem("selection2", value + '2');
         b1 = true;
         checkCompletion();
     };
@@ -146,12 +145,12 @@
         </p>
         <div class="box-container" id="prom">
             <div class="row" style="margin-left: 10%; margin-right: 10%">
-                <div class="box1" id="terrible" onclick="sendValue('terrible')">Terrible</div>
-                <div class="box1" id="very poor" onclick="sendValue('very poor')">Very Poor</div>
-                <div class="box1" id="poor" onclick="sendValue('poor')">Poor</div>
-                <div class="box1" id="good" onclick="sendValue('good')">Good</div>
-                <div class="box1" id="very good" onclick="sendValue('very good')">Very Good</div>
-                <div class="box1" id="exceptional" onclick="sendValue('exceptional')">Exceptional</div>
+                <div class="box1" id="terrible2" onclick="sendValue('terrible')">Terrible</div>
+                <div class="box1" id="very poor2" onclick="sendValue('very poor')">Very Poor</div>
+                <div class="box1" id="poor2" onclick="sendValue('poor')">Poor</div>
+                <div class="box1" id="good2" onclick="sendValue('good')">Good</div>
+                <div class="box1" id="very good2" onclick="sendValue('very good')">Very Good</div>
+                <div class="box1" id="exceptional2" onclick="sendValue('exceptional')">Exceptional</div>
             </div>
         </div>
     </form>

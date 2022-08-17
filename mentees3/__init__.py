@@ -1,4 +1,6 @@
 import random
+from os import listdir
+from os.path import isfile, join
 
 from otree.api import *
 
@@ -12,7 +14,9 @@ class C(BaseConstants):
     NAME_IN_URL = 'mentees3'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-    NUM_GRAPHICS = 1
+
+    # Lists all possible graphics:
+    GRAPHICS = [f for f in listdir("_static/graphics") if isfile(join("_static/graphics", f))]
 
 
 class Subsession(BaseSubsession):
@@ -26,6 +30,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     treat = models.StringField()
     graphic = models.StringField()
+    numdots = models.IntegerField()
 
     timeout = models.BooleanField(initial=False)
     guess = models.IntegerField()
@@ -38,7 +43,13 @@ class Player(BasePlayer):
 def creating_session(subsession: Subsession):
     # graphic assignment
     for p in subsession.get_players():
-        p.graphic = 'graphic{}.png'.format(random.randint(1, C.NUM_GRAPHICS))
+        # p.participant.graphic still has graphic from first task saved, can be used to reduce possible graphics to
+        # remaining three
+        gr_left = [x for x in C.GRAPHICS if x != p.participant.graphic]
+        p.graphic = random.choice(gr_left)
+        # save number of dots of graphic:
+        p.numdots = int(p.graphic[8:-4])
+
         p.treat = p.participant.treat
 
 
@@ -54,7 +65,7 @@ class Task2(Page):
     def vars_for_template(player: Player):
         print(player.participant.bm_dev)
         return dict(
-            graphic=player.graphic
+            graphic="graphics/"+player.graphic
         )
 
     @staticmethod
@@ -84,7 +95,7 @@ class Estimate2(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(
-            graphic=player.graphic,
+            graphic="graphics/"+player.graphic,
             guess=player.guess
         )
 
