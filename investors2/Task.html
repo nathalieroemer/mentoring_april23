@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    You passed the attention check!
+    Your investment decision
 {% endblock %}
 
 {% block styles %}
@@ -55,7 +55,7 @@
       padding-top: 12px;
       padding-bottom: 12px;
       text-align: left;
-      background-color: #5F9EA0;
+      background-color: #0d6efd;
       color: white;
     }
 
@@ -72,7 +72,7 @@
 <script>
     function show_NI(obj, value, output) {
         obj.setCustomValidity('');
-        output.innerHTML = "$ " + (1-value).toFixed(2).toString()
+        output.innerHTML = (100-value).toString() + " cents"
     }
 </script>
 {% endblock %}
@@ -92,8 +92,8 @@
     blue dots in the picture."</i> on a scale from 1-Terrible to 6-Exceptional.
 </p>
 <p>
-    For your bonus, we will randomly select a worker and implement your investment decision, corresponding to your below
-    stated allocation. Your bonus will equal the returns from this investment.
+    For your bonus, we will <b>randomly select a worker and implement your investment decision</b>, corresponding to
+    your below stated allocation. <b>Your bonus will equal the returns from this investment</b>.
 </p>
 <p>
     Please indicate in the second column, how much you want to invest from 0 to $1. The right column will update
@@ -104,89 +104,89 @@
 
 <form>
     <table id="customers">
-      <tr>
-        <th>Scenario</th>
-        <th>How much out of $1 do you want to invest?</th>
-        <th>Not invested</th>
-      </tr>
-      <tr>
-        <td>
-            On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
-            <span style="color: red">1 - Terrible</span> when answering the question: "Please indicate how well you think
-            you did in guessing the accurate number of blue dots in the picture."
-        </td>
-        <td>
-            <div class="sameline">
-                $&nbsp<input type="number" class="numberinput" name="inv_ter" id="s1" min="0" max="1" step=".01" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and $1 with a maximum of two decimal places.')" oninput="show_NI(this, this.value, out1)">
-            </div>
-        </td>
-        <td id="out1" style="text-align: center">$ 1.00</td>
-      </tr>
-      <tr>
-        <td>
-            On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
-            <span style="color: red">2 - Very poor</span> when answering the question: "Please indicate how well you think
-            you did in guessing the accurate number of blue dots in the picture."
-        </td>
-        <td>
-            <div class="sameline">
-                $&nbsp<input type="number" class="numberinput" name="inv_vp" id="s2" min="0" max="1" step=".01" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and $1 with a maximum of two decimal places.')" oninput="show_NI(this, this.value, out2)">
-            </div>
-        </td>
-        <td id="out2" style="text-align: center">$ 1.00</td>
-      </tr>
-      <tr>
-        <td>
-            On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
-            <span style="color: red">3 - Poor</span> when answering the question: "Please indicate how well you think
-            you did in guessing the accurate number of blue dots in the picture."
-        </td>
-        <td>
-            <div class="sameline">
-                $&nbsp<input type="number" class="numberinput" name="inv_p" id="s3" min="0" max="1" step=".01" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and $1 with a maximum of two decimal places.')" oninput="show_NI(this, this.value, out3)">
-            </div>
-        </td>
-        <td id="out3" style="text-align: center">$ 1.00</td>
-      </tr>
-      <tr>
-        <td>
-            On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
-            <span style="color: red">4 - Good</span> when answering the question: "Please indicate how well you think
-            you did in guessing the accurate number of blue dots in the picture."
-        </td>
-        <td>
-            <div class="sameline">
-                $&nbsp<input type="number" class="numberinput" name="inv_g" id="s4" min="0" max="1" step=".01" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and $1 with a maximum of two decimal places.')" oninput="show_NI(this, this.value, out4)">
-            </div>
-        </td>
-        <td id="out4" style="text-align: center">$ 1.00</td>
-      </tr>
-      <tr>
-        <td>
-            On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
-            <span style="color: red">5 - Very Good</span> when answering the question: "Please indicate how well you think
-            you did in guessing the accurate number of blue dots in the picture."
-        </td>
-        <td>
-            <div class="sameline">
-                $&nbsp<input type="number" class="numberinput" name="inv_vg" id="s5" min="0" max="1" step=".01" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and $1 with a maximum of two decimal places.')" oninput="show_NI(this, this.value, out5)">
-            </div>
-        </td>
-        <td id="out5" style="text-align: center">$ 1.00</td>
-      </tr>
-      <tr>
-        <td>
-            On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
-            <span style="color: red">6 - Exceptional</span> when answering the question: "Please indicate how well you think
-            you did in guessing the accurate number of blue dots in the picture."
-        </td>
-        <td>
-            <div class="sameline">
-                $&nbsp<input type="number" class="numberinput" name="inv_exc" id="s6" min="0" max="1" step=".01" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and $1 with a maximum of two decimal places.')" oninput="show_NI(this, this.value, out6)">
-            </div>
-        </td>
-        <td id="out6" style="text-align: center">$ 1.00</td>
-      </tr>
+        <tr>
+            <th>Scenario</th>
+            <th>How much out of $1 do you want to invest?</th>
+            <th>Not invested</th>
+        </tr>
+        <tr>
+            <td>
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                <span style="color: red">1 - Terrible</span> when answering the question: "Please indicate how well you think
+                you did in guessing the accurate number of blue dots in the picture."
+            </td>
+            <td>
+                <div class="sameline">
+                    <input type="number" class="numberinput" name="inv_ter" id="s1" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out1)">&nbspcents
+                </div>
+            </td>
+            <td id="out1" style="text-align: center">100 cents</td>
+        </tr>
+        <tr>
+            <td>
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                <span style="color: red">2 - Very poor</span> when answering the question: "Please indicate how well you think
+                you did in guessing the accurate number of blue dots in the picture."
+            </td>
+            <td>
+                <div class="sameline">
+                    <input type="number" class="numberinput" name="inv_vp" id="s2" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out2)">&nbspcents
+                </div>
+            </td>
+            <td id="out2" style="text-align: center">100 cents</td>
+        </tr>
+        <tr>
+            <td>
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                <span style="color: red">3 - Poor</span> when answering the question: "Please indicate how well you think
+                you did in guessing the accurate number of blue dots in the picture."
+            </td>
+            <td>
+                <div class="sameline">
+                    <input type="number" class="numberinput" name="inv_p" id="s3" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out3)">&nbspcents
+                </div>
+            </td>
+            <td id="out3" style="text-align: center">100 cents</td>
+        </tr>
+        <tr>
+            <td>
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                <span style="color: red">4 - Good</span> when answering the question: "Please indicate how well you think
+                you did in guessing the accurate number of blue dots in the picture."
+            </td>
+            <td>
+                <div class="sameline">
+                    <input type="number" class="numberinput" name="inv_g" id="s4" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out4)">&nbspcents
+                </div>
+            </td>
+            <td id="out4" style="text-align: center">100 cents</td>
+        </tr>
+        <tr>
+            <td>
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                <span style="color: red">5 - Very Good</span> when answering the question: "Please indicate how well you think
+                you did in guessing the accurate number of blue dots in the picture."
+            </td>
+            <td>
+                <div class="sameline">
+                    <input type="number" class="numberinput" name="inv_vg" id="s5" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out5)">&nbspcents
+                </div>
+            </td>
+            <td id="out5" style="text-align: center">100 cents</td>
+        </tr>
+        <tr>
+            <td>
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                <span style="color: red">6 - Exceptional</span> when answering the question: "Please indicate how well you think
+                you did in guessing the accurate number of blue dots in the picture."
+            </td>
+            <td>
+                <div class="sameline">
+                    <input type="number" class="numberinput" name="inv_exc" id="s6" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out6)">&nbspcents
+                </div>
+            </td>
+            <td id="out6" style="text-align: center">100 cents</td>
+          </tr>
     </table>
 </form>
 

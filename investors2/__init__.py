@@ -29,9 +29,11 @@ class C(BaseConstants):
             "mentees2.1.player.evaluation2"
         ]
     )
-    mdf = mdf[mdf["participant._current_page_name"] == "End"]
+    mdf = mdf[mdf["participant._current_page_name"] == "End"].reset_index(drop=True)
+    # print(mdf)
 
     scenarios = list(dict.fromkeys(mdf["mentees2.1.player.evaluation2"]))
+    # print(scenarios)
 
 
 class Subsession(BaseSubsession):
@@ -70,26 +72,32 @@ class Task(Page):
     def before_next_page(player: Player, timeout_happened):
         # random scenario drawn and random worker with respective self-evaluation assigned
         player.scenario = random.choice(C.scenarios)
+        # print(player.scenario)
         # list of index values that refer to all workers with respective self-evaluation:
         potworkers = [i for i, x in enumerate(C.mdf["mentees2.1.player.evaluation2"]) if x == player.scenario]
+        # print(potworkers)
         w = random.choice(potworkers)
+        # print(w)
         player.worker = C.mdf["participant.code"][w]
+        # print(player.worker)
 
         rel_dev = abs((C.mdf["mentees2.1.player.guess"][w]-C.mdf["mentees2.1.player.truevalue"][w])/C.mdf["mentees2.1.player.truevalue"][w])
-        print(rel_dev)
+        # print(rel_dev)
+
+        # print(player.inv_ter/100)
 
         if player.scenario == "terrible":
-            player.payoff = cu((1 - player.inv_ter) + player.inv_ter * 3 * (1 - rel_dev))
+            player.payoff = cu(round((1 - (player.inv_ter/100)) + (player.inv_ter/100) * 3 * (1 - rel_dev), 2))
         elif player.scenario == "very poor":
-            player.payoff = cu((1 - player.inv_ter) + player.inv_vp * 3 * (1 - rel_dev))
+            player.payoff = cu(round((1 - (player.inv_vp/100)) + (player.inv_vp/100) * 3 * (1 - rel_dev), 2))
         elif player.scenario == "poor":
-            player.payoff = cu((1 - player.inv_ter) + player.inv_p * 3 * (1 - rel_dev))
+            player.payoff = cu(round((1 - (player.inv_p/100)) + (player.inv_p/100) * 3 * (1 - rel_dev), 2))
         elif player.scenario == "good":
-            player.payoff = cu((1 - player.inv_ter) + player.inv_g * 3 * (1 - rel_dev))
+            player.payoff = cu(round((1 - (player.inv_g/100)) + (player.inv_g/100) * 3 * (1 - rel_dev), 2))
         elif player.scenario == "very good":
-            player.payoff = cu((1 - player.inv_ter) + player.inv_vg * 3 * (1 - rel_dev))
+            player.payoff = cu(round((1 - (player.inv_vg/100)) + (player.inv_vg/100) * 3 * (1 - rel_dev), 2))
         elif player.scenario == "exceptional":
-            player.payoff = cu((1 - player.inv_ter) + player.inv_exc * 3 * (1 - rel_dev))
+            player.payoff = cu(round((1 - (player.inv_exc/100)) + (player.inv_exc/100) * 3 * (1 - rel_dev), 2))
 
 
 page_sequence = [Task]

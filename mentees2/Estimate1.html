@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Your guess
+        How sure are you about your guess?
     </div>
 {{ endblock }}
 
@@ -229,8 +229,8 @@
 
     function validateForm() {
         if (click !== 1) {
-            slider1.setCustomValidity("Please give an estimation.");
-            errorbox.innerHTML = "Please give an estimation";
+            //slider1.setCustomValidity("Please answer this question");
+            errorbox.innerHTML = "Please answer this question";
         }
     }
 
@@ -268,11 +268,10 @@
 </div>
 <p>
     <label for="s1">
-        Please use the slider to indicate a high and a low estimate such that there is a 90% chance that the correct
-        answer falls between those numbers.
+        Please use the slider to indicate a <b>high and a low estimate</b> such that there is a <b>90% chance that the
+        correct answer falls between those numbers</b>.
     </label>
 </p>
-
 
 <div class="input-group mb-3" style="max-width: 100%">
     <div class="input-group-prepend">

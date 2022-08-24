@@ -41,34 +41,34 @@
 
 <form>
     <div class="form-group required">
-        <label class="col-form-label" for="id_testq_0">If I invest $0 in a worker whose accuracy of the guess was 100% my bonus is calculated as follows:</label>
+        <label class="col-form-label" for="id_testq_0">Your bonus will be higher...</label>
         <div class="controls  field-testq">
             <ul id="id_testq">
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-                        $1 (remaining endowment) + $1 (investment) * 3 * 100% = $4
+                        ... the faster you make your investment decision.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_1">
                         <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     $0.50 (remaining endowment) + 0.50$ (investment) * 3 * 0% = $0.50
+                     ... the more the guess of the worker you invested in deviates from the actual number of blue dots in the picture.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_2">
                         <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     $0.50 (remaining endowment) + 0.50$ (investment) * 3 * 100% = $2
+                     ... the less you invest in a worker’s guess.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_3">
                         <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     $1 (remaining endowment) + $0 (investment) * 3 * 100% = $1
+                     ... the closer the guess of the worker you invested in is to the actual number of blue dots in the picture.
                     </label>
                 </li>
             </ul>

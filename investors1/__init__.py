@@ -30,7 +30,7 @@ class Player(BasePlayer):
     consent5 = models.IntegerField(initial=0)
 
     test1 = models.IntegerField()
-    test2 = models.IntegerField()
+    # test2 = models.IntegerField()
 
 
 # PAGES
@@ -105,4 +105,4 @@ class Attention2(Page):
             pass
 
 
-page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1, Attention2]
+page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1]
