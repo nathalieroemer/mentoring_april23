@@ -272,10 +272,20 @@
     <br>
 
     <label for="dev">
-        By how many dots do you think, does your guess differ from the actual number of dots?
+        By how many dots do you think, does your guess differ from the actual number of dots? Please indicate a number.
     </label>
     <div class="sameline">
-        <input type="number" class="numberinput" name="deviation" id="dev" min="0" max="1500" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="this.setCustomValidity('')">&nbspdots
+        By&nbsp<input type="number" class="numberinput" name="deviation" id="dev" min="0" max="1500" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 1500.')" oninput="this.setCustomValidity('')">&nbspdots
+    </div>
+
+    <br>
+
+    <label for="dev_comp">
+        By how many dots do you think, do the guesses of your competitors differ, on average, from the actual number of
+        dots? Please indicate a number.
+    </label>
+    <div class="sameline">
+        By&nbsp<input type="number" class="numberinput" name="deviation_comp" id="dev_comp" min="0" max="1500" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 1500.')" oninput="this.setCustomValidity('')">&nbspdots
     </div>
 
     <br>

@@ -117,9 +117,6 @@ class Task1(Page):
                     h = h + 1
             # the lower h the better (1<=h<=4)
             player.rel_perf = h
-            print(par.numdots)
-            print(player.guess)
-            print(player.rel_perf)
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
@@ -232,7 +229,6 @@ class FinalSub(Page):
 
             # replace(" ", "") removes whitespaces
             answ = player.evaluation.replace(" ", "")
-            print(answ)
 
             a = C.t3_mentors['mentors2_t3.1.player.{}_{}'.format(perf, answ)][par.mentor]
 

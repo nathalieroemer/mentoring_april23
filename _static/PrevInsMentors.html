@@ -70,11 +70,11 @@
             document.getElementById("title1").innerHTML = "Overview";
             document.getElementById("content1").innerHTML = sessionStorage.getItem("c1");
 
-            if (sessionStorage.getItem("attention")) {
+            if (sessionStorage.getItem("instr2")) {
                 document.getElementById("title2").innerHTML = sessionStorage.getItem("t2");
                 document.getElementById("content2").innerHTML = sessionStorage.getItem("c2");
 
-                if (sessionStorage.getItem("task")) {
+                if (sessionStorage.getItem("attention")) {
                     document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
                     document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
                 }

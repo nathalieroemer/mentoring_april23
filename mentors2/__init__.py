@@ -83,7 +83,7 @@ class Task(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         player.participant.performances.remove(player.performance)
-        print(player.participant.performances)
+        # print(player.participant.performances)
 
     @staticmethod
     def live_method(player: Player, data):

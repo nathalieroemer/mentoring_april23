@@ -29,6 +29,7 @@ class Player(BasePlayer):
     stereo = models.IntegerField()
     bonusest = models.FloatField()
     deviation = models.IntegerField()
+    deviation_comp = models.IntegerField()
     riskpref = models.IntegerField()
     comp = models.IntegerField()
 
@@ -46,6 +47,7 @@ class Quest(Page):
         'eng_prof',
         'diff',
         'deviation',
+        'deviation_comp',
         'stereo',
         'bonusest',
         'riskpref',

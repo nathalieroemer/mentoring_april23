@@ -79,6 +79,10 @@ class Instructions1(Page):
     pass
 
 
+class Instructions2(Page):
+    pass
+
+
 class Attention1(Page):
     form_model = 'player'
     form_fields = [
@@ -99,16 +103,10 @@ class Attention1(Page):
         if par.test_passed == 0:
             return upcoming_apps[2]
         else:
-            pass
+            if player.treat == 't3':
+                return upcoming_apps[1]
+            else:
+                pass
 
 
-class Instructions2(Page):
-    @staticmethod
-    def app_after_this_page(player: Player, upcoming_apps):
-        if player.treat == 't3':
-            return upcoming_apps[1]
-        else:
-            pass
-
-
-page_sequence = [Welcome, Consent, Instructions1, Attention1, Instructions2]
+page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1]
