@@ -27,7 +27,7 @@ class C(BaseConstants):
         delimiter=";",
         encoding="latin1"
     )
-    mdf = pd.DataFrame(
+    mdf = pd.DataFrame(  # mentor data frame
         mentordata,
         columns=[
             "participant.code",
