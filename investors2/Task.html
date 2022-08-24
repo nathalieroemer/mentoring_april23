@@ -70,9 +70,16 @@
 
 {% block scripts%}
 <script>
-    function show_NI(obj, value, output) {
+    function show_NI(obj, output) {
         obj.setCustomValidity('');
-        output.innerHTML = (100-value).toString() + " cents"
+
+        if (obj.value > 100) {
+            obj.value = 100
+        }
+        if (obj.value < 0) {
+            obj.value = 0
+        }
+        output.innerHTML = (100-obj.value).toString() + " cents"
     }
 </script>
 {% endblock %}
@@ -96,7 +103,7 @@
     your below stated allocation. <b>Your bonus will equal the returns from this investment</b>.
 </p>
 <p>
-    Please indicate in the second column, how much you want to invest from 0 to $1. The right column will update
+    Please indicate in the second column, how much you want to invest from 0 to 100 cents. The right column will update
     automatically showing the kept endowment.
 </p>
 
@@ -117,7 +124,7 @@
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="inv_ter" id="s1" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out1)">&nbspcents
+                    <input type="number" class="numberinput" name="inv_ter" id="s1" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, out1)">&nbspcents
                 </div>
             </td>
             <td id="out1" style="text-align: center">100 cents</td>
@@ -130,7 +137,7 @@
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="inv_vp" id="s2" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out2)">&nbspcents
+                    <input type="number" class="numberinput" name="inv_vp" id="s2" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, out2)">&nbspcents
                 </div>
             </td>
             <td id="out2" style="text-align: center">100 cents</td>
@@ -143,7 +150,7 @@
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="inv_p" id="s3" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out3)">&nbspcents
+                    <input type="number" class="numberinput" name="inv_p" id="s3" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, out3)">&nbspcents
                 </div>
             </td>
             <td id="out3" style="text-align: center">100 cents</td>
@@ -156,7 +163,7 @@
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="inv_g" id="s4" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out4)">&nbspcents
+                    <input type="number" class="numberinput" name="inv_g" id="s4" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, out4)">&nbspcents
                 </div>
             </td>
             <td id="out4" style="text-align: center">100 cents</td>
@@ -169,7 +176,7 @@
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="inv_vg" id="s5" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out5)">&nbspcents
+                    <input type="number" class="numberinput" name="inv_vg" id="s5" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, out5)">&nbspcents
                 </div>
             </td>
             <td id="out5" style="text-align: center">100 cents</td>
@@ -182,7 +189,7 @@
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="inv_exc" id="s6" min="0" max="100" step="1" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, this.value, out6)">&nbspcents
+                    <input type="number" class="numberinput" name="inv_exc" id="s6" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 cents.')" oninput="show_NI(this, out6)">&nbspcents
                 </div>
             </td>
             <td id="out6" style="text-align: center">100 cents</td>
