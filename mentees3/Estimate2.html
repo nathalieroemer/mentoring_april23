@@ -231,6 +231,8 @@
     }
     slider1.onclick = setClick;
     slider2.onclick = setClick;
+    slider1.ontouchstart = setClick;
+    slider2.ontouchstart = setClick;
 
     function validateForm() {
         if (click !== 1) {
