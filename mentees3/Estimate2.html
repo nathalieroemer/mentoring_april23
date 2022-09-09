@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Your guess
+        How sure are you about your guess in round 2?
     </div>
 {{ endblock }}
 
@@ -18,6 +18,11 @@
 
     .btn {
         float: right
+    }
+
+    .resp {
+        max-width: 100%;
+        height: auto;
     }
 
     .output-cont {
@@ -259,7 +264,7 @@
 
 
 <p>
-    <img src="{{ static graphic }}"/>
+    <img src="{{ static graphic }}" class="resp"/>
 </p>
 <div id="content">
     <p>

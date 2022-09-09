@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Your previous answer
+        Your final submission
     </div>
 {{ endblock }}
 
@@ -21,6 +21,8 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        overflow: hidden;
+        font-size: min(2vw, 1rem);
     }
 
     .prevIns{
@@ -102,7 +104,7 @@
     {{ if player.treat == 't3' }}
     <p>
         You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
-        rank relative to 3 other workers. These 3 workers were selected by chance among workers that – similar to you -
+        rank relative to 3 other workers. These 3 workers were selected by chance among workers that - similar to you -
         had to guess the number of dots in computer-generated pictures in a previous task.
     </p>
     <p>
@@ -111,7 +113,7 @@
         following advice:
     </p>
     <p>
-        On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advices you to choose {{advice}}</b> when answering the
+        On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advices you to choose <span style="color: red">{{ advice }}</span></b> when answering the
         question below.
     </p>
     {{ endif }}
@@ -119,11 +121,11 @@
     {{ if player.treat == 't4' }}
     <p>
         You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
-        rank relative to 3 other workers. These 3 workers were selected by chance among workers that – similar to you -
+        rank relative to 3 other workers. These 3 workers were selected by chance among workers that - similar to you -
         had to guess the number of dots in computer-generated pictures in a previous task.
     </p>
     <p>
-        On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advises you to choose {{advice}}</b> when answering the
+        On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advises you to choose <span style="color: red">{{ advice }}</span></b> when answering the
         question below.
     </p>
     {{ endif }}
@@ -143,7 +145,7 @@
     <form>
         <p>
             <label for="prom">
-                Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.
+                Please indicate how well you think you did in guessing the accurate number of blue dots in the picture:
             </label>
         </p>
         <div class="box-container" id="prom">
