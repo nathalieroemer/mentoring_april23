@@ -39,15 +39,12 @@
     .btn {
         float: right
     }
-
-    .otree-timer {
-        display: none;
-    }
 </style>
 {% endblock %}
 
 {% block scripts %}
 <script>
+    /*
     document.addEventListener("DOMContentLoaded", function (event) {
         $('.otree-timer__time-left').on('update.countdown', function (event) {
             if (event.offset.totalSeconds === 10) {
@@ -55,6 +52,7 @@
             }
         });
     });
+    */
 
     // Keep track of the currently opened page and the respective time:
     sessionStorage.setItem("task2", "true")

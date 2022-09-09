@@ -26,10 +26,7 @@ class Player(BasePlayer):
     eng_prof = models.IntegerField(
         blank=True
     )
-    diffdots = models.IntegerField()
-    deviation = models.IntegerField()
     diffadvice = models.IntegerField()
-    bonusest = models.FloatField()
     riskpref = models.IntegerField()
     comp = models.IntegerField()
 
@@ -44,10 +41,7 @@ class Quest(Page):
     form_fields = [
         'native',
         'eng_prof',
-        'diffdots',
-        'deviation',
         'diffadvice',
-        'bonusest',
         'riskpref',
         'comp'
     ]

@@ -83,69 +83,7 @@
     <br>
 
     <p>
-        How difficult did you find it to guess the right number of dots in the picture?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="d0">Not difficult at all</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d6">Very difficult</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="d0" name="diffdots" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d1" name="diffdots" value="2" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d2" name="diffdots" value="3" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d3" name="diffdots" value="4" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d4" name="diffdots" value="5" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d5" name="diffdots" value="6" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d6" name="diffdots" value="7" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-    </div>
-
-    <br>
-
-    <label for="dev">
-        By how much, on average, do you think your guesses deviated from the correct answers?
-    </label>
-    <div class="sameline">
-        By&nbsp<input type="number" class="numberinput" name="deviation" id="dev" min="0" max="100" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="this.setCustomValidity('')">&nbsp%
-    </div>
-
-    <br>
-
-    <p>
-        How difficult did you find it to advice the mentees?
+        How difficult did you find it to advise the mentees?
     </p>
     <div class="row">
         <div class="col-md" align="center">
@@ -193,15 +131,6 @@
         <div class="col-md" align="center">
             <input type="radio" id="da6" name="diffadvice" value="7" onclick="document.getElementById('da0').setCustomValidity('')">
         </div>
-    </div>
-
-    <br>
-
-    <label for="be">
-        How high do you think is the bonus you will receive?
-    </label>
-    <div class="sameline">
-        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 3.')" oninput="this.setCustomValidity('')">&nbspGBP
     </div>
 
     <br>

@@ -63,7 +63,7 @@ class Task2(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        print(player.participant.bm_dev)
+        # print(player.participant.bm_dev)
         return dict(
             graphic="graphics/"+player.graphic
         )
