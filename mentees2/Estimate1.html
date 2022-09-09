@@ -229,8 +229,8 @@
         fakeb.style.display = 'none';
         errorbox.innerHTML = "";
     }
-    slider1.onclick = setClick;
-    slider2.onclick = setClick;
+    slider1.onmousedown = setClick;
+    slider2.onmousedown = setClick;
 
     function validateForm() {
         if (click !== 1) {
