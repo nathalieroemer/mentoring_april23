@@ -47,28 +47,33 @@
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-                        ... advise your mentees on how to guess the number of dots in a picture.
+                        ... give advice on how to guess the number of dots in a picture.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_1">
                         <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... guess the number of dots in a computer-generated picture.
+                     ... guess the number of dots in a picture.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_2">
                         <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... advise your mentees on how to answer a question about how well they think they did on their task.
+                     ... give advice on how to answer a question about how well your advisee thinks
+                        {{ if player.g_treat == 1 }}
+                            she did in her task.
+                        {{ else }}
+                            he did on his task.
+                        {{ endif }}
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_3">
                         <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... decide whether to invest in your mentee or not.
+                     ... decide whether to invest in your advisee or not.
                     </label>
                 </li>
             </ul>

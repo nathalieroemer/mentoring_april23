@@ -55,6 +55,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = [
     'treat',
+    'g_treat',
     'job',
     'groupno',
     'idingroup',

@@ -25,13 +25,13 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     part_id = models.IntegerField()
     treat = models.StringField()
+    g_treat = models.IntegerField()  # 1 for female, 0 for male
     workerid = models.StringField()
 
     consent1 = models.IntegerField(initial=0)
     consent2 = models.IntegerField(initial=0)
     consent3 = models.IntegerField(initial=0)
     consent4 = models.IntegerField(initial=0)
-    consent5 = models.IntegerField(initial=0)
 
     test1 = models.IntegerField()
     test2 = models.IntegerField()
@@ -53,6 +53,8 @@ def creating_session(subsession: Subsession):
         elif i / 4 >= m_per_treat:
             p.treat = 't1'
         p.participant.treat = p.treat
+        p.g_treat = random.randint(0, 1)
+        p.participant.g_treat = p.g_treat
         i = i + 1
 
 
@@ -70,8 +72,7 @@ class Consent(Page):
         'consent1',
         'consent2',
         'consent3',
-        'consent4',
-        'consent5'
+        'consent4'
     ]
 
 

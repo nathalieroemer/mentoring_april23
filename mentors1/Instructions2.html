@@ -3,7 +3,7 @@
 
 {% block title %}
     <div id="title">
-        Your task as a mentor
+        Your task
     </div>
 {% endblock %}
 
@@ -57,30 +57,34 @@
 
 <div id="content">
     <p>
-        It is your task now to advise your mentees on how to answer the question in figure 1 below, <b>depending on how
-        well your mentee actually did in comparison to 3 other workers from a prior task</b>. Those other workers also had
-        to guess the number of dots in computer-generated pictures and are selected by chance.
+        You are asked to provide advice on how to answer the question about performance in this task (see figure 1).
     </p>
     <p>
-        That is, we will ask you for your advice, <b>given that your mentee's guess</b>  was either <b>the best, the
-        second best, the third best, or the fourth best</b> in this group of 4{{ if player.treat == 't3' }}, and on
-        your mentee's prior answer <b>(from 1-Terrible to 6-Exceptional)</b>{{ endif }}.
-    </p>
-    <p>
-        <b>We will then provide your mentee with the corresponding advice</b>, depending on whether your mentee's guess
-        was actually the best, the second best, the third best, or the fourth best in this group of 4{{ if player.treat == 't3' }}
-        and depending on your mentee's prior answer (from 1-Terrible to 6-Exceptional){{ endif }}.
+        Your advisee is ranked within a randomly matched group of four workers, who all performed the same task.
+        Depending on whether your advisee performed best, second best, third best or least best within this group,
+        {{ if player.treat == 't3' }}
+            {{ if player.g_treat == 1 }}
+                and depending on her original answer to the question in figure 1,
+            {{ else }}
+                and depending on his original answer to the question in figure 1,
+            {{ endif }}
+        {{ endif }}
+        we ask you to provide advice to your advisee on how to answer the following question:
     </p>
     
     <br>
 
     <p style="text-align: center">
-        <i>Please indicate how well you think you did in guessing the accurate number of blue dots in the picture.</i>
+        <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
     </p>
     <p style="text-align: center">
         <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
         <br>
-        <i style="font-size: smaller">Figure 1</i>
+        <i style="font-size: smaller">Figure 1: Your advisee's question</i>
+    </p>
+
+    <p>
+        When providing advice, you will not know exactly how good your advisee’s guess was.
     </p>
     <!--
     {{ if player.treat != 't3' }}

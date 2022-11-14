@@ -3,7 +3,7 @@
 
 {% block title %}
     <div id="title">
-        Your mentees
+        Your task
     </div>
 {% endblock %}
 
@@ -19,13 +19,34 @@
         color: dimgrey
     }
 
-    .btn {
+    .otree-btn-next {
         float: right
+    }
+
+    .opener {
+        background-color: #ccc;
+        color: #212529;
+        border-color: #ccc;
+    }
+
+    .opener:hover {
+        background-color: #D3D3D3;
+    }
+
+    .btn:focus {
+        box-shadow: none;
     }
 
     .resp {
         max-width: 100%;
         height: auto;
+    }
+
+    .errormessage {
+        color: red;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 6px;
     }
 </style>
 {% endblock %}
@@ -43,6 +64,49 @@
         sessionStorage.setItem("c2", content)
         sessionStorage.setItem("t2", title)
     }
+
+    const errorbox = document.getElementById("errorm");
+    const nextb = document.getElementById("nb");
+    const fakeb = document.getElementById("fake");
+    let click1 = 0;
+    let click2 = 0;
+
+    window.onload = function() {
+        document.getElementById("advtext").style.display = "none";
+        document.getElementById("invtext").style.display = "none";
+    }
+
+    function showadvtext() {
+        if (click2 == 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        click1 = 1;
+        errorbox.innerHTML = "";
+        var text = document.getElementById("advtext");
+        if (text.style.display === "none") {
+          text.style.display = "block";
+        }
+    }
+
+    function showinvtext() {
+        if (click1 == 1) {
+            nextb.style.display = 'block';
+            fakeb.style.display = 'none';
+        }
+        click2 = 1;
+        errorbox.innerHTML = "";
+        var text = document.getElementById("invtext");
+        if (text.style.display === "none") {
+          text.style.display = "block";
+        }
+    }
+
+    function validate() {
+        if (click1 !== 1 || click2 !== 1) {
+            errorbox.innerHTML = "Please read the instructions";
+        }
+    }
 </script>
 {% endblock %}
 
@@ -57,43 +121,86 @@
 
 <div id="content">
     <p>
-        In the following, <b>you will be working as a mentor for workers from another task</b>. These workers' task is
-        to guess the number of dots in a picture, similar to the one below (see figure 1). In the following you will be
-        matched with workers from this task - that we will call in the following "your mentees" - and provide them with
-        advice.
-    </p>
-    <p style="text-align: center">
-        <img src="{{ static 'graphic1.png' }}" class="resp"/>
-        <br>
-        <i style="font-size: smaller">Figure 1</i>
+        In the following, <b>you will give advice to a worker. We will refer to this other worker as your advisee</b>.
     </p>
 
-    <p>
-        <b>Your mentees' earnings</b> depend on <b>how much a third-party investor invests in their guess</b> about the
-        number of dots in the picture.
-    </p>
-    <p>
-        After having completed their task, <b>your mentees</b> are asked to <b>answer the following question</b> (see
-        figure 2):
-    </p>
     <br>
-    <p style="text-align: center">
-        <i>Please indicate how well you think you did in guessing the accurate number of blue dots in the picture:</i>
-    </p>
-    <p style="text-align: center">
-        <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
-        <br>
-        <i style="font-size: smaller">Figure 2</i>
-    </p>
 
-    <p>
-        Your mentees' answer to the question in figure 2 will be shown to the third-party investors when making their
-        investment decisions. The investors earn more money, the better the guess of the worker they invested in is.
-    </p>
+    <button type="button" class="btn opener" onclick="showadvtext()">
+        Your advisee
+    </button>
+
+    <div id="advtext">
+        <p>
+            Your advisee’s task is to guess the number of blue dots depicted in pictures, similar to the ones below
+            (see figure 1). All pictures contain between 500 and 2000 blue dots. Your advisee sees one picture at a time
+            and has 1 minute time to come up with a guess.
+        </p>
+        <p style="text-align: center">
+            <img src="{{ static 'graphic1.png' }}" class="resp"/>
+            <br>
+            <i style="font-size: smaller">Figure 1: Examples</i>
+        </p>
+        <p>
+            After completing the task (guessing the number of dots in the picture), your advisee will answer a question
+            about how well
+            {{ if player.g_treat == 1 }}
+                she thinks she
+            {{ else }}
+                he thinks he
+            {{ endif }}
+            did in guessing the number of dots in the picture (on a scale from terrible to exceptional).
+        </p>
+        <p style="text-align: center">
+            <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
+        </p>
+        <p style="text-align: center">
+            <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
+            <br>
+            <i style="font-size: smaller">Figure 2: Your advisee's guess</i>
+        </p>
+        <p>
+            <b>Your advisee's bonus payment</b>
+        </p>
+        <p>
+            Your advisee’s payment depends on the amount <b>an investor</b> (see below for details on the investor)
+            decides to invest in
+            {{ if player.g_treat == 1 }}
+                her.
+            {{ else }}
+                him.
+            {{ endif }}
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <button type="button" class="btn opener" onclick="showinvtext()">
+        The investor
+    </button>
+
+    <div id="invtext">
+        <p>
+            The investor decides how much to invest in your advisee’s guess. The investor’s <b>return</b> from the
+            investment <b>is higher, the higher the accuracy</b> of your advisee’s guess.
+        </p>
+        <p>
+            Investors who try to maximize their earnings will invest more the better they think the guess is.
+        </p>
+        <p>
+            When deciding how much to invest, the investor sees only your advisee’s answer to the question in figure 2.
+            <b>The investor will not know the guess or the actual number of blue dots in the picture</b>.
+        </p>
+    </div>
 </div>
 
 <br>
 
-<button class="otree-btn-next btn btn-primary">Next</button>
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+    <span id="errorm" class="errormessage"></span>
+</div>
 
 {% endblock %}

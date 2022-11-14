@@ -1,5 +1,5 @@
 {{ block title }}
-    Advise your mentee
+    Your advice
 {{ endblock }}
 
 {% block styles %}
@@ -97,15 +97,26 @@
 </div>
 
 <p>
-    Your mentee performed <span style="color: red"><b>{{ perf }}</b></span> in the randomly drawn group of 4.
+    Your advisee performed <span style="color: red"><b>{{ perf }}</b></span> in the randomly drawn group of 4.
 </p>
 
 <form>
     <p>
         <label for="prom">
-            How would you advise your mentee to answer the following question: <i>"Please indicate how well you
-            think you did in guessing the accurate number of blue dots in the picture"</i> if your mentee's prior
-            answer is <span style="color: red"><b>{{ prevansw }}</b></span>?
+            How would you advise
+            {{ if participant.g_treat == 1 }}
+                her
+            {{ else }}
+                him
+            {{ endif }}
+            to answer the question: <i>"Please indicate how well you think you did in guessing the number of blue dots
+            in the picture"</i> if
+            {{ if participant.g_treat == 1 }}
+                her
+            {{ else }}
+                his
+            {{ endif }}
+            prior answer is <span style="color: red"><b>{{ prevansw }}</b></span>?
         </label>
     </p>
     <div class="box-container" id="prom">

@@ -7,6 +7,21 @@
 
 {% block styles %}
 <style>
+    .table#demotable {
+        table-layout: fixed ;
+        width: 100% ;
+        align-content: center;
+    }
+    .table#demotable td {
+        width: 50% ;
+        padding: 10px ;
+        align-content: center;
+    }
+    .table#demotable th {
+        align-content: center;
+        text-align: center;
+        font-weight: normal;
+    }
     .dropdown{
         width: auto;
         height: calc(2.25rem + 2px);
@@ -50,25 +65,328 @@
     .btn {
         float: right
     }
+
+    .slidecontainer {
+        flex-grow: 1;
+        margin: auto;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border: 1px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none!important;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-appearance: none !important;
+    }
+
+    .slider:invalid {
+        border: 5px solid red!important;
+    }
+
+    /* custom thumb for Safari, Opera, and Chrome */
+    .myClass::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 2px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -8px !important;
+        }
+
+    /* custom thumb for Firefox */
+    .myClassFF::-moz-range-thumb {
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		border: 1px solid #007bff;
+		height: 20px !important;
+		width: 20px !important;
+		border-radius: 10px !important;
+		background: #007bff !important;
+		cursor: pointer !important !important;
+		-moz-appearance: none !important;
+		margin-top: -8px !important;
+	}
+        /* custom thumb for Microsoft */
+
+    .myClassMS::-ms-thumb {
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border: 1px solid #007bff;
+		height: 20px !important;
+		width: 20px !important;
+		border-radius: 10px !important;
+		background: #007bff !important;
+		cursor: pointer !important !important;
+		margin-top: -8px !important;
+	}
+        /* hide default range styling */
+	input[type=range] {
+		-webkit-appearance: none;
+		margin: 10px 0;
+		height: 8px;
+		width: 100%;
+		border: 1px solid white;
+	}
+
+        /* hide default focus styling */
+	input[type=range]:focus {
+		outline: none;
+	}
+
+        /* get rid of weird dotted outline around range in Firefox */
+	input[type=range]::-moz-focus-outer {
+        border: 0;
+    	outline: none;
+        }
+        /* custom range styling for Safari, Opera, and Chrome */
+	input[type=range]::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border-radius: 1px;
+		border: 0.5px solid #d3d3d3;
+	}
+        /* custom range styling for Firefox */
+	input[type=range]::-moz-range-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+	}
+       /* custom range styling for Microsoft */
+	input[type=range]::ms-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+        /* hide default thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		border: 0px;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-webkit-appearance: none;
+	}
+        /* hide default thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-moz-appearance: none;
+	}
+       /* hide default thumb for Microsoft */
+       input[type=range]::-ms-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+	}
 </style>
 {% endblock %}
 
 {% block content %}
 
 <form>
-    <!--
-    <label for="g">Please indicate your gender.</label>
-    <br>
-    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
-        <option value="" selected="selected">---------</option>
-        <option value="1">Female</option>
-        <option value="2">Male</option>
-        <option value="3">Other</option>
-    </select>
+    {{ form.diffadvice.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not difficult at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very difficult</th>
+        </tr>
+        <tr>
+            {{ for choice in form.diffadvice }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
 
     <br>
 
-    -->
+    <p>
+        <label for="i_adv">
+            Below you see two circles, respectively, of which one represents you and the other circle represents your
+            advisee. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in which
+            you do not identify at all with
+            {{ if participant.g_treat == 1 }}
+                her.
+            {{ else }}
+                him.
+            {{ endif }} In the very lower part (7), the circles are totally overlapping and represent a situation in which
+            you feel you fully identify with
+            {{ if participant.g_treat == 1 }}
+                her.
+            {{ else }}
+                him.
+            {{ endif }}
+        </label>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_adv" id="i_adv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with my advisee.
+    </div>
+
+    <br>
+
+    <p>
+        <label for="i_inv">
+            Now assume, one circle represents still you, but the other circle represents the investor, investing in your
+            advisee. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in
+            which you do not identify at all with
+            {{ if participant.g_treat == 1 }}
+                her investor.
+            {{ else }}
+                his investor.
+            {{ endif }} In the very lower part (7), the circles are totally overlapping and represent a situation in
+            which you feel you fully identify with
+            {{ if participant.g_treat == 1 }}
+                her investor.
+            {{ else }}
+                his investor.
+            {{ endif }}
+        </label>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_inv" id="i_inv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with
+        {{ if participant.g_treat == 1 }}
+            her investor.
+        {{ else }}
+            his investor.
+        {{ endif }}
+    </div>
+
+    <br>
+    <br>
+
+    <label for="s_fem">
+        How likely do you think is it, that your advisee is female?
+    </label>
+
+    <div class="input-group mb-3" style="max-width: 100%">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Very unlikely</span>
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" step="1" class="slider" id="s_fem" name="prob_fem">
+        </div>
+        <div class="input-group-append">
+            <span class="input-group-text">Very likely</span>
+        </div>
+    </div>
+
+    <br>
+
+    <label for="s_male">
+        How likely do you think is it, that your advisee is male?
+    </label>
+
+    <div class="input-group mb-3" style="max-width: 100%">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Very unlikely</span>
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" step="1" class="slider" id="s_male" name="prob_male">
+        </div>
+        <div class="input-group-append">
+            <span class="input-group-text">Very likely</span>
+        </div>
+    </div>
+
+    <br>
+
+    {{ form.wtgive.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not willing at all to take risks</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to take risks</th>
+        </tr>
+        <tr>
+            {{ for choice in form.wtgive }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    {{ form.riskpref.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not willing at all to take risks</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to take risks</th>
+        </tr>
+        <tr>
+            {{ for choice in form.riskpref }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
 
     <label for="eng">Are you a native English speaker?</label>
     <br>
@@ -82,169 +400,60 @@
 
     <br>
 
-    <p>
-        How difficult did you find it to advise the mentees?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="da0">Not difficult at all</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="da1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="da2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="da3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="da4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="da5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="da6">Very difficult</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="da0" name="diffadvice" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="da1" name="diffadvice" value="2" onclick="document.getElementById('da0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="da2" name="diffadvice" value="3" onclick="document.getElementById('da0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="da3" name="diffadvice" value="4" onclick="document.getElementById('da0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="da4" name="diffadvice" value="5" onclick="document.getElementById('da0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="da5" name="diffadvice" value="6" onclick="document.getElementById('da0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="da6" name="diffadvice" value="7" onclick="document.getElementById('da0').setCustomValidity('')">
-        </div>
-    </div>
-
+    <label for="g">Please indicate your gender.</label>
     <br>
-
-    <p>
-        How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="r0">Not willing at all to take risks</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r6">Very willing to take risks</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="r0" name="riskpref" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r1" name="riskpref" value="2" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r2" name="riskpref" value="3" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r3" name="riskpref" value="4" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r4" name="riskpref" value="5" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r5" name="riskpref" value="6" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r6" name="riskpref" value="7" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-    </div>
-
-    <br>
-
-    <p>
-        Do you like to compete with others?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="c0">I don't like competitions at all</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c6">I like competitions very much</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="c0" name="comp" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c1" name="comp" value="2" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c2" name="comp" value="3" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c3" name="comp" value="4" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c4" name="comp" value="5" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c5" name="comp" value="6" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c6" name="comp" value="7" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-    </div>
+    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Other</option>
+    </select>
 </form>
 
 <br>
 
-<button class="otree-btn-next btn btn-primary">Next</button>
+<button class="otree-btn-next btn btn-primary" id="next">Next</button>
 
 <script>
+    const slider1 = document.getElementById("s_fem");
+    const slider2 = document.getElementById("s_male");
+    let click1 = 0;
+    let click2 = 0;
+
+    slider1.oninput = function() {
+        setClick(slider1)
+        slider1.classList.add("myClass","myClassFF","myClassMS");
+        slider1.style.background = 'linear-gradient(to right, dodgerblue ' + slider1.value + '%, darkred ' + slider1.value + '%)'
+    }
+
+    slider2.oninput = function() {
+        setClick(slider2)
+        slider2.classList.add("myClass","myClassFF","myClassMS");
+        slider2.style.background = 'linear-gradient(to right, dodgerblue ' + slider2.value + '%, darkred ' + slider2.value + '%)'
+    }
+
+    function setClick(slider) {
+        if (slider == slider1) {
+            click1 = 1;
+            slider1.setCustomValidity("");
+        } else {
+            click2 = 1;
+            slider2.setCustomValidity("");
+        }
+        console.log(click1);
+        console.log(click2);
+    }
+
+    document.getElementById("next").onclick=validateForm();
+    function validateForm() {
+        if (click1 !== 1) {
+            slider1.setCustomValidity("Please answer the question.");
+        }
+        else if (click2 !== 1) {
+            slider2.setCustomValidity("Please answer the question.");
+        }
+    }
+
         function showproficiency(eng){
             if(eng==='1') {
                 document.getElementById('proficiency').innerHTML = '' +
@@ -305,6 +514,8 @@
                 document.getElementById('ep2').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
                 document.getElementById('ep3').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
                 document.getElementById('ep4').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+                document.getElementById('ep5').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
+                document.getElementById('ep6').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
             }
             else {
                 document.getElementById('proficiency').innerHTML='';

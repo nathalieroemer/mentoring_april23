@@ -31,15 +31,14 @@
 {% block content %}
 
 <p>
-    Your participation in this task will involve advising mentees in how to answer a self-evaluation question. If you
-    wish to withdraw from the study, you can close your browser window at any time. If you wish to continue, please
-    confirm the following:
+    If you wish to withdraw from the study, you can close your browser window at any time. If you wish to continue,
+    please confirm the following:
 </p>
 
 <form>
     <label for="c1">
         <input type="checkbox" id="c1" value ="1" name="consent1" required oninvalid="this.setCustomValidity('If you do not agree, you cannot participate in the study.')" onclick="this.setCustomValidity('')">
-        I have read, understood and accept the instructions.
+        I have read and understood the instructions.
     </label>
     <br>
     <label for="c2">
@@ -54,12 +53,6 @@
     <br>
     <label for="c4">
         <input type="checkbox" id="c4" value ="1" name="consent4" required oninvalid="this.setCustomValidity('If you do not agree, you cannot participate in the study.')" onclick="this.setCustomValidity('')">
-        I agree that the data gathered in this study may be used for research purposes.
-    </label>
-    <br>
-
-    <label for="c5">
-        <input type="checkbox" id="c5" value ="1" name="consent5" required oninvalid="this.setCustomValidity('If you do not agree, you cannot participate in the study.')" onclick="this.setCustomValidity('')">
         I agree to take part in the study.
     </label>
 </form>
