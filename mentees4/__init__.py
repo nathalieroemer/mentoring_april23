@@ -6,6 +6,40 @@ Your app description
 """
 
 
+# METHODS
+def make_7pointlikert(label, blank=False):
+    if not blank:
+        return models.IntegerField(
+            choices=[1, 2, 3, 4, 5, 6, 7],
+            label=label,
+            widget=widgets.RadioSelect
+        )
+    else:
+        return models.IntegerField(
+            choices=[1, 2, 3, 4, 5, 6, 7],
+            label=label,
+            widget=widgets.RadioSelect,
+            blank=True
+        )
+
+
+def make_10pointlikert(label, blank=False):
+    if not blank:
+        return models.IntegerField(
+            choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            label=label,
+            widget=widgets.RadioSelect
+        )
+    else:
+        return models.IntegerField(
+            choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            label=label,
+            widget=widgets.RadioSelect,
+            blank=True
+        )
+
+
+# MODELS
 class C(BaseConstants):
     NAME_IN_URL = 'mentees4'
     PLAYERS_PER_GROUP = None
@@ -21,17 +55,24 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    native = models.IntegerField()
-    eng_prof = models.IntegerField(
-        blank=True
-    )
-    diff = models.IntegerField()
-    stereo = models.IntegerField()
+    diff = make_7pointlikert("How difficult did you find the investment task?")
+    stereotypes = make_7pointlikert("Do you think this task rather favors male or female participants?")
     bonusest = models.FloatField()
-    deviation = models.IntegerField()
-    deviation_comp = models.IntegerField()
-    riskpref = models.IntegerField()
-    comp = models.IntegerField()
+    # TODO: add following fields
+    # own_perf
+    # others_perf
+    ident_adv = models.IntegerField()
+    ident_inv = models.IntegerField()
+    reciprocity = make_10pointlikert("When someone does me a favor, I am willing to return it.")
+    intentions = make_10pointlikert("I assume that people have only the best intentions.")
+    donation = models.FloatField()
+    wtgive = make_10pointlikert(
+        "How willing are you to give to good causes without expecting anything in return?")  # willingness to give
+    riskpref = make_7pointlikert(
+        "How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?")
+    native = models.IntegerField()
+    eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
+    gender = models.IntegerField()
 
 
 # PAGES
@@ -43,15 +84,19 @@ class Quest(Page):
 
     form_model = 'player'
     form_fields = [
+        'diff',
+        'stereotypes',
+        'bonusest',
+        'ident_adv',
+        'ident_inv',
+        'reciprocity',
+        'intentions',
+        'donation',
+        'wtgive',
+        'riskpref',
         'native',
         'eng_prof',
-        'diff',
-        'deviation',
-        'deviation_comp',
-        'stereo',
-        'bonusest',
-        'riskpref',
-        'comp'
+        'gender'
     ]
 
 

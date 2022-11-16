@@ -7,142 +7,260 @@
 
 {% block styles %}
 <style>
-.dropdown{
-    width: auto;
-    height: calc(2.25rem + 2px);
-    display: block;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.numberinput{
-    display: block;
-    max-width: 60px;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-[class*="col-"] {
-    width: 14%;
-}
-
-.row{
-    width: 100%;
-}
-
-.sameline{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-}
-.btn {
-    float: right
-}
+    .table#demotable {
+        table-layout: fixed ;
+        width: 100% ;
+        align-content: center;
+    }
+    .table#demotable td {
+        width: 50% ;
+        padding: 10px ;
+        align-content: center;
+        text-align: center;
+    }
+    .table#demotable th {
+        align-content: center;
+        text-align: center;
+        font-weight: normal;
+    }
+    .dropdown{
+        width: auto;
+        height: calc(2.25rem + 2px);
+        display: block;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 2px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .numberinput{
+        display: block;
+        max-width: 50px;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    [class*="col-"] {
+        width: 14%;
+    }
+    .row{
+        width: 100%;
+    }
+    .sameline{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+    }
+    .btn {
+        float: right
+    }
 </style>
-{% endblock %}
-
-{% block scripts %}
-<script>
-        function showproficiency(eng){
-            if(eng==='1') {
-                document.getElementById('proficiency').innerHTML = '' +
-                    '<p>How would you describe your language proficiency in English?</p>' +
-                    '<div class="row">' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep0">Basic</label>' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep1"></label>' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep2"></label>' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep3"></label>' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep4"></label>' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep5"></label>' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<label for="ep6">Fluent</label>' +
-                    '</div>' +
-
-                    '<div class="w-100"></div>' +
-
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep0" name="eng_prof" value="1">' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep1" name="eng_prof" value="2">' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep2" name="eng_prof" value="3">' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep3" name="eng_prof" value="4">' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep4" name="eng_prof" value="5">' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep5" name="eng_prof" value="6">' +
-                    '</div>' +
-                    '<div class="col-md" align="center">' +
-                    '<input type="radio" id="ep6" name="eng_prof" value="7">' +
-                    '</div>' +
-                    '</div>' +
-                    '<br>'
-                ;
-                document.getElementById('ep0').setAttribute("required", "True")
-                document.getElementById('ep0').setAttribute("oninvalid", "this.setCustomValidity('Please choose an option.')")
-                document.getElementById('ep0').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
-                document.getElementById('ep1').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
-                document.getElementById('ep2').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
-                document.getElementById('ep3').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
-                document.getElementById('ep4').setAttribute("oninput", "document.getElementById('ep0').setCustomValidity('')")
-            }
-            else {
-                document.getElementById('proficiency').innerHTML='';
-            }
-        }
-</script>
 {% endblock %}
 
 {% block content %}
 
 <form>
-    <!--
-    <label for="g">Please indicate your gender.</label>
-    <br>
-    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
-        <option value="" selected="selected">---------</option>
-        <option value="1">Female</option>
-        <option value="2">Male</option>
-        <option value="3">Other</option>
-    </select>
+    {{ form.diff.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not difficult at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very difficult</th>
+        </tr>
+        <tr>
+            {{ for choice in form.diff }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
 
     <br>
 
-    -->
+    {{ form.stereotypes.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Female</th>
+            <th></th>
+            <th></th>
+            <th>None</th>
+            <th></th>
+            <th></th>
+            <th>Male</th>
+        </tr>
+        <tr>
+            {{ for choice in form.stereotypes }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <label for="be">
+        How high do you think is the bonus you will receive (<i>Recall: You can earn a maximum bonus payment of 2 GBP</i>)?
+    </label>
+    <div class="sameline">
+        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="200" step="1" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 200.')" oninput="this.setCustomValidity('')">&nbspcents
+    </div>
+
+    <br>
+
+    <p>
+        <label for="i_adv">
+            Below you see two circles, respectively, of which one represents you and the other circle represents your
+            advisor. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in
+            which you do not identify at all with your advisor. In the very lower part (7), the circles are totally
+            overlapping and represent a situation in which you feel you fully identify with your advisor.
+        </label>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_adv" id="i_adv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with my advisor.
+    </div>
+
+    <br>
+
+    <p>
+        <label for="i_inv">
+            Now assume, one circle represents still you, but the other circle represents your investor. Which figure is
+            the one that most highly represents the extent to which you identify with the investor?
+        </label>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_inv" id="i_inv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+    </div>
+
+    <br>
+    <br>
+
+    <p>
+        How well do the following statements describe you as a person?
+    </p>
+
+    <p style="padding-left: 10px">
+        {{ form.reciprocity.label }}
+    </p>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Does not describe me at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Describes me perfectly</th>
+        </tr>
+        <tr>
+            {{ for choice in form.reciprocity }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <p style="padding-left: 10px">
+        {{ form.intentions.label }}
+    </p>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Does not describe me at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Describes me perfectly</th>
+        </tr>
+        <tr>
+            {{ for choice in form.intentions }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <p>
+        <label for="don">
+            Imagine the following situation: Today you unexpectedly received 1,000 Euro. How much of this amount would
+            you donate to a good cause?
+        </label>
+    </p>
+    <div class="sameline">
+        <input type="number" class="numberinput" name="donation" id="don" min="0" max="1000" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 1000.')" oninput="this.setCustomValidity('')">
+        &nbspEuro
+    </div>
+
+    <br>
+
+    {{ form.wtgive.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Completely unwilling to do so</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to do so</th>
+        </tr>
+        <tr>
+            {{ for choice in form.wtgive }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    {{ form.riskpref.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not willing at all to take risks</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to take risks</th>
+        </tr>
+        <tr>
+            {{ for choice in form.riskpref }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
 
     <label for="eng">Are you a native English speaker?</label>
     <br>
@@ -156,247 +274,54 @@
 
     <br>
 
-    <p>
-        How difficult did you find the task?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="d0">Not difficult at all</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="d6">Very difficult</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="d0" name="diff" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d1" name="diff" value="2" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d2" name="diff" value="3" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d3" name="diff" value="4" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d4" name="diff" value="5" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d5" name="diff" value="6" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="d6" name="diff" value="7" onclick="document.getElementById('d0').setCustomValidity('')">
-        </div>
-    </div>
-
+    <label for="g">Please indicate your gender.</label>
     <br>
-
-    <p>
-        Do you think this task rather favors male or female participants?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="s0">Female</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="s1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="s2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="s3">None</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="s4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="s5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="s6">Male</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="s0" name="stereo" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="s1" name="stereo" value="2" onclick="document.getElementById('s0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="s2" name="stereo" value="3" onclick="document.getElementById('s0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="s3" name="stereo" value="4" onclick="document.getElementById('s0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="s4" name="stereo" value="5" onclick="document.getElementById('s0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="s5" name="stereo" value="6" onclick="document.getElementById('s0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="s6" name="stereo" value="7" onclick="document.getElementById('s0').setCustomValidity('')">
-        </div>
-    </div>
-
-    <br>
-
-    <label for="be">
-        How high do you think is the bonus you will receive?
-    </label>
-    <div class="sameline">
-        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 3.')" oninput="this.setCustomValidity('')">&nbspGBP
-    </div>
-
-    <br>
-
-    <label for="dev">
-        By how many dots do you think, does your guess differ from the actual number of dots? Please indicate a number.
-    </label>
-    <div class="sameline">
-        By&nbsp<input type="number" class="numberinput" name="deviation" id="dev" min="0" max="1500" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 1500.')" oninput="this.setCustomValidity('')">&nbspdots
-    </div>
-
-    <br>
-
-    <label for="dev_comp">
-        By how many dots do you think, do the guesses of your competitors differ, on average, from the actual number of
-        dots? Please indicate a number.
-    </label>
-    <div class="sameline">
-        By&nbsp<input type="number" class="numberinput" name="deviation_comp" id="dev_comp" min="0" max="1500" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 1500.')" oninput="this.setCustomValidity('')">&nbspdots
-    </div>
-
-    <br>
-
-    <p>
-        How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="r0">Not willing at all to take risks</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="r6">Very willing to take risks</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="r0" name="riskpref" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r1" name="riskpref" value="2" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r2" name="riskpref" value="3" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r3" name="riskpref" value="4" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r4" name="riskpref" value="5" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r5" name="riskpref" value="6" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="r6" name="riskpref" value="7" onclick="document.getElementById('r0').setCustomValidity('')">
-        </div>
-    </div>
-
-    <br>
-
-    <p>
-        Do you like to compete with others?
-    </p>
-    <div class="row">
-        <div class="col-md" align="center">
-            <label for="c0">I don't like competitions at all</label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c1"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c2"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c3"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c4"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c5"></label>
-        </div>
-        <div class="col-md" align="center">
-            <label for="c6">I like competitions very much</label>
-        </div>
-
-        <div class="w-100"></div>
-
-        <div class="col-md" align="center">
-            <input type="radio" id="c0" name="comp" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c1" name="comp" value="2" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c2" name="comp" value="3" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c3" name="comp" value="4" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c4" name="comp" value="5" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c5" name="comp" value="6" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-        <div class="col-md" align="center">
-            <input type="radio" id="c6" name="comp" value="7" onclick="document.getElementById('c0').setCustomValidity('')">
-        </div>
-    </div>
+    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Other</option>
+    </select>
 </form>
 
 <br>
 
-<button class="otree-btn-next btn btn-primary">Next</button>
+<button class="otree-btn-next btn btn-primary" id="next">Next</button>
+
+<script>
+function showproficiency(eng){
+    if(eng==='1') {
+        document.getElementById('proficiency').innerHTML = '' +
+            '{{ form.eng_prof.label }}' +
+            '<table class="table" id="demotable">' +
+            '    <tr>' +
+            '        <th>Not willing at all to take risks</th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th>Very willing to take risks</th>' +
+            '    </tr>' +
+            '    <tr>' +
+            '        {{ for choice in form.eng_prof }}' +
+            '            <td>{{ choice }}</td>' +
+            '        {{ endfor }}' +
+            '    </tr>' +
+            '</table>'
+            // set required attribute once shown (for every node):
+            for (let radio of forminputs.eng_prof) {
+                radio.required = true;
+            }
+            }
+            else {
+            // remove required attribute again once hidden:
+                for (let radio of forminputs.eng_prof) {
+                    radio.required = false;
+                }
+                document.getElementById('proficiency').innerHTML='';
+            }
+        }
+</script>
 
 {% endblock %}
