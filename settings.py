@@ -16,10 +16,10 @@ SESSION_CONFIGS = [
     dict(
         name='Mentors',
         app_sequence=[
-            'mentors1',
-            'mentors2',
-            'mentors2_t3',
-            'mentors3'
+            'mentors1_neutral',
+            'mentors2_neutral',
+            'mentors2_t3_neutral',
+            'mentors3_neutral'
         ],
         num_demo_participants=100,
     ),

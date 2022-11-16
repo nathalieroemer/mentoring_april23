@@ -1,0 +1,143 @@
+{{ block title }}
+    Your advice
+{{ endblock }}
+
+{% block styles %}
+<style>
+    .box-container {
+        display:flex;
+        flex-direction: column;
+    }
+
+    .box1 {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        font-size: min(2vw, 1rem);
+    }
+
+    .errormessage {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: red;
+        font-size: 12px
+    }
+
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
+    .btn {
+        float: right
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const boxes1 = document.querySelectorAll('.box1');
+
+    boxes1.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            boxes1.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+
+    let b1 = false;
+
+    function sendValue(value) {
+        liveSend(value)
+        b1 = true;
+        document.getElementById('error1').style.display = 'none';
+        checkCompletion();
+    };
+
+    function validate() {
+        if (!b1) {
+            document.getElementById('error1').style.display = 'flex';
+        }
+    }
+
+    function checkCompletion() {
+        if (b1) {
+            document.getElementById('nb').style.display = 'block';
+            document.getElementById('fake').style.display = 'none';
+        }
+    }
+
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("task", "true")
+</script>
+{% endblock %}
+
+{{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+<p>
+    Your advisee performed <span style="color: red"><b>{{ perf }}</b></span> in the randomly drawn group of 4.
+</p>
+
+<form>
+    <p>
+        <label for="prom">
+            How would you advise
+            {{ if participant.g_treat == 1 }}
+                her
+            {{ else }}
+                him
+            {{ endif }}
+            to answer the question: <i>"Please indicate how well you think you did in guessing the number of blue dots
+            in the picture"</i> if
+            {{ if participant.g_treat == 1 }}
+                her
+            {{ else }}
+                his
+            {{ endif }}
+            prior answer is <span style="color: red"><b>{{ prevansw }}</b></span>?
+        </label>
+    </p>
+    <div class="box-container" id="prom">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box1" onclick="sendValue('terrible')">Terrible</div>
+            <div class="box1" onclick="sendValue('very poor')">Very Poor</div>
+            <div class="box1" onclick="sendValue('poor')">Poor</div>
+            <div class="box1" onclick="sendValue('good')">Good</div>
+            <div class="box1" onclick="sendValue('very good')">Very Good</div>
+            <div class="box1" onclick="sendValue('exceptional')">Exceptional</div>
+        </div>
+        <div class="row errormessage" id="error1" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+</form>
+
+<br>
+
+<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+
+{{ endblock }}
+

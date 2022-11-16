@@ -1,0 +1,393 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block styles %}
+<style>
+    .table#demotable {
+        table-layout: fixed ;
+        width: 100% ;
+        align-content: center;
+    }
+    .table#demotable td {
+        width: 50% ;
+        padding: 10px ;
+        align-content: center;
+    }
+    .table#demotable th {
+        align-content: center;
+        text-align: center;
+        font-weight: normal;
+    }
+    .dropdown{
+        width: auto;
+        height: calc(2.25rem + 2px);
+        display: block;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 2px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .numberinput{
+        display: block;
+        max-width: 50px;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    [class*="col-"] {
+        width: 14%;
+    }
+    .row{
+        width: 100%;
+    }
+    .sameline{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+    }
+    .btn {
+        float: right
+    }
+
+    .slidecontainer {
+        flex-grow: 1;
+        margin: auto;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border: 1px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none!important;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-appearance: none !important;
+    }
+
+    .slider:invalid {
+        border: 5px solid red!important;
+    }
+
+    /* custom thumb for Safari, Opera, and Chrome */
+    .myClass::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 2px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -8px !important;
+        }
+
+    /* custom thumb for Firefox */
+    .myClassFF::-moz-range-thumb {
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		border: 1px solid #007bff;
+		height: 20px !important;
+		width: 20px !important;
+		border-radius: 10px !important;
+		background: #007bff !important;
+		cursor: pointer !important !important;
+		-moz-appearance: none !important;
+		margin-top: -8px !important;
+	}
+        /* custom thumb for Microsoft */
+
+    .myClassMS::-ms-thumb {
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border: 1px solid #007bff;
+		height: 20px !important;
+		width: 20px !important;
+		border-radius: 10px !important;
+		background: #007bff !important;
+		cursor: pointer !important !important;
+		margin-top: -8px !important;
+	}
+        /* hide default range styling */
+	input[type=range] {
+		-webkit-appearance: none;
+		margin: 10px 0;
+		height: 8px;
+		width: 100%;
+		border: 1px solid white;
+	}
+
+        /* hide default focus styling */
+	input[type=range]:focus {
+		outline: none;
+	}
+
+        /* get rid of weird dotted outline around range in Firefox */
+	input[type=range]::-moz-focus-outer {
+        border: 0;
+    	outline: none;
+        }
+        /* custom range styling for Safari, Opera, and Chrome */
+	input[type=range]::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border-radius: 1px;
+		border: 0.5px solid #d3d3d3;
+	}
+        /* custom range styling for Firefox */
+	input[type=range]::-moz-range-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+	}
+       /* custom range styling for Microsoft */
+	input[type=range]::ms-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+        /* hide default thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		border: 0px;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-webkit-appearance: none;
+	}
+        /* hide default thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-moz-appearance: none;
+	}
+       /* hide default thumb for Microsoft */
+       input[type=range]::-ms-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<form>
+    {{ form.diffadvice.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not difficult at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very difficult</th>
+        </tr>
+        <tr>
+            {{ for choice in form.diffadvice }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <p>
+        <label for="i_adv">
+            Below you see two circles, respectively, of which one represents you and the other circle represents your
+            advisee. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in which
+            you do not identify at all with your advisee. In the very lower part (7), the circles are totally overlapping and
+            represent a situation in which you feel you fully identify with your advisee.
+        </label>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_adv" id="i_adv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with my advisee.
+    </div>
+
+    <br>
+
+    <p>
+        <label for="i_inv">
+            Now assume, one circle represents still you, but the other circle represents the investor, investing in your
+            advisee. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in
+            which you do not identify at all with your advisee's investor. In the very lower part (7), the circles are totally
+            overlapping and represent a situation in which you feel you fully identify with your advisee's investor.
+        </label>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_inv" id="i_inv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with my advisee's investor.
+    </div>
+
+    <br>
+
+
+
+
+
+
+    <br>
+
+    {{ form.wtgive.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not willing at all to take risks</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to take risks</th>
+        </tr>
+        <tr>
+            {{ for choice in form.wtgive }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    {{ form.riskpref.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not willing at all to take risks</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to take risks</th>
+        </tr>
+        <tr>
+            {{ for choice in form.riskpref }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <label for="eng">Are you a native English speaker?</label>
+    <br>
+    <select class="dropdown" name="native" id="eng" onchange="showproficiency(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">No</option>
+        <option value="2">Yes</option>
+    </select>
+    <br>
+    <div id="proficiency"></div>
+
+    <br>
+
+    <label for="g">Please indicate your gender.</label>
+    <br>
+    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Other</option>
+    </select>
+</form>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary" id="next">Next</button>
+
+<script>
+function showproficiency(eng){
+    if(eng==='1') {
+        document.getElementById('proficiency').innerHTML = '' +
+            '{{ form.eng_prof.label }}' +
+            '<table class="table" id="demotable">' +
+            '    <tr>' +
+            '        <th>Not willing at all to take risks</th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th>Very willing to take risks</th>' +
+            '    </tr>' +
+            '    <tr>' +
+            '        {{ for choice in form.eng_prof }}' +
+            '            <td>{{ choice }}</td>' +
+            '        {{ endfor }}' +
+            '    </tr>' +
+            '</table>'
+            forminputs.eng_prof.required = True;
+            }
+            else {
+                forminputs.eng_prof.removeAttribute('required');
+                document.getElementById('proficiency').innerHTML='';
+
+            }
+        }
+</script>
+
+{% endblock %}
