@@ -23,12 +23,20 @@ def make_7pointlikert(label, blank=False):
         )
 
 
-def make_10pointlikert(label):
-    return models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        label=label,
-        widget=widgets.RadioSelect
-    )
+def make_10pointlikert(label, blank=False):
+    if not blank:
+        return models.IntegerField(
+            choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            label=label,
+            widget=widgets.RadioSelect
+        )
+    else:
+        return models.IntegerField(
+            choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            label=label,
+            widget=widgets.RadioSelect,
+            blank=True
+        )
 
 
 # MODELS
@@ -58,7 +66,7 @@ class Player(BasePlayer):
     wtgive = make_10pointlikert("How willing are you to give to good causes without expecting anything in return?")  # willingness to give
     riskpref = make_7pointlikert("How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?")
     native = models.IntegerField()
-    eng_prof = make_7pointlikert("How would you describe your language proficiency in English?")
+    eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
     gender = models.IntegerField()
 
 

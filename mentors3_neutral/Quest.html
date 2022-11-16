@@ -65,160 +65,6 @@
     .btn {
         float: right
     }
-
-    .slidecontainer {
-        flex-grow: 1;
-        margin: auto;
-    }
-
-    .slider {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 10px;
-        border: 1px;
-        border-radius: 5px;
-        background: #d3d3d3;
-        outline: none;
-        opacity: 0.7;
-        -webkit-transition: .2s;
-        transition: opacity .2s;
-    }
-
-    .slider::-webkit-slider-thumb {
-        -webkit-appearance: none!important;
-        appearance: none;
-        width: 25px;
-        height: 25px;
-        border-radius: 100%;
-        background: #4CAF50;
-        cursor: pointer;
-    }
-
-
-    .slider::-moz-range-thumb {
-        width: 25px;
-        height: 25px;
-        border-radius: 100%;
-        cursor: pointer;
-        -webkit-appearance: none !important;
-    }
-
-    .slider:invalid {
-        border: 5px solid red!important;
-    }
-
-    /* custom thumb for Safari, Opera, and Chrome */
-    .myClass::-webkit-slider-thumb {
-        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
-        border: 2px solid #007bff;
-        height: 20px !important;
-        width: 20px !important;
-        border-radius: 10px !important;
-        background: #007bff !important;
-        cursor: pointer !important !important;
-        -webkit-appearance: none !important;
-        margin-top: -8px !important;
-        }
-
-    /* custom thumb for Firefox */
-    .myClassFF::-moz-range-thumb {
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
-		border: 1px solid #007bff;
-		height: 20px !important;
-		width: 20px !important;
-		border-radius: 10px !important;
-		background: #007bff !important;
-		cursor: pointer !important !important;
-		-moz-appearance: none !important;
-		margin-top: -8px !important;
-	}
-        /* custom thumb for Microsoft */
-
-    .myClassMS::-ms-thumb {
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
-		border: 1px solid #007bff;
-		height: 20px !important;
-		width: 20px !important;
-		border-radius: 10px !important;
-		background: #007bff !important;
-		cursor: pointer !important !important;
-		margin-top: -8px !important;
-	}
-        /* hide default range styling */
-	input[type=range] {
-		-webkit-appearance: none;
-		margin: 10px 0;
-		height: 8px;
-		width: 100%;
-		border: 1px solid white;
-	}
-
-        /* hide default focus styling */
-	input[type=range]:focus {
-		outline: none;
-	}
-
-        /* get rid of weird dotted outline around range in Firefox */
-	input[type=range]::-moz-focus-outer {
-        border: 0;
-    	outline: none;
-        }
-        /* custom range styling for Safari, Opera, and Chrome */
-	input[type=range]::-webkit-slider-runnable-track {
-		width: 100%;
-		height: 8px;
-		cursor: pointer;
-		animate: 0.2s;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
-		border-radius: 1px;
-		border: 0.5px solid #d3d3d3;
-	}
-        /* custom range styling for Firefox */
-	input[type=range]::-moz-range-track {
-		width: 100%;
-		height: 8px;
-		cursor: pointer;
-		animate: 0.2s;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
-		border-radius: 1px;
-		border: 0.5px solid #aeacac;
-	}
-       /* custom range styling for Microsoft */
-	input[type=range]::ms-track {
-		width: 100%;
-		height: 8px;
-		cursor: pointer;
-		animate: 0.2s;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
-		background: transparent;
-		border-color: transparent;
-		color: transparent;
-	}
-        /* hide default thumb in Opera, Safari, Chrome */
-	input[type=range]::-webkit-slider-thumb {
-		border: 0px;
-		height: 0px;
-		width: 0px;
-		border-radius: 0px;
-		-webkit-appearance: none;
-	}
-        /* hide default thumb in Firefox */
-	input[type=range]::-moz-range-thumb {
-		-webkit-appearance: none;
-		border: none;
-		height: 0px;
-		width: 0px;
-		border-radius: 0px;
-		-moz-appearance: none;
-	}
-       /* hide default thumb for Microsoft */
-       input[type=range]::-ms-thumb {
-		-webkit-appearance: none;
-		border: none;
-		height: 0px;
-		width: 0px;
-		border-radius: 0px;
-	}
 </style>
 {% endblock %}
 
@@ -282,18 +128,77 @@
     </div>
 
     <br>
+    <br>
 
+    <p>
+        How well do the following statements describe you as a person?
+    </p>
 
+    <p style="padding-left: 10px">
+        {{ form.reciprocity.label }}
+    </p>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Does not describe me at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Describes me perfectly</th>
+        </tr>
+        <tr>
+            {{ for choice in form.reciprocity }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
 
+    <p style="padding-left: 10px">
+        {{ form.intentions.label }}
+    </p>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Does not describe me at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Describes me perfectly</th>
+        </tr>
+        <tr>
+            {{ for choice in form.intentions }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
 
+    <br>
 
+    <p>
+        <label for="don">
+            Imagine the following situation: Today you unexpectedly received 1,000 Euro. How much of this amount would
+            you donate to a good cause?
+        </label>
+    </p>
+    <div class="sameline">
+        <input type="number" class="numberinput" name="donation" id="don" min="0" max="1000" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 1000.')" oninput="this.setCustomValidity('')">
+        &nbspEuro
+    </div>
 
     <br>
 
     {{ form.wtgive.label }}
     <table class="table" id="demotable">
         <tr>
-            <th>Not willing at all to take risks</th>
+            <th>Completely unwilling to do so</th>
             <th></th>
             <th></th>
             <th></th>
@@ -302,7 +207,7 @@
             <th></th>
             <th></th>
             <th></th>
-            <th>Very willing to take risks</th>
+            <th>Very willing to do so</th>
         </tr>
         <tr>
             {{ for choice in form.wtgive }}
@@ -380,12 +285,17 @@ function showproficiency(eng){
             '        {{ endfor }}' +
             '    </tr>' +
             '</table>'
-            forminputs.eng_prof.required = True;
+            // set required attribute once shown (for every node):
+            for (let radio of forminputs.eng_prof) {
+                radio.required = true;
+            }
             }
             else {
-                forminputs.eng_prof.removeAttribute('required');
+            // remove required attribute again once hidden:
+                for (let radio of forminputs.eng_prof) {
+                    radio.required = false;
+                }
                 document.getElementById('proficiency').innerHTML='';
-
             }
         }
 </script>
