@@ -12,17 +12,20 @@
         width: 100% ;
         align-content: center;
     }
+
     .table#demotable td {
         width: 50% ;
         padding: 10px ;
         align-content: center;
         text-align: center;
     }
+
     .table#demotable th {
         align-content: center;
         text-align: center;
         font-weight: normal;
     }
+
     .dropdown{
         width: auto;
         height: calc(2.25rem + 2px);
@@ -37,6 +40,7 @@
         border-radius: .25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
+
     .numberinput{
         display: block;
         max-width: 50px;
@@ -51,18 +55,57 @@
         border-radius: .25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
+
     [class*="col-"] {
         width: 14%;
     }
+
     .row{
         width: 100%;
     }
+
     .sameline{
         display: flex;
         flex-direction: row;
         justify-content: left;
         align-items: center;
     }
+
+    .box-container {
+        display:flex;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+
+    .box {
+        flex: 1;
+        display: flex;
+        height: 60px;
+        margin: 5px 5px;
+        background-color: #ccc;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        font-size: min(2vw, 1rem);
+    }
+
+    .errormessage {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: red;
+        font-size: 12px
+    }
+
+    .errormessageMain {
+        color: red;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 6px;
+    }
+
     .btn {
         float: right
     }
@@ -116,7 +159,50 @@
         How high do you think is the bonus you will receive (<i>Recall: You can earn a maximum bonus payment of 2 GBP</i>)?
     </label>
     <div class="sameline">
-        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="200" step="1" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 200.')" oninput="this.setCustomValidity('')">&nbspcents
+        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="200" step="1" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 200.')" oninput="this.setCustomValidity('')">&nbsppence
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m1">
+            How well, do you think, <b>did you perform on this task</b> (guessing the number of dots in the pictures)?
+        </label>
+    </p>
+    <div class="box-container" id="m1">
+        <div class="row">
+            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('terrible')">Terrible</button>
+            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('very poor')">Very Poor</button>
+            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('poor')">Poor</button>
+            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('good')">Good</button>
+            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('very good')">Very Good</button>
+            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('exceptional')">Exceptional</button>
+        </div>
+        <div class="row errormessage" id="error1" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m2">
+            How well, do you think, <b>did other workers perform</b> on this task (guessing the number of dots in the
+            pictures)?
+        </label>
+    </p>
+    <div class="box-container" id="m2">
+        <div class="row">
+            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('terrible')">Terrible</button>
+            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('very poor')">Very Poor</button>
+            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('poor')">Poor</button>
+            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('good')">Good</button>
+            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('very good')">Very Good</button>
+            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('exceptional')">Exceptional</button>
+        </div>
+        <div class="row errormessage" id="error2" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
     </div>
 
     <br>
@@ -286,9 +372,74 @@
 
 <br>
 
-<button class="otree-btn-next btn btn-primary" id="next">Next</button>
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+    <span id="errorm" class="errormessageMain"></span>
+</div>
+
+<!-- <button class="otree-btn-next btn btn-primary" id="next" onclick="validate()">Next</button> -->
 
 <script>
+const boxes_own = document.getElementsByName('own_perf');
+const boxes_others = document.getElementsByName('others_perf');
+const errorbox = document.getElementById("errorm");
+
+let b_own = false;
+let b_others = false;
+
+boxes_own.forEach(box => {
+    box.addEventListener('click', function handleClick(event) {
+        console.log('box clicked', event);
+        boxes_own.forEach(box => {
+            box.setAttribute('style', 'background-color: #ccc;');
+        });
+        box.setAttribute('style', 'background-color: #6495ED;');
+    });
+});
+boxes_others.forEach(box => {
+    box.addEventListener('click', function handleClick(event) {
+        console.log('box clicked', event);
+        boxes_others.forEach(box => {
+            box.setAttribute('style', 'background-color: #ccc;');
+        });
+        box.setAttribute('style', 'background-color: #6495ED;');
+    });
+});
+
+function sendValueOwn(value) {
+    liveSend({'section': 'own_p', 'value': value})
+    b_own = true;
+    document.getElementById('error1').style.display = 'none';
+    checkCompletion();
+    errorbox.innerHTML = "";
+}
+function sendValueOthers(value) {
+    liveSend({'section': 'others_p', 'value': value})
+    b_others = true;
+    document.getElementById('error2').style.display = 'none';
+    checkCompletion();
+    errorbox.innerHTML = "";
+}
+
+function validate() {
+    if (!b_own) {
+        document.getElementById('error1').style.display = 'flex';
+        errorbox.innerHTML = "Please answer all questions.";
+    }
+    if (!b_others) {
+        document.getElementById('error2').style.display = 'flex';
+        errorbox.innerHTML = "Please answer all questions.";
+    }
+}
+
+function checkCompletion() {
+    if (b_own && b_others) {
+        document.getElementById('nb').style.display = 'block';
+        document.getElementById('fake').style.display = 'none';
+    }
+}
+
 function showproficiency(eng){
     if(eng==='1') {
         document.getElementById('proficiency').innerHTML = '' +

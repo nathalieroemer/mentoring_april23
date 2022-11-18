@@ -124,7 +124,7 @@ class T3Task(Page):
 class TaskT3(Page):  # Not used at the moment
     @staticmethod
     def live_method(player: Player, data):
-        # idea with the dict, can be ignored:
+        # idea with a dict, can be ignored:
         # player.participant.t3_answers["{}".format(data["section"])] = str(data["value"])
         if data['section'] == 't_ter':
             player.top_terrible = str(data['value'])

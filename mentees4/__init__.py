@@ -58,9 +58,8 @@ class Player(BasePlayer):
     diff = make_7pointlikert("How difficult did you find the investment task?")
     stereotypes = make_7pointlikert("Do you think this task rather favors male or female participants?")
     bonusest = models.FloatField()
-    # TODO: add following fields
-    # own_perf
-    # others_perf
+    own_perf = models.StringField()
+    others_perf = models.StringField()
     ident_adv = models.IntegerField()
     ident_inv = models.IntegerField()
     reciprocity = make_10pointlikert("When someone does me a favor, I am willing to return it.")
@@ -98,6 +97,13 @@ class Quest(Page):
         'eng_prof',
         'gender'
     ]
+
+    @staticmethod
+    def live_method(player: Player, data):
+        if data['section'] == 'own_p':
+            player.own_perf = str(data['value'])
+        elif data['section'] == 'others_p':
+            player.others_perf = str(data['value'])
 
 
 class End(Page):
