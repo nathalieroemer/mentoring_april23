@@ -71,11 +71,6 @@
     let click1 = 0;
     let click2 = 0;
 
-    window.onload = function() {
-        document.getElementById("advtext").style.display = "none";
-        document.getElementById("invtext").style.display = "none";
-    }
-
     function showadvtext() {
         if (click2 == 1) {
             nextb.style.display = "block";
@@ -85,20 +80,21 @@
         errorbox.innerHTML = "";
         var text = document.getElementById("advtext");
         if (text.style.display === "none") {
-          text.style.display = "block";
+            console.log("this yes")
+            text.style.display = "block";
         }
     }
 
     function showinvtext() {
         if (click1 == 1) {
-            nextb.style.display = 'block';
-            fakeb.style.display = 'none';
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
         }
         click2 = 1;
         errorbox.innerHTML = "";
         var text = document.getElementById("invtext");
         if (text.style.display === "none") {
-          text.style.display = "block";
+            text.style.display = "block";
         }
     }
 
@@ -130,7 +126,7 @@
         Your advisee
     </button>
 
-    <div id="advtext">
+    <div id="advtext" style="display: none">
         <p>
             Your advisee’s task is to guess the number of blue dots depicted in pictures, similar to the ones below
             (see figure 1). All pictures contain between 500 and 2000 blue dots. Your advisee sees one picture at a time
@@ -170,7 +166,7 @@
         The investor
     </button>
 
-    <div id="invtext">
+    <div id="invtext" style="display: none">
         <p>
             The investor decides how much to invest in your advisee’s guess. The investor’s <b>return</b> from the
             investment <b>is higher, the higher the accuracy</b> of your advisee’s guess.
