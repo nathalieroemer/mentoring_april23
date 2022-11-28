@@ -2,15 +2,15 @@
 {% load otree static %}
 
 {% block title %}
-    You have completed the task
+    You have completed the study
 {% endblock %}
 
 {% block content %}
 
 {{ if player.participant.test_passed == 1 }}
 <p>
-    Thank you for participating in this task. Your completion code is XXX. You will receive your bonus, if applicable,
-    within the next 6 days after the completion of this task.
+    Thank you for participating in this study. Your completion code is XXX. You will receive your bonus, if applicable,
+    within the next 6 days after the completion of this study.
 </p>
 {{ else }}
 <p>

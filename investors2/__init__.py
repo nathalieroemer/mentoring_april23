@@ -75,16 +75,10 @@ class Task(Page):
         # print(player.scenario)
         # list of index values that refer to all workers with respective self-evaluation:
         potworkers = [i for i, x in enumerate(C.mdf["mentees2.1.player.evaluation2"]) if x == player.scenario]
-        # print(potworkers)
         w = random.choice(potworkers)
-        # print(w)
         player.worker = C.mdf["participant.code"][w]
-        # print(player.worker)
 
         rel_dev = abs((C.mdf["mentees2.1.player.guess"][w]-C.mdf["mentees2.1.player.truevalue"][w])/C.mdf["mentees2.1.player.truevalue"][w])
-        # print(rel_dev)
-
-        # print(player.inv_ter/100)
 
         if player.scenario == "terrible":
             player.payoff = cu(round((1 - (player.inv_ter/100)) + (player.inv_ter/100) * 3 * (1 - rel_dev), 2))

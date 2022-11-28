@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Your bonus
+        Your payment
     </div>
 {{ endblock }}
 
@@ -49,55 +49,47 @@
 
 <div id="content">
     <p>
-        Your bonus consists of the amount you kept from the $1.00 endowment (and did not invest) and the returns to the
-        money you invested.
+        You will receive a fix pay of <b>£1.50</b>. Additionally, you can earn a bonus payment of up to <b>£3.00</b>.
     </p>
     <p>
-        By investing, you can <b>triple your bonus to up to $3.00</b>. The <b>returns</b> to your investment <b>depend
-        on how much the worker's guess deviates from the actual number of dots</b>.
+        <u>Your bonus payment</u>
     </p>
     <p>
-        <b>The better the worker you invested in guessed, the more you will earn.</b>
-    </p>
-
-    <br>
-
-    <p>
-        <b>Your bonus</b> in a round will be defined as:
+        You have an endowment of 100 Pence and have to decide how much out of the 100 Pence you want to invest in the
+        worker.
     </p>
     <p>
-        <b>
-            Bonus = (Remaining) Endowment + Investment (in $) * 3 * (100 – relative deviation of the guess from the true
-            value (in %))
-        </b>
+        <b>Your bonus payment is the endowment you kept plus the return to investment.</b>
     </p>
 
-    <br>
-
     <p>
-        To determine your bonus, we will <b>randomly choose one of your decisions</b>.
+        <u>Return to investment</u>
     </p>
     <p>
-        For example, if you invested all your endowment  ($1.00) in this round, you will receive the following bonus:
+        Your <b>return to investment is higher, the lower the relative deviation (in %)</b> of the worker's guess from
+        the actual number of blue dots in a picture.
+    </p>
+    <p>
+        For example, if you invested all your endowment (100 Pence) in this round, you will receive the following bonus:
     </p>
     <ul>
         <li>
-            If the accuracy of the worker’s guess <b>deviates by 0%</b> from the true value your <b>bonus will be $3.00</b>.
+            If the relative deviation of a worker's guess is <b>10% or less</b>, your <b>return to investment</b> will
+            be <b>300 Pence</b>.
         </li>
         <li>
-            If the accuracy of the worker’s guess <b>deviates by 50%</b> from the true value your <b>bonus will be $1.50</b>.
+            If the relative deviation of a worker's guess is <b>more than 10%, but less than 20%</b>, your <b>return to
+            investment</b> will be <b>270 Pence</b>.
         </li>
         <li>
-            If the accuracy of the worker’s guess <b>deviates by 75%</b> from the true value your <b>bonus will be $0.75</b>.
+            If the relative deviation of a worker's guess is <b>more than 20%, but less than 30%</b>, your <b>return to
+            investment</b> will be <b>170 Pence</b>.
         </li>
         <li>
-            If the accuracy of the worker’s guess <b>deviates by 100%</b> from the true value your <b>bonus will be $0.00</b>.
+            If the relative deviation of a worker's guess is <b>30% or more</b>, your <b>return to investment</b> will
+            be <b>0 Pence</b>.
         </li>
     </ul>
-    <p>
-        You cannot receive a negative bonus. If the guess deviates by more than 100% of the actual value, the return to your
-        investment will be 0.
-    </p>
 </div>
 
 <br>

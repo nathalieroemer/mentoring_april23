@@ -16,6 +16,7 @@
         width: 50% ;
         padding: 10px ;
         align-content: center;
+        text-align: center;
     }
     .table#demotable th {
         align-content: center;
@@ -113,18 +114,14 @@
     <p>
         <label for="i_inv">
             Now assume, one circle represents still you, but the other circle represents the investor, investing in your
-            advisee. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in
-            which you do not identify at all with your advisee's investor. In the very lower part (7), the circles are totally
-            overlapping and represent a situation in which you feel you fully identify with your advisee's investor.
+            advisee. Which figure is the one that most highly represents the extent to which you identify with the
+            investor?
         </label>
-    </p>
-    <p style="text-align: center">
-        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
     </p>
     <div class="sameline">
         Figure&nbsp
         <input type="number" class="numberinput" name="ident_inv" id="i_inv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
-        &nbspis the one that most highly represents the extent to which I identify with my advisee's investor.
+        &nbspis the one that most highly represents the extent to which I identify with the investor.
     </div>
 
     <br>

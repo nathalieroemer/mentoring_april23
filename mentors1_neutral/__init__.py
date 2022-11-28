@@ -30,7 +30,6 @@ class Player(BasePlayer):
     consent1 = models.IntegerField(initial=0)
     consent2 = models.IntegerField(initial=0)
     consent3 = models.IntegerField(initial=0)
-    consent4 = models.IntegerField(initial=0)
 
     test1 = models.IntegerField()
     test2 = models.IntegerField()
@@ -68,8 +67,7 @@ class Consent(Page):
     form_fields = [
         'consent1',
         'consent2',
-        'consent3',
-        'consent4'
+        'consent3'
     ]
 
 
@@ -84,13 +82,14 @@ class Instructions2(Page):
 class Attention1(Page):
     form_model = 'player'
     form_fields = [
-        'test1'
+        'test1',
+        'test2'
     ]
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
-        if player.test1 == 3:
+        if player.test1 == 3 and player.test2 == 2:
             par.test_passed = 1
         else:
             par.test_passed = 0

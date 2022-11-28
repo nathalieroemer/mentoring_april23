@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Evaluate your performance in round 2
+        How well did you do in guessing the number of blue dots in the picture in part 2?
     </div>
 {{ endblock }}
 
@@ -85,6 +85,15 @@
 
     // Keep track of the currently opened page and the respective time:
     sessionStorage.setItem("evaluation2", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c8", content)
+        sessionStorage.setItem("t8", title)
+    }
 </script>
 {% endblock %}
 
@@ -99,18 +108,16 @@
 
 <div id="content">
     <p>
-        In the following, you are again asked to evaluate your performance on the task (guessing the number of dots in the
-        picture) in this second round, by answering the question below. The answer <b>will be shown to your potential
-        investor</b>, who decides whether and how much to invest in your guess.
+        Please answer the question below. The <b>investor will see your answer, when deciding how much to invest in your
+        guess</b>.
     </p>
 
-    <br>
     <br>
 
     <form>
         <p>
             <label for="prom">
-                Please indicate how well you think you did in guessing the accurate number of blue dots in the picture:
+                Please indicate how well you think you did in guessing the number of blue dots in the picture:
             </label>
         </p>
         <div class="box-container" id="prom">

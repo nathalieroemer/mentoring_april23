@@ -16,13 +16,40 @@
         color: dimgrey
     }
 
-    .btn {
+    .otree-btn-next {
         float: right
     }
 
+    .opener {
+        background-color: #ccc;
+        color: #212529;
+        border-color: #ccc;
+    }
+
+    .opener:hover {
+        background-color: #D3D3D3;
+    }
+
+    .btn:focus {
+        box-shadow: none;
+    }
+
     .resp {
-        max-width: 100%;
+        max-width: 80%;
         height: auto;
+    }
+    .column{
+        float: left;
+        width: 50%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .errormessage {
+        color: red;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 6px;
     }
 </style>
 {% endblock %}
@@ -40,6 +67,45 @@
         sessionStorage.setItem("c2", content)
         sessionStorage.setItem("t2", title)
     }
+
+    const errorbox = document.getElementById("errorm");
+    const nextb = document.getElementById("nb");
+    const fakeb = document.getElementById("fake");
+    let click1 = 0;
+    let click2 = 0;
+
+    function showadvtext() {
+        if (click2 == 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        click1 = 1;
+        errorbox.innerHTML = "";
+        var text = document.getElementById("advtext");
+        if (text.style.display === "none") {
+            console.log("this yes")
+            text.style.display = "block";
+        }
+    }
+
+    function showpaytext() {
+        if (click1 == 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        click2 = 1;
+        errorbox.innerHTML = "";
+        var text = document.getElementById("paytext");
+        if (text.style.display === "none") {
+            text.style.display = "block";
+        }
+    }
+
+    function validate() {
+        if (click1 !== 1 || click2 !== 1) {
+            errorbox.innerHTML = "Please read the instructions";
+        }
+    }
 </script>
 {% endblock %}
 
@@ -54,30 +120,80 @@
 
 <div id="content">
     <p>
-        In another study, other workers have to guess how many blue dots (between 500 and 2000) are in a
-        computer-generated picture, similar to the one in figure 1 below.
+        In the following you will be matched with a worker. It will be your task to decide how much to invest in this
+        worker.
     </p>
 
-    <p style="text-align: center">
-        <img src="{{ static 'graphic1.png' }}" class="resp"/>
+    <button type="button" class="btn opener" onclick="showadvtext()">
+        <b><u>The worker's task:</u></b>
+    </button>
+
+    <div id="advtext" style="display: none">
         <br>
-        <i style="font-size: smaller">Figure 1</i>
-    </p>
+        <p>
+            This worker’s task is <b>to guess the number of blue dots</b> depicted in pictures, similar to the ones
+            below (see figure 1). All pictures contain between 500 and 2000 blue dots. The worker sees one picture at a
+            time, and has 1 minute time to guess.
+        </p>
+        <div class="row">
+            <div class="column">
+                <img src="{{ static 'example500.png' }}" class="resp"/>
+                <p>
+                    <b style="font-size: smaller">
+                        Correct answer: 500 dots
+                    </b>
+                </p>
+            </div>
+            <div class="column">
+                <img src="{{ static 'example2000.png' }}" class="resp"/>
+                <p>
+                    <b style="font-size: smaller">
+                        Correct answer: 2000 dots
+                    </b>
+                </p>
+            </div>
+        </div>
+        <p style="text-align: center">
+            <i style="font-size: smaller">Figure 1: Examples</i>
+        </p>
+        <p>
+            After indicating the guess about the number of blue dots in the picture, the worker answers the question in
+            figure 2.
+        </p>
+        <p style="text-align: center">
+            <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
+            <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
+            <br>
+            <i style="font-size: smaller">Figure 2: The worker's question</i>
+        </p>
+        <p>
+            <b>When deciding how much to invest, you see only the worker's answer to the question in figure 2</b>. You
+            will not know the guess or the actual number of blue dots in the picture.
+        </p>
+    </div>
 
     <br>
+    <br>
 
-    <p>
-        For each of the following decision rounds, you will be matched with one worker from this study.
-    </p>
-    <p>
-        In each decision round, you <b>have 100 cents endowment</b> for which <b>you can choose how much (from 0 to 100 cents) to
-        invest</b> in a worker’s guess.
-    </p>
+    <button type="button" class="btn opener" onclick="showpaytext()">
+        <b><u>The worker's bonus payment:</u></b>
+    </button>
+
+    <div id="paytext" style="display: none">
+        <br>
+        <p>
+            The worker's bonus payment depends on the amount that you decide to invest in the worker.
+        </p>
+    </div>
 </div>
 
 <br>
 
-<button class="otree-btn-next btn btn-primary">Next</button>
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+    <span id="errorm" class="errormessage"></span>
+</div>
 
 {{ endblock }}
 

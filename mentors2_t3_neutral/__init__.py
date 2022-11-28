@@ -11,7 +11,7 @@ Your app description
 class C(BaseConstants):
     NAME_IN_URL = 'mentors2_t3_neutral'
     PLAYERS_PER_GROUP = None
-    NUM_ROUNDS = 1
+    NUM_ROUNDS = 24  # six possible answers with four cases for advisee rank
 
     SCENARIOS = [
         "1-Terrible_best",

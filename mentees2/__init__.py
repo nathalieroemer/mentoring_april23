@@ -118,6 +118,8 @@ class Task1(Page):
             # the lower h the better (1<=h<=4)
             player.rel_perf = h
 
+        player.treat = player.participant.treat
+
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
         if player.timeout:
@@ -146,9 +148,7 @@ class Instructions2(Page):
 
 
 class Instructions3(Page):
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        player.treat = player.participant.treat
+    pass
 
 
 class Attention2(Page):
@@ -190,17 +190,17 @@ class Evaluation1(Page):
                 a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
 
             if a == "terrible":
-                ad = "1-Terrible"
+                ad = "Terrible"
             elif a == "very poor":
-                ad = "2-Very poor"
+                ad = "Very poor"
             elif a == "poor":
-                ad = "3-Poor"
+                ad = "Poor"
             elif a == "good":
-                ad = "4-Good"
+                ad = "Good"
             elif a == "very good":
-                ad = "5-Very good"
+                ad = "Very good"
             elif a == "exceptional":
-                ad = "6-Exceptional"
+                ad = "Exceptional"
         else:
             ad = ""
 
@@ -244,32 +244,32 @@ class FinalSub(Page):
 
         if player.treat == 't3' or player.treat == 't4':
             if a == "terrible":
-                ad = "1-Terrible"
+                ad = "Terrible"
             elif a == "very poor":
-                ad = "2-Very poor"
+                ad = "Very poor"
             elif a == "poor":
-                ad = "3-Poor"
+                ad = "Poor"
             elif a == "good":
-                ad = "4-Good"
+                ad = "Good"
             elif a == "very good":
-                ad = "5-Very good"
+                ad = "Very good"
             elif a == "exceptional":
-                ad = "6-Exceptional"
+                ad = "Exceptional"
         else:
             ad = ""
 
         if player.evaluation == "terrible":
-            pa = "1-Terrible"
+            pa = "Terrible"
         elif player.evaluation == "very poor":
-            pa = "2-Very poor"
+            pa = "Very poor"
         elif player.evaluation == "poor":
-            pa = "3-Poor"
+            pa = "Poor"
         elif player.evaluation == "good":
-            pa = "4-Good"
+            pa = "Good"
         elif player.evaluation == "very good":
-            pa = "5-Very good"
+            pa = "Very good"
         elif player.evaluation == "exceptional":
-            pa = "6-Exceptional"
+            pa = "Exceptional"
 
         return dict(
             advice=ad,
@@ -287,4 +287,4 @@ class FinalSub(Page):
         player.evaluation2 = str(data)
 
 
-page_sequence = [Task1, Estimate1, Instructions2, Instructions3, Attention2, Evaluation1, FinalSub]
+page_sequence = [Task1, Evaluation1, FinalSub, Estimate1]

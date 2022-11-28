@@ -55,7 +55,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    diff = make_7pointlikert("How difficult did you find the investment task?")
+    diff = make_7pointlikert("How difficult did you find it to guess the number of dots in the pictures?")
     stereotypes = make_7pointlikert("Do you think this task rather favors male or female participants?")
     bonusest = models.FloatField()
     own_perf = models.StringField()
@@ -79,7 +79,7 @@ class Quest(Page):
     @staticmethod
     def is_displayed(player: Player):
         par = player.participant
-        return par.test_passed == 1 and par.test2_passed == 1 and par.timeout2 == 0
+        return par.test_passed == 1 and par.timeout2 == 0
 
     form_model = 'player'
     form_fields = [

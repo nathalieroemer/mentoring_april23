@@ -38,8 +38,14 @@
     }
 
     .resp {
-        max-width: 100%;
+        max-width: 80%;
         height: auto;
+    }
+    .column{
+        float: left;
+        width: 50%;
+        padding: 10px;
+        text-align: center;
     }
 
     .errormessage {
@@ -117,30 +123,50 @@
 
 <div id="content">
     <p>
-        In the following, <b>you will give advice to a worker. We will refer to this other worker as your advisee</b>.
+        In the following, you will be matched with a worker. It will be your task to give advice to this worker. We will
+        refer to this worker as your advisee.
     </p>
 
     <br>
 
     <button type="button" class="btn opener" onclick="showadvtext()">
-        Your advisee
+        <b><u>Your advisee:</u></b>
     </button>
 
     <div id="advtext" style="display: none">
+        <br>
         <p>
-            Your advisee’s task is to guess the number of blue dots depicted in pictures, similar to the ones below
-            (see figure 1). All pictures contain between 500 and 2000 blue dots. Your advisee sees one picture at a time
-            and has 1 minute time to come up with a guess.
+            <u>Your advisee's task</u>
         </p>
+        <p>
+            Your advisee’s task is to <b>guess the number of blue dots</b> depicted in pictures, similar to the ones
+            below (see figure 1). All pictures contain between 500 and 2000 blue dots. Your advisee sees one picture at
+            a time, and has 1 minute time to guess.
+        </p>
+        <div class="row">
+            <div class="column">
+                <img src="{{ static 'example500.png' }}" class="resp"/>
+                <p>
+                    <b style="font-size: smaller">
+                        Correct answer: 500 dots
+                    </b>
+                </p>
+            </div>
+            <div class="column">
+                <img src="{{ static 'example2000.png' }}" class="resp"/>
+                <p>
+                    <b style="font-size: smaller">
+                        Correct answer: 2000 dots
+                    </b>
+                </p>
+            </div>
+        </div>
         <p style="text-align: center">
-            <img src="{{ static 'graphic1.png' }}" class="resp"/>
-            <br>
             <i style="font-size: smaller">Figure 1: Examples</i>
         </p>
         <p>
-            After completing the task (guessing the number of dots in the picture), your advisee will answer a question
-            about how well your advisee thinks they did in guessing the number of dots in the picture (on a scale from
-            terrible to exceptional).
+            After indicating the guess about the number of blue dots in the picture, your advisee answers the question
+            in figure 2.
         </p>
         <p style="text-align: center">
             <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
@@ -148,14 +174,13 @@
         <p style="text-align: center">
             <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
             <br>
-            <i style="font-size: smaller">Figure 2: Your advisee's guess</i>
+            <i style="font-size: smaller">Figure 2: Your advisee's question</i>
         </p>
         <p>
-            <b>Your advisee's bonus payment</b>
+            <u>Your advisee's payment</u>
         </p>
         <p>
-            Your advisee’s payment depends on the amount <b>an investor</b> (see below for details on the investor)
-            decides to invest in your advisee.
+            Your advisee’s payment depends on the amount that the investor decides to invest in your advisee.
         </p>
     </div>
 
@@ -163,21 +188,55 @@
     <br>
 
     <button type="button" class="btn opener" onclick="showinvtext()">
-        The investor
+        <b><u>The investor:</u></b>
     </button>
 
     <div id="invtext" style="display: none">
+        <br>
         <p>
-            The investor decides how much to invest in your advisee’s guess. The investor’s <b>return</b> from the
-            investment <b>is higher, the higher the accuracy</b> of your advisee’s guess.
+            It is the investor's task to <b>decide how much to invest in your advisee</b>. When deciding how much to
+            invest, the investor <b>sees only your advisee's answer to the question in figure 2</b>. The investor will
+            not know your advisees guess or the actual number of blue dots in the picture.
         </p>
         <p>
-            Investors who try to maximize their earnings will invest more the better they think the guess is.
+            <u>The investor's payment</u>
         </p>
         <p>
-            When deciding how much to invest, the investor sees only your advisee’s answer to the question in figure 2.
-            <b>The investor will not know the guess or the actual number of blue dots in the picture</b>.
+            The investor has an endowment of 100 Pence and has to decide how much out of the 100 Pence to invest in your
+            advisee.
         </p>
+        <p>
+            <b>The investor's payment consists of the endowment kept and the return to investment</b>.
+        </p>
+        <p>
+            <u>Return to investment</u>
+        </p>
+        <p>
+            The investor's <b>return to investment is higher, the lower the relative deviation (in %)</b> of your
+            advisee's guess from the actual number of dots in the picture.
+        </p>
+        <p>
+            For example, if the investor invested all of the endowment (100 Pence), the investor will receive the
+            following return to investment:
+        </p>
+        <ul>
+            <li>
+                If the relative deviation of the guess is <b>10% or less</b>, the <b>return to investment</b> will be
+                <b>300 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>more than 10%, but less than 20%</b>, the <b>return to
+                investment</b> will be <b>270 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>more than 20%, but less than 30%</b>, the <b>return to
+                investment</b> will be <b>170 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>30% or more</b>, the <b>return to investment</b> will be
+                <b>0 Pence</b>.
+            </li>
+        </ul>
     </div>
 </div>
 

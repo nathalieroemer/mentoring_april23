@@ -43,7 +43,7 @@
     <div class="form-group required">
         <label class="col-form-label" for="id_testq_0">It is your task to ...</label>
         <div class="controls  field-testq">
-            <ul id="id_testq">
+            <ul id="testq">
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
@@ -69,6 +69,40 @@
                     <label for="id_testq_3">
                         <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
                      ... decide whether to invest in your advisee or not.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_2_0">What does the investor know when deciding how much to invest in your advisee?</label>
+        <div class="controls  field-testq">
+            <ul id="testq_2">
+                <li>
+                    <label for="id_testq_2_0">
+                        <input type="radio" name="test2" value="1" required="" id="id_testq_2_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        The advisees guess.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_1">
+                        <input type="radio" name="test2" value="2" required="" id="id_testq_2_1" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                        The advisee's answer to a question about how well your advisee did on the task.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_2">
+                        <input type="radio" name="test2" value="3" required="" id="id_testq_2_2" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                     The actual number of blue dots in the picture.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_3">
+                        <input type="radio" name="test2" value="4" required="" id="id_testq_2_3" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                     The investor has no information.
                     </label>
                 </li>
             </ul>

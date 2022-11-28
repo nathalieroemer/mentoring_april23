@@ -16,19 +16,40 @@
         color: dimgrey
     }
 
-    .img_cont {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .example {
-        max-width: 100%;
-        min-width: 10%;
-    }
-
-    .btn {
+    .otree-btn-next {
         float: right
+    }
+
+    .opener {
+        background-color: #ccc;
+        color: #212529;
+        border-color: #ccc;
+    }
+
+    .opener:hover {
+        background-color: #D3D3D3;
+    }
+
+    .btn:focus {
+        box-shadow: none;
+    }
+
+    .resp {
+        max-width: 80%;
+        height: auto;
+    }
+    .column{
+        float: left;
+        width: 50%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .errormessage {
+        color: red;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 6px;
     }
 </style>
 {% endblock %}
@@ -46,6 +67,45 @@
         sessionStorage.setItem("c2", content)
         sessionStorage.setItem("t2", title)
     }
+
+    const errorbox = document.getElementById("errorm");
+    const nextb = document.getElementById("nb");
+    const fakeb = document.getElementById("fake");
+    let click1 = 0;
+    let click2 = 0;
+
+    function showadvtext() {
+        if (click2 == 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        click1 = 1;
+        errorbox.innerHTML = "";
+        var text = document.getElementById("advtext");
+        if (text.style.display === "none") {
+            console.log("this yes")
+            text.style.display = "block";
+        }
+    }
+
+    function showinvtext() {
+        if (click1 == 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        click2 = 1;
+        errorbox.innerHTML = "";
+        var text = document.getElementById("invtext");
+        if (text.style.display === "none") {
+            text.style.display = "block";
+        }
+    }
+
+    function validate() {
+        if (click1 !== 1 || click2 !== 1) {
+            errorbox.innerHTML = "Please read the instructions";
+        }
+    }
 </script>
 {% endblock %}
 
@@ -60,39 +120,131 @@
 
 <div id="content">
     <p>
-        In the following, you will see 2 computer-generated pictures, similar to the ones below (see figure 1).
-    </p>
-    <p>
-        All pictures contain between 500 and 2000 blue dots. On the next page you will be shown a new picture.
-        It is then your task to guess the number of blue dots depicted. You have 1 minute to come up with your guess.
-    </p>
-    <p>
-        Whether or not you receive a bonus depends on the perception of a third party regarding how accurate your guess
-        is.
+        In the following, it will be your task to <b>guess the number of blue dots</b> depicted in pictures, similar to
+        the ones below (see figure 1). All pictures contain between 500 and 2000 blue dots. You will see one picture at
+        a time, and you have 1 minute time to guess.
     </p>
 
     <br>
 
-    <div class="img_cont">
-        <img src="{{ static 'example500.png' }}" class="example"/>
-        <img src="{{ static 'example2000.png' }}" class="example"/>
-    </div>
-    <div class="img_cont">
-        <span>
-            <b>Correct answer: 500 dots</b>
-        </span>
-        <span>
-            <b>Correct answer: 2000 dots</b>
-        </span>
+    <div class="row">
+        <div class="column">
+            <img src="{{ static 'example500.png' }}" class="resp"/>
+            <p>
+                <b style="font-size: smaller">
+                    Correct answer: 500 dots
+                </b>
+            </p>
+        </div>
+        <div class="column">
+            <img src="{{ static 'example2000.png' }}" class="resp"/>
+            <p>
+                <b style="font-size: smaller">
+                    Correct answer: 2000 dots
+                </b>
+            </p>
+        </div>
     </div>
     <p style="text-align: center">
         <i style="font-size: smaller">Figure 1: Examples</i>
     </p>
+
+    <p>
+        After indicating your guess about the number of blue dots in the picture, you will answer the question in figure
+        2.
+    </p>
+    <p style="text-align: center">
+        <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
+        <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
+        <br>
+        <i style="font-size: smaller">Figure 2: Your question</i>
+    </p>
+
+    <button type="button" class="btn opener" onclick="showadvtext()">
+        <b><u>Your payment:</u></b>
+    </button>
+
+    <div id="advtext" style="display: none">
+        <br>
+        <p>
+            You will receive a <b>fix pay of £1.50</b>. Additionally, you can earn a bonus payment of up to <b>£2.00</b>.
+        </p>
+        <p>
+            The study consists of two parts. At the end of the study, a coinflip will decide whether part 1 or part 2 of
+            the study is the 'part-that-counts'. You will receive the bonus payment that you earned in the
+            'part-that-counts'.
+        </p>
+        <p>
+            <u>Your bonus payment</u>
+        </p>
+        <p>
+            Your bonus payment depends on the amount that an investor decides to invest in you. Your <b>bonus payment
+            equals 2 * the investment by the investor</b>.
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <button type="button" class="btn opener" onclick="showinvtext()">
+        <b><u>The investor:</u></b>
+    </button>
+
+    <div id="invtext" style="display: none">
+        <br>
+        <p>
+            It is the investor's task to <b>decide how much to invest in you</b>. When deciding how much to invest, the
+            investor <b>sees only your answer to the question in figure 2</b>. The investor will not know your guess or
+            the actual number of blue dots in the picture.
+        </p>
+        <p>
+            <u>The investor's bonus payment</u>
+        </p>
+        <p>
+            The investor has an endowment of 100 Pence and has to decide how much out of the 100 Pence to invest in you.
+        </p>
+        <p>
+            <b>The investor's bonus payment consists of the endowment kept and the return to investment</b>.
+        </p>
+        <p>
+            <u>Return to investment</u>
+        </p>
+        <p>
+            The investor's <b>return to investment is higher, the lower the relative deviation (in %)</b> of your guess
+            from the actual number of dots in the picture.
+        </p>
+        <p>
+            For example, if the investor invested all of the endowment (100 Pence), the investor will receive the
+            following return to investment:
+        </p>
+        <ul>
+            <li>
+                If the relative deviation of the guess is <b>10% or less</b>, the <b>return to investment</b> will be
+                <b>300 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>more than 10%, but less than 20%</b>, the <b>return to
+                investment</b> will be <b>270 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>more than 20%, but less than 30%</b>, the <b>return to
+                investment</b> will be <b>170 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>30% or more</b>, the <b>return to investment</b> will be
+                <b>0 Pence</b>.
+            </li>
+        </ul>
+    </div>
 </div>
 
 <br>
 
-<button class="otree-btn-next btn btn-primary">Next</button>
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+    <span id="errorm" class="errormessage"></span>
+</div>
 
 {{ endblock }}
 

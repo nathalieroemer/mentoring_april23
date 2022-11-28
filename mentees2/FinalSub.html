@@ -67,15 +67,8 @@
         // Save selection for previous instructions
         sessionStorage.setItem("selection2", value + '2');
         b1 = true;
-        checkCompletion();
+        document.getElementById('next').style.display = 'block';
     };
-
-    function checkCompletion() {
-        if (b1) {
-            document.getElementById('nb2').style.display = 'block';
-            document.getElementById('nb1').style.display = 'none';
-        }
-    }
 
     // Keep track of the currently opened page and the respective time:
     sessionStorage.setItem("finalsub", "true")
@@ -85,8 +78,8 @@
     let title = document.getElementById("title").innerHTML
 
     if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c8", content)
-        sessionStorage.setItem("t8", title)
+        sessionStorage.setItem("c5", content)
+        sessionStorage.setItem("t5", title)
     }
 </script>
 {% endblock %}
@@ -103,43 +96,46 @@
 <div id="content">
     {{ if player.treat == 't3' }}
     <p>
-        You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
-        rank relative to 3 other workers. These 3 workers were selected by chance among workers that - similar to you -
-        had to guess the number of dots in computer-generated pictures in a previous task.
+        <u><b>Your advice</b></u>
     </p>
     <p>
-        Given the information, that your current answer to the question "Please indicate how well you think you did in
-        guessing the accurate number of blue dots in the picture." is <b>{{prevansw}}</b> (as shown below) your mentor provided the
-        following advice:
-    </p>
-    <p>
-        On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advices you to choose <span style="color: red">{{ advice }}</span></b> when answering the
-        question below.
+        <b>You received the advice to choose <span style="color: red">{{ advice }}</span></b>, when answering the question
+        below.
     </p>
     {{ endif }}
 
     {{ if player.treat == 't4' }}
     <p>
-        You were matched with a mentor. Your mentor’s task was to advice you how to answer the question below, given your
-        rank relative to 3 other workers. These 3 workers were selected by chance among workers that - similar to you -
-        had to guess the number of dots in computer-generated pictures in a previous task.
+        You are matched with an advisor who will provide you with some advice in answering the question below.
     </p>
     <p>
-        On a scale from 1-Terrible to 6-Exceptional, <b>your mentor advises you to choose <span style="color: red">{{ advice }}</span></b> when answering the
-        question below.
-    </p>
-    {{ endif }}
-
-    <p>
-        Below you see your current (previously given) answer to the question "Please indicate how well you think you did in
-        guessing the accurate number of blue dots in the picture".
+        <u><b>Your advisor</b></u>
     </p>
     <p>
-        You can either change it, by selecting any other answer - or directly submit it as your final answer by pressing the
-        "Next"-button.
+        Your advisor is another worker who <b>has some information on your performance</b>. Specifically, <b>your
+        advisor provides advice contingent on your group rank within a randomly matched group of four workers</b>, who
+        all performed the same task. However, the advisor does not exactly know how good your guess was.
+    </p>
+    <p>
+        <u><b>Your advice</b></u>
+    </p>
+    <p>
+        <b>You received the advice to choose <span style="color: red">{{ advice }}</span></b>, when answering the question
+        below.
     </p>
 
     <br>
+    {{ endif }}
+
+    <p>
+        Below you see your current (previously given) answer to the question <i>"Please indicate how well you think you
+        did in guessing the number of blue dots in the picture"</i>.
+    </p>
+    <p>
+        You can either change your answer by selecting any other button, or confirm your answer with a click on the
+        respective button.
+    </p>
+
     <br>
 
     <form>
@@ -163,7 +159,6 @@
 
 <br>
 
-<button class="otree-btn-next btn btn-primary" id="nb1" onclick="sendValue(pre)">Next</button>
-<button class="otree-btn-next btn btn-primary" id="nb2" style="display: none">Next</button>
+<button class="otree-btn-next btn btn-primary" id="next" style="display: none">Next</button>
 
 {{ endblock }}

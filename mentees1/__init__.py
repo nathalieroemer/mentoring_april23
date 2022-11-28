@@ -105,10 +105,9 @@ class Player(BasePlayer):
     consent1 = models.IntegerField(initial=0)
     consent2 = models.IntegerField(initial=0)
     consent3 = models.IntegerField(initial=0)
-    consent4 = models.IntegerField(initial=0)
-    consent5 = models.IntegerField(initial=0)
 
     test1 = models.IntegerField()
+    test2 = models.IntegerField()
 
 
 # Methods
@@ -187,9 +186,7 @@ class Consent(Page):
     form_fields = [
         'consent1',
         'consent2',
-        'consent3',
-        'consent4',
-        'consent5'
+        'consent3'
     ]
 
 
@@ -200,14 +197,15 @@ class Instructions(Page):
 class Attention1(Page):
     form_model = 'player'
     form_fields = [
-        'test1'
+        'test1',
+        'test2'
     ]
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         par = player.participant
         par.test2_passed = 0
-        if player.test1 == 1:
+        if player.test1 == 1 and player.test2 == 2:
             par.test_passed = 1
             # endmessage is variable helping with display of goodbye message, depending on which test was (not) passed
             par.endmessage = 1

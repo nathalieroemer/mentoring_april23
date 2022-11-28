@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        How sure are you about your guess in round 2?
+        How sure are you about your guess in part 2?
     </div>
 {{ endblock }}
 
@@ -249,8 +249,8 @@
     let title = document.getElementById("title").innerHTML
 
     if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c10", content)
-        sessionStorage.setItem("t10", title)
+        sessionStorage.setItem("c9", content)
+        sessionStorage.setItem("t9", title)
     }
 </script>
 {% endblock %}
@@ -278,6 +278,9 @@
     correct answer falls between those numbers</b>.
 </label>
 
+<p>
+    The investor will not see your answer to this question.
+</p>
 
 <div class="input-group mb-3" style="max-width: 100%">
     <div class="input-group-prepend">

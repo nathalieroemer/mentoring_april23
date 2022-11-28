@@ -57,15 +57,17 @@
 
 <div id="content">
     <p>
-        You are asked to provide advice on how to answer the question about performance in this task (see figure 1).
+        You are asked to <b>provide advice on how to answer the question in figure 1</b>.
     </p>
     <p>
-        Your advisee is ranked within a randomly matched group of four workers, who all performed the same task.
-        Depending on whether your advisee performed best, second best, third best or least best within this group,
+        We will ask <b>you to provide advice contingent on your advisee's group rank within a randomly matched group of
+        four workers</b>, who all performed the same
         {{ if player.treat == 't3' }}
-            and depending on your advisee's original answer to the question in figure 1,
+            task, and contingent on your advisee’s prior answer to the question.
+        {{ else }}
+            task.
         {{ endif }}
-        we ask you to provide advice to your advisee on how to answer the following question:
+        However, you will not exactly know how good your advisee's guess was.
     </p>
     
     <br>
@@ -77,10 +79,6 @@
         <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
         <br>
         <i style="font-size: smaller">Figure 1: Your advisee's question</i>
-    </p>
-
-    <p>
-        When providing advice, you will not know exactly how good your advisee’s guess was.
     </p>
 </div>
 

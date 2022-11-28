@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Task (Second round)
+        Task - Part 2
     </div>
 {{ endblock }}
 
@@ -62,8 +62,8 @@
     let title = document.getElementById("title").innerHTML
 
     if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c9", content)
-        sessionStorage.setItem("t9", title)
+        sessionStorage.setItem("c7", content)
+        sessionStorage.setItem("t7", title)
     }
 </script>
 {% endblock %}
@@ -79,9 +79,12 @@
 
 <div id="content">
     <p>
-        Below, you see again a computer-generated picture with between 500 and 2000 blue dots. Please guess another time how
-        many blue dots are in this picture. Please indicate your guess below the picture. You again have 1 minute to come up
-        with your guess.
+        Now, part 2 of the study starts. Below, you see <b>another</b> picture with between 500 and 2000 blue dots. This
+        picture is different to the picture you have seen before. Please guess again, how many blue dots, do you think,
+        are in this picture? Please indicate your guess below the picture.
+    </p>
+    <p>
+        You have 1 minute to guess.
     </p>
 
     <p>

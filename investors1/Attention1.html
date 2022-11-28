@@ -41,34 +41,68 @@
 
 <form>
     <div class="form-group required">
-        <label class="col-form-label" for="id_testq_0">Your bonus will be higher...</label>
+        <label class="col-form-label" for="id_testq_0">Your bonus payment equals ...</label>
         <div class="controls  field-testq">
             <ul id="id_testq">
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-                        ... the faster you make your investment decision.
+                        ... your kept endowment.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_1">
                         <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... the more the guess of the worker you invested in deviates from the actual number of blue dots in the picture.
+                     ... your kept endowment plus the return to investment.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_2">
                         <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... the less you invest in a worker’s guess.
+                     ... 100 Pence.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_3">
                         <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... the closer the guess of the worker you invested in is to the actual number of blue dots in the picture.
+                     ... your return to investment.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_2_0">The return to investment is higher ...</label>
+        <div class="controls  field-testq">
+            <ul id="testq_2">
+                <li>
+                    <label for="id_testq_2_0">
+                        <input type="radio" name="test2" value="1" required="" id="id_testq_2_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        ... the faster you make your investment decision.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_1">
+                        <input type="radio" name="test2" value="2" required="" id="id_testq_2_1" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                        ... the higher the relative deviation of the worker's guess from the actual number of blue dots.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_2">
+                        <input type="radio" name="test2" value="3" required="" id="id_testq_2_2" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                     ... the more of your endowment you keep for yourself.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_3">
+                        <input type="radio" name="test2" value="4" required="" id="id_testq_2_3" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                     ... the lower the relative deviation of the worker's guess from the actual number of blue dots.
                     </label>
                 </li>
             </ul>

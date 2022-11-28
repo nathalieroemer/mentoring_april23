@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        How sure are you about your guess?
+        How sure are you about your guess in part 1?
     </div>
 {{ endblock }}
 
@@ -249,8 +249,8 @@
     let title = document.getElementById("title").innerHTML
 
     if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c4", content)
-        sessionStorage.setItem("t4", title)
+        sessionStorage.setItem("c6", content)
+        sessionStorage.setItem("t6", title)
     }
 </script>
 {% endblock %}
@@ -278,6 +278,10 @@
         Please use the slider to indicate a <b>high and a low estimate</b> such that there is a <b>90% chance that the
         correct answer falls between those numbers</b>.
     </label>
+</p>
+
+<p>
+    The investor will not see your answer to this question.
 </p>
 
 <div class="input-group mb-3" style="max-width: 100%">

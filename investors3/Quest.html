@@ -7,7 +7,7 @@
 
 {% block styles %}
 <style>
-.table#demotable {
+    .table#demotable {
         table-layout: fixed ;
         width: 100% ;
         align-content: center;
@@ -16,6 +16,7 @@
         width: 50% ;
         padding: 10px ;
         align-content: center;
+        text-align: center;
     }
     .table#demotable th {
         align-content: center;
@@ -38,7 +39,7 @@
     }
     .numberinput{
         display: block;
-        max-width: 50px;
+        max-width: 60px;
         width: 100%;
         padding: .375rem .75rem;
         font-size: 1rem;
@@ -115,7 +116,7 @@
         How high do you think is the bonus you will receive (<i>Recall: You can earn a bonus payment of up to 3 GBP</i>)?
     </label>
     <div class="sameline">
-        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="300" step="1" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 300.')" oninput="this.setCustomValidity('')">&nbspcents
+        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="300" step="1" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 300.')" oninput="this.setCustomValidity('')">&nbspPence
     </div>
 
     <br>
