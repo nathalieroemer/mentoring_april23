@@ -8,53 +8,7 @@
 {% endblock %}
 
 {% block styles %}
-<style>
-    .prevIns{
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        width: 300px;
-        text-align: right;
-        cursor: pointer;
-        color: dimgrey
-    }
-
-    .otree-btn-next {
-        float: right
-    }
-
-    .opener {
-        background-color: #ccc;
-        color: #212529;
-        border-color: #ccc;
-    }
-
-    .opener:hover {
-        background-color: #D3D3D3;
-    }
-
-    .btn:focus {
-        box-shadow: none;
-    }
-
-    .resp {
-        max-width: 80%;
-        height: auto;
-    }
-    .column{
-        float: left;
-        width: 50%;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .errormessage {
-        color: red;
-        vertical-align: middle;
-        margin-right: 10px;
-        padding-top: 6px;
-    }
-</style>
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block scripts %}
@@ -74,6 +28,10 @@
     const errorbox = document.getElementById("errorm");
     const nextb = document.getElementById("nb");
     const fakeb = document.getElementById("fake");
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    const h1 = document.getElementById("head1");
+    const h2 = document.getElementById("head2");
     let click1 = 0;
     let click2 = 0;
 
@@ -82,8 +40,10 @@
             nextb.style.display = "block";
             fakeb.style.display = "none";
         }
+        button1.style.display = "none";
+        h1.style.display = "block";
         click1 = 1;
-        errorbox.innerHTML = "";
+        errorbox.style.display = "none";
         var text = document.getElementById("advtext");
         if (text.style.display === "none") {
             console.log("this yes")
@@ -96,8 +56,10 @@
             nextb.style.display = "block";
             fakeb.style.display = "none";
         }
+        button2.style.display = "none";
+        h2.style.display = "block";
         click2 = 1;
-        errorbox.innerHTML = "";
+        errorbox.style.display = "none";
         var text = document.getElementById("invtext");
         if (text.style.display === "none") {
             text.style.display = "block";
@@ -106,7 +68,7 @@
 
     function validate() {
         if (click1 !== 1 || click2 !== 1) {
-            errorbox.innerHTML = "Please read the instructions";
+            errorbox.style.display = "block";
         }
     }
 </script>
@@ -121,6 +83,11 @@
     </u>
 </div>
 
+<div id="errorm" class="otree-form-errors alert alert-danger" style="display: none">
+    Please press the grey buttons to read the full instructions. You can only proceed if you read through all of the
+    instructions.
+</div>
+
 <div id="content">
     <p>
         In the following, you will be matched with a worker. It will be your task to give advice to this worker. We will
@@ -129,12 +96,14 @@
 
     <br>
 
-    <button type="button" class="btn opener" onclick="showadvtext()">
+    <button id="button1" type="button" class="btn opener" onclick="showadvtext()">
         <b><u>Your advisee:</u></b>
     </button>
+    <p id="head1" style="display: none">
+        <b><u>Your advisee:</u></b>
+    </p>
 
     <div id="advtext" style="display: none">
-        <br>
         <p>
             <u>Your advisee's task</u>
         </p>
@@ -187,12 +156,14 @@
     <br>
     <br>
 
-    <button type="button" class="btn opener" onclick="showinvtext()">
+    <button id="button2" type="button" class="btn opener" onclick="showinvtext()">
         <b><u>The investor:</u></b>
     </button>
+    <p id="head2" style="display: none">
+        <b><u>The investor:</u></b>
+    </p>
 
     <div id="invtext" style="display: none">
-        <br>
         <p>
             It is the investor's task to <b>decide how much to invest in your advisee</b>. When deciding how much to
             invest, the investor <b>sees only your advisee's answer to the question in figure 2</b>. The investor will
@@ -245,7 +216,6 @@
 <div style="float: right">
     <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
     <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
-    <span id="errorm" class="errormessage"></span>
 </div>
 
 {% endblock %}

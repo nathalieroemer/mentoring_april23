@@ -6,110 +6,7 @@
 {% endblock %}
 
 {% block styles %}
-<style>
-    .table#demotable {
-        table-layout: fixed ;
-        width: 100% ;
-        align-content: center;
-    }
-
-    .table#demotable td {
-        width: 50% ;
-        padding: 10px ;
-        align-content: center;
-        text-align: center;
-    }
-
-    .table#demotable th {
-        align-content: center;
-        text-align: center;
-        font-weight: normal;
-    }
-
-    .dropdown{
-        width: auto;
-        height: calc(2.25rem + 2px);
-        display: block;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 2px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    }
-
-    .numberinput{
-        display: block;
-        max-width: 55px;
-        width: 100%;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    }
-
-    [class*="col-"] {
-        width: 14%;
-    }
-
-    .row{
-        width: 100%;
-    }
-
-    .sameline{
-        display: flex;
-        flex-direction: row;
-        justify-content: left;
-        align-items: center;
-    }
-
-    .box-container {
-        display:flex;
-        flex-direction: column;
-        padding-left: 20px;
-    }
-
-    .box {
-        flex: 1;
-        display: flex;
-        height: 60px;
-        margin: 5px 5px;
-        background-color: #ccc;
-        cursor: pointer;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        overflow: hidden;
-        font-size: min(2vw, 1rem);
-    }
-
-    .errormessage {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        color: red;
-        font-size: 12px
-    }
-
-    .errormessageMain {
-        color: red;
-        vertical-align: middle;
-        margin-right: 10px;
-        padding-top: 6px;
-    }
-
-    .btn {
-        float: right
-    }
-</style>
+<link href="{% static 'global/quest.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block content %}
@@ -150,13 +47,13 @@
         </label>
     </p>
     <div class="box-container" id="m1">
-        <div class="row">
-            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('terrible')">Terrible</button>
-            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('very poor')">Very Poor</button>
-            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('poor')">Poor</button>
-            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('good')">Good</button>
-            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('very good')">Very Good</button>
-            <button type="button" name="own_perf" class="box" onclick="sendValueOwn('exceptional')">Exceptional</button>
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box1" onclick="sendValueOwn('terrible')">Terrible</div>
+            <div class="box1" onclick="sendValueOwn('very poor')">Very Poor</div>
+            <div class="box1" onclick="sendValueOwn('poor')">Poor</div>
+            <div class="box1" onclick="sendValueOwn('good')">Good</div>
+            <div class="box1" onclick="sendValueOwn('very good')">Very Good</div>
+            <div class="box1" onclick="sendValueOwn('exceptional')">Exceptional</div>
         </div>
         <div class="row errormessage" id="error1" style="display: none">
             <i>Please answer this question.</i>
@@ -172,13 +69,13 @@
         </label>
     </p>
     <div class="box-container" id="m2">
-        <div class="row">
-            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('terrible')">Terrible</button>
-            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('very poor')">Very Poor</button>
-            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('poor')">Poor</button>
-            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('good')">Good</button>
-            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('very good')">Very Good</button>
-            <button type="button" name="others_perf" class="box" onclick="sendValueOthers('exceptional')">Exceptional</button>
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box2" onclick="sendValueOthers('terrible')">Terrible</div>
+            <div class="box2" onclick="sendValueOthers('very poor')">Very Poor</div>
+            <div class="box2" onclick="sendValueOthers('poor')">Poor</div>
+            <div class="box2" onclick="sendValueOthers('good')">Good</div>
+            <div class="box2" onclick="sendValueOthers('very good')">Very Good</div>
+            <div class="box2" onclick="sendValueOthers('exceptional')">Exceptional</div>
         </div>
         <div class="row errormessage" id="error2" style="display: none">
             <i>Please answer this question.</i>
@@ -275,7 +172,7 @@
 
     <p>
         <label for="don">
-            Imagine the following situation: Today you unexpectedly received 1,000 Euro. How much of this amount would
+            Imagine the following situation: Today you unexpectedly received 1000 Euro. How much of this amount would
             you donate to a good cause?
         </label>
     </p>
@@ -382,8 +279,8 @@
 <!-- <button class="otree-btn-next btn btn-primary" id="next" onclick="validate()">Next</button> -->
 
 <script>
-const boxes_own = document.getElementsByName('own_perf');
-const boxes_others = document.getElementsByName('others_perf');
+const boxes_own = document.querySelectorAll('.box1');
+const boxes_others = document.querySelectorAll('.box2');
 const errorbox = document.getElementById("errorm");
 
 let b_own = false;
@@ -391,7 +288,6 @@ let b_others = false;
 
 boxes_own.forEach(box => {
     box.addEventListener('click', function handleClick(event) {
-        console.log('box clicked', event);
         boxes_own.forEach(box => {
             box.setAttribute('style', 'background-color: #ccc;');
         });
@@ -400,7 +296,6 @@ boxes_own.forEach(box => {
 });
 boxes_others.forEach(box => {
     box.addEventListener('click', function handleClick(event) {
-        console.log('box clicked', event);
         boxes_others.forEach(box => {
             box.setAttribute('style', 'background-color: #ccc;');
         });
@@ -447,13 +342,13 @@ function showproficiency(eng){
             '{{ form.eng_prof.label }}' +
             '<table class="table" id="demotable">' +
             '    <tr>' +
-            '        <th>Not willing at all to take risks</th>' +
+            '        <th>Basic</th>' +
             '        <th></th>' +
             '        <th></th>' +
             '        <th></th>' +
             '        <th></th>' +
             '        <th></th>' +
-            '        <th>Very willing to take risks</th>' +
+            '        <th>Fluent</th>' +
             '    </tr>' +
             '    <tr>' +
             '        {{ for choice in form.eng_prof }}' +

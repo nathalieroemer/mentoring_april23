@@ -6,67 +6,7 @@
 {% endblock %}
 
 {% block styles %}
-<style>
-    .table#demotable {
-        table-layout: fixed ;
-        width: 100% ;
-        align-content: center;
-    }
-    .table#demotable td {
-        width: 50% ;
-        padding: 10px ;
-        align-content: center;
-        text-align: center;
-    }
-    .table#demotable th {
-        align-content: center;
-        text-align: center;
-        font-weight: normal;
-    }
-    .dropdown{
-        width: auto;
-        height: calc(2.25rem + 2px);
-        display: block;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 2px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    }
-    .numberinput{
-        display: block;
-        max-width: 50px;
-        width: 100%;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    }
-    [class*="col-"] {
-        width: 14%;
-    }
-    .row{
-        width: 100%;
-    }
-    .sameline{
-        display: flex;
-        flex-direction: row;
-        justify-content: left;
-        align-items: center;
-    }
-    .btn {
-        float: right
-    }
-</style>
+<link href="{% static 'global/quest.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block content %}
@@ -181,7 +121,7 @@
 
     <p>
         <label for="don">
-            Imagine the following situation: Today you unexpectedly received 1,000 Euro. How much of this amount would
+            Imagine the following situation: Today you unexpectedly received 1000 Euro. How much of this amount would
             you donate to a good cause?
         </label>
     </p>
@@ -268,13 +208,13 @@ function showproficiency(eng){
             '{{ form.eng_prof.label }}' +
             '<table class="table" id="demotable">' +
             '    <tr>' +
-            '        <th>Not willing at all to take risks</th>' +
+            '        <th>Basic</th>' +
             '        <th></th>' +
             '        <th></th>' +
             '        <th></th>' +
             '        <th></th>' +
             '        <th></th>' +
-            '        <th>Very willing to take risks</th>' +
+            '        <th>Fluent</th>' +
             '    </tr>' +
             '    <tr>' +
             '        {{ for choice in form.eng_prof }}' +

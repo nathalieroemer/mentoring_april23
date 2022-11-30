@@ -5,53 +5,7 @@
 {{ endblock }}
 
 {% block styles %}
-<style>
-    .prevIns{
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        width: 300px;
-        text-align: right;
-        cursor: pointer;
-        color: dimgrey
-    }
-
-    .otree-btn-next {
-        float: right
-    }
-
-    .opener {
-        background-color: #ccc;
-        color: #212529;
-        border-color: #ccc;
-    }
-
-    .opener:hover {
-        background-color: #D3D3D3;
-    }
-
-    .btn:focus {
-        box-shadow: none;
-    }
-
-    .resp {
-        max-width: 80%;
-        height: auto;
-    }
-    .column{
-        float: left;
-        width: 50%;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .errormessage {
-        color: red;
-        vertical-align: middle;
-        margin-right: 10px;
-        padding-top: 6px;
-    }
-</style>
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block scripts %}
@@ -71,39 +25,26 @@
     const errorbox = document.getElementById("errorm");
     const nextb = document.getElementById("nb");
     const fakeb = document.getElementById("fake");
+    const button1 = document.getElementById("button1");
+    const h1 = document.getElementById("head1");
     let click1 = 0;
-    let click2 = 0;
 
     function showadvtext() {
-        if (click2 == 1) {
-            nextb.style.display = "block";
-            fakeb.style.display = "none";
-        }
+        nextb.style.display = "block";
+        fakeb.style.display = "none";
         click1 = 1;
-        errorbox.innerHTML = "";
+        button1.style.display = "none";
+        h1.style.display = "block";
+        errorbox.style.display = "none";
         var text = document.getElementById("advtext");
-        if (text.style.display === "none") {
-            console.log("this yes")
-            text.style.display = "block";
-        }
-    }
-
-    function showpaytext() {
-        if (click1 == 1) {
-            nextb.style.display = "block";
-            fakeb.style.display = "none";
-        }
-        click2 = 1;
-        errorbox.innerHTML = "";
-        var text = document.getElementById("paytext");
         if (text.style.display === "none") {
             text.style.display = "block";
         }
     }
 
     function validate() {
-        if (click1 !== 1 || click2 !== 1) {
-            errorbox.innerHTML = "Please read the instructions";
+        if (click1 !== 1) {
+            errorbox.style.display = "block";
         }
     }
 </script>
@@ -118,18 +59,25 @@
     </u>
 </div>
 
+<div id="errorm" class="otree-form-errors alert alert-danger" style="display: none">
+    Please press the grey buttons to read the full instructions. You can only proceed if you read through all of the
+    instructions.
+</div>
+
 <div id="content">
     <p>
         In the following you will be matched with a worker. It will be your task to decide how much to invest in this
         worker.
     </p>
 
-    <button type="button" class="btn opener" onclick="showadvtext()">
-        <b><u>The worker's task:</u></b>
+    <button id="button1" type="button" class="btn opener" onclick="showadvtext()">
+        <b><u>The worker:</u></b>
     </button>
+    <p id="head1" style="display: none">
+        <b><u>The worker:</u></b>
+    </p>
 
     <div id="advtext" style="display: none">
-        <br>
         <p>
             This worker’s task is <b>to guess the number of blue dots</b> depicted in pictures, similar to the ones
             below (see figure 1). All pictures contain between 500 and 2000 blue dots. The worker sees one picture at a
@@ -170,17 +118,12 @@
             <b>When deciding how much to invest, you see only the worker's answer to the question in figure 2</b>. You
             will not know the guess or the actual number of blue dots in the picture.
         </p>
-    </div>
 
-    <br>
-    <br>
-
-    <button type="button" class="btn opener" onclick="showpaytext()">
-        <b><u>The worker's bonus payment:</u></b>
-    </button>
-
-    <div id="paytext" style="display: none">
         <br>
+
+        <p>
+            <u>The worker's bonus payment:</u>
+        </p>
         <p>
             The worker's bonus payment depends on the amount that you decide to invest in the worker.
         </p>
@@ -192,7 +135,6 @@
 <div style="float: right">
     <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
     <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
-    <span id="errorm" class="errormessage"></span>
 </div>
 
 {{ endblock }}

@@ -4,12 +4,12 @@ SESSION_CONFIGS = [
     #dict(
     #    name='Mentoring',
     #    app_sequence=[
-    #        'mentoring_start',
-    #        'mentoring_t1',
-    #        'mentoring_t2',
-    #        'mentoring_t3',
-    #        'mentoring_t4',
-    #        'mentoring_end',
+    #        'old_mentoring_start',
+    #        'old_mentoring_t1',
+    #        'old_mentoring_t2',
+    #        'old_mentoring_t3',
+    #        'old_mentoring_t4',
+    #        'old_mentoring_end',
     #    ],
     #    num_demo_participants=370,
     #),

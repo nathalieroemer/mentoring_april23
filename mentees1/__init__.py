@@ -33,41 +33,41 @@ class C(BaseConstants):
             "participant.code",
             "participant._current_page_name",
             "participant.treat",
-            "mentors2.1.player.top",
-            "mentors2.1.player.uppermiddle",
-            "mentors2.1.player.lowermiddle",
-            "mentors2.1.player.bottom",
-            "mentors2_t3.1.player.top_terrible",
-            "mentors2_t3.1.player.top_verypoor",
-            "mentors2_t3.1.player.top_poor",
-            "mentors2_t3.1.player.top_good",
-            "mentors2_t3.1.player.top_verygood",
-            "mentors2_t3.1.player.top_exceptional",
-            "mentors2_t3.1.player.um_terrible",
-            "mentors2_t3.1.player.um_verypoor",
-            "mentors2_t3.1.player.um_poor",
-            "mentors2_t3.1.player.um_good",
-            "mentors2_t3.1.player.um_verygood",
-            "mentors2_t3.1.player.um_exceptional",
-            "mentors2_t3.1.player.lm_terrible",
-            "mentors2_t3.1.player.lm_verypoor",
-            "mentors2_t3.1.player.lm_poor",
-            "mentors2_t3.1.player.lm_good",
-            "mentors2_t3.1.player.lm_verygood",
-            "mentors2_t3.1.player.lm_exceptional",
-            "mentors2_t3.1.player.b_terrible",
-            "mentors2_t3.1.player.b_verypoor",
-            "mentors2_t3.1.player.b_poor",
-            "mentors2_t3.1.player.b_good",
-            "mentors2_t3.1.player.b_verygood",
-            "mentors2_t3.1.player.b_exceptional"
+            "old_mentors2.1.player.top",
+            "old_mentors2.1.player.uppermiddle",
+            "old_mentors2.1.player.lowermiddle",
+            "old_mentors2.1.player.bottom",
+            "old_mentors2_t3.1.player.top_terrible",
+            "old_mentors2_t3.1.player.top_verypoor",
+            "old_mentors2_t3.1.player.top_poor",
+            "old_mentors2_t3.1.player.top_good",
+            "old_mentors2_t3.1.player.top_verygood",
+            "old_mentors2_t3.1.player.top_exceptional",
+            "old_mentors2_t3.1.player.um_terrible",
+            "old_mentors2_t3.1.player.um_verypoor",
+            "old_mentors2_t3.1.player.um_poor",
+            "old_mentors2_t3.1.player.um_good",
+            "old_mentors2_t3.1.player.um_verygood",
+            "old_mentors2_t3.1.player.um_exceptional",
+            "old_mentors2_t3.1.player.lm_terrible",
+            "old_mentors2_t3.1.player.lm_verypoor",
+            "old_mentors2_t3.1.player.lm_poor",
+            "old_mentors2_t3.1.player.lm_good",
+            "old_mentors2_t3.1.player.lm_verygood",
+            "old_mentors2_t3.1.player.lm_exceptional",
+            "old_mentors2_t3.1.player.b_terrible",
+            "old_mentors2_t3.1.player.b_verypoor",
+            "old_mentors2_t3.1.player.b_poor",
+            "old_mentors2_t3.1.player.b_good",
+            "old_mentors2_t3.1.player.b_verygood",
+            "old_mentors2_t3.1.player.b_exceptional"
         ]
     )
     mdf = mdf[mdf["participant._current_page_name"] == "End"]
     # saves data only of mentors from treatments 1,2 and 4:
-    t124_mentors = mdf[pd.isna(mdf["mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
+    t124_mentors = mdf[pd.isna(mdf["old_mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
     # same for treatment 3:
-    t3_mentors = mdf[pd.isna(mdf["mentors2.1.player.top"])].reset_index(drop=True)
+    t3_mentors = mdf[pd.isna(mdf["old_mentors2.1.player.top"])].reset_index(drop=True)
 
     pretestdata = pd.read_csv(
         "pretestdata.csv",

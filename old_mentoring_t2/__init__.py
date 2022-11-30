@@ -8,7 +8,7 @@ Your app description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'mentoring_t2'
+    NAME_IN_URL = 'old_mentoring_t2'
     PLAYERS_PER_GROUP = None
     # TODO: adjust NUM_ROUNDS so that it's the higher one of repetitions for worker or repetitions for mentor
     NUM_ROUNDS = 8

@@ -5,48 +5,7 @@
 {{ endblock }}
 
 {% block styles %}
-<style>
-    .box-container {
-        display:flex;
-        flex-direction: column;
-    }
-
-    .box1 {
-        flex: 1;
-        display: flex;
-        height: 60px;
-        margin: 5px 5px;
-        background-color: #ccc;
-        cursor: pointer;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        overflow: hidden;
-        font-size: min(2vw, 1rem);
-    }
-
-    .errormessage {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        color: red;
-        font-size: 12px
-    }
-
-    .prevIns{
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        width: 300px;
-        text-align: right;
-        cursor: pointer;
-        color: dimgrey
-    }
-
-    .btn {
-        float: right
-    }
-</style>
+<link href="{% static 'global/buttons.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block scripts %}

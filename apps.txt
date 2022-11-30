@@ -1,0 +1,8 @@
+Old apps:
+
+mentoring_start and mentoring_end are completely unfinished version with outdated structure, not usable
+
+mentoring_t1 until mentoring_t4 was alternative structure with one app per treatment, outdated and unfinished
+
+mentors1, mentors2, mentors2_t3 and mentors3 are almost equivalent to mentorsX_neutral but without gender-neutral wording
+they work but are not completely up to date regarding the instructions

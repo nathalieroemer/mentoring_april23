@@ -25,41 +25,41 @@ class C(BaseConstants):
             "participant.code",
             "participant._current_page_name",
             "participant.treat",
-            "mentors2.1.player.top",
-            "mentors2.1.player.uppermiddle",
-            "mentors2.1.player.lowermiddle",
-            "mentors2.1.player.bottom",
-            "mentors2_t3.1.player.top_terrible",
-            "mentors2_t3.1.player.top_verypoor",
-            "mentors2_t3.1.player.top_poor",
-            "mentors2_t3.1.player.top_good",
-            "mentors2_t3.1.player.top_verygood",
-            "mentors2_t3.1.player.top_exceptional",
-            "mentors2_t3.1.player.um_terrible",
-            "mentors2_t3.1.player.um_verypoor",
-            "mentors2_t3.1.player.um_poor",
-            "mentors2_t3.1.player.um_good",
-            "mentors2_t3.1.player.um_verygood",
-            "mentors2_t3.1.player.um_exceptional",
-            "mentors2_t3.1.player.lm_terrible",
-            "mentors2_t3.1.player.lm_verypoor",
-            "mentors2_t3.1.player.lm_poor",
-            "mentors2_t3.1.player.lm_good",
-            "mentors2_t3.1.player.lm_verygood",
-            "mentors2_t3.1.player.lm_exceptional",
-            "mentors2_t3.1.player.b_terrible",
-            "mentors2_t3.1.player.b_verypoor",
-            "mentors2_t3.1.player.b_poor",
-            "mentors2_t3.1.player.b_good",
-            "mentors2_t3.1.player.b_verygood",
-            "mentors2_t3.1.player.b_exceptional"
+            "old_mentors2.1.player.top",
+            "old_mentors2.1.player.uppermiddle",
+            "old_mentors2.1.player.lowermiddle",
+            "old_mentors2.1.player.bottom",
+            "old_mentors2_t3.1.player.top_terrible",
+            "old_mentors2_t3.1.player.top_verypoor",
+            "old_mentors2_t3.1.player.top_poor",
+            "old_mentors2_t3.1.player.top_good",
+            "old_mentors2_t3.1.player.top_verygood",
+            "old_mentors2_t3.1.player.top_exceptional",
+            "old_mentors2_t3.1.player.um_terrible",
+            "old_mentors2_t3.1.player.um_verypoor",
+            "old_mentors2_t3.1.player.um_poor",
+            "old_mentors2_t3.1.player.um_good",
+            "old_mentors2_t3.1.player.um_verygood",
+            "old_mentors2_t3.1.player.um_exceptional",
+            "old_mentors2_t3.1.player.lm_terrible",
+            "old_mentors2_t3.1.player.lm_verypoor",
+            "old_mentors2_t3.1.player.lm_poor",
+            "old_mentors2_t3.1.player.lm_good",
+            "old_mentors2_t3.1.player.lm_verygood",
+            "old_mentors2_t3.1.player.lm_exceptional",
+            "old_mentors2_t3.1.player.b_terrible",
+            "old_mentors2_t3.1.player.b_verypoor",
+            "old_mentors2_t3.1.player.b_poor",
+            "old_mentors2_t3.1.player.b_good",
+            "old_mentors2_t3.1.player.b_verygood",
+            "old_mentors2_t3.1.player.b_exceptional"
         ]
     )
     mdf = mdf[mdf["participant._current_page_name"] == "End"]
     # saves data only of mentors from treatments 1,2 and 4:
-    t124_mentors = mdf[pd.isna(mdf["mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
+    t124_mentors = mdf[pd.isna(mdf["old_mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
     # same for treatment 3:
-    t3_mentors = mdf[pd.isna(mdf["mentors2.1.player.top"])].reset_index(drop=True)
+    t3_mentors = mdf[pd.isna(mdf["old_mentors2.1.player.top"])].reset_index(drop=True)
 
 
 class Subsession(BaseSubsession):
@@ -181,13 +181,13 @@ class Evaluation1(Page):
         par = player.participant
         if player.treat == 't2':
             if player.rel_perf == 1:
-                a = C.t124_mentors["mentors2.1.player.top"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.top"][par.mentor]
             elif player.rel_perf == 2:
-                a = C.t124_mentors["mentors2.1.player.uppermiddle"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.uppermiddle"][par.mentor]
             elif player.rel_perf == 3:
-                a = C.t124_mentors["mentors2.1.player.lowermiddle"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.lowermiddle"][par.mentor]
             elif player.rel_perf == 4:
-                a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.bottom"][par.mentor]
 
             if a == "terrible":
                 ad = "Terrible"
@@ -230,17 +230,17 @@ class FinalSub(Page):
             # replace(" ", "") removes whitespaces
             answ = player.evaluation.replace(" ", "")
 
-            a = C.t3_mentors['mentors2_t3.1.player.{}_{}'.format(perf, answ)][par.mentor]
+            a = C.t3_mentors['old_mentors2_t3.1.player.{}_{}'.format(perf, answ)][par.mentor]
 
         elif player.treat == 't4':
             if player.rel_perf == 1:
-                a = C.t124_mentors["mentors2.1.player.top"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.top"][par.mentor]
             elif player.rel_perf == 2:
-                a = C.t124_mentors["mentors2.1.player.uppermiddle"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.uppermiddle"][par.mentor]
             elif player.rel_perf == 3:
-                a = C.t124_mentors["mentors2.1.player.lowermiddle"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.lowermiddle"][par.mentor]
             elif player.rel_perf == 4:
-                a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
+                a = C.t124_mentors["old_mentors2.1.player.bottom"][par.mentor]
 
         if player.treat == 't3' or player.treat == 't4':
             if a == "terrible":

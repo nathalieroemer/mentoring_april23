@@ -6,21 +6,7 @@
 {% endblock %}
 
 {% block styles %}
-<style>
-    .prevIns{
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        width: 300px;
-        text-align: right;
-        cursor: pointer;
-        color: dimgrey
-    }
-
-    .btn {
-        float: right
-    }
-</style>
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block scripts %}
@@ -47,21 +33,21 @@
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-                        ... give advice on how to guess the number of dots in a picture.
+                        ... give advice on how to guess the number of blue dots in a picture.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_1">
                         <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... guess the number of dots in a picture.
+                     ... guess the number of blue dots in a picture.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_2">
                         <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... give advice on how to answer a question about how well your advisee thinks they did in their task.
+                     ... give advice on how to answer a question about how well your advisee did on the task.
                     </label>
                 </li>
 
