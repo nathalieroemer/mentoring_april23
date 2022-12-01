@@ -29,7 +29,8 @@ class C(BaseConstants):
             "mentees2.1.player.evaluation2"
         ]
     )
-    mdf = mdf[mdf["participant._current_page_name"] == "End"].reset_index(drop=True)
+    mdf = mdf[mdf["participant._current_page_name"] == "End"]
+    mdf = mdf.dropna().reset_index(drop=True)
     # print(mdf)
 
     scenarios = list(dict.fromkeys(mdf["mentees2.1.player.evaluation2"]))
