@@ -90,6 +90,8 @@ def creating_session(subsession: Subsession):
 
 
 # PAGES
+
+
 class Task1(Page):
     form_model = 'player'
     form_fields = [
@@ -127,6 +129,8 @@ class Task1(Page):
         else:
             pass
 
+class Instructions_Advisor(Page):
+    pass
 
 class Estimate1(Page):
     form_model = 'player'
@@ -232,7 +236,7 @@ class FinalSub(Page):
 
             a = C.t3_mentors['mentors2_t3.1.player.{}_{}'.format(perf, answ)][par.mentor]
 
-        elif player.treat == 't4':
+        elif player.treat == 't3':
             if player.rel_perf == 1:
                 a = C.t124_mentors["mentors2.1.player.top"][par.mentor]
             elif player.rel_perf == 2:
@@ -242,7 +246,7 @@ class FinalSub(Page):
             elif player.rel_perf == 4:
                 a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
 
-        if player.treat == 't3' or player.treat == 't4':
+        if player.treat == 't3' :
             if a == "terrible":
                 ad = "Terrible"
             elif a == "very poor":
@@ -287,4 +291,4 @@ class FinalSub(Page):
         player.evaluation2 = str(data)
 
 
-page_sequence = [Task1, Evaluation1, FinalSub, Estimate1]
+page_sequence = [Task1, Instructions_Advisor, Evaluation1, FinalSub, Estimate1]

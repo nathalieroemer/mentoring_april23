@@ -156,29 +156,34 @@
                 document.getElementById("title2").innerHTML = sessionStorage.getItem("t2");
                 document.getElementById("content2").innerHTML = sessionStorage.getItem("c2");
 
-                if (sessionStorage.getItem("evaluation1")) {
-                    document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
-                    document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
+                if (sessionStorage.getItem("instr_adv")) {
+                document.getElementById("title_adv").innerHTML = sessionStorage.getItem("t2");
+                document.getElementById("content_adv").innerHTML = sessionStorage.getItem("c2");
 
-                    if (sessionStorage.getItem("finalsub")) {
-                        //document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
-                        document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
+                    if (sessionStorage.getItem("evaluation1")) {
+                        document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
+                        document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
 
-                        if (sessionStorage.getItem("estimate1")) {
-                            document.getElementById("title5").innerHTML = sessionStorage.getItem("t5");
-                            document.getElementById("content5").innerHTML = sessionStorage.getItem("c5");
+                        if (sessionStorage.getItem("finalsub")) {
+                            //document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
+                            document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
 
-                            if (sessionStorage.getItem("task2")) {
-                                document.getElementById("title6").innerHTML = sessionStorage.getItem("t6");
-                                document.getElementById("content6").innerHTML = sessionStorage.getItem("c6");
+                            if (sessionStorage.getItem("estimate1")) {
+                                document.getElementById("title5").innerHTML = sessionStorage.getItem("t5");
+                                document.getElementById("content5").innerHTML = sessionStorage.getItem("c5");
 
-                                if (sessionStorage.getItem("evaluation2")) {
-                                    document.getElementById("title7").innerHTML = sessionStorage.getItem("t7");
-                                    document.getElementById("content7").innerHTML = sessionStorage.getItem("c7");
+                                if (sessionStorage.getItem("task2")) {
+                                    document.getElementById("title6").innerHTML = sessionStorage.getItem("t6");
+                                    document.getElementById("content6").innerHTML = sessionStorage.getItem("c6");
 
-                                    if (sessionStorage.getItem("estimate2")) {
-                                        document.getElementById("title8").innerHTML = sessionStorage.getItem("t8");
-                                        document.getElementById("content8").innerHTML = sessionStorage.getItem("c8");
+                                    if (sessionStorage.getItem("evaluation2")) {
+                                        document.getElementById("title7").innerHTML = sessionStorage.getItem("t7");
+                                        document.getElementById("content7").innerHTML = sessionStorage.getItem("c7");
+
+                                        if (sessionStorage.getItem("estimate2")) {
+                                            document.getElementById("title8").innerHTML = sessionStorage.getItem("t8");
+                                            document.getElementById("content8").innerHTML = sessionStorage.getItem("c8");
+                                        }
                                     }
                                 }
                             }

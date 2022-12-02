@@ -79,7 +79,7 @@ class Quest(Page):
     @staticmethod
     def is_displayed(player: Player):
         par = player.participant
-        return par.test_passed == 1 and par.timeout2 == 0 and par.timeout == 0
+        return par.test_passed == 1 and par.timeout2 == 0
 
     form_model = 'player'
     form_fields = [
