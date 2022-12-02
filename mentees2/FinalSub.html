@@ -85,41 +85,16 @@
         <b>You received the advice to choose <span style="color: red">{{ advice }}</span></b>, when answering the question
         below.
     </p>
-    {{ endif }}
-
-    {{ if player.treat == 't4' }}
     <p>
-        You are matched with an advisor who will provide you with some advice in answering the question below.
-    </p>
-    <p>
-        <u><b>Your advisor</b></u>
-    </p>
-    <p>
-        Your advisor is another worker who <b>has some information on your performance</b>. Specifically, <b>your
-        advisor provides advice contingent on your group rank within a randomly matched group of four workers</b>, who
-        all performed the same task. However, the advisor does not exactly know how good your guess was.
-    </p>
-    <p>
-        <u><b>Your advice</b></u>
-    </p>
-    <p>
-        <b>You received the advice to choose <span style="color: red">{{ advice }}</span></b>, when answering the question
-        below.
-    </p>
-
-    <br>
+Note that the third party giving this advice provided this advice contingent on your group rank within the randomly matched group of 4 workers and your previous answer to the question below.    </p>
+   </p>
     {{ endif }}
 
     <p>
-        Below you see your current (previously given) answer to the question <i>"Please indicate how well you think you
-        did in guessing the number of blue dots in the picture"</i>.
-    </p>
-    <p>
-        You can either change your answer by selecting any other button, or confirm your answer with a click on the
-        respective button.
+        Below you see your current (previously given) answer.
     </p>
 
-    <br>
+
 
     <form>
         <p>
@@ -138,6 +113,12 @@
             </div>
         </div>
     </form>
+
+        <p>
+        You can either <b>change</b> your answer by selecting any other button, or <b>confirm</b> your answer with a click on the
+        respective button.
+    </p>
+
 </div>
 
 <br>

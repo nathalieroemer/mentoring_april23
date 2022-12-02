@@ -1,0 +1,221 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="title">
+        Your task
+    </div>
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("instr1", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c2", content)
+        sessionStorage.setItem("t2", title)
+    }
+
+    const errorbox = document.getElementById("errorm");
+    const nextb = document.getElementById("nb");
+    const fakeb = document.getElementById("fake");
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    const h1 = document.getElementById("head1");
+    const h2 = document.getElementById("head2");
+    let click1 = 0;
+    let click2 = 0;
+
+    function showadvtext() {
+        if (click2 === 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        button1.style.display = "none";
+        h1.style.display = "block";
+        click1 = 1;
+        errorbox.style.display = "none";
+        var text = document.getElementById("advtext");
+        if (text.style.display === "none") {
+            console.log("this yes")
+            text.style.display = "block";
+        }
+    }
+
+    function showinvtext() {
+        if (click1 === 1) {
+            nextb.style.display = "block";
+            fakeb.style.display = "none";
+        }
+        button2.style.display = "none";
+        h2.style.display = "block";
+        click2 = 1;
+        errorbox.style.display = "none";
+        var text = document.getElementById("invtext");
+        if (text.style.display === "none") {
+            text.style.display = "block";
+        }
+    }
+
+    function validate() {
+        if (click1 !== 1 || click2 !== 1) {
+            errorbox.style.display = "block";
+        }
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+<div id="errorm" class="otree-form-errors alert alert-danger" style="display: none">
+    Please press the grey buttons to read the full instructions. You can only proceed if you read through all of the
+    instructions.
+</div>
+
+<div id="content">
+    <p>
+        In the following, you will be matched with a worker. It will be your task to give advice to this worker. We will
+        refer to this worker as your advisee.
+    </p>
+
+    <br>
+
+    <button id="button1" type="button" class="btn opener" onclick="showadvtext()">
+        <b><u>Your advisee:</u></b>
+    </button>
+    <p id="head1" style="display: none">
+        <b><u>Your advisee:</u></b>
+    </p>
+
+    <div id="advtext" style="display: none">
+        <p>
+            <u>Your advisee's task</u>
+        </p>
+        <p>
+            Your advisee’s task is to <b>guess the number of blue dots</b> depicted in pictures, similar to the ones
+            below (see figure 1). All pictures contain between 500 and 2000 blue dots. Your advisee sees one picture at
+            a time, and has 1 minute time to guess.
+        </p>
+        <div class="row">
+            <div class="column">
+                <img src="{{ static 'example500.png' }}" class="resp"/>
+                <p>
+                    <b style="font-size: smaller">
+                        Correct answer: 500 dots
+                    </b>
+                </p>
+            </div>
+            <div class="column">
+                <img src="{{ static 'example2000.png' }}" class="resp"/>
+                <p>
+                    <b style="font-size: smaller">
+                        Correct answer: 2000 dots
+                    </b>
+                </p>
+            </div>
+        </div>
+        <p style="text-align: center">
+            <i style="font-size: smaller">Figure 1: Examples</i>
+        </p>
+        <p>
+            After indicating the guess about the number of blue dots in the picture, your advisee answers the question
+            in figure 2.
+        </p>
+        <p style="text-align: center">
+            <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
+        </p>
+        <p style="text-align: center">
+            <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
+            <br>
+            <i style="font-size: smaller">Figure 2: Your advisee's question</i>
+        </p>
+        <p>
+            <u>Your advisee's payment</u>
+        </p>
+        <p>
+            Your advisee’s payment depends on the amount that the investor decides to invest in your advisee.
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <button id="button2" type="button" class="btn opener" onclick="showinvtext()">
+        <b><u>The investor:</u></b>
+    </button>
+    <p id="head2" style="display: none">
+        <b><u>The investor:</u></b>
+    </p>
+
+    <div id="invtext" style="display: none">
+        <p>
+            It is the investor's task to <b>decide how much to invest in your advisee</b>. When deciding how much to
+            invest, the investor <b>sees only your advisee's answer to the question in figure 2</b>. The investor will
+            not know your advisees guess or the actual number of blue dots in the picture.
+        </p>
+        <p>
+            <u>The investor's payment</u>
+        </p>
+        <p>
+            The investor has an endowment of 100 Pence and has to decide how much out of the 100 Pence to invest in your
+            advisee.
+        </p>
+        <p>
+            <b>The investor's payment consists of the endowment kept and the return to investment</b>.
+        </p>
+        <p>
+            <u>Return to investment</u>
+        </p>
+        <p>
+            The investor's <b>return to investment is higher, the lower the relative deviation (in %)</b> of your
+            advisee's guess from the actual number of dots in the picture.
+        </p>
+        <p>
+            For example, if the investor invested all of the endowment (100 Pence), the investor will receive the
+            following return to investment:
+        </p>
+        <ul>
+            <li>
+                If the relative deviation of the guess is <b>10% or less</b>, the <b>return to investment</b> will be
+                <b>300 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>more than 10%, but less than 20%</b>, the <b>return to
+                investment</b> will be <b>270 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>more than 20%, but less than 30%</b>, the <b>return to
+                investment</b> will be <b>170 Pence</b>.
+            </li>
+            <li>
+                If the relative deviation of the guess is <b>30% or more</b>, the <b>return to investment</b> will be
+                <b>0 Pence</b>.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<br>
+
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+</div>
+
+{% endblock %}

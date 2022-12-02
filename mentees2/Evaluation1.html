@@ -75,40 +75,21 @@
     </p>
 
     {{ if player.treat == 't2' }}
-    <p>
-        For doing so, you are matched with an advisor who <b>will provide you with some advice</b> in answering the
-        question below.
-    </p>
-    <p>
-        <u><b>Your advisor</b></u>
-    </p>
-    <p>
-        Your advisor is another worker who <b>has some information on your performance</b>. Specifically, <b>your
-        advisor provides advice contingent on your group rank within a randomly matched group of four workers</b>, who
-        all performed the same task. However, the advisor does not exactly know how good your guess was.
-    </p>
-    <p>
+
         <u><b>Your advice</b></u>
     </p>
     <p>
         <b>You received the advice to choose <span style="color: red">{{ advice }}</span></b>, when answering the question
         below.
     </p>
+
+    <p>Note that the third party giving this advice provided this advice contingent on your group rank within the randomly matched group of 4 workers.</p>
     {{ endif }}
 
     {{ if player.treat == 't3' }}
-    <p>
-        For doing so, you will be matched with an advisor who <b>will provide you with some advice</b> in answering the
-        question below.
-    </p>
-    <p>
-        <u><b>Your advisor</b></u>
-    </p>
-    <p>
-        Your advisor is another worker who has some information on your performance. Specifically, <b>your advisor
-        provides advice contingent on your group rank within a randomly matched group of four workers</b>, who all
-        performed the same task, and <b>contingent on your answer to the question below</b>. However, the advisor does
-        not exactly know how good your guess was.
+     <p>
+        Please answer the question below. The <b>investor will see your answer, when deciding how much to invest in
+        you</b>.
     </p>
     {{ endif }}
 

@@ -116,16 +116,16 @@ def creating_session(subsession: Subsession):
     session.obs_t124 = [0] * len(C.t124_mentors)
     session.obs_t3 = [0] * len(C.t3_mentors)
 
-    treats = itertools.cycle(['t1', 't2', 't3', 't4'])
+    treats = itertools.cycle(['t1', 't2', 't3'])
     # mentors per treatment 2, 3 and 4:
     m_per_treat = 10
 
     # treatment and graphic assignment
     i = 0
     for p in subsession.get_players():
-        if i / 4 < m_per_treat:
+        if i / 3 < m_per_treat:
             p.treat = next(treats)
-        elif i / 4 >= m_per_treat:
+        elif i / 3 >= m_per_treat:
             p.treat = 't1'
         p.participant.treat = p.treat
         i = i + 1
