@@ -22,31 +22,7 @@
         sessionStorage.setItem("t2", title)
     }
 
-    const errorbox = document.getElementById("errorm");
-    const nextb = document.getElementById("nb");
-    const fakeb = document.getElementById("fake");
-    const button1 = document.getElementById("button1");
-    const h1 = document.getElementById("head1");
-    let click1 = 0;
 
-    function showadvtext() {
-        nextb.style.display = "block";
-        fakeb.style.display = "none";
-        click1 = 1;
-        button1.style.display = "none";
-        h1.style.display = "block";
-        errorbox.style.display = "none";
-        var text = document.getElementById("advtext");
-        if (text.style.display === "none") {
-            text.style.display = "block";
-        }
-    }
-
-    function validate() {
-        if (click1 !== 1) {
-            errorbox.style.display = "block";
-        }
-    }
 </script>
 {% endblock %}
 
@@ -70,14 +46,8 @@
         worker.
     </p>
 
-    <button id="button1" type="button" class="btn opener" onclick="showadvtext()">
         <b><u>The worker:</u></b>
-    </button>
-    <p id="head1" style="display: none">
-        <b><u>The worker:</u></b>
-    </p>
 
-    <div id="advtext" style="display: none">
         <p>
             This worker’s task is <b>to guess the number of blue dots</b> depicted in pictures, similar to the ones
             below (see figure 1). All pictures contain between 500 and 2000 blue dots. The worker sees one picture at a
@@ -127,15 +97,12 @@
         <p>
             The worker's bonus payment depends on the amount that you decide to invest in the worker.
         </p>
-    </div>
+
 </div>
 
 <br>
 
-<div style="float: right">
-    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
-    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
-</div>
+    <button class="otree-btn-next btn btn-primary" id="nb" >Next</button>
 
 {{ endblock }}
 

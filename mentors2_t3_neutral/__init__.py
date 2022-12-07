@@ -9,7 +9,7 @@ Your app description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'mentors2_t3_neutral'
+    NAME_IN_URL = 'mp2_c'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 24  # six possible answers with four cases for advisee rank
 

@@ -10,7 +10,7 @@ Your app description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'p2_'
+    NAME_IN_URL = 'mentees2'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
@@ -115,8 +115,7 @@ class Task1(Page):
             par.timeout = False
             h = 1
             for i in par.bm_dev:
-                print(par.bm_dev, "who are those others?")
-                if i < abs((player.guess-par.numdots)/par.numdots):
+                if i < abs(par.numdots - player.guess):
                     h = h + 1
             # the lower h the better (1<=h<=4)
             player.rel_perf = h
@@ -131,9 +130,7 @@ class Task1(Page):
             pass
 
 class Instructions_Advisor(Page):
-    def is_displayed(player: Player):
-        return player.treat != 't1'
-
+    pass
 
 class Estimate1(Page):
     form_model = 'player'
@@ -186,7 +183,7 @@ class Evaluation1(Page):
     @staticmethod
     def vars_for_template(player: Player):
         par = player.participant
-        if player.treat == 't4':
+        if player.treat == 't2':
             if player.rel_perf == 1:
                 a = C.t124_mentors["mentors2.1.player.top"][par.mentor]
             elif player.rel_perf == 2:
@@ -249,7 +246,7 @@ class FinalSub(Page):
             elif player.rel_perf == 4:
                 a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
 
-        if player.treat == 't3':
+        if player.treat == 't3' :
             if a == "terrible":
                 ad = "Terrible"
             elif a == "very poor":

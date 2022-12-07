@@ -79,6 +79,10 @@
     </u>
 </div>
 
+<div id="errorm" class="otree-form-errors alert alert-danger" style="display: none">
+    Please press the grey buttons to read the full instructions. You can only proceed if you read through all of the
+    instructions.
+</div>
 
 <div id="content">
     <p>
@@ -124,8 +128,14 @@
 
     <br>
 
-    <b><u>Your payment:</u></b>
+    <button id="button1" type="button" class="btn opener" onclick="showadvtext()">
+        <b><u>Your payment:</u></b>
+    </button>
+    <p id="head1" style="display: none">
+        <b><u>Your payment:</u></b>
+    </p>
 
+    <div id="advtext" style="display: none">
         <p>
             You will receive a <b>fix pay of £1.50</b>. Additionally, you can earn a bonus payment of up to <b>£2.00</b>.
         </p>
@@ -141,12 +151,19 @@
             Your bonus payment depends on the amount that an investor decides to invest in you. Your <b>bonus payment
             equals 2 * the investment by the investor</b>.
         </p>
+    </div>
 
     <br>
     <br>
 
+    <button id="button2" type="button" class="btn opener" onclick="showinvtext()">
         <b><u>The investor:</u></b>
+    </button>
+    <p id="head2" style="display: none">
+        <b><u>The investor:</u></b>
+    </p>
 
+    <div id="invtext" style="display: none">
         <p>
             It is the investor's task to <b>decide how much to invest in you</b>. When deciding how much to invest, the
             investor <b>sees only your answer to the question in figure 2</b>. The investor will not know your guess or
@@ -190,13 +207,16 @@
                 <b>0 Pence</b>.
             </li>
         </ul>
+    </div>
 </div>
 
 <br>
 
-    <button class="otree-btn-next btn btn-primary" >Next</button>
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+</div>
 
-<br>
 {{ endblock }}
 
 

@@ -1,0 +1,374 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'global/quest.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+<form>
+    {{ form.diff.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not difficult at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very difficult</th>
+        </tr>
+        <tr>
+            {{ for choice in form.diff }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <label for="be">
+        How high do you think, is the bonus payment you will receive (<i>Recall: You can earn a maximum bonus payment of £2.00</i>)?
+    </label>
+    <div class="sameline">
+        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="200" step="0.01" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 2.')" oninput="this.setCustomValidity('')">&nbspGBP
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m1">
+            How well, do you think, <b>did you perform on this task</b> (guessing the number of dots in the pictures)?
+        </label>
+    </p>
+    <div class="box-container" id="m1">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box1" onclick="sendValueOwn('terrible')">Terrible</div>
+            <div class="box1" onclick="sendValueOwn('very poor')">Very Poor</div>
+            <div class="box1" onclick="sendValueOwn('poor')">Poor</div>
+            <div class="box1" onclick="sendValueOwn('good')">Good</div>
+            <div class="box1" onclick="sendValueOwn('very good')">Very Good</div>
+            <div class="box1" onclick="sendValueOwn('exceptional')">Exceptional</div>
+        </div>
+        <div class="row errormessage" id="error1" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        <label for="m2">
+            How well, do you think, <b>did other workers perform</b> on this task (guessing the number of dots in the
+            pictures)?
+        </label>
+    </p>
+    <div class="box-container" id="m2">
+        <div class="row" style="margin-left: 10%; margin-right: 10%">
+            <div class="box2" onclick="sendValueOthers('terrible')">Terrible</div>
+            <div class="box2" onclick="sendValueOthers('very poor')">Very Poor</div>
+            <div class="box2" onclick="sendValueOthers('poor')">Poor</div>
+            <div class="box2" onclick="sendValueOthers('good')">Good</div>
+            <div class="box2" onclick="sendValueOthers('very good')">Very Good</div>
+            <div class="box2" onclick="sendValueOthers('exceptional')">Exceptional</div>
+        </div>
+        <div class="row errormessage" id="error2" style="display: none">
+            <i>Please answer this question.</i>
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        <label for="i_adv">
+            Below you see two circles, respectively, of which one represents you and the other circle represents the investor.
+            In the left upper corner (1), they are, e.g., totally separate. This represents a situation in
+            which you do not identify at all with the investor. In the very lower part (7), the circles are totally
+            overlapping and represent a situation in which you feel you fully identify with the investor.
+        </label>
+    </p>
+    <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_adv" id="i_adv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with the investor.
+    </div>
+
+    <br>
+
+    <p>
+        <label for="i_inv">
+            Now assume, one circle represents still you, but the other circle represents the third party. Which figure is
+            the one that most highly represents the extent to which you identify with the third party?
+        </label>
+    </p>
+    <div class="sameline">
+        Figure&nbsp
+        <input type="number" class="numberinput" name="ident_inv" id="i_inv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
+        &nbspis the one that most highly represents the extent to which I identify with the third party.
+    </div>
+
+    <br>
+    <br>
+
+    <p>
+        How well do the following statements describe you as a person?
+    </p>
+
+    <p style="padding-left: 10px">
+        {{ form.reciprocity.label }}
+    </p>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Does not describe me at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Describes me perfectly</th>
+        </tr>
+        <tr>
+            {{ for choice in form.reciprocity }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <p style="padding-left: 10px">
+        {{ form.intentions.label }}
+    </p>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Does not describe me at all</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Describes me perfectly</th>
+        </tr>
+        <tr>
+            {{ for choice in form.intentions }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <p>
+        <label for="don">
+            Imagine the following situation: Today you unexpectedly received 1000 Euro. How much of this amount would
+            you donate to a good cause?
+        </label>
+    </p>
+    <div class="sameline">
+        <input type="number" class="numberinput" name="donation" id="don" min="0" max="1000" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 1000.')" oninput="this.setCustomValidity('')">
+        &nbspEuro
+    </div>
+
+    <br>
+
+    {{ form.wtgive.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Completely unwilling to do so</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to do so</th>
+        </tr>
+        <tr>
+            {{ for choice in form.wtgive }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    {{ form.riskpref.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Not willing at all to take risks</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Very willing to take risks</th>
+        </tr>
+        <tr>
+            {{ for choice in form.riskpref }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+    <br>
+
+    <label for="eng">Are you a native English speaker?</label>
+    <br>
+    <select class="dropdown" name="native" id="eng" onchange="showproficiency(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">No</option>
+        <option value="2">Yes</option>
+    </select>
+    <br>
+    <div id="proficiency"></div>
+
+    <br>
+
+    <label for="g">Please indicate your gender.</label>
+    <br>
+    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Other</option>
+    </select>
+
+    <br>
+
+    {{ form.stereotypes.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Female</th>
+            <th></th>
+            <th></th>
+            <th>None</th>
+            <th></th>
+            <th></th>
+            <th>Male</th>
+        </tr>
+        <tr>
+            {{ for choice in form.stereotypes }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+</form>
+
+<br>
+
+<div style="float: right">
+    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+    <span id="errorm" class="errormessageMain"></span>
+</div>
+
+<!-- <button class="otree-btn-next btn btn-primary" id="next" onclick="validate()">Next</button> -->
+
+<script>
+const boxes_own = document.querySelectorAll('.box1');
+const boxes_others = document.querySelectorAll('.box2');
+const errorbox = document.getElementById("errorm");
+
+let b_own = false;
+let b_others = false;
+
+boxes_own.forEach(box => {
+    box.addEventListener('click', function handleClick(event) {
+        boxes_own.forEach(box => {
+            box.setAttribute('style', 'background-color: #ccc;');
+        });
+        box.setAttribute('style', 'background-color: #6495ED;');
+    });
+});
+boxes_others.forEach(box => {
+    box.addEventListener('click', function handleClick(event) {
+        boxes_others.forEach(box => {
+            box.setAttribute('style', 'background-color: #ccc;');
+        });
+        box.setAttribute('style', 'background-color: #6495ED;');
+    });
+});
+
+function sendValueOwn(value) {
+    liveSend({'section': 'own_p', 'value': value})
+    b_own = true;
+    document.getElementById('error1').style.display = 'none';
+    checkCompletion();
+    errorbox.innerHTML = "";
+}
+function sendValueOthers(value) {
+    liveSend({'section': 'others_p', 'value': value})
+    b_others = true;
+    document.getElementById('error2').style.display = 'none';
+    checkCompletion();
+    errorbox.innerHTML = "";
+}
+
+function validate() {
+    if (!b_own) {
+        document.getElementById('error1').style.display = 'flex';
+        errorbox.innerHTML = "Please answer all questions.";
+    }
+    if (!b_others) {
+        document.getElementById('error2').style.display = 'flex';
+        errorbox.innerHTML = "Please answer all questions.";
+    }
+}
+
+function checkCompletion() {
+    if (b_own && b_others) {
+        document.getElementById('nb').style.display = 'block';
+        document.getElementById('fake').style.display = 'none';
+    }
+}
+
+function showproficiency(eng){
+    if(eng==='1') {
+        document.getElementById('proficiency').innerHTML = '' +
+            '{{ form.eng_prof.label }}' +
+            '<table class="table" id="demotable">' +
+            '    <tr>' +
+            '        <th>Basic</th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th></th>' +
+            '        <th>Fluent</th>' +
+            '    </tr>' +
+            '    <tr>' +
+            '        {{ for choice in form.eng_prof }}' +
+            '            <td>{{ choice }}</td>' +
+            '        {{ endfor }}' +
+            '    </tr>' +
+            '</table>'
+            // set required attribute once shown (for every node):
+            for (let radio of forminputs.eng_prof) {
+                radio.required = true;
+            }
+            }
+            else {
+            // remove required attribute again once hidden:
+                for (let radio of forminputs.eng_prof) {
+                    radio.required = false;
+                }
+                document.getElementById('proficiency').innerHTML='';
+            }
+        }
+</script>
+
+{% endblock %}

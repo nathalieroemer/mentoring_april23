@@ -24,53 +24,6 @@
         sessionStorage.setItem("c2", content)
         sessionStorage.setItem("t2", title)
     }
-
-    const errorbox = document.getElementById("errorm");
-    const nextb = document.getElementById("nb");
-    const fakeb = document.getElementById("fake");
-    const button1 = document.getElementById("button1");
-    const button2 = document.getElementById("button2");
-    const h1 = document.getElementById("head1");
-    const h2 = document.getElementById("head2");
-    let click1 = 0;
-    let click2 = 0;
-
-    function showadvtext() {
-        if (click2 === 1) {
-            nextb.style.display = "block";
-            fakeb.style.display = "none";
-        }
-        button1.style.display = "none";
-        h1.style.display = "block";
-        click1 = 1;
-        errorbox.style.display = "none";
-        var text = document.getElementById("advtext");
-        if (text.style.display === "none") {
-            console.log("this yes")
-            text.style.display = "block";
-        }
-    }
-
-    function showinvtext() {
-        if (click1 === 1) {
-            nextb.style.display = "block";
-            fakeb.style.display = "none";
-        }
-        button2.style.display = "none";
-        h2.style.display = "block";
-        click2 = 1;
-        errorbox.style.display = "none";
-        var text = document.getElementById("invtext");
-        if (text.style.display === "none") {
-            text.style.display = "block";
-        }
-    }
-
-    function validate() {
-        if (click1 !== 1 || click2 !== 1) {
-            errorbox.style.display = "block";
-        }
-    }
 </script>
 {% endblock %}
 
@@ -83,10 +36,6 @@
     </u>
 </div>
 
-<div id="errorm" class="otree-form-errors alert alert-danger" style="display: none">
-    Please press the grey buttons to read the full instructions. You can only proceed if you read through all of the
-    instructions.
-</div>
 
 <div id="content">
     <p>
@@ -96,14 +45,8 @@
 
     <br>
 
-    <button id="button1" type="button" class="btn opener" onclick="showadvtext()">
         <b><u>Your advisee:</u></b>
-    </button>
-    <p id="head1" style="display: none">
-        <b><u>Your advisee:</u></b>
-    </p>
 
-    <div id="advtext" style="display: none">
         <p>
             <u>Your advisee's task</u>
         </p>
@@ -152,19 +95,12 @@
         <p>
             Your advisee’s payment depends on the amount that the investor decides to invest in your advisee.
         </p>
-    </div>
 
     <br>
     <br>
 
-    <button id="button2" type="button" class="btn opener" onclick="showinvtext()">
         <b><u>The investor:</u></b>
-    </button>
-    <p id="head2" style="display: none">
-        <b><u>The investor:</u></b>
-    </p>
 
-    <div id="invtext" style="display: none">
         <p>
             It is the investor's task to <b>decide how much to invest in your advisee</b>. When deciding how much to
             invest, the investor <b>sees only your advisee's answer to the question in figure 2</b>. The investor will
@@ -209,14 +145,10 @@
                 <b>0 Pence</b>.
             </li>
         </ul>
-    </div>
+
 </div>
 
 <br>
-
-<div style="float: right">
-    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
-    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
-</div>
-
+    <button class="otree-btn-next btn btn-primary" id="nb" >Next</button>
+<br>
 {% endblock %}

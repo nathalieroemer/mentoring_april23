@@ -23,6 +23,16 @@ SESSION_CONFIGS = [
         ],
         num_demo_participants=100,
     ),
+#    dict(
+#        name='old Mentees experiment with 4 treatments',
+#        app_sequence=[
+#            'old_mentees1',
+#            'old_mentees2',
+#            'old_mentees3',
+#            'old_mentees4'
+#        ],
+#        num_demo_participants=100,
+#    ),
     dict(
         name='Mentees',
         app_sequence=[
@@ -31,7 +41,7 @@ SESSION_CONFIGS = [
             'mentees3',
             'mentees4'
         ],
-        num_demo_participants=100,
+        num_demo_participants=4,
     ),
     dict(
         name='Investors',

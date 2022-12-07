@@ -1,0 +1,103 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Attention check
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("attention1", "true")
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+<form>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_0">My task is to ...</label>
+        <div class="controls  field-testq">
+            <ul id="id_testq">
+                <li>
+                    <label for="id_testq_0">
+                        <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        ... guess the number of dots in a picture as close as possible to the actual number of blue dots.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_1">
+                        <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                     ... guess the number of dots in a picture as fast as possible.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2">
+                        <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                     ... judge how close someone else's guess about the number of dots in a picture is.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_3">
+                        <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                     ... answer a quiz.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_2_0">Whether or not I receive a bonus payment depends on ...</label>
+        <div class="controls  field-testq">
+            <ul id="testq_2">
+                <li>
+                    <label for="id_testq_2_0">
+                        <input type="radio" name="test2" value="1" required="" id="id_testq_2_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        ... a coinflip.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_1">
+                        <input type="radio" name="test2" value="2" required="" id="id_testq_2_1" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                        ... how much the investor decides to invest in  me.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_2">
+                        <input type="radio" name="test2" value="3" required="" id="id_testq_2_2" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                     ... whether I submit my guess in less than 30 seconds.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2_3">
+                        <input type="radio" name="test2" value="4" required="" id="id_testq_2_3" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
+                     There is no bonus payment in this study.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{% endblock %}

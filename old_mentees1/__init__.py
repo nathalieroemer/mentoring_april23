@@ -15,7 +15,7 @@ Your app description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'p1_'
+    NAME_IN_URL = 'mentees1'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
@@ -27,7 +27,6 @@ class C(BaseConstants):
         delimiter=";",
         encoding="latin1"
     )
-
     mdf = pd.DataFrame(  # mentor data frame
         mentordata,
         columns=[
@@ -117,20 +116,19 @@ def creating_session(subsession: Subsession):
     session.obs_t124 = [0] * len(C.t124_mentors)
     session.obs_t3 = [0] * len(C.t3_mentors)
 
-    treats = itertools.cycle(['t1','t2','t3','t4'])
-    # treatment 1: control, treatment 2: no advice, treatment 3: reactive, treatment 4: proactive
+    treats = itertools.cycle(['t1', 't2', 't3'])
     # mentors per treatment 2, 3 and 4:
-    # m_per_treat = 10
+    m_per_treat = 10
 
     # treatment and graphic assignment
     i = 0
     for p in subsession.get_players():
-        # if i / 3 < m_per_treat:
-        p.treat = next(treats)
-        # elif i / 3 >= m_per_treat:
-        #     p.treat = 't1'
+        if i / 3 < m_per_treat:
+            p.treat = next(treats)
+        elif i / 3 >= m_per_treat:
+            p.treat = 't1'
         p.participant.treat = p.treat
-        # i = i + 1
+        i = i + 1
         p.graphic = random.choice(C.GRAPHICS)
         p.participant.graphic = p.graphic
         # save number of dots of graphic:
@@ -142,7 +140,7 @@ def creating_session(subsession: Subsession):
 
     # mentor assignment
     for p in subsession.get_players():
-        if p.treat == 't4':
+        if p.treat != 't3':
             min_obs_t124 = min(session.obs_t124)
             # gives a list of all indices of the obs_t124 list where the value of the obs is min
             mentors = [i for i, x in enumerate(session.obs_t124) if x == min_obs_t124]
@@ -166,13 +164,13 @@ def creating_session(subsession: Subsession):
     # deviations of three random workers from previous task are saved in list specific to player to be used for
     # comparison later
     for p in subsession.get_players():
-        # benchmark_deviations : deviations from pretest
+        # benchmark_deviations
         p.participant.bm_dev = []
         rand_indices = random.sample(range(len(C.benchmark)), 3)
-        print(rand_indices, "these are the indices")
+        # print(rand_indices)
         for i in rand_indices:
             p.participant.bm_dev.append(C.benchmark[i])
-        print(p.participant.bm_dev, "these are the players for deviation?")
+        # print(p.participant.bm_dev)
 
 
 # PAGES

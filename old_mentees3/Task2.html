@@ -1,0 +1,73 @@
+{{ block title }}
+    <div id="title">
+        Task - Part 2
+    </div>
+{{ endblock }}
+
+{% block styles %}
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    /*
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 10) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+    */
+
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("task2", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c7", content)
+        sessionStorage.setItem("t7", title)
+    }
+</script>
+{% endblock %}
+
+{{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+<div id="content">
+    <p>
+        Now, part 2 of the study starts. Below, you see <b>another</b> picture with between 500 and 2000 blue dots. This
+        picture is different to the picture you have seen before. Please guess again, how many blue dots, do you think,
+        are in this picture? Please indicate your guess below the picture.
+    </p>
+    <p>
+        You have 1 minute to guess (see timer above). If you do not submit a guess within 1 minute, you will not be eligible for payment.
+    </p>
+
+    <p>
+        <img src="{{ static graphic }}" class="resp"/>
+    </p>
+</div>
+
+<p>
+    <label for="g">
+            How many blue dots are in this picture?
+    </label>
+</p>
+<p>
+    <input type="number" class="numberinput" name="guess" id="g" min="500" max="2000" required oninvalid="this.setCustomValidity('The picture contains between 500 and 2000 dots. Please enter a number between 500 and 2000.')" oninput="this.setCustomValidity('')">
+</p>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+{{ endblock }}
+
