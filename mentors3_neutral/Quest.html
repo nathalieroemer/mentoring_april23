@@ -207,23 +207,27 @@
         <option value="2">Yes</option>
     </select>
     <br>
-    <div id="clarity"></div>
+    <div id="clarity" style="display:none">
+        {{ formfield 'clarity' }}
+    </div>
 
       <br>
 
     <label for="tech_bin">Do you think, everything was displayed to you correctly during this study?</label>
     <br>
-    <select class="dropdown" name="tech_bin" id="tech_bin" onchange="show_field(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+    <select class="dropdown" name="tech_bin" id="tech_bin" onchange="show_field2(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
         <option value="" selected="selected">---------</option>
         <option value="1">No, I think something was not displayed correctly.</option>
         <option value="2">Yes, everything worked fine.</option>
     </select>
     <br>
-    <div id="tech"></div>
+    <div id="tech" style="display:none">
+         {{ formfield 'tech' }}
+    </div>
+
 </form>
 
 <br>
-
 
 
 <button class="otree-btn-next btn btn-primary" id="next">Next</button>
@@ -252,7 +256,7 @@ function showproficiency(eng){
             // set required attribute once shown (for every node):
             for (let radio of forminputs.eng_prof) {
                 radio.required = true;
-            }
+                }
             }
             else {
             // remove required attribute again once hidden:
@@ -263,19 +267,18 @@ function showproficiency(eng){
             }
         }
 
-        function show_field(clarity_bin) {
-            if (clarity_bin === '1') {
-                document.getElementById('clarity').innerHTML =
-                {{ formfield 'clarity' }}
-            }
+function show_field(clarity_bin){
+    if (clarity_bin === '1') {
+        document.getElementById('clarity').style.display = "block";
         }
+    }
 
-        function show_field2(tech_bin) {
-            if (tech_bin === '2') {
-                document.getElementById('tech').innerHTML =
-                {{ formfield 'tech' }}
-            }
+function show_field2(tech_bin){
+    if (tech_bin === '1') {
+        document.getElementById('tech').style.display = "block";
         }
+    }
+
 </script>
 
 {% endblock %}

@@ -69,25 +69,25 @@ class Player(BasePlayer):
     eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
     gender = models.IntegerField()
     clarity = models.LongStringField(
-        label="Please shorty explain, where did you had difficulties to understand the instructions?</b>.",
+        label="Please shorty explain, where did you had difficulties to understand the instructions?",
         blank=True
     )
-    clarity_lik =make_7pointlikert(
-        label="Where the instructions clear to you or did you had difficulties to understanding them?</b>.",
+    clarity_bin =models.IntegerField(
+        label="Where the instructions clear to you or did you had difficulties to understanding them?",
         blank=True
     )
 
     clarity = models.LongStringField(
-        label="Please shorty explain, where did you had difficulties to understand the instructions?</b>.",
+        label="Please shorty explain, where did you had difficulties to understand the instructions?",
         blank=True
     )
 
     tech_bin = models.IntegerField(
-        label="Do you think, everything was displayed to you correctly during this study?</b>.",
+        label="Do you think, everything was displayed to you correctly during this study?",
         blank=True
     )
     tech = models.LongStringField(
-        label="Could you shortly describe your problem?</b>.",
+        label="Could you shortly describe your problem?",
         blank=True
     )
 
@@ -112,7 +112,7 @@ class Quest(Page):
         'eng_prof',
         'gender',
         'clarity',
-        'clarity_lik',
+        'clarity_bin',
         'tech',
         'tech_bin'
     ]
