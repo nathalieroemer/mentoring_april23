@@ -7,6 +7,7 @@
 
 {% block styles %}
 <link href="{% static 'global/quest.css' %}" rel="stylesheet"/>
+
 {% endblock %}
 
 {% block content %}
@@ -195,9 +196,35 @@
         <option value="2">Male</option>
         <option value="3">Other</option>
     </select>
+
+        <br>
+
+    <label for="clarity_bin">Where the instructions in this study clear to you?</label>
+    <br>
+    <select class="dropdown" name="clarity_bin" id="clarity_bin" onchange="show_field(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">No</option>
+        <option value="2">Yes</option>
+    </select>
+    <br>
+    <div id="clarity"></div>
+
+      <br>
+
+    <label for="tech_bin">Do you think, everything was displayed to you correctly during this study?</label>
+    <br>
+    <select class="dropdown" name="tech_bin" id="tech_bin" onchange="show_field(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">No, I think something was not displayed correctly.</option>
+        <option value="2">Yes, everything worked fine.</option>
+    </select>
+    <br>
+    <div id="tech"></div>
 </form>
 
 <br>
+
+
 
 <button class="otree-btn-next btn btn-primary" id="next">Next</button>
 
@@ -233,6 +260,20 @@ function showproficiency(eng){
                     radio.required = false;
                 }
                 document.getElementById('proficiency').innerHTML='';
+            }
+        }
+
+        function show_field(clarity_bin) {
+            if (clarity_bin === '1') {
+                document.getElementById('clarity').innerHTML =
+                {{ formfield 'clarity' }}
+            }
+        }
+
+        function show_field2(tech_bin) {
+            if (tech_bin === '2') {
+                document.getElementById('tech').innerHTML =
+                {{ formfield 'tech' }}
             }
         }
 </script>

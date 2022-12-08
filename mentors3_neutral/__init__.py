@@ -68,7 +68,28 @@ class Player(BasePlayer):
     native = models.IntegerField()
     eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
     gender = models.IntegerField()
+    clarity = models.LongStringField(
+        label="Please shorty explain, where did you had difficulties to understand the instructions?</b>.",
+        blank=True
+    )
+    clarity_lik =make_7pointlikert(
+        label="Where the instructions clear to you or did you had difficulties to understanding them?</b>.",
+        blank=True
+    )
 
+    clarity = models.LongStringField(
+        label="Please shorty explain, where did you had difficulties to understand the instructions?</b>.",
+        blank=True
+    )
+
+    tech_bin = models.IntegerField(
+        label="Do you think, everything was displayed to you correctly during this study?</b>.",
+        blank=True
+    )
+    tech = models.LongStringField(
+        label="Could you shortly describe your problem?</b>.",
+        blank=True
+    )
 
 # PAGES
 class Quest(Page):
@@ -89,7 +110,11 @@ class Quest(Page):
         'riskpref',
         'native',
         'eng_prof',
-        'gender'
+        'gender',
+        'clarity',
+        'clarity_lik',
+        'tech',
+        'tech_bin'
     ]
 
 
