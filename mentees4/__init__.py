@@ -93,6 +93,13 @@ class Player(BasePlayer):
 
 
 # PAGES
+class Part3(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        par = player.participant
+        return par.test_passed == 1 and par.timeout2 == 0 and par.timeout == 0
+
+
 class Quest(Page):
     @staticmethod
     def is_displayed(player: Player):
@@ -132,4 +139,4 @@ class End(Page):
     pass
 
 
-page_sequence = [Quest, End]
+page_sequence = [Part3, Quest, End]
