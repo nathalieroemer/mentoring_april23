@@ -31,6 +31,7 @@
     </table>
 
     <br>
+      <br>
 
     <label for="be">
         How high do you think, is the bonus payment you will receive (<i>Recall: You can earn a maximum bonus payment of £2.00</i>)?
@@ -40,6 +41,7 @@
     </div>
 
     <br>
+      <br>
 
     <p>
         <label for="m1">
@@ -61,7 +63,7 @@
     </div>
 
     <br>
-
+  <br>
     <p>
         <label for="m2">
             How well, do you think, <b>did other workers perform</b> on this task (guessing the number of dots in the
@@ -83,7 +85,7 @@
     </div>
 
     <br>
-
+  <br>
     <p>
         <label for="i_adv">
             Below you see two circles, respectively, of which one represents you and the other circle represents the investor.
@@ -102,6 +104,7 @@
     </div>
 
     <br>
+      <br>
 
     <p>
         <label for="i_inv">
@@ -144,6 +147,9 @@
             {{ endfor }}
         </tr>
     </table>
+
+      <br>
+
 
     <p style="padding-left: 10px">
         {{ form.intentions.label }}
@@ -205,6 +211,7 @@
     </table>
 
     <br>
+      <br>
 
     {{ form.riskpref.label }}
     <table class="table" id="demotable">
@@ -225,6 +232,7 @@
     </table>
 
     <br>
+      <br>
 
     <label for="eng">Are you a native English speaker?</label>
     <br>
@@ -237,6 +245,7 @@
     <div id="proficiency"></div>
 
     <br>
+      <br>
 
     <label for="g">Please indicate your gender.</label>
     <br>
@@ -248,6 +257,7 @@
     </select>
 
     <br>
+      <br>
 
     {{ form.stereotypes.label }}
     <table class="table" id="demotable">
@@ -268,6 +278,8 @@
     </table>
 
     <br>
+      <br>
+
     <label for="clarity_bin">Where the instructions in this study clear to you?</label>
     <br>
     <select class="dropdown" name="clarity_bin" id="clarity_bin" onchange="show_field(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
@@ -281,7 +293,7 @@
     </div>
 
       <br>
-
+  <br>
     <label for="tech_bin">Do you think, everything was displayed to you correctly during this study?</label>
     <br>
     <select class="dropdown" name="tech_bin" id="tech_bin" onchange="show_field2(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
@@ -297,6 +309,7 @@
 </form>
 
 <br>
+
 
 <div style="float: right">
     <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>

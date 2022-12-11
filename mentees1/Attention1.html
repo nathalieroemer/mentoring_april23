@@ -5,8 +5,14 @@
     Attention check
 {% endblock %}
 
+
 {% block styles %}
 <link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
+<style>
+   .otree-form-errors {
+        display:none}
+</style>
+
 {% endblock %}
 
 {% block scripts %}
@@ -25,6 +31,9 @@
     </u>
 </div>
 
+ {{ formfield_errors 'test2' }}
+  {{ formfield_errors 'test1' }}
+
 <form>
     <div class="form-group required">
         <label class="col-form-label" for="id_testq_0">My task is to ...</label>
@@ -33,7 +42,7 @@
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-                        ... provide a guess for the number of blue dots in a picture.
+                        ... guess the number of blue dots in a picture.
                     </label>
                 </li>
 
@@ -62,6 +71,7 @@
     </div>
     <div class="form-group required">
         <label class="col-form-label" for="id_testq_2_0">Whether or not I receive a bonus payment depends on ...</label>
+
         <div class="controls  field-testq">
             <ul id="testq_2">
                 <li>
@@ -98,6 +108,7 @@
 
 <br>
 
-<button class="otree-btn-next btn btn-primary">Next</button>
+<button class="otree-btn-next btn btn-primary" id=next">Next</button>
 
 {% endblock %}
+

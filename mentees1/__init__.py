@@ -107,8 +107,9 @@ class Player(BasePlayer):
     consent2 = models.IntegerField(initial=0)
     consent3 = models.IntegerField(initial=0)
 
-    test1 = models.IntegerField()
-    test2 = models.IntegerField()
+    test1 = models.IntegerField(blank=True)
+    test2 = models.IntegerField(blank=True)
+    trial = models.IntegerField(blank=True)
 
 
 # Methods
@@ -166,6 +167,7 @@ def creating_session(subsession: Subsession):
     # deviations of three random workers from previous task are saved in list specific to player to be used for
     # comparison later
     for p in subsession.get_players():
+        p.trial = 1 ## for attention check
         # benchmark_deviations : deviations from pretest
         p.participant.bm_dev = []
         rand_indices = random.sample(range(len(C.benchmark)), 3)
@@ -204,6 +206,23 @@ class Attention1(Page):
         'test1',
         'test2'
     ]
+
+    @staticmethod
+    def error_message(player, values):
+        solutions = dict(
+            test1=1,
+            test2=2,
+        )
+        error_messages = dict()
+
+        for field_name in solutions:
+            if values[field_name] =='None':
+                error_messages[field_name] = 'Please choose an option'
+            if values[field_name] != 'None' and values[field_name] != solutions[field_name] and player.trial == 1:
+                error_messages[field_name] = 'You did not answer correctly. Please try again. If you answer incorrectly, you cannot take part in this study.'
+                player.trial = 2
+        return error_messages
+
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):

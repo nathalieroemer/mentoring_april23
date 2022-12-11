@@ -7,6 +7,11 @@
 
 {% block styles %}
 <link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
+
+<style>
+   .otree-form-errors {
+        display:none}
+</style>
 {% endblock %}
 
 {% block scripts %}
@@ -24,6 +29,9 @@
         </a>
     </u>
 </div>
+
+ {{ formfield_errors 'test2' }}
+  {{ formfield_errors 'test1' }}
 
 <form>
     <div class="form-group required">

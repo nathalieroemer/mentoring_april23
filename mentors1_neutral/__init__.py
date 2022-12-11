@@ -31,8 +31,10 @@ class Player(BasePlayer):
     consent2 = models.IntegerField(initial=0)
     consent3 = models.IntegerField(initial=0)
 
-    test1 = models.IntegerField()
-    test2 = models.IntegerField()
+    test1 = models.IntegerField(blank=True)
+    test2 = models.IntegerField(blank=True)
+
+    trial = models.IntegerField()
 
 
 # Methods
@@ -41,6 +43,7 @@ def creating_session(subsession: Subsession):
 
 
     for p in subsession.get_players():
+        p.trial = 1
         p.part_id = p.participant.id_in_session
         # had an idea to save the many answers of t3 mentors in a dict, but it seems to be less convenient eventually
         # p.participant.t3_answers = {}
@@ -78,6 +81,25 @@ class Attention1(Page):
         'test1',
         'test2'
     ]
+
+    @staticmethod
+    def error_message(player, values):
+        solutions = dict(
+            test1=3,
+            test2=2,
+        )
+        error_messages = dict()
+
+        for field_name in solutions:
+            if values[field_name] =='None':
+                error_messages[field_name] = 'Please choose an option'
+            if values[field_name] != 'None' and values[field_name] != solutions[field_name] and player.trial == 1:
+                print(values[field_name])
+                print(solutions[field_name])
+                error_messages[field_name] = 'You did not answer correctly. Please try again. If you answer incorrectly, you cannot take part in this study.'
+                player.trial = 2
+        return error_messages
+
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
