@@ -196,6 +196,28 @@
     </select>
 
     <br>
+      <br>
+
+    {{ form.stereotypes.label }}
+    <table class="table" id="demotable">
+        <tr>
+            <th>Female</th>
+            <th></th>
+            <th></th>
+            <th>None</th>
+            <th></th>
+            <th></th>
+            <th>Male</th>
+        </tr>
+        <tr>
+            {{ for choice in form.stereotypes }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+
+    <br>
     <br>
 
     <label for="clarity_bin">Where the instructions in this study clear to you?</label>

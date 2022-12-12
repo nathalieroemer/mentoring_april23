@@ -85,6 +85,7 @@ class Player(BasePlayer):
         label="Could you shortly describe your problem?",
         blank=True
     )
+    stereotypes = make_7pointlikert("Do you think the worker's task (guessing the number of blue dots in a picture) rather favors male or female participants?")
 
 
 # PAGES
@@ -116,7 +117,8 @@ class Quest(Page):
         'clarity',
         'clarity_bin',
         'tech',
-        'tech_bin'
+        'tech_bin',
+        'stereotypes'
     ]
 
 

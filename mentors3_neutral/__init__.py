@@ -90,6 +90,8 @@ class Player(BasePlayer):
         label="Could you shortly describe your problem?",
         blank=True
     )
+    stereotypes = make_7pointlikert("Do you think your advisee's task (guessing the number of blue dots in a picture) rather favors male or female participants?")
+
 
 class Part2(Page):
     @staticmethod
@@ -121,7 +123,8 @@ class Quest(Page):
         'clarity',
         'clarity_bin',
         'tech',
-        'tech_bin'
+        'tech_bin',
+        'stereotypes'
     ]
 
 
