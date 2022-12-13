@@ -231,6 +231,18 @@
         </tr>
     </table>
 
+
+    <br>
+      <br>
+        <label for="g">Please indicate your gender.</label>
+    <br>
+    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+        <option value="" selected="selected">---------</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Other</option>
+    </select>
+
     <br>
       <br>
 
@@ -247,17 +259,7 @@
     <br>
       <br>
 
-    <label for="g">Please indicate your gender.</label>
-    <br>
-    <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
-        <option value="" selected="selected">---------</option>
-        <option value="1">Female</option>
-        <option value="2">Male</option>
-        <option value="3">Other</option>
-    </select>
 
-    <br>
-      <br>
 
     {{ form.stereotypes.label }}
     <table class="table" id="demotable">
