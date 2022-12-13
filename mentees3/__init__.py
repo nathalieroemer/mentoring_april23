@@ -117,4 +117,4 @@ class Evaluation2(Page):
         player.evaluation = str(data)
 
 
-page_sequence = [Instructions, Part2, Task2, Evaluation2, Estimate2]
+page_sequence = [Part2, Instructions, Task2, Evaluation2, Estimate2]
