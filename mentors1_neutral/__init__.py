@@ -66,6 +66,8 @@ class Consent(Page):
         'consent3'
     ]
 
+class Part1(Page):
+    pass
 
 class Instructions1(Page):
     pass
@@ -121,4 +123,4 @@ class Attention1(Page):
                 pass
 
 
-page_sequence = [Welcome, Consent, Instructions1, Instructions2, Attention1]
+page_sequence = [Welcome, Consent, Part1, Instructions1, Instructions2, Attention1]
