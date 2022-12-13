@@ -54,6 +54,13 @@ def creating_session(subsession: Subsession):
 
 
 # PAGES
+
+class Part2(Page):
+    pass
+
+class Instructions(Page):
+    pass
+
 class Task2(Page):
     form_model = 'player'
     form_fields = [
@@ -110,4 +117,4 @@ class Evaluation2(Page):
         player.evaluation = str(data)
 
 
-page_sequence = [Task2, Evaluation2, Estimate2]
+page_sequence = [Instructions, Part2, Task2, Evaluation2, Estimate2]
