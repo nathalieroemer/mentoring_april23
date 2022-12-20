@@ -57,7 +57,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     diff = make_7pointlikert("How difficult did you find it to guess the number of dots in the pictures?")
     stereotypes = make_7pointlikert("Do you think this task rather favors male or female participants?")
-    bonusest = models.FloatField()
+    bonusest = models.FloatField(min=0, max=2)
     own_perf = models.StringField()
     others_perf = models.StringField()
     ident_adv = models.IntegerField()

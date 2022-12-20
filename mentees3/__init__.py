@@ -91,6 +91,11 @@ class Task2(Page):
         else:
             pass
 
+class Evaluation2(Page):
+    @staticmethod
+    def live_method(player: Player, data):
+        player.evaluation = str(data)
+
 
 class Estimate2(Page):
     form_model = 'player'
@@ -106,15 +111,6 @@ class Estimate2(Page):
             guess=player.guess
         )
 
-
-class Evaluation2(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.treat == 't1'
-
-    @staticmethod
-    def live_method(player: Player, data):
-        player.evaluation = str(data)
 
 
 page_sequence = [Part2, Instructions, Task2, Evaluation2, Estimate2]

@@ -57,7 +57,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     riskpref = make_7pointlikert("How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?")
     diff = make_7pointlikert("How difficult did you find the investment task?")
-    bonusest = models.FloatField()
+    bonusest = models.FloatField(min=0, max=300)
     ident_worker = models.IntegerField()
     reciprocity = make_10pointlikert("When someone does me a favor, I am willing to return it.")
     intentions = make_10pointlikert("I assume that people have only the best intentions.")
