@@ -71,7 +71,7 @@ class Attention1(Page):
     @staticmethod
     def error_message(player, values):
         solutions = dict(
-            test1=1,
+            test1=2,
             test2=4,
         )
         error_messages = dict()
