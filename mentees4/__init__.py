@@ -104,7 +104,7 @@ class Quest(Page):
     @staticmethod
     def is_displayed(player: Player):
         par = player.participant
-        return par.test_passed == 1 and par.timeout2 == 0 and par.timeout == 0
+        return par.test_passed == 1 and par.timeout2 == 0 and par.timeout == 0 and par.treat != 't1'
 
     form_model = 'player'
     form_fields = [
@@ -134,9 +134,41 @@ class Quest(Page):
         elif data['section'] == 'others_p':
             player.others_perf = str(data['value'])
 
+class Quest_t1(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        par = player.participant
+        return par.test_passed == 1 and par.timeout2 == 0 and par.timeout == 0 and par.treat == 't1'
+
+    form_model = 'player'
+    form_fields = [
+        'diff',
+        'stereotypes',
+        'bonusest',
+        'ident_inv',
+        'reciprocity',
+        'intentions',
+        'donation',
+        'wtgive',
+        'riskpref',
+        'native',
+        'eng_prof',
+        'gender',
+        'clarity',
+        'clarity_bin',
+        'tech',
+        'tech_bin'
+    ]
+
+    @staticmethod
+    def live_method(player: Player, data):
+        if data['section'] == 'own_p':
+            player.own_perf = str(data['value'])
+        elif data['section'] == 'others_p':
+            player.others_perf = str(data['value'])
 
 class End(Page):
     pass
 
 
-page_sequence = [Part3, Quest, End]
+page_sequence = [Part3, Quest, Quest_t1, End]
