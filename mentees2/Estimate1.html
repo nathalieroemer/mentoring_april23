@@ -55,10 +55,9 @@
     function setClick() {
         click = 1;
         slider1.setCustomValidity("");
-        nextb.style.display = 'block';
-        fakeb.style.display = 'none';
         errorbox.innerHTML = "";
     }
+
     slider1.onmousedown = setClick;
     slider2.onmousedown = setClick;
     slider1.ontouchstart = setClick;
@@ -68,6 +67,19 @@
         if (click !== 1) {
             //slider1.setCustomValidity("Please answer this question");
             errorbox.innerHTML = "Please answer this question";
+        }
+
+        if (js_vars.player_guess < parseInt(slider1.value)) {
+            errorbox.innerHTML = "Your guess does not lie within the specified interval.";
+        }
+
+        if (js_vars.player_guess > parseInt(slider2.value)) {
+            errorbox.innerHTML = "Your guess does not lie in the specified the interval.";
+
+        }
+
+        if (click == 1 && js_vars.player_guess >= parseInt(slider1.value) && js_vars.player_guess <= parseInt(slider2.value)) {
+            nextb.click();
         }
     }
 
@@ -82,6 +94,7 @@
         sessionStorage.setItem("c6", content)
         sessionStorage.setItem("t6", title)
     }
+
 </script>
 {% endblock %}
 

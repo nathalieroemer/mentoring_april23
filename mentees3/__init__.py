@@ -111,6 +111,12 @@ class Estimate2(Page):
             guess=player.guess
         )
 
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_guess=player.guess,
+        )
+
 
 
 page_sequence = [Part2, Instructions, Task2, Evaluation2, Estimate2]

@@ -142,11 +142,18 @@ class Estimate1(Page):
         'highest'
     ]
 
+
     @staticmethod
     def vars_for_template(player: Player):
         return dict(
             graphic="graphics/"+player.participant.graphic,
             guess=player.guess
+        )
+
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_guess=player.guess,
         )
 
 
