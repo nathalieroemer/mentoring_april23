@@ -15,7 +15,7 @@ class C(BaseConstants):
     NUM_ROUNDS = 1
 
     mentordata = pd.read_csv(
-        "testdata.csv",
+        "testdata_old.csv",
         delimiter=";",
         encoding="latin1"
     )

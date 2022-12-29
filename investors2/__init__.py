@@ -15,25 +15,23 @@ class C(BaseConstants):
     NUM_ROUNDS = 1
 
     menteedata = pd.read_csv(
-        "testdata_mentees.csv",
-        delimiter=";",
+        "mentees_data.csv",
+        delimiter=",",
         encoding="latin1"
     )
     mdf = pd.DataFrame(
         menteedata,
         columns=[
-            "participant.code",
-            "participant._current_page_name",
-            "mentees2.1.player.guess",
-            "mentees2.1.player.truevalue",
-            "mentees2.1.player.evaluation2"
+            "participantcode",
+            "guess",
+            "dots",
+            "evaluation"
         ]
     )
-    mdf = mdf[mdf["participant._current_page_name"] == "End"]
     mdf = mdf.dropna().reset_index(drop=True)
     # print(mdf)
 
-    scenarios = list(dict.fromkeys(mdf["mentees2.1.player.evaluation2"]))
+    scenarios = list(dict.fromkeys(mdf["evaluation"]))
     # print(scenarios)
 
 
@@ -75,11 +73,11 @@ class Task(Page):
         player.scenario = random.choice(C.scenarios)
         # print(player.scenario)
         # list of index values that refer to all workers with respective self-evaluation:
-        potworkers = [i for i, x in enumerate(C.mdf["mentees2.1.player.evaluation2"]) if x == player.scenario]
+        potworkers = [i for i, x in enumerate(C.mdf["evaluation"]) if x == player.scenario]
         w = random.choice(potworkers)
-        player.worker = C.mdf["participant.code"][w]
+        player.worker = C.mdf["participantcode"][w]
 
-        rel_dev = abs((C.mdf["mentees2.1.player.guess"][w]-C.mdf["mentees2.1.player.truevalue"][w])/C.mdf["mentees2.1.player.truevalue"][w])
+        rel_dev = abs((C.mdf["guess"][w]-C.mdf["dots"][w])/C.mdf["dots"][w])
 
         if player.scenario == "terrible":
             player.payoff = cu(round((1 - (player.inv_ter/100)) + (player.inv_ter/100) * 3 * (1 - rel_dev), 2))

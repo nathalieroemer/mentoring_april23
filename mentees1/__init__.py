@@ -23,69 +23,68 @@ class C(BaseConstants):
     GRAPHICS = [f for f in listdir("_static/graphics") if isfile(join("_static/graphics", f))]
 
     mentordata = pd.read_csv(
-        "testdata.csv",
-        delimiter=";",
+        "mentor_data.csv",
+        delimiter=",",
         encoding="latin1"
     )
 
     mdf = pd.DataFrame(  # mentor data frame
         mentordata,
         columns=[
-            "participant.code",
-            "participant._current_page_name",
-            "participant.treat",
-            "mentors2.1.player.top",
-            "mentors2.1.player.uppermiddle",
-            "mentors2.1.player.lowermiddle",
-            "mentors2.1.player.bottom",
-            "mentors2_t3.1.player.top_terrible",
-            "mentors2_t3.1.player.top_verypoor",
-            "mentors2_t3.1.player.top_poor",
-            "mentors2_t3.1.player.top_good",
-            "mentors2_t3.1.player.top_verygood",
-            "mentors2_t3.1.player.top_exceptional",
-            "mentors2_t3.1.player.um_terrible",
-            "mentors2_t3.1.player.um_verypoor",
-            "mentors2_t3.1.player.um_poor",
-            "mentors2_t3.1.player.um_good",
-            "mentors2_t3.1.player.um_verygood",
-            "mentors2_t3.1.player.um_exceptional",
-            "mentors2_t3.1.player.lm_terrible",
-            "mentors2_t3.1.player.lm_verypoor",
-            "mentors2_t3.1.player.lm_poor",
-            "mentors2_t3.1.player.lm_good",
-            "mentors2_t3.1.player.lm_verygood",
-            "mentors2_t3.1.player.lm_exceptional",
-            "mentors2_t3.1.player.b_terrible",
-            "mentors2_t3.1.player.b_verypoor",
-            "mentors2_t3.1.player.b_poor",
-            "mentors2_t3.1.player.b_good",
-            "mentors2_t3.1.player.b_verygood",
-            "mentors2_t3.1.player.b_exceptional"
+            "participantcode",
+            "treat",
+            "top",
+            "uppermiddle",
+            "lowermiddle",
+            "bottom",
+            "top_terrible",
+            "top_verypoor",
+            "top_poor",
+            "top_good",
+            "top_verygood",
+            "top_exceptional",
+            "um_terrible",
+            "um_verypoor",
+            "um_poor",
+            "um_good",
+            "um_verygood",
+            "um_exceptional",
+            "lm_terrible",
+            "lm_verypoor",
+            "lm_poor",
+            "lm_good",
+            "lm_verygood",
+            "lm_exceptional",
+            "b_terrible",
+            "b_verypoor",
+            "b_poor",
+            "b_good",
+            "b_verygood",
+            "b_exceptional"
         ]
     )
-    mdf = mdf[mdf["participant._current_page_name"] == "End"]
+
     # saves data only of mentors from treatments 1,2 and 4:
-    t124_mentors = mdf[pd.isna(mdf["mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
+    t124_mentors = mdf[mdf['treat'] =="t124"].reset_index(drop=True)
     # same for treatment 3:
-    t3_mentors = mdf[pd.isna(mdf["mentors2.1.player.top"])].reset_index(drop=True)
+    t3_mentors = mdf[mdf['treat']=="t3"].reset_index(drop=True)
+#    print(t3_mentors, "this is the mentors df for t3")
 
     pretestdata = pd.read_csv(
         "pretestdata.csv",
-        delimiter=";",
+        delimiter=",",
         encoding="latin1"
     )
 
     predf = pd.DataFrame(
         pretestdata,
         columns=[
-            "participant.id_in_session",
-            "participant.code",
-            "participant.deviation"
+            "participantcode",
+            "deviation"
         ]
     )
     # saves a list of performances in terms of deviation from true value of several workers from a previous task:
-    benchmark = predf["participant.deviation"].tolist()
+    benchmark = predf["deviation"].tolist()
 
 
 class Subsession(BaseSubsession):
@@ -147,20 +146,21 @@ def creating_session(subsession: Subsession):
             min_obs_t124 = min(session.obs_t124)
             # gives a list of all indices of the obs_t124 list where the value of the obs is min
             mentors = [i for i, x in enumerate(session.obs_t124) if x == min_obs_t124]
+            print(mentors, "these are the mentors")
             m = random.choice(mentors)
             # participant.mentor is an int: the index which refers to the specific mentor in the list of mentors for the
             # respective treatment(s) and the list of observations of mentors of the respective treatment(s)
             p.participant.mentor = m
             # player.mentor on the other hand will be the participant.code of the mentor from the mentor experiment in
             # order to have an intelligible data overview
-            p.mentor = C.t124_mentors["participant.code"][m]
+            p.mentor = C.t124_mentors["participantcode"][m]
             session.obs_t124[m] = session.obs_t124[m] + 1
         elif p.treat == 't3':
             min_obs_t3 = min(session.obs_t3)
             mentors = [i for i, x in enumerate(session.obs_t3) if x == min_obs_t3]
             m = random.choice(mentors)
             p.participant.mentor = m
-            p.mentor = C.t3_mentors["participant.code"][m]
+            p.mentor = C.t3_mentors["participantcode"][m]
             session.obs_t3[m] = session.obs_t3[m] + 1
 
     # values for relative performance

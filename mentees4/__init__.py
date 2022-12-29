@@ -160,6 +160,9 @@ class Quest_t1(Page):
         'tech_bin'
     ]
 
+    def before_next_page(player, timeout_happened):
+        player.ident_adv = 0
+
     @staticmethod
     def live_method(player: Player, data):
         if data['section'] == 'own_p':

@@ -16,10 +16,10 @@ SESSION_CONFIGS = [
     dict(
         name='Mentors',
         app_sequence=[
-            'mentors1_neutral',
-            'mentors2_neutral',
-            'mentors2_t3_neutral',
-            'mentors3_neutral'
+            'mentors1',
+            'mentors2',
+            'mentors2_t3',
+            'mentors3'
         ],
         num_demo_participants=100,
     ),
@@ -83,18 +83,7 @@ PARTICIPANT_FIELDS = [
     'performances',
     'scenarios'
 ]
-SESSION_FIELDS = [
-    't2_groups',
-    't3_groups',
-    't4_groups',
-    't2_promo',
-    't3_promo',
-    't4_promo',
-    't2_feedback',
-    't3_feedback',
-    't4_feedback',
-    'obs_t124'
-]
+SESSION_FIELDS = []
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

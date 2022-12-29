@@ -48,6 +48,7 @@ def creating_session(subsession: Subsession):
         # had an idea to save the many answers of t3 mentors in a dict, but it seems to be less convenient eventually
         # p.participant.t3_answers = {}
         p.treat = next(treats)
+        p.participant.treat = p.treat
 
 
 # PAGES

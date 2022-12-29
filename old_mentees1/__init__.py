@@ -23,7 +23,7 @@ class C(BaseConstants):
     GRAPHICS = [f for f in listdir("_static/graphics") if isfile(join("_static/graphics", f))]
 
     mentordata = pd.read_csv(
-        "testdata.csv",
+        "testdata_old.csv",
         delimiter=";",
         encoding="latin1"
     )

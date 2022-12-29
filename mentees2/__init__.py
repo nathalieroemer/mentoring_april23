@@ -15,51 +15,51 @@ class C(BaseConstants):
     NUM_ROUNDS = 1
 
     mentordata = pd.read_csv(
-        "testdata.csv",
-        delimiter=";",
+        "mentor_data.csv",
+        delimiter=",",
         encoding="latin1"
     )
-    mdf = pd.DataFrame(
+    mdf = pd.DataFrame(  # mentor data frame
         mentordata,
         columns=[
-            "participant.code",
-            "participant._current_page_name",
-            "participant.treat",
-            "mentors2.1.player.top",
-            "mentors2.1.player.uppermiddle",
-            "mentors2.1.player.lowermiddle",
-            "mentors2.1.player.bottom",
-            "mentors2_t3.1.player.top_terrible",
-            "mentors2_t3.1.player.top_verypoor",
-            "mentors2_t3.1.player.top_poor",
-            "mentors2_t3.1.player.top_good",
-            "mentors2_t3.1.player.top_verygood",
-            "mentors2_t3.1.player.top_exceptional",
-            "mentors2_t3.1.player.um_terrible",
-            "mentors2_t3.1.player.um_verypoor",
-            "mentors2_t3.1.player.um_poor",
-            "mentors2_t3.1.player.um_good",
-            "mentors2_t3.1.player.um_verygood",
-            "mentors2_t3.1.player.um_exceptional",
-            "mentors2_t3.1.player.lm_terrible",
-            "mentors2_t3.1.player.lm_verypoor",
-            "mentors2_t3.1.player.lm_poor",
-            "mentors2_t3.1.player.lm_good",
-            "mentors2_t3.1.player.lm_verygood",
-            "mentors2_t3.1.player.lm_exceptional",
-            "mentors2_t3.1.player.b_terrible",
-            "mentors2_t3.1.player.b_verypoor",
-            "mentors2_t3.1.player.b_poor",
-            "mentors2_t3.1.player.b_good",
-            "mentors2_t3.1.player.b_verygood",
-            "mentors2_t3.1.player.b_exceptional"
+            "participantcode",
+            "treat",
+            "top",
+            "uppermiddle",
+            "lowermiddle",
+            "bottom",
+            "top_terrible",
+            "top_verypoor",
+            "top_poor",
+            "top_good",
+            "top_verygood",
+            "top_exceptional",
+            "um_terrible",
+            "um_verypoor",
+            "um_poor",
+            "um_good",
+            "um_verygood",
+            "um_exceptional",
+            "lm_terrible",
+            "lm_verypoor",
+            "lm_poor",
+            "lm_good",
+            "lm_verygood",
+            "lm_exceptional",
+            "b_terrible",
+            "b_verypoor",
+            "b_poor",
+            "b_good",
+            "b_verygood",
+            "b_exceptional"
         ]
     )
-    mdf = mdf[mdf["participant._current_page_name"] == "End"]
     # saves data only of mentors from treatments 1,2 and 4:
-    t124_mentors = mdf[pd.isna(mdf["mentors2_t3.1.player.top_terrible"])].reset_index(drop=True)
+    t124_mentors = mdf[mdf['treat'] == "t124"].reset_index(drop=True)
+
     # same for treatment 3:
-    t3_mentors = mdf[pd.isna(mdf["mentors2.1.player.top"])].reset_index(drop=True)
+    t3_mentors = mdf[mdf['treat'] == "t3"].reset_index(drop=True)
+
 
 
 class Subsession(BaseSubsession):
@@ -195,13 +195,13 @@ class Evaluation1(Page):
         par = player.participant
         if player.treat == 't4':
             if player.rel_perf == 1:
-                a = C.t124_mentors["mentors2.1.player.top"][par.mentor]
+                a = C.t124_mentors["top"][par.mentor]
             elif player.rel_perf == 2:
-                a = C.t124_mentors["mentors2.1.player.uppermiddle"][par.mentor]
+                a = C.t124_mentors["uppermiddle"][par.mentor]
             elif player.rel_perf == 3:
-                a = C.t124_mentors["mentors2.1.player.lowermiddle"][par.mentor]
+                a = C.t124_mentors["lowermiddle"][par.mentor]
             elif player.rel_perf == 4:
-                a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
+                a = C.t124_mentors["bottom"][par.mentor]
 
             if a == "terrible":
                 ad = "Terrible"
@@ -243,18 +243,21 @@ class FinalSub(Page):
 
             # replace(" ", "") removes whitespaces
             answ = player.evaluation.replace(" ", "")
-
-            a = C.t3_mentors['mentors2_t3.1.player.{}_{}'.format(perf, answ)][par.mentor]
+            print(C.t3_mentors)
+            print(perf)
+            print(answ)
+            print(par.mentor)
+            a = C.t3_mentors['{}_{}'.format(perf, answ)][par.mentor]
 
         elif player.treat == 't3':
             if player.rel_perf == 1:
-                a = C.t124_mentors["mentors2.1.player.top"][par.mentor]
+                a = C.t124_mentors["top"][par.mentor]
             elif player.rel_perf == 2:
-                a = C.t124_mentors["mentors2.1.player.uppermiddle"][par.mentor]
+                a = C.t124_mentors["uppermiddle"][par.mentor]
             elif player.rel_perf == 3:
-                a = C.t124_mentors["mentors2.1.player.lowermiddle"][par.mentor]
+                a = C.t124_mentors["lowermiddle"][par.mentor]
             elif player.rel_perf == 4:
-                a = C.t124_mentors["mentors2.1.player.bottom"][par.mentor]
+                a = C.t124_mentors["bottom"][par.mentor]
 
         if player.treat == 't3':
             if a == "terrible":

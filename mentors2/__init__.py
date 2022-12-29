@@ -63,13 +63,7 @@ class TaskOld(Page):  # Not used at the moment
 
 
 class Task(Page):
-    # form_model = 'player'
-    # form_fields = [
-    #     'top',
-    #     'uppermiddle',
-    #     'lowermiddle',
-    #     'bottom'
-    # ]
+
 
     @staticmethod
     def vars_for_template(player: Player):
