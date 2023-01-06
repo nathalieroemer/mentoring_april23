@@ -73,7 +73,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     treat = models.StringField()
     test2 = models.IntegerField()
-
     timeout = models.BooleanField(initial=False)
     guess = models.IntegerField()
     # rel_perf is placement: 1 is best, 4 is worst
@@ -82,6 +81,9 @@ class Player(BasePlayer):
     highest = models.IntegerField()
     evaluation = models.StringField()
     evaluation2 = models.StringField()
+    advice1 = models.StringField()
+    advice2 = models.StringField()
+
 
 
 # Methods
@@ -114,12 +116,21 @@ class Task1(Page):
         else:
             par.timeout = False
             h = 1
+            print(player.guess, "this is the guess")
+            print(par.numdots, "these are the dots")
+            if player.guess == par.numdots:
+                dev= 0
+            else:
+                dev = abs((player.guess-par.numdots)/par.numdots)
+            print(dev, "this is the deviation")
             for i in par.bm_dev:
                 print(par.bm_dev, "who are those others?")
-                if i < abs((player.guess-par.numdots)/par.numdots):
+
+                if abs(i) < dev:
                     h = h + 1
             # the lower h the better (1<=h<=4)
             player.rel_perf = h
+            print(player.rel_perf,"this is my relative performance")
 
         player.treat = player.participant.treat
 
@@ -218,6 +229,8 @@ class Evaluation1(Page):
         else:
             ad = ""
 
+        player.advice1 = ad
+        print(player.advice1, "this is the advice")
         return dict(
             advice=ad
         )
@@ -243,10 +256,6 @@ class FinalSub(Page):
 
             # replace(" ", "") removes whitespaces
             answ = player.evaluation.replace(" ", "")
-            print(C.t3_mentors)
-            print(perf)
-            print(answ)
-            print(par.mentor)
             a = C.t3_mentors['{}_{}'.format(perf, answ)][par.mentor]
 
         elif player.treat == 't3':
@@ -287,6 +296,9 @@ class FinalSub(Page):
             pa = "Very good"
         elif player.evaluation == "exceptional":
             pa = "Exceptional"
+
+        player.advice2 = ad
+        print(player.advice2, "this is the advice now")
 
         return dict(
             advice=ad,
