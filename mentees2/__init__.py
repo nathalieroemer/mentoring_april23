@@ -118,10 +118,11 @@ class Task1(Page):
             h = 1
             print(player.guess, "this is the guess")
             print(par.numdots, "these are the dots")
+
             if player.guess == par.numdots:
-                dev= 0
+                dev = 0
             else:
-                dev = abs((player.guess-par.numdots)/par.numdots)
+                dev = abs((player.guess-par.numdots)/par.numdots)*100
             print(dev, "this is the deviation")
             for i in par.bm_dev:
                 print(par.bm_dev, "who are those others?")
