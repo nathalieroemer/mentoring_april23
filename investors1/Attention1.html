@@ -35,34 +35,34 @@
 
 <form>
     <div class="form-group required">
-        <label class="col-form-label" for="id_testq_0">Your bonus payment ...</label>
+        <label class="col-form-label" for="id_testq_0">To maximize your bonus payment ...</label>
         <div class="controls  field-testq">
             <ul id="id_testq">
                 <li>
                     <label for="id_testq_0">
                         <input type="radio" name="test1" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
-                        ... equals 100 Pence, irrespective of your investment.
+                        ... you should not invest any of your endowment in a worker.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_1">
                         <input type="radio" name="test1" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... depends on your kept endowment and your investment in a worker.
+                     ... you should invest more in a worker, the higher you think the precision of the worker's guess is.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_2">
                         <input type="radio" name="test1" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... is determined by a coinflip.
+                     ... you should always invest 100 Pence in a worker.
                     </label>
                 </li>
 
                 <li>
                     <label for="id_testq_3">
                         <input type="radio" name="test1" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
-                     ... equals the amount you wish to invest in a worker.
+                     ... it does not matter how much you invest in a worker.
                     </label>
                 </li>
             </ul>
@@ -82,7 +82,7 @@
                 <li>
                     <label for="id_testq_2_1">
                         <input type="radio" name="test2" value="2" required="" id="id_testq_2_1" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
-                        ... the higher the relative deviation of the worker's guess from the actual number of blue dots.
+                        ... the lower the precision of the worker's guess is.
                     </label>
                 </li>
 
@@ -96,7 +96,7 @@
                 <li>
                     <label for="id_testq_2_3">
                         <input type="radio" name="test2" value="4" required="" id="id_testq_2_3" class="form-check-input" onclick="document.getElementById('id_testq_2_0').setCustomValidity('')">
-                     ... the lower the relative deviation of the worker's guess from the actual number of blue dots.
+                     ... the higher the precision of the worker's guess.
                     </label>
                 </li>
             </ul>

@@ -43,25 +43,17 @@
 
     <p>
         You have an endowment of 100 Pence and have to decide how much out of the 100 Pence you want to invest in the
-        worker.
+        worker. Your bonus payment depends on your investment and the precision of the guess of the worker you invested in.
     </p>
     <p>
-        Your bonus payment depends on the <b>kept endowment, your investment and the relative deviation of the worker's guess
-            from the actual number of dots.</b>
+        We designed the bonus payment such that <b>you should invest more, the higher you think the precision of the worker's guess is.</b>
+        Figure 1 displays the investment maximizing your bonus payment, depending on the precision of the worker's guess.
     </p>
-        <li>
-            If the relative deviation of a worker's guess is <b>10% or less</b>, your <b>bonus payment</b> amounts to <b>3 Pence * investment + kept endowment.</b>
-        </li>
-        <li>
-            If the relative deviation of a worker's guess is <b>more than 10%, but less than 20%</b>,  your <b>bonus payment</b> amounts to <b>2,7 Pence * investment + kept endowment.</b>
-        </li>
-        <li>
-            If the relative deviation of a worker's guess is <b>more than 20%, but less than 30%</b>,  your <b>bonus payment</b> amounts to <b>1,7 Pence * investment + kept endowment.</b>
-        </li>
-        <li>
-            If the relative deviation of a worker's guess is <b>30% or more</b>,  your <b>bonus payment</b> amounts to <b>0 Pence * investment + kept endowment.</b>
-        </li>
-    </ul>
+ <p style="text-align: center">
+    <img src="{{ static 'optimal_invest.png' }}" class="resp"/>
+    <br>
+        <i style="font-size: smaller">Figure 1: Payment maximizing investment</i>
+    </p>
 </div>
 
 <br>
