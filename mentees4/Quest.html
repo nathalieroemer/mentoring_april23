@@ -64,25 +64,7 @@
 
     <br>
   <br>
-    <p>
-        <label for="m2">
-            How well, do you think, <b>did other workers perform</b> on this task (guessing the number of dots in the
-            pictures)?
-        </label>
-    </p>
-    <div class="box-container" id="m2">
-        <div class="row" style="margin-left: 10%; margin-right: 10%">
-            <div class="box2" onclick="sendValueOthers('terrible')">Terrible</div>
-            <div class="box2" onclick="sendValueOthers('very poor')">Very Poor</div>
-            <div class="box2" onclick="sendValueOthers('poor')">Poor</div>
-            <div class="box2" onclick="sendValueOthers('good')">Good</div>
-            <div class="box2" onclick="sendValueOthers('very good')">Very Good</div>
-            <div class="box2" onclick="sendValueOthers('exceptional')">Exceptional</div>
-        </div>
-        <div class="row errormessage" id="error2" style="display: none">
-            <i>Please answer this question.</i>
-        </div>
-    </div>
+
 
     <br>
   <br>
@@ -188,29 +170,6 @@
     </div>
 
     <br>
-
-    {{ form.wtgive.label }}
-    <table class="table" id="demotable">
-        <tr>
-            <th>Completely unwilling to do so</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Very willing to do so</th>
-        </tr>
-        <tr>
-            {{ for choice in form.wtgive }}
-                <td>{{ choice }}</td>
-            {{ endfor }}
-        </tr>
-    </table>
-
-    <br>
       <br>
 
     {{ form.riskpref.label }}
@@ -245,20 +204,6 @@
 
     <br>
       <br>
-
-    <label for="eng">Are you a native English speaker?</label>
-    <br>
-    <select class="dropdown" name="native" id="eng" onchange="showproficiency(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
-        <option value="" selected="selected">---------</option>
-        <option value="1">No</option>
-        <option value="2">Yes</option>
-    </select>
-    <br>
-    <div id="proficiency"></div>
-
-    <br>
-      <br>
-
 
 
     {{ form.stereotypes.label }}
@@ -299,7 +244,6 @@
 
 <script>
 const boxes_own = document.querySelectorAll('.box1');
-const boxes_others = document.querySelectorAll('.box2');
 const errorbox = document.getElementById("errorm");
 
 let b_own = false;
@@ -313,14 +257,7 @@ boxes_own.forEach(box => {
         box.setAttribute('style', 'background-color: #6495ED;');
     });
 });
-boxes_others.forEach(box => {
-    box.addEventListener('click', function handleClick(event) {
-        boxes_others.forEach(box => {
-            box.setAttribute('style', 'background-color: #ccc;');
-        });
-        box.setAttribute('style', 'background-color: #6495ED;');
-    });
-});
+
 
 function sendValueOwn(value) {
     liveSend({'section': 'own_p', 'value': value})
@@ -329,65 +266,22 @@ function sendValueOwn(value) {
     checkCompletion();
     errorbox.innerHTML = "";
 }
-function sendValueOthers(value) {
-    liveSend({'section': 'others_p', 'value': value})
-    b_others = true;
-    document.getElementById('error2').style.display = 'none';
-    checkCompletion();
-    errorbox.innerHTML = "";
-}
+
 
 function validate() {
     if (!b_own) {
         document.getElementById('error1').style.display = 'flex';
         errorbox.innerHTML = "Please answer all questions.";
     }
-    if (!b_others) {
-        document.getElementById('error2').style.display = 'flex';
-        errorbox.innerHTML = "Please answer all questions.";
-    }
 }
 
 function checkCompletion() {
-    if (b_own && b_others) {
+    if (b_own) {
         document.getElementById('nb').style.display = 'block';
         document.getElementById('fake').style.display = 'none';
     }
 }
 
-function showproficiency(eng){
-    if(eng==='1') {
-        document.getElementById('proficiency').innerHTML = '' +
-            '{{ form.eng_prof.label }}' +
-            '<table class="table" id="demotable">' +
-            '    <tr>' +
-            '        <th>Basic</th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th>Fluent</th>' +
-            '    </tr>' +
-            '    <tr>' +
-            '        {{ for choice in form.eng_prof }}' +
-            '            <td>{{ choice }}</td>' +
-            '        {{ endfor }}' +
-            '    </tr>' +
-            '</table>'
-            // set required attribute once shown (for every node):
-            for (let radio of forminputs.eng_prof) {
-                radio.required = true;
-            }
-            }
-            else {
-            // remove required attribute again once hidden:
-                for (let radio of forminputs.eng_prof) {
-                    radio.required = false;
-                }
-                document.getElementById('proficiency').innerHTML='';
-            }
-        }
 
 </script>
 

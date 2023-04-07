@@ -108,18 +108,12 @@
 </div>
 
 
-<p>
-    <img src="{{ static graphic }}" class="resp"/>
-</p>
-<div id="content">
-    <p>
-        You guessed that there are {{player.guess}} dots in this picture.
-    </p>
-</div>
+
 <p>
     <label for="s1">
-        Please use the slider to indicate a <b>high and a low estimate</b> such that there is a <b>90% chance that the
-        correct answer falls between those numbers</b>.
+       Assume we randomly draw a participant from this study.
+        Please use the slider to indicate how well you think the participant performed from 0 to 100. Values of 0 indicate that the participants guess deviates by more than 100% of the actual number of dots,
+        values of 100 indicates that the participants guess deviates by 0% of the actual number of blue dots, that is, the participant guessed the exact right number of dots.
     </label>
 </p>
 
@@ -161,3 +155,4 @@
 <br>
 
 {{ endblock }}
+

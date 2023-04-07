@@ -44,6 +44,16 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
     ),
     dict(
+        name='Mentees - only rank question added',
+        app_sequence=[
+            'mentees1',
+            'mentees2_rankq',
+            'mentees3',
+            'mentees4'
+        ],
+        num_demo_participants=4,
+    ),
+    dict(
         name='Investors',
         app_sequence=[
             'investors1',

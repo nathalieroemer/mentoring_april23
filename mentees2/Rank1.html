@@ -1,0 +1,58 @@
+{{ block title }}
+    <div id="title">
+        Your performance
+    </div>
+{{ endblock }}
+
+
+{{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+
+<p>
+    <img src="{{ static graphic }}" class="resp"/>
+</p>
+<div id="content">
+    <p>
+        You guessed that there are <b> {{player.guess}} </b> dots in this picture.
+    </p>
+</div>
+
+<p>
+  You can earn an additional bonus payment of 1.
+ </p>
+<p>
+  Assume we rank you, and 3 other participants, who we randomly draw from this study,
+    by your performance in this task (guessing the number of blue dots in the pictures).
+</p>
+
+<p> What do you think is your rank within this group of 4, when 1 means, you performed best, and 4, that you performed fourth-best within this group?</p>
+<p> Your bonus payment </p>
+<p>
+<ul>
+   <li> You will receive a bonus payment of 1 if the rank you indicate equals your true rank within this group of 4. </li>
+   <li>  You will receive a bonus payment of 0.80 if the rank you indicate deviates by 1 rank from your true rank within this group of 4.  </li>
+  <li>   You will receive a bonus payment of 0.20 if the rank you indicate deviates by 2 ranks from your true rank within this group of 4.  </li>
+   <li>  You will receive a bonus payment of 0 if the rank you indicate deviates by 3 or more ranks from your true rank within this group of 4.  </li>
+</ul>
+
+</p>
+
+
+<br>
+<br>
+
+<button class="otree-btn-next btn btn-primary">Next</button>
+
+
+<br>
+<br>
+
+{{ endblock }}
+

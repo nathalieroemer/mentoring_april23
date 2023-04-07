@@ -65,12 +65,8 @@ class Player(BasePlayer):
     reciprocity = make_10pointlikert("When someone does me a favor, I am willing to return it.")
     intentions = make_10pointlikert("I assume that people have only the best intentions.")
     donation = models.FloatField()
-    wtgive = make_10pointlikert(
-        "How willing are you to give to good causes without expecting anything in return?")  # willingness to give
     riskpref = make_7pointlikert(
         "How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?")
-    native = models.IntegerField()
-    eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
     gender = models.IntegerField()
 #    clarity_bin = models.IntegerField(
 #        label="Where the instructions clear to you or did you had difficulties to understanding them?",
@@ -116,10 +112,7 @@ class Quest(Page):
         'reciprocity',
         'intentions',
         'donation',
-        'wtgive',
         'riskpref',
-        'native',
-        'eng_prof',
         'gender',
 #        'clarity',
 #        'clarity_bin',

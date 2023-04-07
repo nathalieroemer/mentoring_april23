@@ -147,29 +147,6 @@
         &nbspGBP
     </div>
 
-    <br>
-
-    {{ form.wtgive.label }}
-    <table class="table" id="demotable">
-        <tr>
-            <th>Completely unwilling to do so</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Very willing to do so</th>
-        </tr>
-        <tr>
-            {{ for choice in form.wtgive }}
-                <td>{{ choice }}</td>
-            {{ endfor }}
-        </tr>
-    </table>
-
         <br>
 <br>
 
@@ -183,21 +160,6 @@
     </select>
     <br>
     <br>
-
-    <label for="eng">Are you a native English speaker?</label>
-    <br>
-    <select class="dropdown" name="native" id="eng" onchange="showproficiency(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
-        <option value="" selected="selected">---------</option>
-        <option value="1">No</option>
-        <option value="2">Yes</option>
-    </select>
-    <br>
-    <div id="proficiency"></div>
-
-
-
-    <br>
-      <br>
 
     {{ form.stereotypes.label }}
     <table class="table" id="demotable">
@@ -228,42 +190,5 @@
 <button class="otree-btn-next btn btn-primary" id="next">Next</button>
 <br>
 <br>
-
-<script>
-function showproficiency(eng){
-    if(eng==='1') {
-        document.getElementById('proficiency').innerHTML = '' +
-            '{{ form.eng_prof.label }}' +
-            '<table class="table" id="demotable">' +
-            '    <tr>' +
-            '        <th>Basic</th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th></th>' +
-            '        <th>Fluent</th>' +
-            '    </tr>' +
-            '    <tr>' +
-            '        {{ for choice in form.eng_prof }}' +
-            '            <td>{{ choice }}</td>' +
-            '        {{ endfor }}' +
-            '    </tr>' +
-            '</table>'
-            // set required attribute once shown (for every node):
-            for (let radio of forminputs.eng_prof) {
-                radio.required = true;
-            }
-            }
-            else {
-            // remove required attribute again once hidden:
-                for (let radio of forminputs.eng_prof) {
-                    radio.required = false;
-                }
-                document.getElementById('proficiency').innerHTML='';
-            }
-        }
-
-</script>
 
 {% endblock %}

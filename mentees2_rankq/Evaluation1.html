@@ -1,0 +1,123 @@
+{{ block title }}
+    <div id="title">
+        How well did you do in guessing the number of blue dots in the picture?
+    </div>
+{{ endblock }}
+
+{% block styles %}
+<link href="{% static 'global/buttons.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const boxes1 = document.querySelectorAll('.box1');
+
+    boxes1.forEach(box => {
+        box.addEventListener('click', function handleClick(event) {
+            boxes1.forEach(box => {
+                box.setAttribute('style', 'background-color: #ccc;');
+            });
+            box.setAttribute('style', 'background-color: #6495ED;');
+        });
+    });
+
+    let b1 = false;
+
+    function sendValue(value) {
+        liveSend(value)
+        // Save selection for previous instructions
+        sessionStorage.setItem("selection1", value + '1');
+        b1 = true;
+        document.getElementById('error1').style.display = 'none';
+        checkCompletion();
+    };
+
+    function validate() {
+        if (!b1) {
+            document.getElementById('error1').style.display = 'flex';
+        }
+    }
+
+    function checkCompletion() {
+        if (b1) {
+            document.getElementById('nb').style.display = 'block';
+            document.getElementById('fake').style.display = 'none';
+        }
+    }
+
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("evaluation1", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c4", content)
+        sessionStorage.setItem("t4", title)
+    }
+</script>
+{% endblock %}
+
+{{ block content }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
+<div id="content">
+    <p>
+        Please answer the question below. The <b>investor will only see this answer, when deciding how much to invest in
+        you</b>.
+    </p>
+<br>
+    {{ if player.treat == 't4' }}
+
+        <u><b>Your advice</b></u>
+    </p>
+    <p>
+        <b>You received the advice to choose <span style="color: red">{{ advice }}</span></b>, when answering the question
+        below.
+    </p>
+
+    <p>Note that the third party giving this advice provided this advice <b>dependent on your group rank</b> within a randomly matched group of 4 workers, who performed the same task.</p>
+     <br>
+    {{ endif }}
+
+
+
+    <form>
+        <p>
+            <label for="prom">
+                Please indicate how well you think you did in guessing the number of blue dots in the picture:
+            </label>
+        </p>
+        <div class="box-container" id="prom">
+            <div class="row" style="margin-left: 10%; margin-right: 10%">
+                <div class="box1" id="terrible1" onclick="sendValue('terrible')">Terrible</div>
+                <div class="box1" id="very poor1" onclick="sendValue('very poor')">Very Poor</div>
+                <div class="box1" id="poor1" onclick="sendValue('poor')">Poor</div>
+                <div class="box1" id="good1" onclick="sendValue('good')">Good</div>
+                <div class="box1" id="very good1" onclick="sendValue('very good')">Very Good</div>
+                <div class="box1" id="exceptional1" onclick="sendValue('exceptional')">Exceptional</div>
+            </div>
+            <div class="row errormessage" id="error1" style="display: none">
+                <i>Please answer this question.</i>
+            </div>
+        </div>
+    </form>
+</div>
+
+<br>
+
+<button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validate()">Next</button>
+<button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
+
+<br>
+<br>
+
+{{ endblock }}
+

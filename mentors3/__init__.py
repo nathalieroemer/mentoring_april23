@@ -65,8 +65,6 @@ class Player(BasePlayer):
     donation = models.FloatField()
     wtgive = make_10pointlikert("How willing are you to give to good causes without expecting anything in return?")  # willingness to give
     riskpref = make_7pointlikert("How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?")
-    native = models.IntegerField()
-    eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
     gender = models.IntegerField()
     stereotypes = make_7pointlikert("Do you think your advisee's task (guessing the number of blue dots in a picture) rather favors male or female participants?")
 
@@ -95,8 +93,6 @@ class Quest(Page):
         'donation',
         'wtgive',
         'riskpref',
-        'native',
-        'eng_prof',
         'gender',
         'stereotypes'
     ]

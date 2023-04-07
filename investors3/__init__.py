@@ -62,17 +62,41 @@ class Player(BasePlayer):
     reciprocity = make_10pointlikert("When someone does me a favor, I am willing to return it.")
     intentions = make_10pointlikert("I assume that people have only the best intentions.")
     donation = models.FloatField()
-    wtgive = make_10pointlikert(
-        "How willing are you to give to good causes without expecting anything in return?")  # willingness to give
-    native = models.IntegerField()
-    eng_prof = make_7pointlikert("How would you describe your language proficiency in English?", True)
     gender = models.IntegerField()
-
     stereotypes = make_7pointlikert("Do you think the worker's task (guessing the number of blue dots in a picture) rather favors male or female participants?")
+    bel_1 = models.FloatField()
+    bel_2 = models.FloatField()
+    bel_3 = models.FloatField()
+    bel_4 = models.FloatField()
+    bel_5 = models.FloatField()
+    bel_6 = models.FloatField()
+
 
 
 # PAGES
 class Part2(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        par = player.participant
+        return par.test_passed == 1
+
+class PerfElic(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        par = player.participant
+        return par.test_passed == 1
+
+    form_model = 'player'
+    form_fields = [
+        'bel_1',
+        'bel_2',
+        'bel_3',
+        'bel_4',
+        'bel_5',
+        'bel_6',
+    ]
+
+class Part3(Page):
     @staticmethod
     def is_displayed(player: Player):
         par = player.participant
@@ -94,8 +118,6 @@ class Quest(Page):
         'intentions',
         'donation',
         'wtgive',
-        'native',
-        'eng_prof',
         'gender',
         'stereotypes'
     ]
@@ -105,4 +127,4 @@ class End(Page):
     pass
 
 
-page_sequence = [Part2, Quest, End]
+page_sequence = [Part2, PerfElic, Part3,  Quest, End]

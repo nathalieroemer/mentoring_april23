@@ -77,20 +77,26 @@ class Task(Page):
         w = random.choice(potworkers)
         player.worker = C.mdf["participantcode"][w]
 
-        rel_dev = abs((C.mdf["guess"][w]-C.mdf["dots"][w])/C.mdf["dots"][w])
+        ## with index [w] we use the corresponding performance of the randomly chosen worker w above
+        rel_dev = abs((C.mdf["guess"][w]-C.mdf["dots"][w])/C.mdf["dots"][w])*100
+        prec = 100 - rel_dev
+
+        ## player.inv_ter is the investment the investor made
 
         if player.scenario == "terrible":
-            player.payoff = cu(round((1 - (player.inv_ter/100)) + (player.inv_ter/100) * 3 * (1 - rel_dev), 2))
+            player.payoff = cu(round((3*((100 - player.inv_ter)) - 0.005*((100-player.inv_ter)**2) + player.inv_ter * prec), 2))
         elif player.scenario == "very poor":
-            player.payoff = cu(round((1 - (player.inv_vp/100)) + (player.inv_vp/100) * 3 * (1 - rel_dev), 2))
+            player.payoff =  cu(round((3*((100 - player.inv_vp)) - 0.005*((100-player.inv_vp)**2) + player.inv_vp * prec), 2))
         elif player.scenario == "poor":
-            player.payoff = cu(round((1 - (player.inv_p/100)) + (player.inv_p/100) * 3 * (1 - rel_dev), 2))
+            player.payoff = cu(round((3*((100 - player.inv_p)) - 0.005*((100-player.inv_p)**2) + player.inv_p * prec), 2))
         elif player.scenario == "good":
-            player.payoff = cu(round((1 - (player.inv_g/100)) + (player.inv_g/100) * 3 * (1 - rel_dev), 2))
+            player.payoff = cu(round((3*((100 - player.inv_g)) - 0.005*((100-player.inv_g)**2) + player.inv_g * prec), 2))
         elif player.scenario == "very good":
-            player.payoff = cu(round((1 - (player.inv_vg/100)) + (player.inv_vg/100) * 3 * (1 - rel_dev), 2))
+            player.payoff = cu(round((3*((100 - player.inv_vg)) - 0.005*((100-player.inv_vg)**2) + player.inv_vg * prec), 2))
         elif player.scenario == "exceptional":
-            player.payoff = cu(round((1 - (player.inv_exc/100)) + (player.inv_exc/100) * 3 * (1 - rel_dev), 2))
+            player.payoff = cu(round((3*((100 - player.inv_exc)) - 0.005*((100-player.inv_exc)**2) + player.inv_exc * prec), 2))
 
+        if player.payoff < 0:
+            player.payoff = 0
 
 page_sequence = [Task]
