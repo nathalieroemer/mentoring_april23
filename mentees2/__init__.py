@@ -83,6 +83,8 @@ class Player(BasePlayer):
     evaluation2 = models.StringField()
     advice1 = models.StringField()
     advice2 = models.StringField()
+    own_perf = models.IntegerField()
+    other_perf = models.IntegerField()
 
 
 
@@ -146,27 +148,6 @@ class Instructions_Advisor(Page):
     def is_displayed(player: Player):
         return player.treat != 't1'
 
-
-class Estimate1(Page):
-    form_model = 'player'
-    form_fields = [
-        'lowest',
-        'highest'
-    ]
-
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(
-            graphic="graphics/"+player.participant.graphic,
-            guess=player.guess
-        )
-
-    @staticmethod
-    def js_vars(player):
-        return dict(
-            player_guess=player.guess,
-        )
 
 
 class Instructions2(Page):
@@ -317,4 +298,50 @@ class FinalSub(Page):
         player.evaluation2 = str(data)
 
 
-page_sequence = [Task1, Instructions_Advisor, Evaluation1, FinalSub, Estimate1]
+
+class Estimate1(Page):
+    form_model = 'player'
+    form_fields = [
+        'lowest',
+        'highest'
+    ]
+
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(
+            graphic="graphics/"+player.participant.graphic,
+            guess=player.guess
+        )
+
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_guess=player.guess,
+        )
+
+
+class OwnPerf(Page):
+    form_model = 'player'
+    form_fields = [
+        'own_perf',
+        'other_perf'
+    ]
+
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(
+            graphic="graphics/"+player.participant.graphic,
+            guess=player.guess
+        )
+
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_guess=player.guess,
+        )
+
+
+
+page_sequence = [Task1, Instructions_Advisor, Evaluation1, FinalSub, Estimate1, OwnPerf]

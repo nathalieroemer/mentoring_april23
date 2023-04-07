@@ -10,7 +10,7 @@ Your app description
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'p2_'
+    NAME_IN_URL = 'p2a_'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 

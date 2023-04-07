@@ -1,0 +1,169 @@
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey
+    }
+
+    .otree-btn-next {
+        float: right
+    }
+
+    .resp {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .output-cont {
+        border: 3px solid #fff;
+        margin-bottom: 70px;
+    }
+
+    .output-child {
+        width: 50%;
+        float: left;
+        text-align: center;
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .errormessage {
+        color: red;
+        vertical-align: middle;
+        margin-right: 10px;
+        padding-top: 6px;
+    }
+
+    .slidecontainer {
+        flex-grow: 1;
+        margin: auto;
+        position: relative;
+    }
+
+    .slider-track{
+        -webkit-appearance: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        width: 100%;
+        height: 8px;
+        background-color: #d3d3d3;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-radius: 5px;
+        border: 1px solid white;
+    }
+
+    .slider-track-border{
+        width: 100%;
+		height: 10px;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+    }
+
+    .slider{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    /* hide range styling */
+	input[type=range] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		margin: auto;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		pointer-events: none;
+		outline: none;
+		background-color: transparent;
+		padding-bottom: 12px;
+		height: 0px;
+	}
+
+    /* thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-moz-appearance: none;
+		border: 1px solid #007bff;
+		height: 20px;
+		width: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: #007bff;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+
+	/* thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: 1px solid #007bff;
+		height: 20px;
+		width: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: #007bff;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+
+    /* thumb for Microsoft */
+    input[type=range]::-ms-thumb {
+		appearance: none;
+		height: 20px;
+		width: 20px;
+		border: 1px solid #007bff;
+		border-radius: 10px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: #007bff;
+		cursor: pointer;
+		pointer-events: auto;
+	}
+
+    /* hide default focus styling */
+	input[type=range]:focus {
+		outline: none;
+	}
+
+    /* get rid of weird dotted outline around range in Firefox */
+	input[type=range]::-moz-focus-outer {
+        border: 0;
+    	outline: none;
+    }
+
+    /* get rid of styling for Safari, Opera, and Chrome */
+	input[type=range]::-webkit-slider-runnable-track {
+	    -webkit-appearance: none;
+		height: 8px;
+	}
+
+	/* get rid of styling for Firefox */
+	input[type=range]::-moz-range-track {
+	    -moz-appearance: none;
+		height: 8px;
+	}
+
+    /* get rid of styling for Microsoft */
+	input[type=range]::ms-track {
+		appearance: none;
+		height: 8px;
+	}
