@@ -63,7 +63,6 @@ class Player(BasePlayer):
     reciprocity = make_10pointlikert("When someone does me a favor, I am willing to return it.")
     intentions = make_10pointlikert("I assume that people have only the best intentions.")
     donation = models.FloatField()
-    wtgive = make_10pointlikert("How willing are you to give to good causes without expecting anything in return?")  # willingness to give
     riskpref = make_7pointlikert("How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?")
     gender = models.IntegerField()
     stereotypes = make_7pointlikert("Do you think your advisee's task (guessing the number of blue dots in a picture) rather favors male or female participants?")
@@ -91,7 +90,6 @@ class Quest(Page):
         'reciprocity',
         'intentions',
         'donation',
-        'wtgive',
         'riskpref',
         'gender',
         'stereotypes'

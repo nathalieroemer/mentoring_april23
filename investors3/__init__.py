@@ -117,7 +117,6 @@ class Quest(Page):
         'reciprocity',
         'intentions',
         'donation',
-        'wtgive',
         'gender',
         'stereotypes'
     ]

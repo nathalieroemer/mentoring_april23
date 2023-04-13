@@ -23,7 +23,7 @@
     }
 
     .output-child {
-        width: 50%;
+        width: 100%;
         float: left;
         text-align: center;
     }
@@ -48,122 +48,154 @@
         position: relative;
     }
 
-    .slider-track{
+    .slider:invalid {
+        border: 5px solid red!important;
+    }
+
+    .slider {
         -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border: 1px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
         opacity: 0.7;
         -webkit-transition: .2s;
         transition: opacity .2s;
-        width: 100%;
-        height: 8px;
-        background-color: #d3d3d3;
-        position: absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        border-radius: 5px;
-        border: 1px solid white;
+        vertical-align: middle;
     }
 
-    .slider-track-border{
-        width: 100%;
-		height: 10px;
-		animate: 0.2s;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
-		border-radius: 1px;
-		border: 0.5px solid #aeacac;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		margin: auto;
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none!important;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4CAF50;
+        cursor: pointer;
     }
 
-    .slider{
-        position: absolute;
-        top: 0;
-        bottom: 0;
+    /* custom thumb for Safari, Opera, and Chrome */
+    .myClass::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 2px solid darkred;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -8px !important;
     }
 
-    /* hide range styling */
+    /* custom thumb for Firefox */
+    .myClassFF::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 1px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer  !important;
+        -moz-appearance: none !important;
+        margin-top: -8px !important;
+    }
+
+    /* custom thumb for Microsoft */
+    .myClassMS::-ms-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 1px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer  !important;
+        margin-top: -8px !important;
+    }
+
+    /* hide default range styling */
 	input[type=range] {
 		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		margin: auto;
+		margin: 10px 0;
+		height: 8px;
 		width: 100%;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		pointer-events: none;
-		outline: none;
-		background-color: transparent;
-		padding-bottom: 12px;
-		height: 0px;
-	}
-
-    /* thumb in Firefox */
-	input[type=range]::-moz-range-thumb {
-		-moz-appearance: none;
-		border: 1px solid #007bff;
-		height: 20px;
-		width: 20px;
-		border-radius: 10px;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
-		background: #007bff;
-		cursor: pointer;
-		pointer-events: auto;
-	}
-
-	/* thumb in Opera, Safari, Chrome */
-	input[type=range]::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		border: 1px solid #007bff;
-		height: 20px;
-		width: 20px;
-		border-radius: 10px;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
-		background: #007bff;
-		cursor: pointer;
-		pointer-events: auto;
-	}
-
-    /* thumb for Microsoft */
-    input[type=range]::-ms-thumb {
-		appearance: none;
-		height: 20px;
-		width: 20px;
-		border: 1px solid #007bff;
-		border-radius: 10px;
-		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
-		background: #007bff;
-		cursor: pointer;
-		pointer-events: auto;
-	}
+		border: 1px solid white;
+    }
 
     /* hide default focus styling */
 	input[type=range]:focus {
 		outline: none;
 	}
 
-    /* get rid of weird dotted outline around range in Firefox */
+    /* get ride of weird dotted outline around range in Firefox */
 	input[type=range]::-moz-focus-outer {
         border: 0;
     	outline: none;
     }
 
-    /* get rid of styling for Safari, Opera, and Chrome */
+    /* custom range styling for Safari, Opera, and Chrome */
 	input[type=range]::-webkit-slider-runnable-track {
-	    -webkit-appearance: none;
+		width: 100%;
 		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border-radius: 1px;
+		border: 0.5px solid #d3d3d3;
+        vertical-align: middle;
 	}
 
-	/* get rid of styling for Firefox */
+    /* custom range styling for Firefox */
 	input[type=range]::-moz-range-track {
-	    -moz-appearance: none;
+		width: 100%;
 		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+        vertical-align: middle;
+
 	}
 
-    /* get rid of styling for Microsoft */
+    /* custom range styling for Microsoft */
 	input[type=range]::ms-track {
-		appearance: none;
+		width: 100%;
 		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+        vertical-align: middle;
+	}
+
+    /* hide default thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		border: 0px;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-webkit-appearance: none;
+	}
+
+    /* hide default thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-moz-appearance: none;
+	}
+
+    /* hide default thumb for Microsoft */
+    input[type=range]::-ms-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
 	}

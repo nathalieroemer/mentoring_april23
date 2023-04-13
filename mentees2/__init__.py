@@ -77,14 +77,19 @@ class Player(BasePlayer):
     guess = models.IntegerField()
     # rel_perf is placement: 1 is best, 4 is worst
     rel_perf = models.IntegerField()
-    lowest = models.IntegerField()
-    highest = models.IntegerField()
     evaluation = models.StringField()
     evaluation2 = models.StringField()
     advice1 = models.StringField()
     advice2 = models.StringField()
     own_perf = models.IntegerField()
-    other_perf = models.IntegerField()
+    belief_rank = models.IntegerField(
+        choices=[
+            [1, 'First-best'],
+            [2, 'Second-best'],
+            [3, 'Third-best'],
+            [4, 'Fourth-best'],
+        ]
+    )
 
 
 
@@ -299,35 +304,17 @@ class FinalSub(Page):
 
 
 
-class Estimate1(Page):
-    form_model = 'player'
-    form_fields = [
-        'lowest',
-        'highest'
-    ]
-
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(
-            graphic="graphics/"+player.participant.graphic,
-            guess=player.guess
-        )
-
-    @staticmethod
-    def js_vars(player):
-        return dict(
-            player_guess=player.guess,
-        )
-
-
 class OwnPerf(Page):
     form_model = 'player'
     form_fields = [
         'own_perf',
-        'other_perf'
+        'belief_rank'
     ]
 
+    def belief_rank_error_message(player, value):
+        print(value['belief_rank'], "this is the value")
+        if value['belief_rank'] is None:
+            return 'Please answer the question'
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -344,4 +331,5 @@ class OwnPerf(Page):
 
 
 
-page_sequence = [Task1, Instructions_Advisor, Evaluation1, FinalSub, Estimate1, OwnPerf]
+
+page_sequence = [Task1, Instructions_Advisor, Evaluation1, FinalSub, OwnPerf]

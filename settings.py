@@ -34,7 +34,7 @@ SESSION_CONFIGS = [
 #        num_demo_participants=100,
 #    ),
     dict(
-        name='Mentees_V1',
+        name='Mentees',
         app_sequence=[
             'mentees1',
             'mentees2',
@@ -44,12 +44,9 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
     ),
     dict(
-        name='Mentees_V2',
+        name='Mentees_test',
         app_sequence=[
             'mentees1',
-            'mentees2_rankq',
-            'mentees3',
-            'mentees4'
         ],
         num_demo_participants=4,
     ),

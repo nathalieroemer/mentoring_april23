@@ -1,6 +1,6 @@
 {{ block title }}
     <div id="title">
-        Additional bonus payment
+        How accurate is your guess?
     </div>
 {{ endblock }}
 
@@ -10,47 +10,28 @@
 
 {% block scripts %}
 <script>
-    window.onload = function(){
-        fillColour();
-        output1.innerHTML = '<br>Accuracy of my guess:<b>' + slider1.value.toString() + '</b>.';
-        output2.innerHTML = '<br>Accuracy of the workers guess:<b>' + slider2.value.toString() + '</b>.';
-    }
 
     const slider1 = document.getElementById("s1");
-    const slider2 = document.getElementById("s2");
     const output1 = document.getElementById("out1");
-    const output2 = document.getElementById("out2");
     let click1 = 0;
-    let click2 = 0;
-
 
     let sliderTrack1 = document.getElementById("slidertrack1");
-    let sliderTrack2 = document.getElementById("slidertrack2");
 
     const errorbox1 = document.getElementById("errorm1");
-    const errorbox2 = document.getElementById("errorm2");
     const nextb = document.getElementById("nb");
     const fakeb = document.getElementById("fake");
 
     slider1.oninput = function() {
-        output1.innerHTML = '<br>Accuracy of your guess: <b>' + this.value.toString() + '</b>.';
+        output1.innerHTML = 'I believe my guess is <b>' + this.value.toString() + '</b> % accurate.';
             slider1.classList.add("myClass","myClassFF","myClassMS");
         fillColour1();
     }
 
-    slider2.oninput = function() {
-        output2.innerHTML = '<br>Accuracy of the other workers guess: <b>' + this.value.toString() + '</b>.';
-            slider2.classList.add("myClass","myClassFF","myClassMS");
-        fillColour2();
-    }
 
     function fillColour1(){
         sliderTrack1.style.background = `linear-gradient(to right, #007bff ${slider1.value}%, #d3d3d3 ${slider1.value}%)`;
     }
 
-    function fillColour2(){
-        sliderTrack2.style.background = `linear-gradient(to right, #007bff ${slider2.value}%, #d3d3d3 ${slider2.value}%)`;
-    }
 
     function setClick1() {
         click1 = 1;
@@ -58,31 +39,15 @@
         errorbox1.innerHTML = "";
     }
 
-    function setClick2() {
-        click2 = 1;
-        slider1.setCustomValidity("");
-        errorbox2.innerHTML = "";
-    }
-
     slider1.onmousedown = setClick1;
-    slider2.onmousedown = setClick2;
     slider1.ontouchstart = setClick1;
-    slider2.ontouchstart = setClick2;
 
-    function validateForm() {
-        if (click1 !== 1) {
-            //slider1.setCustomValidity("Please answer this question");
-            errorbox.innerHTML = "Please answer this question";
-        }
-        if (click2 !== 1) {
-            //slider1.setCustomValidity("Please answer this question");
-            errorbox.innerHTML = "Please answer this question";
-        }
-
-        if (click1 == 1 && click2==1) {
-            nextb.click();
+    function validation() {
+        if (click1===0){
+            slider1.setCustomValidity("Please answer the question.");
         }
     }
+
 
     //TODO: update this
     // Keep track of the currently opened page and the respective time:
@@ -109,29 +74,22 @@
     </u>
 </div>
 
-<p> In the following you can earn an additional bonus payment, depending on how well you predict the accuracy of your guess,
-    and the accuracy of the guess of a randomly drawn other worker from this task. </p>
 
 <p>
-    The investor will not see your predictions.
+    <img src="{{ static graphic }}" class="resp"/>
 </p>
-
-<p> <u>Your additional bonus payment </u></p>
-<p>
-<ul>
-   <li> Your additional bonus payment is <b>£1.00</b>  if your prediction deviates by less than 10 percentage points (pp.) from the actual accuracy of the guess. </li>
-   <li>Your additional bonus payment is <b>£0.70</b>  if your prediction deviates by 10 or more, but less than 20 pp. from the actual accuracy of the guess..  </li>
-  <li>   Your additional bonus payment is <b>£0.25</b> if your prediction deviates by more than 20 or more from the actual accuracy of the guess.  </li>
-   <li>  Your additional bonus payment is <b>£0.00</b> if your prediction deviates by 40 or more from the actual accuracy of the guess.  </li>
-</ul>
-
+<div id="content">
+    <p>
+       <b>You guessed</b> that there are <b>{{player.guess}} dots </b> in this picture.
+    </p>
+</div>
+<p>Now we are interested in how well you think you performed in guessing the number of dots in this picture.
+  Note, that the investor will <b>not see</b> your answer to the two questions below. Please answer truthfully.
 </p>
-
-
-<u>Predict the accuracy of <b>your </b> guess</u>
+<br>
 <p>
     <label for="s1">
-        Please use the slider below to predict the accuracy of <b>your guess</b> from 0 to 100%.
+        <b>How accurate</b>, do you think, <b>is your guess</b>? Please use the slider below to indicate <b>the accuracy of your guess</b> from 0 to 100%.
     </label>
 </p>
 
@@ -156,44 +114,18 @@
   </div>
 </div>
 
-
-<u>Predict the accuracy of the <b>other worker's </b>guess</u>
-<p>
-    <label for="s1">
-        Consider a worker who is randomly drawn from this study. Use the slider below to predict the accuracy of <b>this worker's guess</b> from 0 to 100%.
-    </label>
-</p>
-
-
-<div class="input-group mb-3" style="max-width: 100%">
-    <div class="input-group-prepend">
-        <span class="input-group-text">0%</span>
-    </div>
-    <div class="slidecontainer">
-        <div class="slider-track" id="slidertrack2"></div>
-        <div class="slider-track-border"></div>
-        <input type="range" class="slider" min="0" max="100" step="1" value="100" id="s2" name="other_perf">
-    </div>
-    <div class="input-group-append">
-        <span class="input-group-text">100%</span>
-    </div>
-</div>
-
-<div class="output-cont">
-  <div class="output-child">
-    <span id="out2"><br></span>
-  </div>
-</div>
-
-<div style="float: right">
-    <button type="button" class="otree-btn-next btn btn-primary" id="fake" onclick="validateForm()">Next</button>
-    <button class="otree-btn-next btn btn-primary" id="nb" style="display: none">Next</button>
-    <span id="errorm1" class="errormessage"></span>
-    <span id="errorm2" class="errormessage"></span>
-</div>
-
+  <p>
+     Now assume <b>we rank you and 3 other randomly selected workers</b>, who all performed the same task, <<b>according to the accuracy of your guesses.</b>
+    </p>
+{{ formfield 'belief_rank' label='What do you think is <b>your rank within this group of 4?</b>' }}
+  {{formfield_errors 'belief_rank'}}
 <br>
-<p> A coinflip will decide which of the two predictions will determine your bonus payment. </p>
+<br>
+
+    <p>
+        <button class="otree-btn-next btn btn-primary" onclick="validation()">Weiter</button>
+    </p>
+
 
 <br>
 <br>

@@ -60,7 +60,11 @@
             advisee. Which figure is the one that most highly represents the extent to which you identify with the
             investor?
         </label>
+        </p>
+        <p style="text-align: center">
+        <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
     </p>
+
     <div class="sameline">
         Figure&nbsp
         <input type="number" class="numberinput" name="ident_inv" id="i_inv" min="1" max="7" required oninvalid="this.setCustomValidity('Please enter a number between 1 and 7.')" oninput="this.setCustomValidity('')">
@@ -133,29 +137,6 @@
         <input type="number" class="numberinput" name="donation" id="don" min="0" max="1000" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 1000.')" oninput="this.setCustomValidity('')">
         &nbspGBP
     </div>
-
-    <br>
-
-    {{ form.wtgive.label }}
-    <table class="table" id="demotable">
-        <tr>
-            <th>Completely unwilling to do so</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Very willing to do so</th>
-        </tr>
-        <tr>
-            {{ for choice in form.wtgive }}
-                <td>{{ choice }}</td>
-            {{ endfor }}
-        </tr>
-    </table>
 
     <br>
     <br>

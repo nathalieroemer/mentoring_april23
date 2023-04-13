@@ -69,9 +69,11 @@
 
 {% block content %}
 
-<p> In the following, you can earn an extra bonus payment of <b>£1.00</b>, depending on how well you predict the accuracy of a worker's guess, depending on how the worker
-    answered the question in figure 1.
+<p> In the following, you can earn an extra bonus payment of <b>£1.00</b>, depending on <b> how well you predict the accuracy of a worker's guess.</b>
+
 </p>
+<p>We will randomly select one worker among those who chose the same answer, for each possible answer of the question in figure 1 below. </p>
+<p>The worker's will be different workers than the one you invested in before.</p>
 <p style="text-align: center">
         <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
         <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
@@ -97,12 +99,12 @@
 <form>
     <table id="allocation">
         <tr>
-              <th>Scenario</th>
+              <th>Worker answer</th>
             <th>From 0 - 100%, how accurate do you think is the worker's guess?</th>
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Terrible</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -114,7 +116,7 @@
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Very poor</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -126,7 +128,7 @@
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Poor</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -138,7 +140,7 @@
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Good</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -150,7 +152,7 @@
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Very Good</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -162,7 +164,7 @@
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker in this decision chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Exceptional</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -178,7 +180,7 @@
 <br>
 
 <p>
-    For your bonus payment, we will <b>randomly select a worker</b> and compare your prediction to the accuracy of the worker's guess.
+    For your bonus payment, we will <b>randomly select one of your answers</b> and compare your prediction to the accuracy of the worker's guess.
 </p>
 
 <button class="otree-btn-next btn btn-primary">Next</button>

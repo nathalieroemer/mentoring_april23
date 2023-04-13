@@ -78,25 +78,35 @@ class Task(Page):
         player.worker = C.mdf["participantcode"][w]
 
         ## with index [w] we use the corresponding performance of the randomly chosen worker w above
-        rel_dev = abs((C.mdf["guess"][w]-C.mdf["dots"][w])/C.mdf["dots"][w])*100
-        prec = 100 - rel_dev
+        rel_dev = (abs((C.mdf["guess"][w]-C.mdf["dots"][w]))/C.mdf["dots"][w])*100
+        print(rel_dev, "this is the deviation for worker", w)
+        if rel_dev <=100:
+            acc = 100 - rel_dev
+        if rel_dev > 100:
+            acc = 0
+        print(C.mdf["guess"][w], "this is the guess for true number", C.mdf["dots"][w])
+        print(acc, "this is the prec")
+        print(player.inv_g, player.inv_p, player.inv_vg, player.inv_vp, player.inv_exc, player.inv_exc)
 
         ## player.inv_ter is the investment the investor made
-
+        ## we need to divide by 100 because it is in pence right now
+        ## Did not simplify the calculation to make it clear why we do which computation
         if player.scenario == "terrible":
-            player.payoff = cu(round((3*((100 - player.inv_ter)) - 0.005*((100-player.inv_ter)**2) + player.inv_ter * prec), 2))
+            player.payoff = cu(round(((3*((100 - player.inv_ter) - 0.005*((100-player.inv_ter)**2) + player.inv_ter * acc* 0.01))/100), 2))
         elif player.scenario == "very poor":
-            player.payoff =  cu(round((3*((100 - player.inv_vp)) - 0.005*((100-player.inv_vp)**2) + player.inv_vp * prec), 2))
+            player.payoff =  cu(round(((3*((100 - player.inv_vp) - 0.005*((100-player.inv_vp)**2) + player.inv_vp * acc*0.01))/100), 2))
         elif player.scenario == "poor":
-            player.payoff = cu(round((3*((100 - player.inv_p)) - 0.005*((100-player.inv_p)**2) + player.inv_p * prec), 2))
+            player.payoff = cu(round((3*(((100 - player.inv_p) - 0.005*((100-player.inv_p)**2) + player.inv_p * acc*0.01))/100), 2))
         elif player.scenario == "good":
-            player.payoff = cu(round((3*((100 - player.inv_g)) - 0.005*((100-player.inv_g)**2) + player.inv_g * prec), 2))
+            player.payoff = cu(round((3*(((100 - player.inv_g) - 0.005*((100-player.inv_g)**2) + player.inv_g * acc*0.01))/100), 2))
         elif player.scenario == "very good":
-            player.payoff = cu(round((3*((100 - player.inv_vg)) - 0.005*((100-player.inv_vg)**2) + player.inv_vg * prec), 2))
+            player.payoff = cu(round((3*(((100 - player.inv_vg) - 0.005*((100-player.inv_vg)**2) + player.inv_vg * acc*0.01))/100), 2))
         elif player.scenario == "exceptional":
-            player.payoff = cu(round((3*((100 - player.inv_exc)) - 0.005*((100-player.inv_exc)**2) + player.inv_exc * prec), 2))
+            player.payoff = cu(round((3*(((100 - player.inv_exc) - 0.005*((100-player.inv_exc)**2) + player.inv_exc * acc*0.01))/100), 2))
 
         if player.payoff < 0:
             player.payoff = 0
+
+        print("this is the payoff", player.payoff, "for scenario ", player.scenario)
 
 page_sequence = [Task]
