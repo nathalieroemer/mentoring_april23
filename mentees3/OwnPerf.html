@@ -51,16 +51,7 @@
 
     //TODO: update this
     // Keep track of the currently opened page and the respective time:
-    sessionStorage.setItem("ownperf1", "true")
-
-    // Take the new contents:
-    let content = document.getElementById("content").innerHTML
-    let title = document.getElementById("title").innerHTML
-
-    if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c8", content)
-        sessionStorage.setItem("t8", title)
-    }
+    sessionStorage.setItem("ownperf2", "true")
 
 </script>
 {% endblock %}
@@ -82,7 +73,7 @@
     <p>
        <b>You guessed</b> that there are <b>{{player.guess}} dots </b> in this picture.
     </p>
-
+</div>
 <p>Now we are interested in how well you think you performed in guessing the number of dots in this picture.
   Note, that the investor will <b>not see</b> your answer to the two questions below. Please answer truthfully.
 </p>
@@ -118,7 +109,7 @@
      Now assume <b>we rank you and 3 other randomly selected workers</b>, who all performed the same task, <b>according to the accuracy of your guesses.</b>
     </p>
 {{ formfield 'beliefrank' label='What do you think is <b>your rank within this group of 4?</b>' }}
-</div>
+
 <br>
 <br>
 

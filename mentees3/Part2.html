@@ -2,17 +2,47 @@
 {% load otree static %}
 
 {% block title %}
+<div id="title">
     Part 2
+</div>
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'global/twosliders.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("part2", "true")
+
+    // Take the new contents:
+    let content = document.getElementById("content").innerHTML
+    let title = document.getElementById("title").innerHTML
+
+    if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("c8", content)
+        sessionStorage.setItem("t8", title)
+    }
+</script>
 {% endblock %}
 
 {% block content %}
 
 {{ if player.participant.test_passed == 1 }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
+<div id="content">
 <p>
   Press the 'Next'-button to proceed to part 2 of this study.
 </p>
-
+</div>
 
 {{ endif }}
 

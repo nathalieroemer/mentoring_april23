@@ -82,15 +82,19 @@ class Player(BasePlayer):
     advice1 = models.StringField()
     advice2 = models.StringField()
     own_perf = models.IntegerField()
-    belief_rank = models.IntegerField(
+    beliefrank = models.IntegerField(
         choices=[
             [1, 'First-best'],
             [2, 'Second-best'],
             [3, 'Third-best'],
             [4, 'Fourth-best'],
-        ]
+        ], blank=True
     )
 
+def beliefrank_error_message(player, value):
+    print(value, "this is the value")
+    if value is None:
+        return 'Please answer the question'
 
 
 # Methods
@@ -308,13 +312,8 @@ class OwnPerf(Page):
     form_model = 'player'
     form_fields = [
         'own_perf',
-        'belief_rank'
+        'beliefrank'
     ]
-
-    def belief_rank_error_message(player, value):
-        print(value['belief_rank'], "this is the value")
-        if value['belief_rank'] is None:
-            return 'Please answer the question'
 
     @staticmethod
     def vars_for_template(player: Player):

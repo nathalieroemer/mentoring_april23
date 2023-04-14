@@ -80,109 +80,156 @@
             <div id="content1"></div>
         </div>
 
-        <!-- Instructions1 -->
+        <!-- Part 1 -->
         <h2 class="otree-title page-header" id="title2"></h2>
 
         <div class="_otree-content">
             <div id="content2"></div>
         </div>
 
-        <!-- Task1 -->
+        <!-- Instruktions 1 -->
         <h2 class="otree-title page-header" id="title3"></h2>
 
         <div class="_otree-content">
             <div id="content3"></div>
         </div>
 
-        <!-- Estimate1 -->
+        <!-- Task 1 guess -->
         <h2 class="otree-title page-header" id="title4"></h2>
 
         <div class="_otree-content">
             <div id="content4"></div>
         </div>
 
-        <!-- Instructions2 -->
+        <!-- Instructions Advisor -->
         <h2 class="otree-title page-header" id="title5"></h2>
 
         <div class="_otree-content">
             <div id="content5"></div>
         </div>
 
-        <!-- Instructions3 -->
+        <!-- Evaluation1 -->
         <h2 class="otree-title page-header" id="title6"></h2>
 
         <div class="_otree-content">
             <div id="content6"></div>
         </div>
 
-        <!-- Evaluation1 -->
+        <!-- Final Sub-->
         <h2 class="otree-title page-header" id="title7"></h2>
 
         <div class="_otree-content">
             <div id="content7"></div>
         </div>
 
-        <!-- FinalSub -->
+        <!-- Own Performance -->
         <h2 class="otree-title page-header" id="title8"></h2>
 
         <div class="_otree-content">
             <div id="content8"></div>
         </div>
 
-        <!-- Task2 -->
+        <!-- Part2 -->
         <h2 class="otree-title page-header" id="title9"></h2>
 
         <div class="_otree-content">
             <div id="content9"></div>
         </div>
 
-        <!-- Estimate2 -->
+        <!-- Instructions part 2 -->
         <h2 class="otree-title page-header" id="title10"></h2>
 
         <div class="_otree-content">
             <div id="content10"></div>
         </div>
+
+         <!-- Part 2 Task -->
+        <h2 class="otree-title page-header" id="title11"></h2>
+
+        <div class="_otree-content">
+            <div id="content11"></div>
+        </div>
+
+        <!-- Part 2 Self Evaluation -->
+        <h2 class="otree-title page-header" id="title12"></h2>
+
+        <div class="_otree-content">
+            <div id="content12"></div>
+        </div>
+
+        <!-- Part 2 Own performance -->
+        <h2 class="otree-title page-header" id="title13"></h2>
+
+        <div class="_otree-content">
+            <div id="content13"></div>
+        </div>
+
     </div>
 </body>
 
 <script>
     // Here, we check at which page the player is and which contents shall be displayed
     if (typeof(Storage) !== "undefined") {
-        if (sessionStorage.getItem("instr1")) {
+        // welcome page: no previous instructions yet, see below
+
+        // on consent page we show welcome page
+        if (sessionStorage.getItem("consent")) {
             document.getElementById("title1").innerHTML = "Overview";
             document.getElementById("content1").innerHTML = sessionStorage.getItem("c1");
 
-            if (sessionStorage.getItem("attention1")) {
-                document.getElementById("title2").innerHTML = sessionStorage.getItem("t2");
-                document.getElementById("content2").innerHTML = sessionStorage.getItem("c2");
+            if (sessionStorage.getItem("part1")) {
+                document.getElementById("title1").innerHTML = sessionStorage.getItem("t1");
+                document.getElementById("content1").innerHTML = sessionStorage.getItem("c1");
 
-                if (sessionStorage.getItem("instr_adv")) {
-                document.getElementById("title_adv").innerHTML = sessionStorage.getItem("t2");
-                document.getElementById("content_adv").innerHTML = sessionStorage.getItem("c2");
+                if (sessionStorage.getItem("instr1")) {
+                    document.getElementById("title2").innerHTML = sessionStorage.getItem("t2");
+                    document.getElementById("content2").innerHTML = sessionStorage.getItem("c2");
 
-                    if (sessionStorage.getItem("evaluation1")) {
+                    if (sessionStorage.getItem("attention1") || sessionStorage.getItem("task1")) {
                         document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
                         document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
 
-                        if (sessionStorage.getItem("finalsub")) {
-                            //document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
+                        if (sessionStorage.getItem("instr_adv") || sessionStorage.getItem("evaluation1")) {
+                            document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
                             document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
 
-                            if (sessionStorage.getItem("estimate1")) {
+                            if (sessionStorage.getItem("evaluation1")) {
                                 document.getElementById("title5").innerHTML = sessionStorage.getItem("t5");
                                 document.getElementById("content5").innerHTML = sessionStorage.getItem("c5");
 
-                                if (sessionStorage.getItem("task2")) {
+                                if (sessionStorage.getItem("finalsub")) {
                                     document.getElementById("title6").innerHTML = sessionStorage.getItem("t6");
                                     document.getElementById("content6").innerHTML = sessionStorage.getItem("c6");
 
-                                    if (sessionStorage.getItem("evaluation2")) {
+                                    if (sessionStorage.getItem("part2")) {
                                         document.getElementById("title7").innerHTML = sessionStorage.getItem("t7");
                                         document.getElementById("content7").innerHTML = sessionStorage.getItem("c7");
 
-                                        if (sessionStorage.getItem("estimate2")) {
+                                        if (sessionStorage.getItem("instr2")) {
                                             document.getElementById("title8").innerHTML = sessionStorage.getItem("t8");
                                             document.getElementById("content8").innerHTML = sessionStorage.getItem("c8");
+
+                                            if (sessionStorage.getItem("task2")) {
+                                                document.getElementById("title9").innerHTML = sessionStorage.getItem("t9");
+                                                document.getElementById("content9").innerHTML = sessionStorage.getItem("c9");
+
+                                                if (sessionStorage.getItem("evaluation2")) {
+                                                    document.getElementById("title10").innerHTML = sessionStorage.getItem("t10");
+                                                    document.getElementById("content10").innerHTML = sessionStorage.getItem("c10");
+
+                                                    if (sessionStorage.getItem("ownperf2") || sessionStorage.getItem("part3") ) {
+                                                        document.getElementById("title11").innerHTML = sessionStorage.getItem("t11");
+                                                        document.getElementById("content11").innerHTML = sessionStorage.getItem("c11");
+
+                                                        if (sessionStorage.getItem("quest")) {
+                                                            document.getElementById("title12").innerHTML = sessionStorage.getItem("t11");
+                                                            document.getElementById("content11").innerHTML = sessionStorage.getItem("c11");
+
+                                                        }
+                                                    }
+                                                }
+                                            }
+
                                         }
                                     }
                                 }

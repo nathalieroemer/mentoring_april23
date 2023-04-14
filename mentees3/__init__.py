@@ -37,6 +37,21 @@ class Player(BasePlayer):
     lowest = models.IntegerField()
     highest = models.IntegerField()
     evaluation = models.StringField()
+    own_perf = models.IntegerField()
+    beliefrank = models.IntegerField(
+        choices=[
+            [1, 'First-best'],
+            [2, 'Second-best'],
+            [3, 'Third-best'],
+            [4, 'Fourth-best'],
+        ], blank=True
+    )
+
+def beliefrank_error_message(player, value):
+    print(value, "this is the value")
+    if value is None:
+        return 'Please answer the question'
+
 
 
 # Methods
@@ -97,11 +112,11 @@ class Evaluation2(Page):
         player.evaluation = str(data)
 
 
-class Estimate2(Page):
+class OwnPerf(Page):
     form_model = 'player'
     form_fields = [
-        'lowest',
-        'highest'
+        'beliefrank',
+        'own_perf'
     ]
 
     @staticmethod
@@ -119,4 +134,4 @@ class Estimate2(Page):
 
 
 
-page_sequence = [Part2, Instructions, Task2, Evaluation2, Estimate2]
+page_sequence = [Part2, Instructions, Task2, Evaluation2, OwnPerf]
