@@ -1,20 +1,46 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+
+{% block styles %}
+<style>
+    .prevIns{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 300px;
+        text-align: right;
+        cursor: pointer;
+        color: dimgrey;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("attention", "true")
+</script>
+{% endblock %}
+
 {% block title %}
     Part 2
 {% endblock %}
 
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsInv.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
-{{ if player.participant.test_passed == 1 }}
 <p>
-  Press the 'Next'-button to proceed to part 2 of this study.
+  Press the 'Next'-button to start with part 2 of this study.
 </p>
-{{ endif }}
 
 <button class="otree-btn-next btn btn-primary">Next</button>
-
 <br>
 <br>
 

@@ -67,13 +67,28 @@
 </style>
 {% endblock %}
 
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("attention", "true")
+</script>
+{% endblock %}
+
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsInv.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
 <p> In the following, you can earn an extra bonus payment of <b>£1.00</b>, depending on <b> how well you predict the accuracy of a worker's guess.</b>
 
 </p>
-<p>We will randomly select one worker among those who chose the same answer, for each possible answer of the question in figure 1 below. </p>
-<p>The worker's will be different workers than the one you invested in before.</p>
+<p>We will <b>randomly select one worker among those who chose the same answer</b>, for each possible answer of the question in figure 1 below. </p>
+<p>The <b>worker you</b> may have <b>invested in</b>before will <b>not be among them.</b></p>
 <p style="text-align: center">
         <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
         <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
@@ -104,73 +119,73 @@
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
+                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
                 <span style="color: red">Terrible</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="bel_1" id="s1" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="show_NI(this, out1)">&nbsp%
+                    <input type="number" class="numberinput" name="bel_1" id="s1" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')"
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
+               The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
                 <span style="color: red">Very poor</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="bel_2" id="s2" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="show_NI(this, out2)">&nbsp%
+                    <input type="number" class="numberinput" name="bel_2" id="s2" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')"
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
+                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
                 <span style="color: red">Poor</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="bel_3" id="s3" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="show_NI(this, out3)">&nbsp%
+                    <input type="number" class="numberinput" name="bel_3" id="s3" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')"
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
+                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
                 <span style="color: red">Good</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="bel_4" id="s4" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="show_NI(this, out4)">&nbsp%
+                    <input type="number" class="numberinput" name="bel_4" id="s4" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')"
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
+                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
                 <span style="color: red">Very Good</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="bel_5" id="s5" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="show_NI(this, out5)">&nbsp%
+                    <input type="number" class="numberinput" name="bel_5" id="s5" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')"
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
+                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
                 <span style="color: red">Exceptional</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
             <td>
                 <div class="sameline">
-                    <input type="number" class="numberinput" name="bel_6" id="s6" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')" oninput="show_NI(this, out6)">&nbsp%
+                    <input type="number" class="numberinput" name="bel_6" id="s6" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 100.')"
                 </div>
             </td>
           </tr>

@@ -79,8 +79,13 @@
             obj.value = 0
         }
         output.innerHTML = (100-obj.value).toString() + " Pence"
-    }
+    };
+
+sessionStorage.setItem("attention", "true");
+
 </script>
+
+
 {% endblock %}
 
 {% block content %}

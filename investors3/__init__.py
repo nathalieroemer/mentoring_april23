@@ -126,4 +126,4 @@ class End(Page):
     pass
 
 
-page_sequence = [Part2, PerfElic, Part3,  Quest, End]
+page_sequence = [Part2, PerfElic, Part3, Quest, End]

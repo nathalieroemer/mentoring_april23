@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block content %}
-
+<ol>
 <form>
-    {{ form.diffadvice.label }}
+   <li>{{ form.diffadvice.label }}</li>
     <table class="table" id="demotable">
         <tr>
             <th>Not difficult at all</th>
@@ -34,14 +34,35 @@
     <br>
     <br>
 
+  <li>  {{ form.stereotypes.label }}  </li>
+    <table class="table" id="demotable">
+        <tr>
+            <th>Female</th>
+            <th></th>
+            <th></th>
+            <th>None</th>
+            <th></th>
+            <th></th>
+            <th>Male</th>
+        </tr>
+        <tr>
+            {{ for choice in form.stereotypes }}
+                <td>{{ choice }}</td>
+            {{ endfor }}
+        </tr>
+    </table>
+
+
+        <br>
+    <br>
+
+<li>
     <p>
-        <label for="i_adv">
             Below you see two circles, respectively, of which one represents you and the other circle represents your
             advisee. In the left upper corner (1), they are, e.g., totally separate. This represents a situation in which
             you do not identify at all with your advisee. In the very lower part (7), the circles are totally overlapping and
             represent a situation in which you feel you fully identify with your advisee.
-        </label>
-    </p>
+    </p> </li>
     <p style="text-align: center">
         <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
     </p>
@@ -53,14 +74,12 @@
 
     <br>
     <br>
-
+<li>
     <p>
-        <label for="i_inv">
             Now assume, one circle represents still you, but the other circle represents the investor, investing in your
             advisee. Which figure is the one that most highly represents the extent to which you identify with the
             investor?
-        </label>
-        </p>
+        </p> </li>
         <p style="text-align: center">
         <img src="{{ static 'identificationCircles.png' }}" class="resp"/>
     </p>
@@ -73,10 +92,10 @@
 
     <br>
     <br>
-
+<li>
     <p>
         How well do the following statements describe you as a person?
-    </p>
+    </p></li>
 
     <p style="padding-left: 10px">
         {{ form.reciprocity.label }}
@@ -126,13 +145,11 @@
     </table>
 
     <br>
-
+<li>
     <p>
-        <label for="don">
             Imagine the following situation: Today you unexpectedly received 1000 GBP. How much of this amount would
             you donate to a good cause?
-        </label>
-    </p>
+    </p> </li>
     <div class="sameline">
         <input type="number" class="numberinput" name="donation" id="don" min="0" max="1000" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 1000.')" oninput="this.setCustomValidity('')">
         &nbspGBP
@@ -141,7 +158,7 @@
     <br>
     <br>
 
-    {{ form.riskpref.label }}
+   <li> {{ form.riskpref.label }} </li>
     <table class="table" id="demotable">
         <tr>
             <th>Not willing at all to take risks</th>
@@ -163,7 +180,7 @@
     <br>
     <br>
 
-    <label for="g">Please indicate your gender.</label>
+   <li>  <label for="g">Please indicate your gender.</label> </li>
     <br>
     <select class="dropdown" name="gender" id="g" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
         <option value="" selected="selected">---------</option>
@@ -173,34 +190,10 @@
     </select>
 
 
-    <br>
-      <br>
-
-    {{ form.stereotypes.label }}
-    <table class="table" id="demotable">
-        <tr>
-            <th>Female</th>
-            <th></th>
-            <th></th>
-            <th>None</th>
-            <th></th>
-            <th></th>
-            <th>Male</th>
-        </tr>
-        <tr>
-            {{ for choice in form.stereotypes }}
-                <td>{{ choice }}</td>
-            {{ endfor }}
-        </tr>
-    </table>
-
-
-        <br>
-    <br>
 
 
 </form>
-
+</ol>
 <br>
 
 

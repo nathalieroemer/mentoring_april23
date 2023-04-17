@@ -41,54 +41,71 @@
     <div class="otree-body container">
 
         <!-- Welcome -->
-        <h2 class="otree-title page-header" id="title_welcome"></h2>
+        <h2 class="otree-title page-header" id="title1"></h2>
 
         <div class="_otree-content">
-            <div id="content_welcome"></div>
+            <div id="content1"></div>
         </div>
 
         <!-- Instructions1 -->
-        <h2 class="otree-title page-header" id="title_instructions1">
+        <h2 class="otree-title page-header" id="title2">
         </h2>
 
         <div class="_otree-content">
-            <div id="content_instructions1"></div>
+            <div id="content2"></div>
         </div>
 
         <!-- Instructions2 -->
-        <h2 class="otree-title page-header" id="title_instructions2">
+        <h2 class="otree-title page-header" id="title3">
         </h2>
 
         <div class="_otree-content">
-            <div id="content_instructions2"></div>
+            <div id="content3"></div>
         </div>
+
+                <!-- Instructions2 -->
+        <h2 class="otree-title page-header" id="title4">
+        </h2>
+
+        <div class="_otree-content">
+            <div id="content4"></div>
+        </div>
+
     </div>
 </body>
 
 <script>
     // Here, we check at which page the player is and which contents shall be displayed
     if (typeof(Storage) !== "undefined") {
-        if (sessionStorage.getItem("instr1")) {
-            document.getElementById("title_welcome").innerHTML = "Overview";
-            document.getElementById("content_welcome").innerHTML = sessionStorage.getItem("c1");
 
-            if (sessionStorage.getItem("instr2")) {
-                document.getElementById("title_instructions1").innerHTML = sessionStorage.getItem("t2");
-                document.getElementById("content_instructions1").innerHTML = sessionStorage.getItem("c2");
+        if (sessionStorage.getItem("part1"))  {
+            document.getElementById("title1").innerHTML = "Overview";
+            document.getElementById("content1").innerHTML = sessionStorage.getItem("c1");
 
-                if (sessionStorage.getItem("attention")) {
-                    document.getElementById("title_instructions2").innerHTML = sessionStorage.getItem("t3");
-                    document.getElementById("content_instructions2").innerHTML = sessionStorage.getItem("c3");
+            if (sessionStorage.getItem("instr1")) {
+            document.getElementById("title2").innerHTML = sessionStorage.getItem("t2");
+            document.getElementById("content2").innerHTML = sessionStorage.getItem("c2");
+
+                if (sessionStorage.getItem("instr2")) {
+                document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
+                document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
+
+                    if (sessionStorage.getItem("attention")) {
+                        document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
+                        document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
+
+                        }
+                    }
                 }
             }
         }
         else {
-            document.getElementById("title_welcome").innerHTML = "Previous instructions"
-            document.getElementById("content_welcome").innerHTML = "<p>There are no previous instructions, yet.</p>";
+            document.getElementById("title1").innerHTML = "Previous instructions"
+            document.getElementById("content1").innerHTML = "<p>There are no previous instructions, yet.</p>";
         }
     }
     else{
-        document.getElementById("content_welcome").innerHTML = "Sorry, your browser does not support Web Storage. " +
+        document.getElementById("content1").innerHTML = "Sorry, your browser does not support Web Storage. " +
             "Please use another browser to display the previous instructions."
     }
 
