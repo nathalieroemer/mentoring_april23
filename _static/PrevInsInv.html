@@ -79,7 +79,7 @@
     if (typeof(Storage) !== "undefined") {
 
         if (sessionStorage.getItem("part1"))  {
-            document.getElementById("title1").innerHTML = "Overview";
+            document.getElementById("title1").innerHTML = sessionStorage.getItem("t1");
             document.getElementById("content1").innerHTML = sessionStorage.getItem("c1");
 
             if (sessionStorage.getItem("instr1")) {
@@ -94,7 +94,7 @@
                         document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
                         document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
 
-                        }
+
                     }
                 }
             }

@@ -46,7 +46,7 @@
     }
 
     // Keep track of the currently opened page and the respective time:
-    sessionStorage.setItem("evaluation1", "true")
+    sessionStorage.setItem("evaluation1", "true");
 
     // Take the new contents:
     let content = document.getElementById("content").innerHTML
@@ -60,6 +60,16 @@
 {% endblock %}
 
 {{ block content }}
+{{ if player.treat == "t1" }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMenteest1.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+{{ endif }}
+{{ if player.treat != "t1" }}
 <div class="prevIns">
     <u>
         <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
@@ -67,6 +77,7 @@
         </a>
     </u>
 </div>
+{{ endif }}
 
 <div id="content">
     <p>

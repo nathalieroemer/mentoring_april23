@@ -28,13 +28,23 @@
     let title = document.getElementById("title").innerHTML
 
     if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem("c10", content)
-        sessionStorage.setItem("t10", title)
+        sessionStorage.setItem("c11", content)
+        sessionStorage.setItem("t11", title)
     }
 </script>
 {% endblock %}
 
 {{ block content }}
+{{ if player.treat == "t1" }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMenteest1.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+{{ endif }}
+{{ if player.treat != "t1" }}
 <div class="prevIns">
     <u>
         <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
@@ -42,6 +52,7 @@
         </a>
     </u>
 </div>
+{{ endif }}
 
 <div id="content">
     <p>

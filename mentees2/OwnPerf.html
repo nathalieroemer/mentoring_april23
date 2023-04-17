@@ -25,12 +25,12 @@
         output1.innerHTML = 'I believe my guess is <b>' + this.value.toString() + '</b> % accurate.';
             slider1.classList.add("myClass","myClassFF","myClassMS");
         fillColour1();
-    }
+    };
 
 
     function fillColour1(){
         sliderTrack1.style.background = `linear-gradient(to right, #007bff ${slider1.value}%, #d3d3d3 ${slider1.value}%)`;
-    }
+    };
 
 
     function setClick1() {
@@ -46,12 +46,11 @@
         if (click1===0){
             slider1.setCustomValidity("Please answer the question.");
         }
-    }
+    };
 
 
-    //TODO: update this
     // Keep track of the currently opened page and the respective time:
-    sessionStorage.setItem("ownperf1", "true")
+    sessionStorage.setItem("ownperf1", "true");
 
     // Take the new contents:
     let content = document.getElementById("content").innerHTML
@@ -66,6 +65,16 @@
 {% endblock %}
 
 {{ block content }}
+{{ if player.treat == "t1" }}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMenteest1.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+{{ endif }}
+{{ if player.treat != "t1" }}
 <div class="prevIns">
     <u>
         <a onclick="window.open('{% static 'PrevInsMentees.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
@@ -73,7 +82,7 @@
         </a>
     </u>
 </div>
-
+{{ endif }}
 
 <p>
     <img src="{{ static graphic }}" class="resp"/>

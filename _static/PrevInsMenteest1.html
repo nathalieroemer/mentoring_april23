@@ -102,13 +102,6 @@
         </div>
 
 
-        <!-- Instructions Advisor -->
-        <h2 class="otree-title page-header" id="title5"></h2>
-
-        <div class="_otree-content">
-            <div id="content5"></div>
-        </div>
-
         <!-- Evaluation1 -->
         <h2 class="otree-title page-header" id="title6"></h2>
 
@@ -186,47 +179,38 @@
                     document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
                     document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
 
-                    if (sessionStorage.getItem("instr_adv") || sessionStorage.getItem("evaluation1")) {
+                    if (sessionStorage.getItem("evaluation1")) {
                         document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
                         document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
 
-                        if (sessionStorage.getItem("evaluation1")) {
-                            document.getElementById("title5").innerHTML = sessionStorage.getItem("t5");
-                            document.getElementById("content5").innerHTML = sessionStorage.getItem("c5");
+                        if (sessionStorage.getItem("finalsub")) {
+                            document.getElementById("title6").innerHTML = sessionStorage.getItem("t6");
+                            document.getElementById("content6").innerHTML = sessionStorage.getItem("c6");
 
-                            if (sessionStorage.getItem("finalsub")) {
-                                document.getElementById("title6").innerHTML = sessionStorage.getItem("t6");
-                                document.getElementById("content6").innerHTML = sessionStorage.getItem("c6");
+                            if (sessionStorage.getItem("ownperf1")) {
+                                document.getElementById("title7").innerHTML = sessionStorage.getItem("t7");
+                                document.getElementById("content7").innerHTML = sessionStorage.getItem("c7");
 
-                                if (sessionStorage.getItem("finalsub")) {
-                                    document.getElementById("title6").innerHTML = sessionStorage.getItem("t6");
-                                    document.getElementById("content6").innerHTML = sessionStorage.getItem("c6");
+                                if (sessionStorage.getItem("part2")) {
+                                    document.getElementById("title8").innerHTML = sessionStorage.getItem("t8");
+                                    document.getElementById("content8").innerHTML = sessionStorage.getItem("c8");
 
-                                    if (sessionStorage.getItem("ownperf1")) {
-                                        document.getElementById("title7").innerHTML = sessionStorage.getItem("t7");
-                                        document.getElementById("content7").innerHTML = sessionStorage.getItem("c7");
+                                    if (sessionStorage.getItem("instr2")) {
+                                        document.getElementById("title9").innerHTML = sessionStorage.getItem("t9");
+                                        document.getElementById("content9").innerHTML = sessionStorage.getItem("c9");
 
-                                        if (sessionStorage.getItem("part2")) {
-                                            document.getElementById("title8").innerHTML = sessionStorage.getItem("t8");
-                                            document.getElementById("content8").innerHTML = sessionStorage.getItem("c8");
+                                        if (sessionStorage.getItem("task2")) {
+                                            document.getElementById("title10").innerHTML = sessionStorage.getItem("t10");
+                                            document.getElementById("content10").innerHTML = sessionStorage.getItem("c10");
 
-                                            if (sessionStorage.getItem("instr2")) {
-                                                document.getElementById("title9").innerHTML = sessionStorage.getItem("t9");
-                                                document.getElementById("content9").innerHTML = sessionStorage.getItem("c9");
+                                            if (sessionStorage.getItem("evaluation2")) {
+                                                document.getElementById("title11").innerHTML = sessionStorage.getItem("t11");
+                                                document.getElementById("content11").innerHTML = sessionStorage.getItem("c11");
 
-                                                if (sessionStorage.getItem("task2")) {
-                                                    document.getElementById("title10").innerHTML = sessionStorage.getItem("t10");
-                                                    document.getElementById("content10").innerHTML = sessionStorage.getItem("c10");
+                                                if (sessionStorage.getItem("ownperf2") || sessionStorage.getItem("part3") ) {
+                                                    document.getElementById("title12").innerHTML = sessionStorage.getItem("t12");
+                                                    document.getElementById("content12").innerHTML = sessionStorage.getItem("c12");
 
-                                                    if (sessionStorage.getItem("evaluation2")) {
-                                                        document.getElementById("title11").innerHTML = sessionStorage.getItem("t11");
-                                                        document.getElementById("content11").innerHTML = sessionStorage.getItem("c11");
-
-                                                        if (sessionStorage.getItem("ownperf2") || sessionStorage.getItem("part3")  ) {
-                                                            document.getElementById("title12").innerHTML = sessionStorage.getItem("t12");
-                                                            document.getElementById("content12").innerHTML = sessionStorage.getItem("c12");
-                                                        }
-                                                    }
                                                 }
                                             }
 
