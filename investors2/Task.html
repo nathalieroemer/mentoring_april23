@@ -112,7 +112,8 @@ sessionStorage.setItem("attention", "true");
     to your below stated allocation</b>.
 </p>
 <p>
-    Please indicate in the second column, how much you want to invest from 0 to 100 Pence.
+    Please indicate in the second column, how much you want to invest from 0 to 100 Pence. The right column will update
+    automatically showing the remaining endowment.
 </p>
 
 <br>
@@ -122,7 +123,7 @@ sessionStorage.setItem("attention", "true");
         <tr>
             <th>Scenario</th>
             <th>How much out of 100 Pence do you wish to invest?</th>
-            <!--<th style="width: 95px">Not invested</th> -->
+            <th style="width: 95px">Not invested</th>
         </tr>
         <tr>
             <td>
@@ -135,8 +136,7 @@ sessionStorage.setItem("attention", "true");
                     <input type="number" class="numberinput" name="inv_ter" id="s1" min="0" max="100" step="1" maxlength="3" required oninvalid="this.setCustomValidity('Please enter an amount between 0 and 100 Pence.')" oninput="show_NI(this, out1)">&nbspPence
                 </div>
             </td>
-
-           <!--  <td id="out1" style="text-align: center">100 Pence</td> -->
+            <td id="out1" style="text-align: center">100 Pence</td>
         </tr>
         <tr>
             <td>
