@@ -5,11 +5,28 @@
     Your participation in this study
 {% endblock %}
 
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("part1", "true")
+
+</script>
+{% endblock %}
+
 {% block styles %}
 <link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
+
 
 <p>
     If you wish to withdraw from the study, you can close your browser window at any time. If you wish to continue,

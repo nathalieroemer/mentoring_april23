@@ -60,23 +60,37 @@
         <div class="_otree-content">
             <div id="content3"></div>
         </div>
+
+                <!-- Instructions2 -->
+        <h2 class="otree-title page-header" id="title4"></h2>
+
+        <div class="_otree-content">
+            <div id="content4"></div>
+        </div>
+
     </div>
 </body>
 
 <script>
     // Here, we check at which page the player is and which contents shall be displayed
     if (typeof(Storage) !== "undefined") {
-        if (sessionStorage.getItem("instr1")) {
-            document.getElementById("title1").innerHTML = "Overview";
+        if (sessionStorage.getItem("part1")) {
+            document.getElementById("title1").innerHTML = sessionStorage.getItem("t1");
             document.getElementById("content1").innerHTML = sessionStorage.getItem("c1");
 
-            if (sessionStorage.getItem("instr2")) {
+            if (sessionStorage.getItem("instr1")) {
                 document.getElementById("title2").innerHTML = sessionStorage.getItem("t2");
                 document.getElementById("content2").innerHTML = sessionStorage.getItem("c2");
 
-                if (sessionStorage.getItem("attention")) {
+                if (sessionStorage.getItem("instr2")) {
                     document.getElementById("title3").innerHTML = sessionStorage.getItem("t3");
                     document.getElementById("content3").innerHTML = sessionStorage.getItem("c3");
+
+                    if (sessionStorage.getItem("attention")) {
+                        document.getElementById("title4").innerHTML = sessionStorage.getItem("t4");
+                        document.getElementById("content4").innerHTML = sessionStorage.getItem("c4");
+                    }
+
                 }
             }
         }

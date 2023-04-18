@@ -5,7 +5,26 @@
     Part 2
 {% endblock %}
 
+{% block styles %}
+<link href="{% static 'global/instructions.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Keep track of the currently opened page and the respective time:
+    sessionStorage.setItem("attention", "true")
+
+    }
+</script>
+{% endblock %}
 {% block content %}
+<div class="prevIns">
+    <u>
+        <a onclick="window.open('{% static 'PrevInsMentors.html' %}', '_blank', 'location=yes, height=570, width=520, scrollbars=yes, status=yes');">
+            Click to review previous instructions
+        </a>
+    </u>
+</div>
 
 {{ if player.participant.test_passed == 1 }}
 <p>
