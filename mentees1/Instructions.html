@@ -112,7 +112,7 @@
 
     <p>
         After indicating your guess about the number of blue dots in the picture, you will answer a question related to the
-            precision of your guess. See figure 2.
+            accuracy of your guess (0-100%). See figure 2.
     </p>
     <p style="text-align: center">
         <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
@@ -120,7 +120,16 @@
         <br>
         <i style="font-size: smaller">Figure 2: Your question</i>
     </p>
+ <p>
+        The <b>accuracy of the guess</b> is computed as 100% - % relative deviation from the actual number of dots (% relative deviation =<math> <mfrac>
 
+                       <mi> |actual no. dots - guess|</mi>
+
+
+                        <mi> actual no. dots</mi>
+
+                </mfrac> * 100</math>), and <b>0</b>, if the <b>guess deviates</b> from the actual number of dots <b>by more than the actual number</b>.
+        <p>
     <br>
 
     <b><u>Your payment:</u></b>
