@@ -84,11 +84,8 @@
     </u>
 </div>
 
-<p> In the following, you can earn an extra bonus payment of <b>£1.00</b>, depending on <b> how well you predict the accuracy of a worker's guess.</b>
-
+<p> In the following, we ask you <b>to predict the accuracy of a worker's guess</b>, depending on the answer to the following question:
 </p>
-<p>We will <b>randomly select one worker among those who chose the same answer</b>, for each possible answer of the question in figure 1 below. </p>
-<p>The <b>worker you</b> may have <b>invested in</b>before will <b>not be among them.</b></p>
 <p style="text-align: center">
         <i>Please indicate how well you think you did in guessing the number of blue dots in the picture:</i>
         <img src="{{ static 'exampleGuess.png' }}" class="resp"/>
@@ -96,19 +93,35 @@
         <i style="font-size: smaller">Figure 1: The worker's question</i>
 </p>
 
+<p> Remember, that the <b>accuracy of the guess</b> is computed as 100% - % relative deviation from the actual number of dots (% relative deviation =<math> <mfrac>
+
+                       <mi> |actual no. dots - guess|</mi>
+
+
+                        <mi> actual no. dots</mi>
+
+</mfrac> * 100</math>), and <b>0</b>, if the <b>guess deviates</b> from the actual number of dots <b>by more than the actual number</b>.
+        <p>
+
+<p>We will randomly match you to a worker. Note that you will not be matched to the same worker that you
+    have been previously matched to.</p>
+
+
+<p> Depending on your prediction, you can earn an extra bonus payment of up to <b>£1.00</b>. Your extra bonus payment will be higher,
+    <b> the closer your prediction is to the true accuracy of this worker's guess.</b>
+
 <p><u>Your bonus payment </u>  </p>
 <p>
 <ul>
    <li> Your additional bonus payment is <b>£1.00</b> if your prediction deviates by less than 10 percentage points (pp.) from the actual accuracy of the worker's guess. </li>
    <li>  Your additional bonus payment is <b>£0.75</b> if your prediction deviates by 10 or more, but less than 20 pp. from the actual accuracy of the worker's guess.  </li>
   <li>   Your additional bonus payment is <b>£0.25</b> if your prediction deviates by more than 20 or more, but less than 30 pp. the actual accuracy of the worker's guess.  </li>
-   <li>  Your additional bonus payment is <b>£0.00</b> if your prediction deviates by 40 pp. or more from the actual accuracy of the worker's guess.  </li>
+   <li>  Your additional bonus payment is <b>£0.00</b> if your prediction deviates by 30 pp. or more from the actual accuracy of the worker's guess.  </li>
 </ul>
 
 </p>
 
-<p>Please indicate your predictions on the accuracy of the worker's guess in the table below. </p>
-
+<p>Please provide your prediction for all six possible answers provided by the worker in the table below. </p>
 
 
 <form>
@@ -119,7 +132,7 @@
         </tr>
         <tr>
             <td>
-                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Terrible</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -131,7 +144,7 @@
         </tr>
         <tr>
             <td>
-               The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
+               On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Very poor</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -143,7 +156,7 @@
         </tr>
         <tr>
             <td>
-                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Poor</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -155,7 +168,7 @@
         </tr>
         <tr>
             <td>
-                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Good</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -167,7 +180,7 @@
         </tr>
         <tr>
             <td>
-                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Very Good</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -179,7 +192,7 @@
         </tr>
         <tr>
             <td>
-                The worker was randomly selected from those who, on a scale from 1 (Terrible) to 6 (Exceptional), chose
+                On a scale from 1 (Terrible) to 6 (Exceptional), the worker chose
                 <span style="color: red">Exceptional</span> when answering the question: "Please indicate how well you think
                 you did in guessing the number of blue dots in the picture."
             </td>
@@ -193,10 +206,6 @@
 </form>
 
 <br>
-
-<p>
-    For your bonus payment, we will <b>randomly select one of your answers</b> and compare your prediction to the accuracy of the worker's guess.
-</p>
 
 <button class="otree-btn-next btn btn-primary">Next</button>
 <br>

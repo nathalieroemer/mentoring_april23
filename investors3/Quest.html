@@ -56,12 +56,24 @@
 
 
 
-    <li>
-    <label for="be">
-        How high do you think is the bonus you will receive (<i>Recall: You can earn a bonus payment of up to 300 Pence</i>)?
-    </label> </li>
+    <p> <li>
+
+        How high do you think is the bonus you will receive from part 1 of this study (<i>Recall: You can earn a bonus payment of up to £3.00</i>)?
+    </li> </p>
+
     <div class="sameline">
-        <input type="number" class="numberinput" name="bonusest" id="be" min="0" max="300" step="1" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 300.')" oninput="this.setCustomValidity('')">&nbspPence
+        <input type="number" class="numberinput" name="bonusest_1" id="be1" min="0" max="3" step="0.01" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 3.')" oninput="this.setCustomValidity('')">&nbspPence
+    </div>
+
+    <br>
+    <br>
+  <p>
+        <li>
+
+        How high do you think is the additional bonus you will receive from part 2 of this study (<i>Recall: You can earn an additional bonus payment of up to £1.00</i>)?
+     </li> </p>
+    <div class="sameline">
+        <input type="number" class="numberinput" name="bonusest_2" id="be2" min="0" max="1" step="0.25" required oninvalid="this.setCustomValidity('Please enter a number between 0 and 1.')" oninput="this.setCustomValidity('')">&nbspPence
     </div>
 
     <br>

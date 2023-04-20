@@ -88,7 +88,8 @@ PARTICIPANT_FIELDS = [
     'numdots',
     'bm_dev',
     'performances',
-    'scenarios'
+    'scenarios',
+    'invest_worker'
 ]
 SESSION_FIELDS = []
 

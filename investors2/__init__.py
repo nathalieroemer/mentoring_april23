@@ -29,7 +29,6 @@ class C(BaseConstants):
         ]
     )
     mdf = mdf.dropna().reset_index(drop=True)
-    # print(mdf)
 
     scenarios = list(dict.fromkeys(mdf["evaluation"]))
     # print(scenarios)
@@ -76,17 +75,14 @@ class Task(Page):
         potworkers = [i for i, x in enumerate(C.mdf["evaluation"]) if x == player.scenario]
         w = random.choice(potworkers)
         player.worker = C.mdf["participantcode"][w]
+        player.participant.invest_worker = player.worker
 
         ## with index [w] we use the corresponding performance of the randomly chosen worker w above
         rel_dev = (abs((C.mdf["guess"][w]-C.mdf["dots"][w]))/C.mdf["dots"][w])*100
-        print(rel_dev, "this is the deviation for worker", w)
         if rel_dev <=100:
             acc = 100 - rel_dev
         if rel_dev > 100:
             acc = 0
-        print(C.mdf["guess"][w], "this is the guess for true number", C.mdf["dots"][w])
-        print(acc, "this is the prec")
-        print(player.inv_g, player.inv_p, player.inv_vg, player.inv_vp, player.inv_exc, player.inv_exc)
 
         ## player.inv_ter is the investment the investor made
         ## we need to divide by 100 because it is in pence right now
