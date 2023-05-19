@@ -1,33 +1,1207 @@
-participantcode,guess,dots,evaluation
-87hqgem6,1150,929,poor
-87hqgem6,550,1872,poor
-9q3jxckk,2000,929,very good
-9q3jxckk,1500,1906,very good
-ck5vp66b,1200,1906,good
-ck5vp66b,1000,1872,good
-fn0mtb3m,1650,1906,very good
-fn0mtb3m,1730,1746,very good
-fs9s8qir,700,1906,good
-fs9s8qir,1000,929,good
-gt4u60ci,550,1906,exceptional
-gt4u60ci,800,929,exceptional
-hlnltf5d,1140,929,exceptional
-hlnltf5d,640,1906,exceptional
-i3kbptto,1400,1872,good
-i3kbptto,1000,1906,good
-jn6auk7d,1000,929,very good
-jn6auk7d,510,1746,very good
-p0wo8sgu,1300,929,good
-p0wo8sgu,625,1906,good
-rbnvaoum,1250,929,very good
-rbnvaoum,500,1746,good
-t7qw36u5,1250,929,good
-t7qw36u5,512,1872,good
-tqxp2095,1000,929,very good
-tqxp2095,650,1872,very good
-ybotjr4j,1500,1872,very good
-ybotjr4j,1500,1746,very good
-ypxkf75e,1500,929,very good
-ypxkf75e,1000,1906,good
-zajljo4v,620,1872,very good
-zajljo4v,1450,929,exceptional
+participantcode,dots,guess,evaluation
+000pfrzh,1746,1250,very good
+000pfrzh,1872,1300,very good
+024j1qaq,929,500,poor
+024j1qaq,1872,650,good
+02pxy3hx,1906,2000,good
+02pxy3hx,1746,1000,very good
+04xasqj1,1746,611,good
+04xasqj1,1872,1001,good
+05gx9e3k,1872,1200,poor
+05gx9e3k,1906,1400,poor
+0b6hnzqk,1872,1000,good
+0b6hnzqk,929,700,good
+0buvzrsr,1746,1500,good
+0buvzrsr,1872,1800,good
+0bz40a1g,929,500,very good
+0bz40a1g,1906,1200,good
+0hemlni2,1746,2000,very good
+0hemlni2,1872,2000,exceptional
+0iduxc4d,1872,1500,exceptional
+0iduxc4d,1906,1600,exceptional
+0sha8x5s,1906,1000,good
+0sha8x5s,1746,750,good
+0vxwk5v0,929,750,very good
+0vxwk5v0,1872,2000,very good
+0xg2dimt,1906,1000,good
+0xg2dimt,1746,1800,good
+0xi4qsvt,1746,700,poor
+0xi4qsvt,1872,1000,very good
+11z8u8h9,929,1100,good
+11z8u8h9,1872,1877,good
+13n6baxy,1746,1000,very good
+13n6baxy,1906,1100,good
+148uq9lv,929,750,very good
+148uq9lv,1746,1850,very good
+15cotzyc,929,1000,good
+15cotzyc,1872,1500,good
+15gyni1u,1906,800,good
+15gyni1u,1872,1600,good
+19r62drl,1746,1560,exceptional
+19r62drl,1872,1430,exceptional
+1a8bvama,1872,1000,exceptional
+1a8bvama,1906,1200,exceptional
+1b62vlts,1746,800,good
+1b62vlts,929,520,very good
+1bfpevqb,1872,1300,very good
+1bfpevqb,929,1000,very good
+1f3g86a2,1746,900,good
+1f3g86a2,929,650,very good
+1kle3tiu,1906,1500,very good
+1kle3tiu,929,900,very good
+1m3em115,929,525,good
+1m3em115,1872,1800,good
+1q32wkce,1906,1000,very good
+1q32wkce,1872,1500,very good
+1qpl91mb,929,550,good
+1qpl91mb,1906,1400,very good
+1u8v75wi,1872,1200,very good
+1u8v75wi,1746,1400,very good
+1ulhw1gr,1906,1000,poor
+1ulhw1gr,1746,800,poor
+1w62b6yy,1872,1500,very good
+1w62b6yy,929,700,very good
+1ywc6gk1,929,600,very good
+1ywc6gk1,1746,1500,very good
+1z1g1yy5,1746,500,good
+1z1g1yy5,1872,800,poor
+21zfbp2h,929,600,good
+21zfbp2h,1746,1550,good
+22jxbbyr,929,800,good
+22jxbbyr,1872,1500,good
+2482nw9w,1906,2000,very good
+2482nw9w,1872,2000,very good
+26s8ut56,1872,1650,exceptional
+26s8ut56,1906,1300,exceptional
+29khimrd,1872,1000,good
+29khimrd,929,600,good
+2auye34e,1872,1800,very good
+2auye34e,1906,2000,very good
+2djvostu,1906,700,good
+2djvostu,929,500,very good
+2flk6iyh,1746,1000,good
+2flk6iyh,1872,1200,good
+2gmgrgb2,1872,1250,very good
+2gmgrgb2,1746,1100,exceptional
+2kse5idf,1746,750,very good
+2kse5idf,1872,1250,very good
+2l2il89m,929,650,good
+2l2il89m,1746,1000,poor
+2netd5lk,929,550,good
+2netd5lk,1906,1000,good
+2pf7y6bo,1906,650,good
+2pf7y6bo,1746,1400,very good
+2qaeqkei,929,1300,very good
+2qaeqkei,1872,1900,exceptional
+2qs0whm8,1872,1700,exceptional
+2qs0whm8,1746,1550,exceptional
+2rx2ias8,1746,1000,good
+2rx2ias8,929,500,good
+2xca7gfc,1746,900,very good
+2xca7gfc,929,800,very good
+31mjkn16,1872,1500,good
+31mjkn16,1906,1100,good
+328tsnhl,929,1000,good
+328tsnhl,1906,1500,good
+356k3bqe,1746,2000,good
+356k3bqe,929,500,very good
+39r0pugg,1746,800,very poor
+39r0pugg,929,1000,good
+3bmd5xgx,1746,1000,good
+3bmd5xgx,1872,1200,good
+3f75bgoi,929,1000,poor
+3f75bgoi,1872,1750,good
+3nxs06uk,1872,1800,very good
+3nxs06uk,929,900,good
+3p1kktgx,1872,750,good
+3p1kktgx,929,700,very good
+3qe9cd18,1906,1950,exceptional
+3qe9cd18,929,605,good
+3urpdhig,929,1000,good
+3urpdhig,1906,1500,good
+3uya2yi6,1746,1000,very good
+3uya2yi6,1872,1500,good
+3vb09w6h,1906,1250,good
+3vb09w6h,1746,875,good
+3vzayrt3,929,1000,very good
+3vzayrt3,1906,2000,good
+40iaot8s,1906,750,good
+40iaot8s,1746,550,very good
+40m6isqb,1872,1000,very good
+40m6isqb,1906,1000,very good
+44y1zgbn,929,550,good
+44y1zgbn,1906,1600,good
+475hhkid,1746,1000,good
+475hhkid,1872,1200,poor
+47f6see4,1746,600,very good
+47f6see4,929,500,exceptional
+47k6dyw4,1746,1000,good
+47k6dyw4,1872,1500,good
+48z161qz,1906,954,very good
+48z161qz,1872,811,good
+497e3iue,929,1000,exceptional
+497e3iue,1746,1500,exceptional
+4fylcrk5,929,500,good
+4fylcrk5,1906,1400,poor
+4gkq9rq3,1872,1500,exceptional
+4gkq9rq3,1906,1700,exceptional
+4pauzwxu,1906,1000,good
+4pauzwxu,929,750,good
+4w6qglad,1872,1500,exceptional
+4w6qglad,1746,800,exceptional
+4wzflua6,1746,675,poor
+4wzflua6,929,500,very good
+4x3xppqw,1906,1100,good
+4x3xppqw,1746,1300,good
+4zg3isx5,1746,1000,very good
+4zg3isx5,929,500,exceptional
+4zuk6dmh,1872,1650,very good
+4zuk6dmh,1746,1500,very good
+548nihkt,1746,900,very good
+548nihkt,1906,950,good
+557vu9tw,1746,1000,exceptional
+557vu9tw,1872,900,exceptional
+57h1wlh9,1872,1998,very good
+57h1wlh9,1746,1600,good
+58hixh7a,1746,1500,poor
+58hixh7a,1872,1600,poor
+58hmshnj,1872,1300,good
+58hmshnj,929,700,good
+59v439zb,929,1000,good
+59v439zb,1906,2000,very good
+59zw3tcg,1872,750,poor
+59zw3tcg,1906,1000,poor
+5bz3nym8,1746,1200,poor
+5bz3nym8,1872,1500,poor
+5cbzmv9d,1872,1200,good
+5cbzmv9d,1746,1020,good
+5ck1n4sj,1746,1500,very good
+5ck1n4sj,1906,1600,very good
+5fnq573i,1906,750,good
+5fnq573i,929,600,good
+5fyczzj8,1872,1650,exceptional
+5fyczzj8,1746,1600,exceptional
+5nmk4wei,929,1100,poor
+5nmk4wei,1906,1850,good
+5uudmkrw,1746,1500,very good
+5uudmkrw,1872,1000,very good
+5uztftv2,1746,1500,good
+5uztftv2,1906,1700,very good
+5w2fodm9,1906,1000,very good
+5w2fodm9,1746,1000,very good
+62p8r1ks,1746,1500,very good
+62p8r1ks,1872,1600,very good
+64bhqcc4,1746,2000,very good
+64bhqcc4,1872,1400,very good
+687i5tdc,1872,800,good
+687i5tdc,929,750,good
+68dnsdje,929,500,very good
+68dnsdje,1906,1200,good
+695bc1vj,1906,1200,good
+695bc1vj,1872,1200,good
+6blk5830,929,550,poor
+6blk5830,1872,750,poor
+6d65vojt,1872,1200,good
+6d65vojt,1746,1250,very good
+6g3b8bzz,1746,800,good
+6g3b8bzz,1906,1200,very good
+6jkciy61,1906,1500,very good
+6jkciy61,1746,800,very good
+6mcrplfh,1872,1500,exceptional
+6mcrplfh,929,600,poor
+6mjuyfai,929,500,exceptional
+6mjuyfai,1746,1000,very good
+6rkzad1y,1906,1000,good
+6rkzad1y,929,700,very good
+6s4q0lq4,1906,1000,very good
+6s4q0lq4,1872,900,very good
+6sa8tz7m,1872,600,good
+6sa8tz7m,929,550,good
+6vjckvit,929,1000,good
+6vjckvit,1872,1750,good
+6vmced1t,929,600,very good
+6vmced1t,1746,1950,good
+6w1hhnb4,1906,1600,very good
+6w1hhnb4,1872,1500,very good
+6ztnj0i7,1906,749,exceptional
+6ztnj0i7,1872,1259,exceptional
+6zzmqaqc,929,680,very good
+6zzmqaqc,1906,1100,very good
+71t0f6li,929,1010,very good
+71t0f6li,1746,1650,very good
+729xuw1g,1746,1300,poor
+729xuw1g,1906,1500,poor
+73bin9bs,1906,1250,exceptional
+73bin9bs,929,800,exceptional
+73vmysnx,1906,1000,poor
+73vmysnx,1872,1500,good
+7625f8qe,1746,750,exceptional
+7625f8qe,929,500,exceptional
+79cvfznt,1746,1000,good
+79cvfznt,1906,1250,good
+79jtb4vh,1746,1350,good
+79jtb4vh,929,900,good
+7aqnl08u,1906,1200,good
+7aqnl08u,1872,1000,good
+7e2d0h0m,1906,1195,exceptional
+7e2d0h0m,929,575,exceptional
+7e36x78h,1872,750,good
+7e36x78h,929,600,good
+7fg72t23,1906,800,good
+7fg72t23,1872,750,very good
+7h3gx365,1872,1500,good
+7h3gx365,1746,1800,poor
+7i7mqcqk,1746,2000,very good
+7i7mqcqk,929,500,very good
+7jan5l0j,1872,1564,good
+7jan5l0j,1906,1755,good
+7js8hc42,929,500,good
+7js8hc42,1906,1200,good
+7km9p3kx,1872,1800,very good
+7km9p3kx,929,1200,good
+7ow0fopc,929,1500,good
+7ow0fopc,1906,1400,good
+7ozxxhi7,1746,700,very poor
+7ozxxhi7,1906,1000,very poor
+7xghzm01,929,1000,very good
+7xghzm01,1746,1700,very good
+7xlq2i01,1906,1000,good
+7xlq2i01,1746,1200,good
+7yuxn1rr,929,1000,exceptional
+7yuxn1rr,1746,1500,exceptional
+804fw67j,1872,800,good
+804fw67j,1746,600,very good
+83b3v40d,1872,1500,good
+83b3v40d,1906,1200,good
+85d8kit8,1746,800,very good
+85d8kit8,1872,600,very good
+8cfzdcew,929,1020,good
+8cfzdcew,1746,1750,good
+8ddpjwoz,929,550,good
+8ddpjwoz,1746,950,good
+8fbz68je,1746,750,very good
+8fbz68je,1906,1300,very good
+8hhlb1b2,1746,1000,very good
+8hhlb1b2,1872,1500,good
+8hzt0t2i,929,800,exceptional
+8hzt0t2i,1906,1100,exceptional
+8ksvqxra,1746,900,poor
+8ksvqxra,1872,800,good
+8lfsrnln,929,1000,good
+8lfsrnln,1746,2000,good
+8n6y7n1m,929,990,good
+8n6y7n1m,1906,1500,good
+8ote1h6i,1872,1900,very good
+8ote1h6i,1906,900,very good
+8pciu8mb,1746,1500,poor
+8pciu8mb,1906,1200,poor
+8wixk2j6,929,1000,very good
+8wixk2j6,1906,1500,very good
+8ww9op5l,929,800,good
+8ww9op5l,1872,1800,good
+8xoyh095,929,800,good
+8xoyh095,1906,1400,good
+903109jr,1872,900,poor
+903109jr,929,625,good
+96h90nze,1906,1250,exceptional
+96h90nze,1746,1650,exceptional
+99e1z8ca,1872,1700,very poor
+99e1z8ca,1906,1809,very poor
+9c9klg08,1906,1750,very good
+9c9klg08,1746,1600,good
+9fhr1xf8,1906,1000,very good
+9fhr1xf8,1746,1200,good
+9gh3ajst,1906,950,very good
+9gh3ajst,929,550,very good
+9kbdht2a,1906,1750,very good
+9kbdht2a,929,1250,very good
+9krgybxv,929,1000,good
+9krgybxv,1872,1470,very good
+9n5mds7r,1746,1000,good
+9n5mds7r,1872,1000,good
+9n7lqnnz,1872,1500,very good
+9n7lqnnz,929,500,very good
+9po789pt,1872,850,good
+9po789pt,929,550,good
+9qjpre9o,929,500,very good
+9qjpre9o,1746,1300,very good
+9sycga8x,1872,1000,very poor
+9sycga8x,1746,1000,terrible
+9uui37ag,1872,1000,very good
+9uui37ag,929,800,very good
+9wdty32a,1906,800,good
+9wdty32a,1872,910,good
+9wzu06ux,1746,1250,very good
+9wzu06ux,1906,900,good
+9zvyvxku,1746,800,very good
+9zvyvxku,1872,1000,very good
+a02dk8co,1746,1200,good
+a02dk8co,1906,1650,poor
+a0kqrv4b,929,1000,good
+a0kqrv4b,1906,2000,very good
+a2llsfjl,1906,1239,very good
+a2llsfjl,1872,1333,good
+a3w9qpnh,1906,1700,good
+a3w9qpnh,1746,1850,very good
+a40y1xnr,1906,1280,poor
+a40y1xnr,929,580,good
+a6vv8oby,1872,1400,good
+a6vv8oby,1906,1900,good
+a7kbrmig,1872,1000,very good
+a7kbrmig,929,500,very good
+a7qmifz5,1906,1000,poor
+a7qmifz5,929,500,good
+ae39it6y,1872,1800,exceptional
+ae39it6y,1746,1800,very good
+afacu8bn,1746,620,exceptional
+afacu8bn,1872,800,exceptional
+afhfq599,1746,1900,very good
+afhfq599,1906,1800,very good
+afj0d1ea,1872,1250,good
+afj0d1ea,1906,1200,good
+afrde881,1906,1200,poor
+afrde881,1746,900,poor
+ajkato84,1872,2000,very good
+ajkato84,929,520,very good
+ap32stfq,929,575,very good
+ap32stfq,1746,1089,very good
+arrw0uj7,1906,1200,very good
+arrw0uj7,929,999,very good
+aua7w5jb,1746,600,good
+aua7w5jb,929,500,good
+awwzo759,1746,1000,very good
+awwzo759,929,700,very good
+b0l4l8qx,1872,1075,good
+b0l4l8qx,1906,2000,good
+b1nshga1,1746,1500,poor
+b1nshga1,929,600,good
+b4c2v0c2,929,750,exceptional
+b4c2v0c2,1906,1000,exceptional
+b4lnh6t1,1746,785,poor
+b4lnh6t1,1872,987,very good
+b5r0no6k,1872,2000,good
+b5r0no6k,929,1650,very good
+b6e9zent,1746,1000,good
+b6e9zent,929,700,good
+b7a90zw1,929,550,good
+b7a90zw1,1746,720,good
+bcyghvp6,1906,600,good
+bcyghvp6,1872,600,good
+bdhn4wj5,1906,1800,very good
+bdhn4wj5,1746,1200,very good
+bejvft9i,929,600,very good
+bejvft9i,1906,1250,very good
+bgduwu3u,929,1500,very good
+bgduwu3u,1906,1800,very good
+bhjsg6tk,1746,1800,very good
+bhjsg6tk,1872,1560,very good
+bi6srz79,1872,1500,good
+bi6srz79,1906,2000,good
+bi7bzx6p,1872,1750,very good
+bi7bzx6p,1746,1250,very good
+bjocixh3,1872,1800,exceptional
+bjocixh3,1906,1900,very good
+bnirfbml,1906,1800,very good
+bnirfbml,929,800,good
+bnvlm77s,1872,1700,good
+bnvlm77s,929,800,good
+bodyt6sb,1906,1200,good
+bodyt6sb,929,550,very good
+bs74ja9p,1746,1150,exceptional
+bs74ja9p,1906,1400,exceptional
+bs9tot5k,1872,1500,good
+bs9tot5k,1746,1620,good
+bsykm09x,1906,1450,very good
+bsykm09x,1746,1675,good
+buu6i37i,1906,2000,very good
+buu6i37i,1746,1900,very good
+bvwgy9dr,929,675,good
+bvwgy9dr,1746,850,good
+bvwk0r28,929,1200,good
+bvwk0r28,1906,1850,good
+bx94dd9s,1872,1400,good
+bx94dd9s,929,750,good
+c6iqv8nx,929,1000,good
+c6iqv8nx,1906,2000,good
+c8bdf24m,1906,1500,good
+c8bdf24m,1872,1500,very good
+c8t6ncdv,1746,1685,very good
+c8t6ncdv,1872,1598,good
+capb19j0,1746,1750,exceptional
+capb19j0,929,750,very good
+cfakkjm8,929,1800,very poor
+cfakkjm8,1872,1800,good
+chh0w0xr,929,600,good
+chh0w0xr,1746,1500,good
+ci9qlm9d,1746,1000,very good
+ci9qlm9d,929,700,good
+cj9390v6,1906,1250,exceptional
+cj9390v6,1746,900,exceptional
+cl6yp75l,929,850,very good
+cl6yp75l,1746,1700,good
+cl95m928,1872,900,very poor
+cl95m928,1906,1100,good
+cocds7qj,929,700,very good
+cocds7qj,1872,900,poor
+comaj6at,1872,980,good
+comaj6at,1746,1200,very poor
+coqeibhh,1746,1800,exceptional
+coqeibhh,929,1400,very good
+cp3or9z1,1872,850,good
+cp3or9z1,1746,600,very good
+cphv53nh,1872,1000,poor
+cphv53nh,929,600,good
+ctij2nvh,929,950,good
+ctij2nvh,1872,1400,good
+czlwuc48,1872,1600,good
+czlwuc48,1746,1100,good
+d0519cvc,1746,1650,good
+d0519cvc,1906,1830,very good
+d0t49nj4,1746,1800,good
+d0t49nj4,1872,1300,good
+d0vkfoyj,1872,1000,poor
+d0vkfoyj,1746,600,good
+d3yw8gz0,1906,1000,good
+d3yw8gz0,1746,1600,good
+d5rw5xiw,1872,645,good
+d5rw5xiw,929,560,poor
+d65ow5jq,1906,1000,poor
+d65ow5jq,1872,1500,good
+dbvii3i4,1746,640,good
+dbvii3i4,1906,750,poor
+de1agtmh,929,1000,very good
+de1agtmh,1906,2000,very good
+dkxq6n4g,929,600,good
+dkxq6n4g,1906,1800,good
+dlkw5riu,929,725,very good
+dlkw5riu,1872,925,very good
+dplzotf2,1746,1250,poor
+dplzotf2,929,899,good
+drs7qam9,1746,1350,good
+drs7qam9,929,700,exceptional
+drwi4m5r,929,1250,very good
+drwi4m5r,1746,2000,very good
+ds18ylw4,1906,760,good
+ds18ylw4,929,790,good
+dsb590ig,1906,1250,good
+dsb590ig,1872,1561,very good
+dtcyyl8i,1746,1000,very good
+dtcyyl8i,1872,1500,good
+dvixqjet,1746,1175,good
+dvixqjet,1872,1546,good
+e2czzj8k,1746,1200,good
+e2czzj8k,1872,1700,very good
+e6hc4b57,1746,1500,good
+e6hc4b57,929,1250,good
+ei40ejyj,1872,1850,very good
+ei40ejyj,1906,1999,very good
+eihx8vko,1746,700,very good
+eihx8vko,929,500,very good
+ejppz84e,1906,1700,good
+ejppz84e,929,550,good
+esuxqw1v,1746,1950,good
+esuxqw1v,1872,1920,good
+esxwby6b,1872,600,good
+esxwby6b,1746,750,good
+eupasnwv,929,600,good
+eupasnwv,1746,1400,good
+ex8ody0j,1906,1950,very good
+ex8ody0j,1746,1600,good
+exslmy8c,1906,1900,exceptional
+exslmy8c,1746,1900,good
+ey241k7a,929,2000,good
+ey241k7a,1872,2000,very good
+f2pj9a1f,929,500,very good
+f2pj9a1f,1746,600,very good
+f45hfc0q,929,540,very good
+f45hfc0q,1746,1400,very good
+f4iqso2a,929,750,poor
+f4iqso2a,1872,1500,poor
+f5yue4oz,1872,750,good
+f5yue4oz,1906,1500,good
+fbyz8qtc,1746,500,good
+fbyz8qtc,929,500,very good
+fg0c2af8,1906,750,exceptional
+fg0c2af8,1746,700,exceptional
+fj5mv1v7,1906,750,poor
+fj5mv1v7,1746,1200,good
+fu4ndbz5,1906,1800,good
+fu4ndbz5,1872,1750,good
+fugkoqb4,1872,1000,very good
+fugkoqb4,1906,750,very good
+fuyqap0e,1906,1000,good
+fuyqap0e,1746,1000,good
+fw1f9wg3,1746,600,good
+fw1f9wg3,929,500,very good
+fz78efar,1906,570,good
+fz78efar,929,680,poor
+fzl36u2x,929,700,very good
+fzl36u2x,1746,1100,very good
+g007spuu,1906,1300,very good
+g007spuu,1872,1000,good
+g5o5wsqt,1872,1500,good
+g5o5wsqt,929,750,good
+g8egpe55,1746,1500,very good
+g8egpe55,1906,1300,very good
+gcnnpabx,1906,700,good
+gcnnpabx,929,560,very good
+ge4tugxh,1746,1800,very good
+ge4tugxh,1872,1200,good
+gflxp1qw,929,500,very good
+gflxp1qw,1872,1000,exceptional
+gfsg63aj,1746,650,good
+gfsg63aj,929,500,very good
+ggajo5tt,1906,1375,good
+ggajo5tt,929,736,good
+gis8hl59,1872,1700,very good
+gis8hl59,1746,1700,very good
+givflh6i,1872,1000,good
+givflh6i,1906,1100,very good
+glhesi17,929,550,very good
+glhesi17,1872,1700,very good
+glv9lokq,1872,1900,good
+glv9lokq,1906,1500,good
+gncsnxnk,929,1200,poor
+gncsnxnk,1746,1750,good
+gnderyzs,1746,1500,good
+gnderyzs,1906,1450,very good
+gneavyvz,1906,1200,very good
+gneavyvz,1746,1300,good
+gqnal95j,1872,600,good
+gqnal95j,1746,700,good
+gx5pcsoj,1746,650,good
+gx5pcsoj,929,532,good
+gyoacgtc,1746,600,poor
+gyoacgtc,929,500,very good
+h32hzeqj,1746,1380,poor
+h32hzeqj,1906,1100,poor
+h3h3x28h,1746,1200,very good
+h3h3x28h,929,700,exceptional
+h5xa7602,1872,1000,very good
+h5xa7602,929,600,very good
+h9soqukd,929,680,good
+h9soqukd,1906,1293,good
+hhqyayhj,1906,800,very good
+hhqyayhj,929,520,exceptional
+hi2jdhlf,1872,1800,very good
+hi2jdhlf,929,750,very good
+hj55lnjv,929,600,very good
+hj55lnjv,1746,1200,good
+hmkke9mt,1906,800,good
+hmkke9mt,1746,1000,good
+hr84wop5,929,600,very good
+hr84wop5,1906,625,very good
+hs3graoh,1746,800,good
+hs3graoh,1872,1000,good
+hy1e7phn,1746,1000,good
+hy1e7phn,1906,1600,good
+hzbixaki,1872,1000,very good
+hzbixaki,1746,800,very good
+hzn1x2rg,1872,800,poor
+hzn1x2rg,1746,900,good
+i3dgd9ee,1906,2000,very good
+i3dgd9ee,1872,1850,good
+i47uu2y0,929,600,very good
+i47uu2y0,1872,1200,good
+i6p6ty8d,929,700,good
+i6p6ty8d,1872,1800,good
+ibdt65bw,929,800,very good
+ibdt65bw,1746,900,good
+inzx49yj,1872,1250,very good
+inzx49yj,1746,1300,very good
+ipoe2sqb,929,820,exceptional
+ipoe2sqb,1872,1150,exceptional
+iq6n2d8x,929,1425,very good
+iq6n2d8x,1872,1800,very good
+iqusva6e,929,1500,good
+iqusva6e,1906,1600,good
+iw3cixc4,1906,1200,very good
+iw3cixc4,1746,1300,very good
+iwathux8,929,700,good
+iwathux8,1872,1300,good
+iwszyqkt,1872,1200,good
+iwszyqkt,1906,1200,good
+izrq08t6,1906,1900,very good
+izrq08t6,1872,1850,very good
+j1clx2ri,1872,1550,exceptional
+j1clx2ri,1746,1200,very good
+j5vofwmr,1746,1200,very good
+j5vofwmr,1906,600,good
+j98qu1qk,1872,2000,good
+j98qu1qk,1906,1500,good
+j9r1v0jm,929,850,very good
+j9r1v0jm,1746,800,good
+ja7g96fw,1906,1500,good
+ja7g96fw,1746,1300,good
+jhcr9j0m,1746,1000,exceptional
+jhcr9j0m,929,800,exceptional
+jj069sqp,1746,1500,very good
+jj069sqp,1906,1600,very good
+jktxgzwi,1906,1500,very good
+jktxgzwi,929,1000,poor
+jm045rxq,1906,1500,good
+jm045rxq,1872,1200,good
+jog57fic,929,700,good
+jog57fic,1746,1990,good
+jpbnf7zz,1906,1750,poor
+jpbnf7zz,929,1023,poor
+jpddb0wf,929,1000,very good
+jpddb0wf,1746,1300,good
+jvtqhjks,929,500,exceptional
+jvtqhjks,1746,1100,exceptional
+jvxe1zj3,1872,1200,very good
+jvxe1zj3,1906,1500,exceptional
+jwj4c869,1906,1350,good
+jwj4c869,1746,1200,very good
+jwwtmall,1906,700,good
+jwwtmall,929,560,good
+jxm0j3a3,1746,1500,good
+jxm0j3a3,1872,1800,very good
+k7e8i1al,1872,750,good
+k7e8i1al,929,500,very good
+kfawzyjb,929,550,very good
+kfawzyjb,1872,900,very good
+kfxy83zg,1906,1000,good
+kfxy83zg,929,500,very good
+kgtyy4hz,929,1000,exceptional
+kgtyy4hz,1906,1800,good
+khuz0zkq,929,500,very good
+khuz0zkq,1872,1500,good
+khzijs0c,1872,1625,very good
+khzijs0c,1906,1595,very good
+kj95zmpp,1872,1520,good
+kj95zmpp,1906,1850,good
+klu3k4si,1906,1200,good
+klu3k4si,1746,1800,good
+koevjw1o,929,600,good
+koevjw1o,1746,1000,good
+kqt0t56k,929,700,good
+kqt0t56k,1872,1000,good
+kr9grb3x,929,600,good
+kr9grb3x,1906,1500,good
+kt2cxo3a,1872,1600,good
+kt2cxo3a,929,1025,poor
+ktl8emqd,1906,1800,very good
+ktl8emqd,1872,1600,good
+kvde1hai,1906,1000,good
+kvde1hai,1872,1200,poor
+kx6vohtw,1872,1000,good
+kx6vohtw,1746,1500,good
+ky3vyodl,1872,1200,good
+ky3vyodl,1746,1300,good
+l0s16fzl,1746,1950,very good
+l0s16fzl,1872,2000,very good
+l4wulzsc,1872,1400,good
+l4wulzsc,929,750,good
+l661pdkw,1872,1650,good
+l661pdkw,929,1000,good
+lbokmxqe,1746,999,good
+lbokmxqe,1872,1199,very good
+lcufz6ob,929,500,very good
+lcufz6ob,1746,950,exceptional
+ldl7gxb6,1906,1200,good
+ldl7gxb6,1746,1100,good
+lish3ki4,1872,1021,very good
+lish3ki4,1906,1500,very good
+ljcfv966,1746,1500,exceptional
+ljcfv966,1906,1750,very good
+ll4vsk8g,1906,1300,poor
+ll4vsk8g,1872,2000,very good
+loszxe3x,1746,500,very good
+loszxe3x,929,500,very good
+lr1royc0,1746,978,good
+lr1royc0,929,698,good
+ls5cnd0l,929,1400,very good
+ls5cnd0l,1746,1800,very good
+lxvraq7h,929,800,good
+lxvraq7h,1872,2000,very good
+m43tppnd,1906,750,good
+m43tppnd,929,600,poor
+m4t5xs09,1872,1314,good
+m4t5xs09,929,890,poor
+m5g1amnt,929,1200,very poor
+m5g1amnt,1872,1435,good
+m75vknrb,1872,1250,very good
+m75vknrb,1906,1275,good
+mc2f0bub,929,500,exceptional
+mc2f0bub,1872,600,exceptional
+mc50o82w,1906,700,good
+mc50o82w,1746,800,poor
+mdqk2123,1746,1200,good
+mdqk2123,1906,1400,good
+mewxh20w,1746,800,exceptional
+mewxh20w,1906,1000,exceptional
+mkj63aw1,1906,1000,very good
+mkj63aw1,1746,750,very good
+mlbjph5u,1746,1875,very good
+mlbjph5u,1906,1780,very good
+mnecwlqr,929,700,exceptional
+mnecwlqr,1906,1200,exceptional
+mpu7j7ed,1872,1500,exceptional
+mpu7j7ed,1746,1700,exceptional
+ms8p918t,1872,1200,very good
+ms8p918t,929,600,very good
+mxwgoihd,929,800,good
+mxwgoihd,1872,1900,very good
+myvw41ho,1872,1000,good
+myvw41ho,1746,750,good
+mz2171ny,1872,1500,good
+mz2171ny,929,1000,very good
+mzzhxyqv,1746,995,good
+mzzhxyqv,1906,1456,exceptional
+n1mi23r7,1746,600,good
+n1mi23r7,1906,900,good
+n3q0ahtw,1872,775,good
+n3q0ahtw,929,570,poor
+n6llxuay,1872,1500,very good
+n6llxuay,929,1000,good
+n6w9oibd,1872,1500,exceptional
+n6w9oibd,1746,1500,very good
+n8nseopf,1906,1500,good
+n8nseopf,1872,1600,good
+n9xlssb6,1746,1825,very good
+n9xlssb6,929,1655,good
+nap2nof0,1906,1100,very good
+nap2nof0,929,850,very good
+nfgdowk2,1872,1100,exceptional
+nfgdowk2,929,700,very good
+ng84nrge,1872,670,good
+ng84nrge,929,593,good
+nk5aw72p,1906,1250,good
+nk5aw72p,1872,1000,very good
+nnk492jy,1746,850,very good
+nnk492jy,929,650,good
+nnnq3irn,1746,800,good
+nnnq3irn,1872,1000,good
+no2lo7g5,1872,1053,poor
+no2lo7g5,929,706,poor
+nodnjicn,1746,950,good
+nodnjicn,929,600,very good
+npsci19k,1906,1450,good
+npsci19k,929,900,good
+nr6eos3l,1746,998,poor
+nr6eos3l,1872,1200,poor
+nrtmxr3e,1906,2000,very good
+nrtmxr3e,1746,2000,exceptional
+ns86mnuw,1906,1500,exceptional
+ns86mnuw,1872,1300,very good
+nuh8i7ts,1906,1500,good
+nuh8i7ts,1746,1000,good
+nv3wgeyc,1906,1500,poor
+nv3wgeyc,1746,1050,good
+nv7s7pno,929,600,good
+nv7s7pno,1746,800,good
+nzmq9ifx,1906,550,very poor
+nzmq9ifx,1746,600,very poor
+o0bd4b0h,1872,1000,very good
+o0bd4b0h,1906,1000,good
+o0q0hokf,1906,1500,good
+o0q0hokf,1746,1800,good
+o1sbk96e,1746,800,very good
+o1sbk96e,1906,900,good
+o1y7l6k7,1872,1700,good
+o1y7l6k7,929,550,good
+o5ov6mh8,929,650,exceptional
+o5ov6mh8,1906,1200,very good
+obcinavg,1746,850,very good
+obcinavg,1872,950,good
+ocywgrc5,929,750,very good
+ocywgrc5,1872,1500,poor
+ogaqcfca,1746,700,poor
+ogaqcfca,1906,750,poor
+ojdvpatk,1872,1650,very good
+ojdvpatk,1906,1870,very good
+omzbxxsg,1872,1000,good
+omzbxxsg,1746,1105,very good
+on88rhpt,1906,1600,very good
+on88rhpt,1872,1500,very good
+ooochnnt,1872,800,very good
+ooochnnt,929,525,exceptional
+oq4ga6n6,929,700,good
+oq4ga6n6,1872,1000,good
+osjg9lnj,929,700,good
+osjg9lnj,1906,1200,good
+osm40jmz,1746,800,good
+osm40jmz,1872,900,good
+ouz3mwh1,1746,600,good
+ouz3mwh1,929,500,very good
+oy98pp97,1746,1000,good
+oy98pp97,1906,1200,good
+p0zpthvg,1746,1200,very good
+p0zpthvg,1906,1250,very good
+p1ahws8h,929,1400,poor
+p1ahws8h,1872,1600,good
+p85xsiyy,929,500,good
+p85xsiyy,1906,650,good
+p8tfxcv9,1746,1000,good
+p8tfxcv9,1906,900,good
+p8zywneh,929,577,very good
+p8zywneh,1906,760,very good
+pchbmye5,1906,1005,good
+pchbmye5,929,650,good
+pdnjenib,1746,700,terrible
+pdnjenib,1872,500,poor
+pdvoz2y6,929,750,exceptional
+pdvoz2y6,1746,1250,good
+pjbkdopx,1746,1000,very good
+pjbkdopx,1906,1000,very good
+pm1h0gtl,1906,1600,good
+pm1h0gtl,1746,1400,very good
+pmdslklg,1746,1000,good
+pmdslklg,1872,950,good
+pnmkhurd,1906,1200,good
+pnmkhurd,1872,1500,very good
+prmro7st,1746,1500,poor
+prmro7st,1872,1500,poor
+pwflwb1d,1872,1500,good
+pwflwb1d,1746,1200,good
+px1c08mm,1872,2000,poor
+px1c08mm,1906,1350,good
+q12ezxvi,1872,1500,good
+q12ezxvi,1906,1800,good
+q6kwlunm,929,1800,very good
+q6kwlunm,1872,1960,very good
+q73db20y,1872,1000,very good
+q73db20y,1746,1000,very good
+q8rpdnko,1872,1600,good
+q8rpdnko,1906,1750,good
+qelkbfqo,1906,1500,very good
+qelkbfqo,929,600,very good
+qg7ylgpj,1746,500,good
+qg7ylgpj,1872,600,good
+qh9nl05b,1746,1800,very good
+qh9nl05b,929,750,good
+qjse838p,1906,1900,good
+qjse838p,1746,1800,good
+qks8q0tc,1872,1200,very good
+qks8q0tc,1746,1400,good
+qopvrmh3,1872,900,very good
+qopvrmh3,929,700,good
+qq12hxxe,929,1000,very good
+qq12hxxe,1746,1350,very good
+qrucy4fl,929,800,exceptional
+qrucy4fl,1872,1005,exceptional
+qs9wbfcc,1746,500,poor
+qs9wbfcc,1906,600,poor
+qvn8xykc,1746,1500,good
+qvn8xykc,929,1000,good
+qzmvj6t1,1906,1500,very good
+qzmvj6t1,1872,1200,good
+r00014j0,1906,1200,good
+r00014j0,1872,1200,good
+r343zem8,929,800,good
+r343zem8,1872,1250,good
+r43448oa,1872,1680,very good
+r43448oa,929,950,very good
+r53dxog0,1746,1000,good
+r53dxog0,1906,1200,good
+r7dfpaq8,1906,2000,poor
+r7dfpaq8,1872,2000,good
+r8eokcok,1746,1500,good
+r8eokcok,1872,1000,good
+r8llfxey,1746,1450,very good
+r8llfxey,1906,1450,very good
+r8te7zgh,1872,2000,very good
+r8te7zgh,929,2000,very good
+r9gkgtq6,1872,1100,exceptional
+r9gkgtq6,929,887,very good
+r9zaevbt,1872,600,very good
+r9zaevbt,929,500,exceptional
+rawri1ro,929,1100,very good
+rawri1ro,1746,1400,very good
+rb6xpia8,929,1000,good
+rb6xpia8,1906,2000,very good
+rbxrn0v9,929,630,very good
+rbxrn0v9,1872,1710,very good
+rek5fthv,1872,1350,good
+rek5fthv,1906,1350,good
+rjeb9rpp,1906,1000,very good
+rjeb9rpp,1872,1200,good
+rklirgax,929,1600,good
+rklirgax,1746,1800,good
+rl7tdhyd,1746,1250,poor
+rl7tdhyd,1872,1000,very poor
+rno94bo5,1746,750,good
+rno94bo5,1872,800,poor
+rob46smb,1872,1500,very good
+rob46smb,1746,1000,good
+rpwk85nh,929,578,good
+rpwk85nh,1746,1254,good
+rr3ad1ho,1872,1000,good
+rr3ad1ho,1746,1000,good
+rsacd66l,1872,1000,good
+rsacd66l,929,500,good
+rult052p,1746,1500,good
+rult052p,1872,1350,good
+rwzod5oa,1746,1500,good
+rwzod5oa,1872,2000,good
+rx4y1j3o,1906,1700,very good
+rx4y1j3o,1872,1900,good
+rxa74kk0,1906,1800,good
+rxa74kk0,929,1250,exceptional
+rxk1oa3r,1872,2000,exceptional
+rxk1oa3r,929,500,good
+ryljrm7x,1872,680,good
+ryljrm7x,1746,545,good
+s00za3ol,1906,1450,very good
+s00za3ol,929,600,exceptional
+s2kxtecy,1746,1200,good
+s2kxtecy,929,501,good
+s674d79v,1746,1150,very good
+s674d79v,929,800,very good
+s9sa1sph,1872,2000,very good
+s9sa1sph,1906,2000,very good
+salw3snx,1906,1000,exceptional
+salw3snx,929,900,good
+se22xa7d,1906,1400,good
+se22xa7d,929,800,good
+sg09lima,1872,1246,very good
+sg09lima,1746,1436,good
+sg9nx0r5,1746,1000,very good
+sg9nx0r5,1872,1000,very good
+sjeq0hf9,929,1000,exceptional
+sjeq0hf9,1906,1500,good
+ssoma4f8,929,850,very good
+ssoma4f8,1746,1600,good
+st8vqjfz,929,800,good
+st8vqjfz,1746,1200,good
+su3y82xq,1872,1785,good
+su3y82xq,1746,1676,good
+sxveltzd,1906,1672,good
+sxveltzd,1872,1682,exceptional
+t107fle4,1746,1250,very good
+t107fle4,1906,1100,good
+t1pmu3kz,929,600,poor
+t1pmu3kz,1906,1500,poor
+t2hq9qr3,1872,1470,exceptional
+t2hq9qr3,1906,1200,good
+t6gn0eot,1746,1986,good
+t6gn0eot,929,899,good
+t6tl9lh1,1746,500,very good
+t6tl9lh1,1872,700,very good
+taiddqzq,1872,910,very good
+taiddqzq,929,620,good
+tam7owd6,929,500,good
+tam7owd6,1872,1900,very good
+tay40eej,929,1300,poor
+tay40eej,1872,750,good
+tb3qpoxv,1872,1750,good
+tb3qpoxv,1906,1340,good
+tbciq06o,1872,1650,exceptional
+tbciq06o,1746,1425,very good
+tbg40cle,1746,800,good
+tbg40cle,1872,1200,good
+td67ovi5,1906,1500,very good
+td67ovi5,1746,1500,very good
+td8fdz5p,929,700,good
+td8fdz5p,1906,1500,good
+tewhw6mi,1906,690,poor
+tewhw6mi,929,520,good
+tgec9i86,1746,1000,very poor
+tgec9i86,1872,1500,very poor
+tjaq1p7n,1906,600,very good
+tjaq1p7n,929,520,very good
+tms3knhr,1906,1700,exceptional
+tms3knhr,1746,1750,exceptional
+tr28n49t,1872,1500,exceptional
+tr28n49t,1746,1500,exceptional
+tuq5jwo0,929,1200,very good
+tuq5jwo0,1746,1800,very good
+tv3mln73,1906,890,good
+tv3mln73,1872,1600,very good
+twiquwbd,1872,1000,good
+twiquwbd,1906,750,very good
+u13v0dgp,1872,1600,exceptional
+u13v0dgp,1746,1560,very good
+u3ez4ger,1746,1000,very good
+u3ez4ger,1872,1000,very good
+u41szr0h,929,1200,good
+u41szr0h,1872,1800,very good
+u4ilwop3,929,1100,good
+u4ilwop3,1872,1500,exceptional
+u9rtdad8,929,1000,very good
+u9rtdad8,1872,1800,very good
+uce8wl7e,929,1000,very good
+uce8wl7e,1746,1250,good
+udeuykuf,1906,1100,poor
+udeuykuf,1746,1200,good
+ugekni25,1872,1900,exceptional
+ugekni25,1906,1200,exceptional
+urs89jr5,1872,1850,very good
+urs89jr5,1906,1900,very good
+usfeamvm,929,650,poor
+usfeamvm,1746,1400,poor
+ut5a9skq,1872,600,good
+ut5a9skq,1746,550,good
+uv5ivleg,1906,1500,very good
+uv5ivleg,929,800,very good
+v0bdf3ii,1746,980,poor
+v0bdf3ii,1872,1300,good
+v0qjq8cw,929,675,good
+v0qjq8cw,1746,784,good
+v2r2yn4u,1746,1500,good
+v2r2yn4u,1906,1750,good
+v3yhqufe,1906,1100,good
+v3yhqufe,1746,1000,good
+v4mkahky,1746,750,good
+v4mkahky,1906,750,good
+v4yhwlw7,1872,1500,good
+v4yhwlw7,1746,1400,exceptional
+v833smqd,1872,1000,very good
+v833smqd,929,800,good
+v9z1yls6,929,550,very good
+v9z1yls6,1746,1500,good
+va8z0eve,929,1000,good
+va8z0eve,1906,1650,good
+vbugv7xo,1906,750,poor
+vbugv7xo,1746,700,good
+vh61pfki,1746,1500,exceptional
+vh61pfki,1872,1800,very good
+vhwq403m,929,1000,good
+vhwq403m,1746,1800,good
+vic0hh1a,929,600,very good
+vic0hh1a,1746,1700,very good
+vsml1u61,1872,1500,good
+vsml1u61,1906,1500,very good
+vviovonf,929,666,very good
+vviovonf,1746,1600,good
+vwk5ggzm,1906,1800,poor
+vwk5ggzm,1746,1800,poor
+vzfttiu5,1746,800,good
+vzfttiu5,929,600,very good
+w1kla0zp,929,1500,good
+w1kla0zp,1746,1750,good
+w2ddjm4y,1746,1000,good
+w2ddjm4y,1872,1050,good
+w5gtpntn,1872,1500,very good
+w5gtpntn,929,1000,good
+w7kdzty7,929,750,good
+w7kdzty7,1872,1200,good
+w8tkv719,1746,850,good
+w8tkv719,1872,900,good
+w94u32ua,929,800,good
+w94u32ua,1746,1400,good
+waniulj6,1906,800,good
+waniulj6,1872,1700,good
+wbl7ic1w,1906,600,exceptional
+wbl7ic1w,1746,550,exceptional
+wclhod7z,929,850,exceptional
+wclhod7z,1746,1900,exceptional
+wgg53lt5,929,500,good
+wgg53lt5,1872,500,good
+wjyvdr1h,929,600,very good
+wjyvdr1h,1746,900,very good
+wnu21z2c,1746,2000,good
+wnu21z2c,1872,2000,poor
+wramls2j,1746,700,poor
+wramls2j,929,550,good
+wrdg1ox7,1746,1200,very good
+wrdg1ox7,929,1000,very good
+wuclelst,1746,1250,good
+wuclelst,1906,1300,good
+wwf1mvyd,929,1000,exceptional
+wwf1mvyd,1872,1200,very good
+wwgkem1r,1872,2000,exceptional
+wwgkem1r,1746,1800,very good
+wyt5lyt8,929,950,exceptional
+wyt5lyt8,1906,1450,exceptional
+x17288v7,929,1000,good
+x17288v7,1872,1850,good
+x5aecbgz,1872,1250,good
+x5aecbgz,1746,1000,good
+x5qsitun,929,900,very good
+x5qsitun,1906,1900,very good
+xfefcvkb,1746,750,exceptional
+xfefcvkb,1872,750,exceptional
+xh0dsgcg,929,1600,good
+xh0dsgcg,1906,2000,very good
+xhq5fc1f,929,500,very good
+xhq5fc1f,1872,1000,good
+xiovk450,1746,1000,good
+xiovk450,1872,1500,good
+xmkziakd,1872,1000,exceptional
+xmkziakd,929,750,exceptional
+xo5hjgxu,929,600,good
+xo5hjgxu,1746,1000,good
+xwsgz3b1,1906,1500,very good
+xwsgz3b1,1872,1500,very good
+y0pjojd3,1872,650,good
+y0pjojd3,929,500,very good
+y49418yf,1746,1000,good
+y49418yf,929,1000,very good
+y4jjs7lq,929,1500,very poor
+y4jjs7lq,1746,2000,good
+y7pt0bjb,1872,1000,good
+y7pt0bjb,929,650,good
+y9vsobxu,1872,2000,good
+y9vsobxu,1906,2000,good
+yasnv7ns,1872,1300,poor
+yasnv7ns,1746,1600,good
+yeuecct7,1872,1000,very good
+yeuecct7,1746,1000,very good
+yi5q2bce,1872,1250,good
+yi5q2bce,1746,1000,good
+yillkb5l,1906,1500,good
+yillkb5l,929,700,very good
+ykguk01o,1872,1000,very good
+ykguk01o,1746,700,good
+yl70zuc0,929,800,good
+yl70zuc0,1872,1700,good
+ylnrufq4,1746,1300,very good
+ylnrufq4,1872,1650,very good
+ylw9tcuj,1746,1300,very good
+ylw9tcuj,1872,1750,good
+yq7dj622,1746,1250,good
+yq7dj622,1872,1750,good
+yrqsizop,1746,850,exceptional
+yrqsizop,1872,1500,exceptional
+ysbgk3gn,1906,800,very good
+ysbgk3gn,1746,900,good
+yxco495i,929,1600,good
+yxco495i,1906,2000,very good
+z1jrjbib,1872,1200,good
+z1jrjbib,1906,1000,good
+z27t5o2x,1906,1850,exceptional
+z27t5o2x,929,1100,very good
+z6ngfudz,1872,1750,very good
+z6ngfudz,929,750,good
+z6shnvfx,1872,1000,good
+z6shnvfx,1906,1000,good
+z9cnn4ic,1746,800,good
+z9cnn4ic,1906,1500,good
+zaka0kiu,1872,1500,good
+zaka0kiu,1906,1200,poor
+zan0g0ho,929,600,very good
+zan0g0ho,1906,1800,very good
+zbljyr80,1872,1200,good
+zbljyr80,929,800,good
+ze1bx2gc,1906,600,good
+ze1bx2gc,929,550,good
+zgk2keo2,929,700,good
+zgk2keo2,1906,2000,very good
+zhh4m8ku,1906,1000,very good
+zhh4m8ku,1872,850,very good
+zhmv364s,1746,1000,good
+zhmv364s,1872,1200,good
+zk5v3fom,929,1000,good
+zk5v3fom,1906,2000,good
+zluqk8lf,1872,1000,very good
+zluqk8lf,1906,1300,very good
+zmp3uqjv,1872,1975,
+zmp3uqjv,929,980,good
+znfjzqtv,1906,800,good
+znfjzqtv,1872,600,good
+zo8gvceo,929,1000,good
+zo8gvceo,1746,1500,good
+zpz2im8j,1906,1000,good
+zpz2im8j,929,650,good
+zqtr0r2s,1872,1000,exceptional
+zqtr0r2s,1906,1200,very good
+zr8r91ew,1746,600,good
+zr8r91ew,929,550,good
+ztg5r8d5,1746,800,very good
+ztg5r8d5,929,600,good
+zybaohm7,929,600,very good
+zybaohm7,1872,1500,good
+zz70ss2i,1872,1000,good
+zz70ss2i,929,800,good
