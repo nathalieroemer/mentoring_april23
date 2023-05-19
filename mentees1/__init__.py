@@ -68,7 +68,6 @@ class C(BaseConstants):
     t124_mentors = mdf[mdf['treat'] =="t124"].reset_index(drop=True)
     # same for treatment 3:
     t3_mentors = mdf[mdf['treat']=="t3"].reset_index(drop=True)
-#    print(t3_mentors, "this is the mentors df for t3")
 
     pretestdata = pd.read_csv(
         "pretestdata.csv",
@@ -170,6 +169,7 @@ def creating_session(subsession: Subsession):
         p.trial = 1 ## for attention check
         # benchmark_deviations : deviations from pretest
         p.participant.bm_dev = []
+        print("this is the table", C.benchmark)
         rand_indices = random.sample(range(len(C.benchmark)), 3)
         print(rand_indices, "these are the indices")
         for i in rand_indices:

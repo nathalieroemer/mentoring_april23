@@ -1,5 +1,6 @@
 import pandas as pd
 import string
+import random
 
 from otree.api import *
 
@@ -92,7 +93,6 @@ class Player(BasePlayer):
     )
 
 def beliefrank_error_message(player, value):
-    print(value, "this is the value")
     if value is None:
         return 'Please answer the question'
 
@@ -127,22 +127,21 @@ class Task1(Page):
         else:
             par.timeout = False
             h = 1
-            print(player.guess, "this is the guess")
-            print(par.numdots, "these are the dots")
-
             if player.guess == par.numdots:
                 dev = 0
             else:
                 dev = abs((player.guess-par.numdots)/par.numdots)*100
-            print(dev, "this is the deviation")
-            for i in par.bm_dev:
-                print(par.bm_dev, "who are those others?")
+                if dev > 100:
+                    dev = 100
 
+            for i in par.bm_dev:
                 if abs(i) < dev:
                     h = h + 1
+                if abs(i) == dev:
+                    rand = random.randint(0, 1)
+                    h = h + rand
             # the lower h the better (1<=h<=4)
             player.rel_perf = h
-            print(player.rel_perf,"this is my relative performance")
 
         player.treat = player.participant.treat
 
@@ -221,7 +220,6 @@ class Evaluation1(Page):
             ad = ""
 
         player.advice1 = ad
-        print(player.advice1, "this is the advice")
         return dict(
             advice=ad
         )
@@ -289,7 +287,6 @@ class FinalSub(Page):
             pa = "Exceptional"
 
         player.advice2 = ad
-        print(player.advice2, "this is the advice now")
 
         return dict(
             advice=ad,
